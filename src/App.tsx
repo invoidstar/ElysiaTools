@@ -48,6 +48,7 @@ export default function App() {
   const [journalList, setJournalList] = useState<Journal[]>(baselineJournals);
   const [journalStatus, setJournalStatus] = useState<'idle'|'loading'|'ready'|'error'>('idle');
   const [journalFetchTick, setJournalFetchTick] = useState(0);
+  const [homeJournalSearch, setHomeJournalSearch] = useState(false);
   const [compareOpen, setCompareOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [toast, setToast] = useState('');
@@ -66,7 +67,7 @@ export default function App() {
   }, []);
   useEffect(() => { writeAcademic(academic); }, [academic]);
   useEffect(() => {
-    const shouldLoad = activePage==='journal' ||
+    const shouldLoad = activePage==='journal' || (activePage==='home' && homeJournalSearch) ||
       (activePage==='academic' && (academic.journals.length>0 || academic.compare.length>0)) || compareOpen;
     if(!shouldLoad||journalList.length>1000)return;
     let alive=true;
@@ -77,7 +78,7 @@ export default function App() {
       if(alive){console.warn('Journal catalogue request failed:',error);setJournalStatus('error');}
     });
     return ()=>{alive=false;};
-  },[activePage,academic.journals.length,academic.compare.length,compareOpen,journalFetchTick]);
+  },[activePage,academic.journals.length,academic.compare.length,compareOpen,homeJournalSearch,journalFetchTick]);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -171,7 +172,7 @@ export default function App() {
       </div>
     </div></header>
     <main className="main-container">
-      {activePage === 'home' && <HomePage academic={academic} zone={zone} now={now} onNavigate={navigate} onConferenceSearch={conferenceSearch} onJournalSearch={journalSearch} journalCatalogue={journalList} catalogueReady={journalStatus==='ready'}/>}
+      {activePage === 'home' && <HomePage academic={academic} zone={zone} now={now} onNavigate={navigate} onConferenceSearch={conferenceSearch} onJournalSearch={journalSearch} onJournalQuery={()=>setHomeJournalSearch(true)} journalCatalogue={journalList} catalogueReady={journalStatus==='ready'}/>}
       {activePage === 'conference' && <ConferencePage filters={confFilters} onFilters={setConfFilters} academic={academic} toggleFavorite={id=>toggleFavorite('conference',id)} openConference={id=>navigate('conference/'+id)} zone={zone} now={now} saveFilter={saveFilter}/>}
       {activePage === 'journal' && <JournalPage journals={journalList} loading={journalStatus==='loading'||journalStatus==='idle'} error={journalStatus==='error'} retry={()=>setJournalFetchTick(t=>t+1)} academic={academic} toggleFavorite={id=>toggleFavorite('journal',id)} toggleCompare={toggleCompare} openJournal={id=>navigate('journal/'+id)} openComparison={()=>setCompareOpen(true)} keyword={journalKeyword} setKeyword={setJournalKeyword}/>}
       {activePage === 'academic' && <AcademicPage journals={journalList} academic={academic} zone={zone} now={now} toggleFavorite={toggleFavorite} openConference={id=>navigate('conference/'+id)} openJournal={id=>navigate('journal/'+id)} exportData={()=>{downloadContent('elysiatools-backup.json',exportAcademic(academic),'application/json');setToast('备份已导出');}} importData={importData} exportCalendar={exportCalendar} restoreFilter={restoreFilter} removeFilter={id=>setAcademic(prev=>({...prev,savedFilters:prev.savedFilters.filter(x=>x.id!==id)}))} openComparison={()=>setCompareOpen(true)}/>}
