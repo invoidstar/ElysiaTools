@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { parseCsvRows, parseMetricFile, mergeImportedMetrics } from '../src/lib/metricCsv.mjs';
 
 const journals=[
@@ -72,8 +73,8 @@ test('ShowJCR CAS 2025 bracketed rank format is converted to the correct large a
   const metrics=result.records.tro.filter(x=>x.system==='cas');
   assert.equal(metrics.length,3);
   assert.equal(metrics.find(m=>m.category==='计算机科学').value,'1区');
-  assert.ok(metrics.some(m=>m.category==='小类：ROBOTICS'&&m.value==='1区'));
-  assert.ok(metrics.some(m=>m.category==='小类：ENGINEERING'&&m.value==='2区'));
+  assert.ok(metrics.some(m=>m.category==='小类:ROBOTICS'&&m.value==='1区'));
+  assert.ok(metrics.some(m=>m.category==='小类:ENGINEERING'&&m.value==='2区'));
 });
 
 test('ShowJCR XinRui 2026 can parse category-dependent divisions without mixing publishers',()=>{
@@ -85,8 +86,8 @@ test('ShowJCR XinRui 2026 can parse category-dependent divisions without mixing 
   const metrics=result.records.tro.filter(x=>x.system==='xinrui');
   assert.equal(metrics.length,3);
   assert.ok(metrics.some(m=>m.category==='计算机科学'&&m.value==='2区'));
-  assert.ok(metrics.some(m=>m.category==='第二大类：工程技术'&&m.value==='1区'));
-  assert.ok(metrics.some(m=>m.category==='小类：机器人学'&&m.value==='1区'));
+  assert.ok(metrics.some(m=>m.category==='第二大类:工程技术'&&m.value==='1区'));
+  assert.ok(metrics.some(m=>m.category==='小类:机器人学'&&m.value==='1区'));
 });
 
 test('import refuses duplicate journal names that are ambiguous across different IDs',()=>{

@@ -118,7 +118,7 @@ export function parseMetricFile(text, filename, journals) {
       for(let n=1;n<=6;n++){
         const name=raw(row,['小类'+n]).trim();
         const zone=findZone(raw(row,['小类'+n+'分区']));
-        if(name&&zone)add('cas',zone,2025,'小类：'+name);
+        if(name&&zone)add('cas',zone,2025,'小类:'+name);
       }
     }
     if(isXr) {
@@ -126,11 +126,11 @@ export function parseMetricFile(text, filename, journals) {
         raw(row,['大类中文名','大类英文名'])||category);
       const additionalMajor=findZone(raw(row,['大类2新锐分区']));
       if(additionalMajor)add('xinrui',additionalMajor,2026,
-        '第二大类：'+(raw(row,['大类2中文名','大类2英文名'])||'其他'));
+        '第二大类:'+(raw(row,['大类2中文名','大类2英文名'])||'其他'));
       for(let n=1;n<=6;n++){
         const name=raw(row,['小类'+n+'中文名','小类'+n+'英文名']);
         const zone=findZone(raw(row,['小类'+n+'新锐分区']));
-        if(name&&zone)add('xinrui',zone,2026,'小类：'+name);
+        if(name&&zone)add('xinrui',zone,2026,'小类:'+name);
       }
     }
     add('cas',findZone(raw(row,['CAS2025','中科院2025'])),2025,category);

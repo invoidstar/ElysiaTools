@@ -93,8 +93,8 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
     }).sort((a, b) => {
       if (a.year !== b.year) return b.year - a.year;
       if (system === 'cas' || system === 'xinrui') {
-        const level = (m: MetricRecord) => m.category?.startsWith('小类：') ? 2 :
-          m.category?.startsWith('第二大类：') ? 1 : 0;
+        const level = (m: MetricRecord) => m.category?.startsWith('小类:') ? 2 :
+          m.category?.startsWith('第二大类:') ? 1 : 0;
         if (level(a) !== level(b)) return level(a) - level(b);
       }
       return system === 'jcr' ? a.value.localeCompare(b.value) : 0;
