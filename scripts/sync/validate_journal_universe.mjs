@@ -38,11 +38,16 @@ assert.ok(index.entries.length>=22000,'Suspiciously small journal universe');
 assert.equal(diagByID.size,diagnostics.journals.length,'Duplicated diagnosis ID');
 
 for(const row of index.entries){
-  const [id,title,issn,eissn,field,publisher,metrics,aliases,status,methods,issues,additionalISSNs,source,sourceRows]=row;
+  const [id,title,issn,eissn,field,publisher,metrics,aliases,status,methods,issues,additionalISSNs,source,sourceRows,indexing,language,oa]=row;
   assert.ok(id&&title,'Missing journal ID/title');
   assert.ok(!indexByID.has(id),'Duplicate journal identity '+id);
   indexByID.set(id,row);
   assert.ok(Array.isArray(metrics)&&Array.isArray(aliases),'Malformed journal '+id);
+  assert.ok(Array.isArray(indexing),'Malformed indexing metadata '+id);
+  assert.ok(indexing.every(t=>['SCIE','SSCI','ESCI','AHCI','Scopus'].includes(t)),
+    'Unknown source database label '+id);
+  assert.ok(typeof language==='string','Missing language-state field '+id);
+  assert.ok(!oa||['open','hybrid','subscription'].includes(oa),'Invalid verified OA status '+id);
   assert.equal(status?.length,4,'Incomplete annual statuses for '+id);
   assert.equal(methods?.length,3,'Incomplete match methods for '+id);
   assert.ok(Array.isArray(issues)&&Array.isArray(additionalISSNs),'Malformed identification evidence '+id);

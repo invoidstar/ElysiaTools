@@ -146,3 +146,36 @@ test('pinned annual source audit records full coverage without duplicating sourc
   assert.ok(!row.includes('Category_1'));
   assert.ok(!('indicators' in report));
 });
+
+test('all curated current conference editions expose the corresponding year homepage',()=>{
+  const sources=load('sources.json');
+  assert.equal(editions.length,8);
+  for(const edition of editions){
+    const conf=conferences.find(c=>c.id===edition.conferenceId);
+    const source=sources.find(s=>s.id===edition.sourceId);
+    assert.ok(conf && source,'missing conference/source for '+edition.id);
+    assert.ok(edition.website?.startsWith('https://'),'missing edition-specific website '+edition.id);
+    assert.equal(edition.website,conf.website,'edition homepage not aligned with verified conference website: '+edition.id);
+    assert.equal(edition.websiteSourceId,edition.sourceId,'annual URL requires official source provenance');
+    assert.equal(source.kind,'official-cfp','annual website provenance must be official');
+  }
+});
+
+test('journal UI hides identifier fields but retains internal identity matching',()=>{
+  const drawer=readFileSync(new URL('../src/components/DetailDrawer.tsx',import.meta.url),'utf8');
+  const page=readFileSync(new URL('../src/features/JournalPage.tsx',import.meta.url),'utf8');
+  const compare=readFileSync(new URL('../src/components/JournalCompare.tsx',import.meta.url),'utf8');
+  for(const text of [drawer,page,compare]){
+    assert.ok(!/ISSN-L|ISSN \\/|eISSN|ISSN 待补充/.test(text));
+  }
+  const indexer=readFileSync(new URL('../scripts/sync/build_journal_universe.mjs',import.meta.url),'utf8');
+  assert.ok(indexer.includes('canonicalISSN'),'must retain internal identity crosswalk');
+});
+
+test('journal publication figures load automatically for a rolling five-year period',()=>{
+  const component=readFileSync(new URL('../src/components/ResearchCharts.tsx',import.meta.url),'utf8');
+  assert.ok(component.includes('useJournalOpenAlex(journal)'));
+  assert.ok(component.includes('Array.from({length:5}'));
+  assert.ok(!component.includes('onClick={lookup}'),'publication history must not require a button');
+  assert.ok(component.includes('year===currentYear'),'incomplete current year must be disclosed');
+});

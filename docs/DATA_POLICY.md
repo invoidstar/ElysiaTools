@@ -50,7 +50,7 @@ Unknown deadlines appear in the separate Track pending array and are displayed a
 
 **JCR / JIF** each carry the original subject/year and source. JCR published in 2026 commonly contains **2025 JIF values**, whereas a 2025 JCR publisher notice may cite **2024 JIF**. A Q1 JCR classification is not a CAS 1 区 result. Only issuer/publisher publicly disclosed facts may be reproduced, e.g. IEEE and ACM notices with URLs in the Source Registry.
 
-**Publication count** is user-initiated and retrieved from OpenAlex's source `counts_by_year` with the index year **2025**. It means “works indexed by OpenAlex”; it is not official total published article count, and may include non-research items. The frontend matches the journal by verified ISSN or a full normalized name; near-match results are rejected. If unavailable it shows an informative error and never supplies a guess.
+**Publication count** is loaded automatically when a journal detail opens, from the exact-matched OpenAlex source's `counts_by_year` for a rolling **five-year window**, including the current partial year. It means “works indexed by OpenAlex”; it is not official total published article count, and may include non-research items. The frontend matches the journal by verified ISSN or a full normalized name; near-match results are rejected. If unavailable it shows an informative error and never supplies a guess. Year entries without a count appear missing rather than as zero; the current partial year is labeled. An OpenAlex `homepage_url` is shown as an indexed journal homepage only when its source identity is matched unambiguously; publisher-verified links take precedence.
 
 ## 5. Quality controls
 

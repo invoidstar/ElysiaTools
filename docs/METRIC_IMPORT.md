@@ -22,6 +22,8 @@ Each known journal identity remains in the published directory even if all annua
 
 Identity resolution first tries checksum-valid ISSNs/eISSNs, then a unique normalized journal title **only if no verified identifiers conflict**. Mixed identifier candidates and exact title collisions are tracked separately rather than forcibly merged. Every CSV record is accounted for as either attached to a searchable identity or explicitly unidentifiable. The published diagnostics identify each journal, its missingness reason per system, **1-based CSV data-record number** (not physical line number, since CSV cells may span lines), match method, and any suspected identity/metric conflict. The build validates these invariants before deployment.
 
+Bibliographic enrichment from these same pinned source rows adds the recorded publisher, publication language, database indexing tags and positive open-access flags. These are source-observed facts, not a claim that every journal has verified publisher metadata. Homepages and rolling five-year publication counts are looked up on demand through OpenAlex when journal details are opened; those values are not JCR or publisher-authoritative statistics.
+
 Every evaluation retains its own source and annual label. CAS major/subcategory divisions, XinRui first/second major category and subcategories, and all JCR subject quartiles are kept as separate journal indicators. Identity joins use normalized titles and validated ISSNs; conflicting identities are not forcibly merged. No missing quartile is inferred.
 
 ## GitHub Pages publication
