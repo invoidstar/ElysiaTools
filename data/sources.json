@@ -1,0 +1,100 @@
+[
+  {
+    "id": "ccf-2026",
+    "title": "CCF 第七版推荐国际学术会议和期刊目录（正式版，2026-04-09 勘误）",
+    "url": "https://www.ccf.org.cn/Academic_Evaluation/By_category/",
+    "kind": "classification",
+    "owner": "CCF",
+    "verifiedAt": "2026-10-12",
+    "note": "仅收录精选条目的名称、推荐类别等事实字段；结构化录入时对照第三方机器可读提取表。请以官方目录为最终依据。",
+    "extractUrl": "https://github.com/haozhou-wong/ccf-recommended-list-2026-markdown"
+  },
+  {
+    "id": "aaai-27",
+    "title": "AAAI-27 Main Conference Timetable",
+    "url": "https://aaai.org/conference/aaai/aaai-27/submission-instructions/",
+    "kind": "official-cfp",
+    "owner": "AAAI",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "cvpr-27",
+    "title": "CVPR 2027 Dates and Deadlines",
+    "url": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+    "kind": "official-cfp",
+    "owner": "CVPR",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "iclr-27",
+    "title": "ICLR 2027 Dates",
+    "url": "https://iclr.cc/Conferences/2027/Dates",
+    "kind": "official-cfp",
+    "owner": "ICLR",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "acl-27",
+    "title": "ACL 2027 Important Dates",
+    "url": "https://2027.aclweb.org/",
+    "kind": "official-cfp",
+    "owner": "ACL",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "kdd-27-research",
+    "title": "KDD 2027 Research Track — Cycle 1",
+    "url": "https://kdd2027.kdd.org/research-track-call-for-papers/",
+    "kind": "official-cfp",
+    "owner": "KDD",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "kdd-27-ads",
+    "title": "KDD 2027 Applied Data Science Track — Cycle 1",
+    "url": "https://kdd2027.kdd.org/applied-data-science-ads-track-call-for-papers/",
+    "kind": "official-cfp",
+    "owner": "KDD",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "usenix-27",
+    "title": "USENIX Security '27 Call for Papers",
+    "url": "https://www.usenix.org/conference/usenixsecurity27/call-for-papers",
+    "kind": "official-cfp",
+    "owner": "USENIX",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "chi-27",
+    "title": "CHI 2027 Papers and Important Dates",
+    "url": "https://chi2027.acm.org/authors/papers/",
+    "kind": "official-cfp",
+    "owner": "ACM CHI",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "neurips-26",
+    "title": "NeurIPS 2026 Dates and Deadlines",
+    "url": "https://neurips.cc/Conferences/2026/Dates",
+    "kind": "official-cfp",
+    "owner": "NeurIPS",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "issn-registry",
+    "title": "ISSN International Centre",
+    "url": "https://portal.issn.org/",
+    "kind": "registry",
+    "owner": "ISSN International Centre",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "publisher",
+    "title": "Publisher official journal information",
+    "url": "https://www.ieee-ras.org/publications",
+    "kind": "publisher",
+    "owner": "IEEE RAS",
+    "verifiedAt": "2026-10-12"
+  }
+]
