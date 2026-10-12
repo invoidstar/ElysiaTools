@@ -32,6 +32,18 @@ jobs:
         run: python3 -m py_compile scripts/sync/audit_metric_csv.py
       - name: Run data tests
         run: npm test
+      - name: Download pinned journal data sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .cache/journal-metrics
+          BASE='https://raw.githubusercontent.com/hitfyd/ShowJCR/4687a8f608f20aaf004299992f5d347dba009361/%E4%B8%AD%E7%A7%91%E9%99%A2%E5%88%86%E5%8C%BA%E8%A1%A8%E5%8F%8AJCR%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6'
+          for FILE in FQBJCR2025-UTF8.csv XR2026-UTF8.csv JCR2025-UTF8.csv; do
+            curl --fail --silent --show-error --location --retry 3 --retry-delay 2 \
+              "$BASE/$FILE" -o ".cache/journal-metrics/$FILE"
+          done
+      - name: Generate searchable complete journal index
+        run: node scripts/sync/build_journal_universe.mjs .cache/journal-metrics public/data/journal-universe.json
       - name: Typecheck and build
         run: npm run build
       - name: Prepare GitHub Pages

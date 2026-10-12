@@ -14,3 +14,8 @@ XR2026-UTF8.csv
 JCR2025-UTF8.csv
 data/private/
 data/source-csv/
+
+# Generated after checking the pinned, authorized annual journal snapshots
+.cache/journal-metrics/
+public/data/journal-universe.json
+public/data/journal-coverage.json
