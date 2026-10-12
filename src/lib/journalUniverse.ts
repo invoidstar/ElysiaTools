@@ -50,7 +50,7 @@ function decode(payload:Payload):Journal[] {
 
 export function loadJournalUniverse():Promise<Journal[]> {
   if(pending)return pending;
-  const url=import.meta.env.BASE_URL+'data/journal-universe.json';
+  const url=new URL('data/journal-universe.json',document.baseURI).toString();
   pending=fetch(url).then(async response=>{
     if(!response.ok)throw Error('无法取得期刊资料（HTTP '+response.status+'）。');
     const data=await response.json() as Payload;
