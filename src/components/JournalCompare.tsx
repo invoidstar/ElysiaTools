@@ -1,6 +1,6 @@
 import { Download, ExternalLink, GitCompareArrows, X } from 'lucide-react';
 import { GradeTag } from './Common';
-import { ccfEntries, getSource, journalMetric } from '../lib/catalog';
+import { ccfEntries, getSource } from '../lib/catalog';
 import { downloadContent } from '../lib/storage';
 import type { AcademicState, Journal } from '../types';
 
