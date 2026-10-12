@@ -235,3 +235,43 @@
 .publication-compact small{font-size:10px;color:var(--muted)}
 .publication-compact strong{color:var(--text);font-variant-numeric:tabular-nums}
 .publication-compact a{margin-top:5px}
+
+
+/* BibTeX workspace: implemented utility, no inactive roadmap cards */
+.bib-workspace{margin:34px 0 60px;padding:26px;border:1px solid var(--line);border-radius:19px;background:var(--surface);box-shadow:var(--shadow)}
+.bib-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:21px}
+.bib-head h2{display:flex;align-items:center;gap:11px;font-size:23px;margin:11px 0 10px}
+.bib-head h2 svg{color:var(--primary)}
+.bib-head p{font-size:12px;line-height:1.8;color:var(--muted);max-width:760px}
+.bib-private{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-size:10px;color:var(--primary);background:var(--primary-soft);padding:9px 11px;border-radius:8px}
+.bib-editors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.bib-editor{display:flex;flex-direction:column;gap:11px;background:var(--surface-soft);border:1px solid var(--line);border-radius:13px;padding:15px;min-width:0}
+.bib-editor-heading{display:flex;align-items:center;gap:11px;justify-content:space-between}
+.bib-editor-heading strong{font-size:12px;color:var(--text)}.bib-editor-heading span{font-size:10px;color:var(--muted);text-align:right}
+.bib-editor textarea{width:100%;height:276px;resize:vertical;border:1px solid var(--line-strong);border-radius:9px;background:var(--surface);color:var(--text);padding:14px;font-size:11px;font-family:Consolas,'Liberation Mono',monospace;line-height:1.67;outline:none;min-width:0}
+.bib-editor textarea:focus{border-color:var(--primary)}
+.bib-editor-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.bib-editor-actions .primary-button,.bib-editor-actions .secondary-button{font-size:11px;padding:9px 11px}
+.bib-editor-actions button:disabled{opacity:.4;cursor:not-allowed}.bib-editor-actions .primary-button{margin-left:auto}
+.bib-upload{cursor:pointer;position:relative;overflow:hidden}.bib-upload input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.bib-sort-label{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:10px}.bib-sort-label select{padding:7px 9px;min-width:117px;width:auto;font-size:11px}
+.bib-error,.bib-notice{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:9px;padding:12px;font-size:11px;line-height:1.65;margin:15px 0 0;color:var(--muted)}
+.bib-error{color:#ae4d61;border-color:#f0ccd5;background:#fff8f9}.bib-notice{color:var(--primary);background:var(--primary-soft)}
+.bib-overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:19px 0}
+.bib-overview>div{display:flex;flex-direction:column;gap:7px;padding:15px;border:1px solid var(--line);border-radius:10px;background:var(--surface-soft)}
+.bib-overview span{font-size:10px;color:var(--muted)}.bib-overview strong{font-size:21px;color:var(--text);font-variant-numeric:tabular-nums}
+.bib-review-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:21px 0 12px}.bib-review-top>div{flex:1;min-width:220px}
+.bib-review-top h3{display:flex;gap:8px;align-items:center;font-size:14px;margin:0 0 8px}.bib-review-top h3 svg{color:var(--primary)}
+.bib-review-top p{font-size:11px;color:var(--muted);line-height:1.75;margin:0}.bib-review-top .secondary-button{font-size:11px}
+.bib-analysis-group{border-left:3px solid var(--line-strong);background:var(--surface-soft);padding:10px 13px;border-radius:5px;margin:9px 0}
+.bib-analysis-group>strong{font-size:11px}.bib-analysis-group p,.bib-analysis-group small{font-size:10px;color:var(--muted);line-height:1.7;margin:7px 0}
+.bib-reference-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:23px 0 11px}
+.bib-reference-heading strong{font-size:13px}.bib-reference-heading span{font-size:10px;color:var(--muted)}
+.bib-references{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.bib-reference{display:flex;gap:10px;align-items:flex-start;padding:13px 11px;border:1px solid var(--line);border-radius:10px;background:var(--surface-soft);cursor:pointer}
+.bib-reference.is-excluded{opacity:.52}.bib-reference input{accent-color:var(--primary);margin:3px 0 0}
+.bib-reference>div{display:flex;flex-direction:column;gap:6px;min-width:0}.bib-reference-meta{font-size:9px;color:var(--primary);overflow-wrap:anywhere}
+.bib-reference strong{font-size:11px;line-height:1.5;overflow-wrap:anywhere}.bib-reference small{font-size:10px;color:var(--muted);line-height:1.5}
+.bib-expand{margin:13px auto 0;display:flex;font-size:11px}.bib-note{font-size:10px;line-height:1.75;color:var(--muted);margin:21px 0 2px}
+@media(max-width:850px){.bib-editors{grid-template-columns:1fr}.bib-head{flex-direction:column}.bib-private{align-self:flex-start}}
+@media(max-width:580px){.bib-workspace{padding:15px}.bib-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.bib-references{grid-template-columns:1fr}.bib-editor{padding:10px}.bib-editor-actions .primary-button{margin-left:0}}
