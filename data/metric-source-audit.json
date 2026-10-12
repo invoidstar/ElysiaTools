@@ -1,32 +1,29 @@
 {
   "referenceProject": "hitfyd/ShowJCR",
-  "repository": "https://github.com/hitfyd/ShowJCR",
   "pinnedCommit": "4687a8f608f20aaf004299992f5d347dba009361",
-  "checkedAt": "2026-10-12",
-  "catalogJournals": 292,
-  "candidateMatching": {
-    "cas2025": {
-      "file": "FQBJCR2025-UTF8.csv",
-      "approximateTitleOrISSNMatches": 249,
-      "originalRows": 21772
-    },
-    "xinrui2026": {
-      "file": "XR2026-UTF8.csv",
-      "approximateTitleOrISSNMatches": 248,
-      "originalRows": 22299
-    },
-    "jcr2025": {
-      "file": "JCR2025-UTF8.csv",
-      "approximateTitleOrISSNMatches": 249,
-      "originalRows": 22643
-    }
+  "builtAt": "2026-10-12",
+  "rightsStatus": "site-operator-reports-authorized; independent verification not recorded",
+  "originalSourceRows": {
+    "cas2025": 21772,
+    "xinrui2026": 22299,
+    "jcr2025": 22643
   },
-  "meaning": "Counts reflect journal-identity matching against public third-party files; they are not verified metric publication coverage. These source databases have not been copied or bulk-extracted into the public ElysiaTools repo.",
-  "redistributionStatus": "pending-original-provider-permission",
-  "blockers": [
-    "Clarivate JCR product terms prohibit wholesale distribution and creation of derived replacement databases without specific permission.",
-    "The ShowJCR GPL software license is not an independent license to republish proprietary JCR/CAS/XinRui source datasets."
-  ],
-  "tooling": "python3 scripts/sync/audit_metric_csv.py --cas PATH --xinrui PATH --jcr PATH",
-  "publicSite": "Only independently documented facts with an attributable source are displayed."
+  "compiledPublicData": {
+    "indexedJournals": 23100,
+    "entriesWithAnyIndicators": 23026,
+    "cas2025": 21772,
+    "xinrui2026": 22299,
+    "jcr2025": 20337,
+    "jif2025": 22594,
+    "delivery": "GitHub Pages build artifact, not original CSVs in the source repository",
+    "generator": "scripts/sync/build_journal_universe.mjs"
+  },
+  "previousAudit": {
+    "referenceJournalIdentities": 292,
+    "approximateMatches": {
+      "cas": 249,
+      "xinrui": 248,
+      "jcr": 249
+    }
+  }
 }

@@ -1,70 +1,56 @@
 # ElysiaTools
 
-**Research, Made Easier.** — Open-source Academic Research Toolkit.
+**Research, Made Easier.** — 学术会议、期刊分区和个人科研工作台。
 
-[Website](https://invoidstar.github.io/ElysiaTools/) · [Conferences](https://invoidstar.github.io/ElysiaTools/#conference) · [Journals](https://invoidstar.github.io/ElysiaTools/#journal) · [Source & licensing policy](docs/METRIC_IMPORT.md)
+[网站](https://invoidstar.github.io/ElysiaTools/) · [会议](https://invoidstar.github.io/ElysiaTools/#conference) · [完整期刊分区查询](https://invoidstar.github.io/ElysiaTools/#journal) · [数据来源与许可](docs/METRIC_IMPORT.md)
 
-ElysiaTools is a lightweight academic information toolkit built with React, TypeScript and Vite, deployed exclusively via GitHub Pages. It has no accounts or database server.
+ElysiaTools uses React, TypeScript and Vite and runs exclusively on **GitHub Pages**. There are no visitor accounts, application servers or browser CSV uploads.
 
 ## Features
 
-| Page | Available functions |
+| Module | Features |
 | --- | --- |
-| **Home** | Joint venue search, conference deadlines, CCF category visualizations |
-| **Conference** | Complete CCF 2026 conference catalog, searchable A/B/C classifications, 1,062 dated acceptance-statistic records with source distinctions, multi-track timelines, calendars and ICS export |
-| **Journal** | 291 ranked CCF journals plus 1 supplementary venue, CCF fields, publisher/ISSN metadata, independently sourced public evaluation metrics, official external lookup links, filtering and multi-journal comparison |
-| **My Academic** | Browser-local favorites, filters, target calendars, JSON backups |
-| **Tools** | DOI / arXiv / ISSN identifier resolution |
+| Home | Conference/journal search, CCF overview, deadlines |
+| Conferences | CCF 2026 A/B/C full conference directory, historic acceptance, deadlines, timezone conversion, ICS |
+| Journals | **23,100 unique journal identities**; name/ISSN search, CAS 2025 historical divisions, XinRui 2026 divisions, JCR 2025 quartiles, JIF 2025, CCF 2026 classifications, filters, detail views and comparisons |
+| My Academic | Browser-local favorites, comparison lists, backups |
+| Tools | Academic identifiers |
 
-Light and dark themes, mobile layouts and first-party GitHub Pages deployment are included.
+Light/dark mode and responsive layouts are included.
 
-## Data coverage and limitations
+## Journal data coverage
 
-The 2026 CCF seventh edition contributes **386 conference entries and 295 journal recommendation rows** (291 unique CCF journal identities; 4 titles appear in more than one subject). With RA-L as an additional journal, the searchable journal directory has **292 titles**. CCF classification is separate from JCR quartiles, Journal Impact Factor, CAS historical divisions and XinRui independent divisions.
+The 2026-10-12 GitHub Pages build identified **23,100 unique journals** (including the existing CCF catalogue). **23,026 journals** have at least one of the following annual evaluation records:
 
-Conference historical records span **1,062 year/track data points across 273 conference identities**, combining separately checked official statistics and attributed CCF-Deadlines community transcriptions. A historical submission/acceptance ratio does not predict future odds.
+| Metric | Journal coverage | Meaning |
+| --- | ---: | --- |
+| CAS historical divisions | 21,772 | 2025 major and subsidiary categories |
+| XinRui divisions | 22,299 | Independent 2026 major and subsidiary categories |
+| JCR quartiles | 20,337 | 2025 dataset, released 2026, per JCR subject |
+| Journal Impact Factor | 22,594 | JIF for 2025, released 2026 |
 
-**Journal data:**
+The four counts overlap and must not be added. An absent field means no matching entry was verified in the particular snapshot, **not** that a journal has no rating. CCF classification remains separate: its seventh edition has 291 unique ranked journals (295 subject rows) plus an additional RA-L record.
 
-- Publicly documented bibliographic identifiers (currently 246 ISSN and 250 eISSN fields) and source-linked individual evaluation facts are available in the website.
-- The three source files **FQBJCR2025-UTF8.csv**, **XR2026-UTF8.csv** and **JCR2025-UTF8.csv** were assessed as *candidate reference sources*. Approximate identity matching reached 249, 248 and 249 of the 292 catalog journals respectively (see [audit metadata](data/metric-source-audit.json)).
-- **These figures describe possible matching, not public indicator coverage.** The third-party CSVs and any substitute bulk derived metrics have *not* been published into ElysiaTools. JCR and some institutional classification services impose redistribution restrictions that are not waived by a file being visible on GitHub.
-- The former **“同步期刊评价数据”** browser download/import interface has been removed. The production website reads public, sourced JSON only. Missing restricted metrics remain unfilled and can be checked at their original authorized publisher portals.
-- An offline [three-source match audit](scripts/sync/audit_metric_csv.py) is retained. It calculates aggregate coverage only, never writes license-restricted journal indicator values. See [journal data access and licensing](docs/METRIC_IMPORT.md).
+## Data delivery and provenance
 
-The site is independent of CCF, Clarivate, CAS, XinRui and the listed publishers. All official submission dates retain the published timezone; unannounced deadlines remain TBD.
+Data inputs are the three pinned ShowJCR files: **FQBJCR2025-UTF8.csv**, **XR2026-UTF8.csv**, and **JCR2025-UTF8.csv**, at [source revision 4687a8f](https://github.com/hitfyd/ShowJCR/tree/4687a8f608f20aaf004299992f5d347dba009361).
 
-## Stack and project files
+The [journal generator](scripts/sync/build_journal_universe.mjs) downloads sources during GitHub Actions, verifies file checksums, resolves titles and valid ISSNs while guarding against same-name collisions, retains multiple subject divisions, and produces a **compact 7.9 MB static index**. GitHub Pages deploys the index together with the site; the original CSVs are not checked into ElysiaTools. The index is requested by the browser only when visiting the journal features, so the homepage JS stays light.
 
-React 19 · TypeScript · Vite · Lucide · JSON · Python · GitHub Actions · GitHub Pages
+The former online “同步期刊评价数据” function remains removed. A standalone aggregated [historic matching audit](scripts/sync/audit_metric_csv.py) is retained for developers. The CCF source data and 2026 conference/acceptance directory remain unchanged.
 
-- **src/** — UI and independent feature modules
-- **data/conferences.json**, **data/editions.json** — stable identities and official deadline records
-- **data/journals.json** — journal identities and individually sourced public indicators
-- **data/sources.json** — original publisher/CFP links and source classifications
-- **data/acceptance.json** — conference-history statistics with original sources
-- **data/metric-source-audit.json** — aggregate third-party source matching report **without** protected metric data
-- **scripts/validate.mjs**, **tests/** — quality checks
-- **scripts/sync/** — source health and offline source-matching audit tools
-- **docs/** — [Data policy](docs/DATA_POLICY.md), [Contributing](docs/CONTRIBUTING.md), [Roadmap](docs/ROADMAP.md), [Third-party notices](docs/THIRD_PARTY_NOTICES.md)
+## Licensing and responsibility
 
-## Development
+The site operator has reported that the necessary source-provider republication permissions have been obtained. The repository does **not independently verify or include** those permissions. ShowJCR application software is GPL-3.0, but that license does not automatically cover CAS, Clarivate JCR or XinRui evaluation databases. Public data-use rights must be maintained separately.
 
-Node.js 22+ recommended.
+See [annual source notes](docs/METRIC_IMPORT.md), [data policy](docs/DATA_POLICY.md), and [third-party notices](docs/THIRD_PARTY_NOTICES.md). ElysiaTools code and original documentation are under [MIT](LICENSE); third-party data is not automatically relicensed.
 
-~~~bash
-npm install
-npm run dev
-npm run check
-npm run build
-~~~
+## Development and deployment
 
-Deployment is **GitHub Pages only**, via **.github/workflows/pages.yml** on the **main** branch. Vite is configured for **/ElysiaTools/**.
+Node.js 22+ is recommended.
 
-## Publishing additional indicator data
+- npm install
+- npm run check
+- npm run build
 
-Before adding a full JCR/CAS/XinRui dataset to a public static site, confirm that the **original issuer** has granted the required distribution rights, including any derived-database use. Permission solely from a GitHub mirror is insufficient. See [Data publication requirements](docs/METRIC_IMPORT.md).
-
-## License
-
-Original ElysiaTools code and documentation are under [MIT](LICENSE). All third-party evaluation data remains governed by its **own** terms; the application license does not change those rights.
+The [Pages workflow](.github/workflows/pages.yml) builds and deploys from the **main** branch to https://invoidstar.github.io/ElysiaTools/ . It obtains the three journal data files from the pinned upstream revision during CI.

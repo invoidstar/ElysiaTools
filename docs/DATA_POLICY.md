@@ -46,7 +46,7 @@ Unknown deadlines appear in the separate Track pending array and are displayed a
 
 **CAS 2025** is the last historical edition from the Chinese Academy of Sciences journal division before discontinuation in 2026. Historical fields are optional and should be populated only from rights-cleared primary evidence. Official discontinuation: https://nssc.cas.cn/library/dtxx/202604/t20260409_8183275.html .
 
-**XinRui (新锐), 2026** is published by an independent institution and must never be relabeled “CAS 2026”. Its official search and terms: https://www.xr-scholar.com/Journals/Search . Its website terms restrict republication. ElysiaTools therefore does not republish the underlying restricted divisions without a license; links lead users to authorized lookup.
+**XinRui (新锐), 2026** is an independent evaluation and must never be relabeled CAS 2026. The operator reports authorization to publish this annual derived index; its original terms otherwise govern redistribution. Official search: https://www.xr-scholar.com/Journals/Search .
 
 **JCR / JIF** each carry the original subject/year and source. JCR published in 2026 commonly contains **2025 JIF values**, whereas a 2025 JCR publisher notice may cite **2024 JIF**. A Q1 JCR classification is not a CAS 1 区 result. Only issuer/publisher publicly disclosed facts may be reproduced, e.g. IEEE and ACM notices with URLs in the Source Registry.
 
@@ -69,11 +69,12 @@ CCF-Deadlines (MIT License, Copyright 2021 CCFDDL) is the attributed secondary h
 
 LetPub is a *secondary* issuer for a small number of individually checked XinRui 2026 factual summaries. The page links the original third-party record rather than claiming issuer certification.
 
-## 8. Journal indicators and restricted source audits
+## 8. Authorized annual journal index
 
-- CCF subject categories and ranks are independent of CAS 2025 historical divisions, XinRui 2026 independent divisions, and Clarivate JCR 2025 / Journal Impact Factor 2025.
-- A distribution-restricted evaluation database cannot be mirrored or turned into a replacement public derivative merely because third-party CSVs are publicly downloadable. The ShowJCR application GPL license does not grant publisher data rights.
-- The three referenced ShowJCR CSVs were audited for possible **identity matching only**. Results are in the aggregate [metric-source-audit.json](../data/metric-source-audit.json); original CSVs and systematic rating values have not been added to the public GitHub repository.
-- The former browser-based CSV sync/import UI has been retired. All journal rankings rendered by production GitHub Pages must be attributable, rights-cleared and year/category specific.
-- Sources and historical index statuses are listed in [METRIC_IMPORT.md](METRIC_IMPORT.md). A future comprehensive static ranking dataset requires express authorization from the original issuers for both republication and derivative databases. Publisher-disclosed individual facts may remain with proper citations.
-- Bibliographic ISSN/eISSN identities can be sourced from independent public records; they must be checked for name changes, ISSN-L and duplicate titles. Conference deadlines retain IANA timezone information and original precision.
+The 2026-10-12 Pages build generated a journal lookup catalogue with 23,100 unique identities and 23,026 profiles containing annual metrics. CAS 2025 covers 21,772 journals, independent XinRui 2026 covers 22,299, JCR quartiles cover 20,337, and JIF 2025 covers 22,594.
+
+The original provider CSVs are fetched in GitHub Actions at a pinned ShowJCR commit and checked against published SHA digests. Git does not store the raw source files; Pages contains the derived static index. The production UI continues to omit the former import/sync controls.
+
+The site operator reports receiving permissions for public republication and derivative use. **Permission scope is not independently verified here.** ShowJCR's software GPL cannot substitute for provider-specific permissions covering CAS, Clarivate JCR and XinRui source data.
+
+Never infer a missing rating, combine evaluation systems, or merge two publications solely because they share a title. Maintain separate year, category and source attribution. See [METRIC_IMPORT.md](METRIC_IMPORT.md).

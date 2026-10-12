@@ -27,14 +27,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 - CCF seventh edition (2026): factual catalog entries, **CCF retains original directory copyright**; https://www.ccf.org.cn/Academic_Evaluation/By_category/
 - LetPub individual journal queries: a small number of individually source-linked, secondary XinRui 2026 factual results; no bulk copying of the LetPub database; https://www.letpub.com.cn/index.php?page=journalapp&view=search
-- CAS 2025, XinRui 2026, Clarivate JCR/JIF: independent, rights-restricted evaluation services. The web frontend does not republish their complete datasets. The previous browser import facility has been removed; no protected bulk rating dataset is republished.
+- CAS 2025, XinRui 2026 and Clarivate JCR/JIF are separately owned annual evaluations. The operator reports having received the necessary permission to publish a derived journal index, but the legal documentation and scope are not independently verified by this repository.
 - OpenAlex: optional client-side source-indexed work counts, not publisher-certified total article counts; https://openalex.org/
 
 
-## ShowJCR source-matching audit (no redistributed rating tables)
+## ShowJCR annual data snapshot
 
-- Upstream: https://github.com/hitfyd/ShowJCR . GPL-3.0 applies to ShowJCR application software, **not** as an independent license to republish Clarivate JCR, CAS or XinRui databases.
-- Audited snapshot: 4687a8f608f20aaf004299992f5d347dba009361.
-- ElysiaTools checked journal-identity matches against three source files, retaining only aggregate *counts* and no copyrighted CSV body or systematically extracted rankings in the published repository.
-- Clarivate specifically prohibits bulk distribution and unlicensed creation of replacement derived ranking databases: https://clarivate.com/academia-government/blog/a-quick-refresher-on-journal-citation-reports-use-cases-branding-and-terms-of-use/
-- Exact source URLs, limits and the local audit CLI are documented in [METRIC_IMPORT.md](METRIC_IMPORT.md).
+- Upstream reference: https://github.com/hitfyd/ShowJCR . Its GPL-3.0 license applies to the application code, not automatically to the underlying proprietary datasets.
+- Pinned snapshot: 4687a8f608f20aaf004299992f5d347dba009361.
+- Files: FQBJCR2025-UTF8.csv, XR2026-UTF8.csv and JCR2025-UTF8.csv.
+- The site operator reports separate rights to publish the derived static journal catalogue. This repository does not contain the signed agreements or independently evaluate their scope.
+- GitHub Actions fetches the source CSVs at build time and compiles a compact index for the published site. The raw original CSVs are not included in Git.
+- Source checksums, coverage and publishing instructions: [METRIC_IMPORT.md](METRIC_IMPORT.md).
