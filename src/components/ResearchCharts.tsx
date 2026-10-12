@@ -173,6 +173,23 @@ export function JournalPublicationCount({journal}:{journal:Journal}) {
   </div>;
 }
 
+/** Small, auto-loaded five-year record for the comparison table. */
+export function JournalPublicationSummary({journal}:{journal:Journal}){
+  const profile=useJournalOpenAlex(journal);
+  if(profile.status==='loading')return <span className="metric-missing">正在查询…</span>;
+  if(profile.status==='error')return <span className="metric-missing">暂无可精确匹配的记录</span>;
+  const currentYear=new Date().getFullYear();
+  const years=Array.from({length:5},(_,i)=>currentYear-4+i);
+  return <div className="publication-compact">
+    {years.map(year=>{
+      const found=profile.source.counts_by_year?.find(row=>row.year===year);
+      return <small key={year}>{year}: <strong>{typeof found?.works_count==='number'?found.works_count.toLocaleString('zh-CN'):'—'}</strong>{year===currentYear?'*':''}</small>;
+    })}
+    <a className="micro-link" href={profile.source.id} target="_blank" rel="noopener noreferrer">OpenAlex <ExternalLink size={12}/></a>
+    <small>* 本年尚未结束</small>
+  </div>;
+}
+
 export function DirectorySnapshot() {
   const topFields=fields.map(field=>({field,count:gradeSum('conference',field).A+gradeSum('conference',field).B+gradeSum('conference',field).C})).sort((a,b)=>b.count-a.count);
   const top=topFields[0];
