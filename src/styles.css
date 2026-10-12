@@ -317,3 +317,14 @@
 .tool-single-panel{max-width:1040px;margin-top:0}
 @media(max-width:760px){.tool-hub-grid{grid-template-columns:1fr}.tool-hub-card{min-height:285px}.tool-hub-intro{align-items:flex-start;flex-direction:column;gap:11px}.tool-hub-note{margin-top:15px}}
 @media(max-width:580px){.tool-hub-card{padding:22px;min-height:286px}.tool-hub-title{font-size:20px}.tool-single-panel{padding:23px}}
+
+/* Traceable year-specific conference website catalogue */
+.conference-sites-subheading{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:750;color:var(--muted);margin:20px 0 12px}
+.conference-sites-subheading svg{color:var(--primary)}
+.conference-sites-years{display:flex;flex-wrap:wrap;gap:8px}
+.conference-sites-year{display:inline-flex;align-items:center;gap:5px;padding:9px 12px;background:var(--surface-soft);border:1px solid var(--line);border-radius:9px;font-size:11px;color:var(--muted);font-weight:720}
+.conference-sites-year:hover{color:var(--primary);border-color:var(--primary)}
+.conference-sites-year.verified{background:var(--primary-soft);color:var(--primary);border-color:var(--line-strong)}
+.conference-sites-note{display:flex;flex-wrap:wrap;gap:5px;align-items:baseline;font-size:10px;color:var(--muted);line-height:1.8;margin:15px 0 0}
+.conference-sites-note svg{color:var(--primary)}
+.conference-sites-note a{text-decoration:underline;text-underline-offset:2px}

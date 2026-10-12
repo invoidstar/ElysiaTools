@@ -1,7 +1,10 @@
 import { ArrowUpRight, CalendarPlus, CheckCircle2, Clock3, ExternalLink, GitCompareArrows, Info, Link2, MapPin, Star, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { GradeTag, SourceAnchor } from './Common';
 import { JournalDiagnostics } from './JournalDiagnostics';
 import { JournalHomepageLink } from './JournalHomepageLink';
+import { ConferenceWebsiteLinks } from './ConferenceWebsiteLinks';
+import { loadConferenceWebsites, type ConferenceWebsiteRecord } from '../lib/conferenceSites';
 import { AcceptanceTrend, JournalMetricCards, JournalPublicationCount } from './ResearchCharts';
 import { ccfEntries, getConference, getEdition, getJournal, getSource, isFuture, sourceForRow } from '../lib/catalog';
 import { countdown, displayEvent, kindLabel, originalDate, prettyDate, type ZoneChoice } from '../lib/time';
@@ -22,6 +25,15 @@ interface Props {
 }
 
 export function DetailDrawer({ journalRecord, kind, id, onClose, academic, toggleFavorite, toggleCompare, zone, now }: Props) {
+  const [conferenceLinks,setConferenceLinks]=useState<Map<string,ConferenceWebsiteRecord>>(new Map());
+  useEffect(()=>{
+    if(kind!=='conference')return;
+    let live=true;
+    loadConferenceWebsites().then(result=>{
+      if(live)setConferenceLinks(result);
+    }).catch(()=>{});
+    return ()=>{live=false;};
+  },[kind]);
   const c = kind === 'conference' ? getConference(id) : undefined;
   const j = kind === 'journal' ? (journalRecord||getJournal(id)) : undefined;
   const edition = c ? getEdition(c.id) : undefined;
@@ -50,14 +62,11 @@ export function DetailDrawer({ journalRecord, kind, id, onClose, academic, toggl
               <div><span>举办地点</span><strong>{edition?.location || 'TBD'}</strong></div>
               <div><span>数据最后核验</span><strong>{edition?.verifiedAt || '待核验'}</strong></div>
             </div>
-            <div className="link-stack">
-              {edition ? <>
-                <SourceAnchor href={edition.website}>{edition.year} 年会议官方网站 <ArrowUpRight size={14}/></SourceAnchor>
-                <SourceAnchor href={getSource(edition.sourceId)?.url}>{edition.year} 年官方 CFP / 重要日期</SourceAnchor>
-              </> : <SourceAnchor href={c.website}>会议主页（未标注年份）</SourceAnchor>}
-              <SourceAnchor href={c.indexUrl}>学术索引 / DBLP</SourceAnchor>
-            </div>
+            {edition&&<div className="link-stack"><SourceAnchor href={getSource(edition.sourceId)?.url}>
+              {edition.year} 年官方 CFP / 重要日期
+            </SourceAnchor></div>}
           </section>
+          <ConferenceWebsiteLinks conference={c} edition={edition} site={conferenceLinks.get(c.id)}/>
           <section className="drawer-section"><h3>历年录用趋势 <span>ACCEPTANCE HISTORY</span></h3>
             <AcceptanceTrend conferenceId={c.id}/>
           </section>

@@ -1,10 +1,11 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { CalendarDays, ChevronLeft, ChevronRight, Clock3, FileDown, List, Search, SlidersHorizontal, BookmarkPlus, ExternalLink } from 'lucide-react';
 import { FavoriteButton, GradeTag, EmptyState } from '../components/Common';
 import { DirectoryViz } from '../components/ResearchCharts';
 import { conferences, coverage, deadlineRows, deadlineState, eventMillis, nextDeadline, orderedConferences, matches, latestAcceptance, getEdition } from '../lib/catalog';
 import { countdown, displayEvent, kindLabel, monthKey, zoneValue, type ZoneChoice } from '../lib/time';
 import type { AcademicState, DeadlineRow } from '../types';
+import { loadConferenceWebsites, type ConferenceWebsiteRecord } from '../lib/conferenceSites';
 
 export interface ConferenceFilters {
   keyword: string; grade: string; field: string; status: string; from: string; to: string;
@@ -36,6 +37,13 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
   const [month, setMonth] = useState(() => new Date(new Date().getFullYear(), new Date().getMonth(), 1));
   const [limit, setLimit] = useState(18);
   const [historyOnly, setHistoryOnly] = useState(false);
+  const [conferenceLinks,setConferenceLinks]=useState<Map<string,ConferenceWebsiteRecord>>(new Map());
+  useEffect(()=>{
+    let live=true;
+    loadConferenceWebsites().then(records=>{if(live)setConferenceLinks(records);})
+      .catch(()=>{});
+    return ()=>{live=false;};
+  },[]);
   const fields = useMemo(() => [...new Set(conferences.map(c => c.field))].sort(), []);
   const change = (key: keyof ConferenceFilters, value: string) => { onFilters({ ...filters, [key]: value }); setLimit(18); };
   const filtered = useMemo(() => {
@@ -111,6 +119,9 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
             const state = deadlineState(conf.id, now);
             const row = nextDeadline(conf.id, now);
             const edition = getEdition(conf.id);
+            const links=conferenceLinks.get(conf.id);
+            const current=edition?.website ? {year:edition.year,url:edition.website,source:'curated-edition'}
+              : links?.years?.[0];
             return <article key={conf.id} className="venue-row">
               <button className="venue-main" onClick={() => openConference(conf.id)}>
                 <span className="venue-monogram">{conf.acronym.slice(0, 2).toUpperCase()}</span>
@@ -123,9 +134,13 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
                   <span className="countdown-small"><Clock3 size={13} /> {countdown(row.event, now)}</span>
                 </> : state === 'closed' ? <><span className="state-closed">本轮已截止</span><span className="deadline-sub">{row?.edition.year || ''} · 查看历史时间线</span></> :
                   <><span className="state-tbd">TBD</span><span className="deadline-sub">暂无可核验的当届截稿</span></>}
-              </button>{edition?.website && <a className="conference-year-link"
-                href={edition.website} target="_blank" rel="noopener noreferrer">
-                {edition.year} 年官网 <ExternalLink size={12}/>
+              </button>{current && <a className="conference-year-link"
+                href={current.url} target="_blank" rel="noopener noreferrer">
+                {current.year} 年网站 {current.source==='ccfddl'?'· 社区收录':''} <ExternalLink size={12}/>
+              </a>}
+              {!current && (links?.website||conf.website)&&<a className="conference-year-link"
+                href={links?.website||conf.website||undefined} target="_blank" rel="noopener noreferrer">
+                会议主页 <ExternalLink size={12}/>
               </a>}</div>
               <FavoriteButton active={academic.conferences.includes(conf.id)} onClick={() => toggleFavorite(conf.id)} label={conf.acronym} />
             </article>;
