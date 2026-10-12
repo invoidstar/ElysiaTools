@@ -1,7 +1,7 @@
 import {useEffect,useState} from 'react';
 import type {Journal} from '../types';
 import {
-  getCachedSource,putCachedSource,getApiCooldown,setApiCooldown,retryAfterMs,utcResetMs
+  getCachedSource,putCachedSource,getMissingSource,putMissingSource,getApiCooldown,setApiCooldown,retryAfterMs,utcResetMs
 } from './openAlexCache.mjs';
 
 /**
@@ -148,12 +148,16 @@ async function fetchSource(journal:Journal):Promise<OpenAlexSource>{
   const response=await fetchWithLimitAwareness('https://api.openalex.org/sources?'+params.toString());
   const data=await response.json() as {results?:OpenAlexSource[]};
   const source=findExactSource(data.results||[],journal);
-  if(!source)throw Error('没有找到可通过期刊名称或内部标识准确匹配的 OpenAlex 来源记录。');
+  if(!source){
+    putMissingSource(journal.id);
+    throw Error('没有找到可通过期刊名称或内部标识准确匹配的 OpenAlex 来源记录。');
+  }
   return source;
 }
 function lookup(journal:Journal):Promise<OpenAlexSource>{
   const key=journal.id;
   const cached=getCachedSource(key);
+  if(!cached&&getMissingSource(key))return Promise.reject(Error('该期刊暂未在 OpenAlex 中找到准确匹配的数据，已避免重复查询。'));
   if(cached)return Promise.resolve({...cached.source,_cached:'fresh',_cachedAt:cached.fetchedAt} as OpenAlexSource);
   if(!requests.has(key)){
     const request=scheduled(async()=>{

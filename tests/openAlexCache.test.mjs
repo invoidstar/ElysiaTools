@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {CACHE_MAX,CACHE_TTL_MS,STALE_TTL_MS,getCachedSource,putCachedSource,
-  getApiCooldown,setApiCooldown,retryAfterMs,utcResetMs} from '../src/lib/openAlexCache.mjs';
+  getApiCooldown,setApiCooldown,retryAfterMs,utcResetMs,getMissingSource,putMissingSource} from '../src/lib/openAlexCache.mjs';
 
 function storage(){
   const records=new Map();
@@ -40,4 +40,14 @@ test('storage failures cannot prevent journal browsing',()=>{
   putCachedSource('journal',source,100,store);
   assert.equal(getCachedSource('journal',100,store),null);
   assert.equal(getApiCooldown(100,store),0);
+});
+
+test('negative cache limits repeated unmatched-source lookups for one day',()=>{
+  const store=storage(),now=Date.UTC(2026,9,12,0,0);
+  assert.equal(getMissingSource('unmatched',now,store),false);
+  putMissingSource('unmatched',now,store);
+  assert.equal(getMissingSource('unmatched',now+12000,store),true);
+  assert.equal(getMissingSource('unmatched',now+24*60*60*1000+1,store),false);
+  putCachedSource('unmatched',source,now+1000,store);
+  assert.equal(getMissingSource('unmatched',now+12000,store),false);
 });

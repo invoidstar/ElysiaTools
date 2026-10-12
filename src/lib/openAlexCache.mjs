@@ -12,7 +12,7 @@ function getStorage(given){
   try{return typeof localStorage==='undefined'?null:localStorage;}
   catch{return null;}
 }
-function empty(){return {version:1,items:{},cooldownUntil:0};}
+function empty(){return {version:1,items:{},missing:{},cooldownUntil:0};}
 function load(given){
   const storage=getStorage(given);
   if(!storage)return empty();
@@ -49,9 +49,22 @@ export function putCachedSource(key,source,now=Date.now(),given){
   if(!source||!/^https:\/\/openalex\.org\/S\d+$/.test(String(source.id||'')))return;
   const state=load(given);
   state.items[key]={source,fetchedAt:now};
+  if(state.missing)delete state.missing[key];
   const keys=Object.keys(state.items).sort((a,b)=>
     state.items[b].fetchedAt-state.items[a].fetchedAt);
   for(const old of keys.slice(CACHE_MAX))delete state.items[old];
+  save(state,given);
+}
+export function getMissingSource(key,now=Date.now(),given){
+  const timestamp=load(given).missing?.[key];
+  return typeof timestamp==='number'&&now-timestamp>=0&&now-timestamp<24*60*60*1000;
+}
+export function putMissingSource(key,now=Date.now(),given){
+  const state=load(given);
+  state.missing=state.missing||{};
+  state.missing[key]=now;
+  const keys=Object.keys(state.missing).sort((a,b)=>state.missing[b]-state.missing[a]);
+  for(const old of keys.slice(200))delete state.missing[old];
   save(state,given);
 }
 export function getApiCooldown(now=Date.now(),given){
