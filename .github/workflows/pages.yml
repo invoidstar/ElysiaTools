@@ -47,8 +47,11 @@ jobs:
       - name: Restore offline OpenAlex source cache
         uses: actions/cache@v4
         with:
-          path: .cache/journal-websites/openalex-sites.json
-          key: journal-homepages-openalex-q3-2026-v1
+          path: |
+            .cache/journal-websites/openalex-sites.json
+            .cache/journal-websites/doaj-sites.json
+          key: journal-homepages-openalex-q3-2026-v2
+          save-always: true
       - name: Build all-journal website index from published reference data
         run: python3 scripts/sync/enrich_journal_websites.py
       - name: Download pinned conference website directory

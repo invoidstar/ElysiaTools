@@ -122,6 +122,11 @@ def read_openalex():
             'journalHomepages':websites,'files':len(files),'sourceUrl':OPENALEX_MANIFEST}
 
 def read_doaj():
+    cache=Path('.cache/journal-websites/doaj-sites.json')
+    if cache.exists():
+        data=json.loads(cache.read_text(encoding='utf-8'))
+        if data.get('stats',{}).get('downloaded',0)>=10000:
+            return data['items'],data['stats']
     items=[]
     downloaded=0
     try:
@@ -147,7 +152,11 @@ def read_doaj():
                 items.append({'url':url,'issns':ids,'names':[title] if title else [],
                               'ref':ref,'source':'doaj'})
         if downloaded<10000:raise RuntimeError('DOAJ CSV rows unexpectedly low: '+str(downloaded))
-        return items,{'downloaded':downloaded,'homepages':len(items),'url':DOAJ_CSV}
+        stats={'downloaded':downloaded,'homepages':len(items),'url':DOAJ_CSV}
+        cache.parent.mkdir(parents=True,exist_ok=True)
+        cache.write_text(json.dumps({'items':items,'stats':stats},ensure_ascii=False,
+                         separators=(',',':')),encoding='utf-8')
+        return items,stats
     except (OSError,urllib.error.HTTPError,UnicodeError,RuntimeError) as exc:
         # DOAJ is an auxiliary source. The mandatory OpenAlex public snapshot
         # still supports a full-source crosswalk if DOAJ blocks CI.

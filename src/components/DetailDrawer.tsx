@@ -1,4 +1,4 @@
-import { ArrowUpRight, CalendarPlus, CheckCircle2, Clock3, ExternalLink, GitCompareArrows, Info, Link2, MapPin, Star, X } from 'lucide-react';
+import { CalendarPlus, CheckCircle2, Clock3, ExternalLink, GitCompareArrows, Info, Link2, MapPin, Star, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { GradeTag, SourceAnchor } from './Common';
 import { JournalDiagnostics } from './JournalDiagnostics';
