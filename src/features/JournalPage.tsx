@@ -45,6 +45,7 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
       (!publisher || j.publisher === publisher) &&
       (!indicator || (
         dataStatus==='all' ? true :
+        dataStatus==='issues' ? Boolean(j.diagnostic?.issues.length) :
         dataStatus ? j.diagnostic?.status[indicator as 'cas'|'xinrui'|'jcr'|'jif']===dataStatus :
         j.indicators.some(m => m.system===indicator)
       )) &&
@@ -97,7 +98,8 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
           <option value="all">全部状态</option>
           <option value="source_no_metric">原始表收录，但缺少该指标</option>
           <option value="not_in_source">本年度来源未匹配收录</option>
-          <option value="identity_review">期刊身份待核对</option>
+          <option value="identity_review">当前体系身份待核对</option>
+          <option value="issues">存在身份 / 指标核查提示</option>
         </select>
         <label className="filter-label" htmlFor="jour-tier">分区等级</label>
         <select id="jour-tier" className="select-input" disabled={!indicator || indicator==='jif' || !!dataStatus && dataStatus!=='all'} value={tier} onChange={e=>setFilter(setTier,e.target.value)}>

@@ -18,6 +18,10 @@ Source project: [ShowJCR](https://github.com/hitfyd/ShowJCR), fixed at commit **
 
 The successful 2026-10-12 build matched **23,100 unique journal identities** and produced **23,026 journal profiles with annual metrics**. Coverage is CAS 21,772, XinRui 22,299, JCR quartiles 20,337 and JIF 22,594. Counts can overlap. CCF metadata for the existing 292 journal identities is preserved.
 
+Each known journal identity remains in the published directory even if all annual indicators are missing. A journal with JIF but no valid JCR quartile is explicitly **listed-without-quartile**, not "unindexed". The output includes four annual status codes (`P` valid, `L` source lists the journal but has no valid metric, `N` not matched in that source edition, `R` related source identity requires review). See [per-journal diagnostics](https://invoidstar.github.io/ElysiaTools/data/journal-diagnostics.json) and [aggregate coverage](https://invoidstar.github.io/ElysiaTools/data/journal-coverage.json).
+
+Identity resolution first tries checksum-valid ISSNs/eISSNs, then a unique normalized journal title **only if no verified identifiers conflict**. Mixed identifier candidates and exact title collisions are tracked separately rather than forcibly merged. Every CSV record is accounted for as either attached to a searchable identity or explicitly unidentifiable. The published diagnostics identify each journal, its missingness reason per system, source record number, match method, and any suspected identity/metric conflict. The build validates these invariants before deployment.
+
 Every evaluation retains its own source and annual label. CAS major/subcategory divisions, XinRui first/second major category and subcategories, and all JCR subject quartiles are kept as separate journal indicators. Identity joins use normalized titles and validated ISSNs; conflicting identities are not forcibly merged. No missing quartile is inferred.
 
 ## GitHub Pages publication
@@ -27,8 +31,8 @@ On pushes to **main**, the Pages workflow performs these steps:
 1. Verify the original CCF data and run unit tests.
 2. Download the three CSVs from the pinned upstream commit.
 3. Verify all three Git blob SHA digests, minimum record counts, identity-match rate and minimum metric coverage.
-4. Build static **public/data/journal-universe.json** (about 7.9 MB) and **public/data/journal-coverage.json**.
-5. Typecheck, compile and publish the static website to https://invoidstar.github.io/ElysiaTools/ .
+4. Build static **public/data/journal-universe.json**, **public/data/journal-coverage.json** and **public/data/journal-diagnostics.json** (annual coverage and per-identity provenance).
+5. Validate that all CCF identities and all resolvable CSV records are retained, that every annual status is backed by source-row evidence, and that indicator counts agree with the audit; then typecheck, compile and publish the static website to https://invoidstar.github.io/ElysiaTools/ .
 
 These generated files exist inside the deployed Pages build, not as versioned sources in the GitHub repository. Original CSV bytes are not checked in. Visitors fetch the generated data only when needed, without making third-party requests or uploading files.
 

@@ -19,3 +19,5 @@ data/source-csv/
 .cache/journal-metrics/
 public/data/journal-universe.json
 public/data/journal-coverage.json
+
+public/data/journal-diagnostics.json

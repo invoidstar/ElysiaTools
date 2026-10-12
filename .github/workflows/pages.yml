@@ -44,6 +44,8 @@ jobs:
           done
       - name: Generate searchable complete journal index
         run: node scripts/sync/build_journal_universe.mjs .cache/journal-metrics public/data/journal-universe.json
+      - name: Validate retained journal index and per-journal diagnostics
+        run: node scripts/sync/validate_journal_universe.mjs
       - name: Typecheck and build
         run: npm run build
       - name: Prepare GitHub Pages
