@@ -176,8 +176,8 @@ export function JournalPublicationCount({journal}:{journal:Journal}) {
 /** Small, auto-loaded five-year record for the comparison table. */
 export function JournalPublicationSummary({journal}:{journal:Journal}){
   const profile=useJournalOpenAlex(journal);
-  if(profile.status==='loading')return <span className="metric-missing">正在查询…</span>;
   if(profile.status==='error')return <span className="metric-missing">暂无可精确匹配的记录</span>;
+  if(profile.status!=='success')return <span className="metric-missing">正在查询…</span>;
   const currentYear=new Date().getFullYear();
   const years=Array.from({length:5},(_,i)=>currentYear-4+i);
   return <div className="publication-compact">
