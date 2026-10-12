@@ -5,6 +5,8 @@ import { ConferencePage, emptyConferenceFilters, type ConferenceFilters } from '
 import { JournalPage } from './features/JournalPage';
 import { AcademicPage } from './features/AcademicPage';
 import { ToolsPage } from './features/ToolsPage';
+import { IdentifierToolPage } from './features/IdentifierToolPage';
+import { BibtexToolPage } from './features/BibtexToolPage';
 import { DetailDrawer } from './components/DetailDrawer';
 import { JournalCompare } from './components/JournalCompare';
 import { calendarICS } from './lib/ics';
@@ -176,7 +178,13 @@ export default function App() {
       {activePage === 'conference' && <ConferencePage filters={confFilters} onFilters={setConfFilters} academic={academic} toggleFavorite={id=>toggleFavorite('conference',id)} openConference={id=>navigate('conference/'+id)} zone={zone} now={now} saveFilter={saveFilter}/>}
       {activePage === 'journal' && <JournalPage journals={journalList} loading={journalStatus==='loading'||journalStatus==='idle'} error={journalStatus==='error'} retry={()=>setJournalFetchTick(t=>t+1)} academic={academic} toggleFavorite={id=>toggleFavorite('journal',id)} toggleCompare={toggleCompare} openJournal={id=>navigate('journal/'+id)} openComparison={()=>setCompareOpen(true)} keyword={journalKeyword} setKeyword={setJournalKeyword}/>}
       {activePage === 'academic' && <AcademicPage journals={journalList} academic={academic} zone={zone} now={now} toggleFavorite={toggleFavorite} openConference={id=>navigate('conference/'+id)} openJournal={id=>navigate('journal/'+id)} exportData={()=>{downloadContent('elysiatools-backup.json',exportAcademic(academic),'application/json');setToast('备份已导出');}} importData={importData} exportCalendar={exportCalendar} restoreFilter={restoreFilter} removeFilter={id=>setAcademic(prev=>({...prev,savedFilters:prev.savedFilters.filter(x=>x.id!==id)}))} openComparison={()=>setCompareOpen(true)}/>}
-      {activePage === 'tools' && <ToolsPage/>}
+      {activePage === 'tools' && !detailId && <ToolsPage onNavigate={navigate}/>}
+      {activePage === 'tools' && detailId === 'identifier' && <IdentifierToolPage onBack={()=>navigate('tools')}/>}
+      {activePage === 'tools' && detailId === 'bibtex' && <BibtexToolPage onBack={()=>navigate('tools')}/>}
+      {activePage === 'tools' && detailId && !['identifier','bibtex'].includes(detailId) &&
+        <section className="unknown-route"><Search size={30}/><h2>暂未找到该科研工具</h2>
+          <button className="primary-button" onClick={()=>navigate('tools')}>返回科研工具 <ArrowRight size={16}/></button>
+        </section>}
       {!menu.some(item=>item.id===activePage) && <section className="unknown-route"><Search size={30}/><h2>暂未找到该页面</h2><button className="primary-button" onClick={()=>navigate('home')}>返回首页 <ArrowRight size={16}/></button></section>}
     </main>
     <footer className="site-footer"><div className="footer-inner"><div className="footer-identity"><span className="footer-mark">E.</span><div><strong>ElysiaTools</strong><small>Research, Made Easier.</small></div></div><div className="footer-links"><button onClick={()=>navigate('conference')}>Conferences</button><button onClick={()=>navigate('journal')}>Journals</button><button onClick={()=>navigate('academic')}>My Academic</button><a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/" target="_blank" rel="noopener noreferrer">CCF Source</a><a href="https://github.com/invoidstar/ElysiaTools" target="_blank" rel="noopener noreferrer">GitHub</a></div><div className="footer-bottom"><span>© 2026 ElysiaTools · Open source, built for research.</span><span><Check size={14}/> GitHub Pages · Static &amp; Privacy-first</span></div></div></footer>
