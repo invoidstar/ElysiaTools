@@ -26,7 +26,7 @@ export function JournalPage({ academic, toggleFavorite, toggleCompare, openJourn
     journals.filter(j =>
       matches(j, keyword) &&
       (!grade || (grade === 'unset' ? !j.ccf : j.ccf === grade)) &&
-      (!field || j.field === field) &&
+      (!field || j.field === field || j.additionalFields?.includes(field)) &&
       (!oa || j.oa === oa)
     ).sort((a, b) => {
       const rank = { A: 0, B: 1, C: 2 };

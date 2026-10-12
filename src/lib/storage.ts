@@ -19,7 +19,10 @@ export function normalizeAcademic(input: unknown): AcademicState {
       label: item.label.slice(0, 60),
       keyword: String(item.keyword ?? '').slice(0, 150),
       grade: String(item.grade ?? '').slice(0, 8),
-      field: String(item.field ?? '').slice(0, 100)
+      field: String(item.field ?? '').slice(0, 100),
+      status: ['upcoming', 'closed', 'tbd'].includes(String(item.status ?? '')) ? String(item.status) : '',
+      from: /^\d{4}-\d{2}-\d{2}$/.test(String(item.from ?? '')) ? String(item.from) : '',
+      to: /^\d{4}-\d{2}-\d{2}$/.test(String(item.to ?? '')) ? String(item.to) : ''
     }];
   }) : [];
   return {

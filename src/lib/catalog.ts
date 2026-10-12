@@ -19,7 +19,7 @@ export const getEdition = (conferenceId: string) =>
 export const matches = (venue: Conference | Journal, term: string) => {
   const query = term.trim().toLocaleLowerCase();
   if (!query) return true;
-  return [venue.acronym, venue.name, venue.field, venue.fieldZh, ...(venue.aliases || [])]
+  return [venue.acronym, venue.name, venue.field, venue.fieldZh, ...(venue.aliases || []), ...('additionalFields' in venue ? (venue.additionalFields || []) : [])]
     .filter(Boolean).join(' ').toLocaleLowerCase().includes(query);
 };
 
@@ -52,7 +52,7 @@ export function nextDeadline(conferenceId: string, now = Date.now()): DeadlineRo
     r.conference.id === conferenceId && submissionKinds.has(r.event.kind) && r.event.precision === 'minute'
   );
   const future = rows.filter(r => eventMillis(r.event) >= now);
-  return (future.find(r => r.event.kind === 'paper') || future.sort((a, b) => eventMillis(a.event) - eventMillis(b.event))[0] ||
+  return (future.sort((a, b) => eventMillis(a.event) - eventMillis(b.event))[0] ||
     rows.sort((a, b) => eventMillis(b.event) - eventMillis(a.event))[0]);
 }
 

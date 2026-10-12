@@ -154,10 +154,11 @@
           {
             "kind": "notification",
             "title": "Workshop proposal decision",
-            "precision": "date",
-            "original": "2026-12-23",
-            "timezone": "Etc/GMT+12",
-            "id": "workshop-2"
+            "precision": "minute",
+            "original": "2026-12-23T02:00",
+            "timezone": "UTC",
+            "id": "workshop-2",
+            "utc": "2026-12-23T02:00:00.000Z"
           }
         ],
         "pending": []
@@ -593,7 +594,7 @@
     "conferenceId": "neurips",
     "year": 2026,
     "location": "Sydney / Atlanta / Paris",
-    "meetingStart": "2026-12-08",
+    "meetingStart": "2026-12-06",
     "meetingEnd": "2026-12-13",
     "sourceId": "neurips-26",
     "verifiedAt": "2026-10-12",

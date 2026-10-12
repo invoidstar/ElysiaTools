@@ -107,13 +107,13 @@ export default function App() {
   function saveFilter() {
     const f = confFilters;
     const label = [f.keyword || '会议', f.grade ? 'CCF ' + f.grade : '', f.field, f.status === 'upcoming' ? '待截稿' : ''].filter(Boolean).join(' · ').slice(0, 60);
-    setAcademic(prev => ({ ...prev, savedFilters: [...prev.savedFilters.slice(-18), { id: String(Date.now()), label, keyword: f.keyword, grade: f.grade, field: f.field }] }));
+    setAcademic(prev => ({ ...prev, savedFilters: [...prev.savedFilters.slice(-18), { id: String(Date.now()), label, keyword: f.keyword, grade: f.grade, field: f.field, status: f.status, from: f.from, to: f.to }] }));
     setToast('已保存当前会议筛选');
   }
   function restoreFilter(id: string) {
     const filter = academic.savedFilters.find(f => f.id === id);
     if (!filter) return;
-    setConfFilters({ ...emptyConferenceFilters, keyword: filter.keyword, grade: filter.grade, field: filter.field });
+    setConfFilters({ ...emptyConferenceFilters, keyword: filter.keyword, grade: filter.grade, field: filter.field, status: filter.status || '', from: filter.from || '', to: filter.to || '' });
     navigate('conference');
   }
   function exportCalendar() {

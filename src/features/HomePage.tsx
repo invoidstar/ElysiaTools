@@ -27,7 +27,7 @@ export function HomePage({ academic, zone, now, onNavigate, onConferenceSearch, 
   }, [now]);
   const submitSearch = () => {
     if (!query.trim()) return onNavigate('conference');
-    if (searchMode === 'journal') onJournalSearch(query);
+    if (searchMode === 'journal' || (searchMode === 'all' && confMatches.length === 0 && journalMatches.length > 0)) onJournalSearch(query);
     else onConferenceSearch(query);
   };
   const areas = [

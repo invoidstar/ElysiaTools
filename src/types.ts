@@ -75,6 +75,7 @@ export interface Journal {
   aliases: string[];
   field: string;
   fieldZh: string;
+  additionalFields?: string[];
   publisher: string | null;
   ccf: Grade;
   ccfYear: number | null;
@@ -93,7 +94,7 @@ export interface AcademicState {
   conferences: string[];
   journals: string[];
   compare: string[];
-  savedFilters: Array<{ id: string; label: string; keyword: string; grade: string; field: string }>;
+  savedFilters: Array<{ id: string; label: string; keyword: string; grade: string; field: string; status?: string; from?: string; to?: string }>;
 }
 
 export interface DeadlineRow {
