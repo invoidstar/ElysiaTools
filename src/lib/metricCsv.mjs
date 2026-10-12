@@ -165,3 +165,55 @@ export function mergeImportedMetrics(base, incoming) {
   }
   return out;
 }
+
+/**
+ * Extract a source row's metrics without performing any identity join.
+ * The production catalogue must attach metrics to the exact resolved source
+ * row, not re-match the entire CSV to a second lossy title/ISSN index.
+ *
+ * System names and category-level semantics are intentionally independent.
+ */
+export function extractAnnualMetrics(row, dataset) {
+  if(!['cas','xinrui','jcr'].includes(dataset))
+    throw new Error('Unknown annual journal dataset: '+dataset);
+  const byHeader=new Map(Object.keys(row).map(key=>[normalizeHeader(key),key]));
+  const get=(...names)=>{
+    for(const name of names){
+      const key=byHeader.get(normalizeHeader(name));
+      if(key&&row[key])return clean(row[key]);
+    }
+    return '';
+  };
+  const result=[];
+  const add=(system,value,year,category='')=>{
+    if(!value)return;
+    const metric={system,value,year,category:clean(category)};
+    if(!result.some(m=>m.system===system&&m.year===year&&m.category===metric.category&&m.value===value))
+      result.push(metric);
+  };
+  if(dataset==='cas'){
+    const major=get('大类','大类学科','大类名称','大类中文名');
+    add('cas',findZone(get('大类分区')),2025,major);
+    for(let i=1;i<=6;i++){
+      const subject=get('小类'+i);
+      if(subject)add('cas',findZone(get('小类'+i+'分区')),2025,'小类:'+subject);
+    }
+  }else if(dataset==='xinrui'){
+    const major=get('大类中文名','大类英文名','大类');
+    add('xinrui',findZone(get('大类新锐分区')),2026,major);
+    const second=get('大类2中文名','大类2英文名');
+    if(second)add('xinrui',findZone(get('大类2新锐分区')),2026,'第二大类:'+second);
+    for(let i=1;i<=6;i++){
+      const subject=get('小类'+i+'中文名','小类'+i+'英文名');
+      if(subject)add('xinrui',findZone(get('小类'+i+'新锐分区')),2026,'小类:'+subject);
+    }
+  }else{
+    add('jif',findImpact(get('IF(2025)')),2025);
+    for(let i=1;i<=9;i++){
+      const subject=get('Category_'+i);
+      const quartile=findQuartile(get('IF Quartile(2025)_'+i));
+      if(quartile)add('jcr',quartile,2026,subject||'JCR category '+i);
+    }
+  }
+  return result;
+}
