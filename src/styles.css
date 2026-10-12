@@ -194,3 +194,33 @@
 @media(max-width:1000px){.metric-coverage-bars{grid-template-columns:repeat(2,1fr);gap:16px}.metric-coverage{padding:16px}}
 @media(max-width:800px){.metric-import{grid-column:span 2}.metric-import-actions{flex-direction:row}.metric-import-actions button{flex:1;min-width:0}}
 @media(max-width:580px){.metric-coverage-bars{gap:12px}.coverage-stat>span{font-size:10px}.metric-coverage>p{align-items:flex-start}.metric-import-actions{flex-direction:column}.journal-quick-metrics{margin:3px 0}.metric-import{grid-column:span 2}.acceptance-table th,.acceptance-table td{padding:9px 6px}}
+
+
+/* Journal provenance and automatic five-year OpenAlex publication history */
+.journal-homepage{display:inline-flex;flex-direction:column;align-items:flex-start;gap:5px;min-width:0}
+.homepage-provenance{font-size:10px;color:var(--faint);line-height:1.65;max-width:420px}
+.publication-trend{display:block;padding:18px 19px;margin-top:14px}
+.publication-heading{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.publication-heading .article-count-copy{flex:1;min-width:165px}
+.publication-heading .article-count-copy strong{display:block;font-size:15px;margin:4px 0}
+.publication-heading .article-count-copy small{font-size:10px;color:var(--muted);line-height:1.6}
+.publication-summary{display:flex;align-items:baseline;gap:10px;margin:21px 0 9px;flex-wrap:wrap}
+.publication-summary strong{font-size:25px;color:var(--primary);font-weight:800}
+.publication-summary span{font-size:10px;color:var(--muted)}
+.publication-year-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;align-items:stretch;min-height:188px;margin-top:10px}
+.publication-year{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;min-width:0}
+.publication-year>strong{font-size:13px;font-weight:750;color:var(--text);font-variant-numeric:tabular-nums}
+.publication-year>small{font-size:9px;color:var(--faint)}
+.publication-year>b{font-size:11px;color:var(--muted);font-weight:670}
+.publication-track{height:115px;max-width:55px;width:100%;border-radius:8px 8px 4px 4px;background:var(--surface-soft);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.publication-track>i{display:block;background:linear-gradient(180deg,var(--primary),#a4c9ef);border-radius:6px 6px 2px 2px;min-height:0;transition:height .35s ease}
+.publication-loading,.publication-error{display:flex;align-items:center;gap:10px;padding:23px 4px;font-size:11px;color:var(--muted)}
+.publication-error{color:var(--faint)}
+.publication-explain{font-size:10px;color:var(--muted);line-height:1.8;margin:14px 0 0}
+.journal-information-notice{font-size:10px;color:var(--faint);line-height:1.7;margin:11px 0 0}
+@media(max-width:580px){
+ .publication-trend{padding:14px 11px}
+ .publication-year-grid{gap:5px;min-height:155px}
+ .publication-track{height:90px}
+ .publication-year>strong{font-size:11px}
+}
