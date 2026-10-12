@@ -9,7 +9,7 @@ export const normalizeJournal = v => clean(v).toUpperCase().replace(/[^A-Z0-9]/g
 const normalizeHeader = v => clean(v).toLowerCase().replace(/[\s_\-()[\]\/（）]/g, '');
 const validISSN = v => /^\d{4}-\d{3}[\dX]$/i.test(clean(v)) ? clean(v).toUpperCase() : '';
 const findZone = v => {
-  const result = clean(v).match(/(?:^|[^\d])([1-4])\s*(?:区|區)(?:$|[^\d])/);
+  const result = clean(v).match(/^\s*([1-4])\s*(?:区|區|\[|$)/u);
   return result ? result[1] + '区' : '';
 };
 const findQuartile = v => /^Q[1-4]$/i.test(clean(v)) ? clean(v).toUpperCase() : '';
@@ -112,9 +112,27 @@ export function parseMetricFile(text, filename, journals) {
       if(!value)return;
       list.push({system,value,year,category:clean(category),sourceId:'user-import',license:'private-only',provenance:'user-provided'});
     };
-    const category=raw(row,['大类学科','大类名称','Category']);
-    if(isCas) add('cas',findZone(raw(row,['大类分区'])),2025,category);
-    if(isXr) add('xinrui',findZone(raw(row,['大类新锐分区'])),2026,category);
+    const category=raw(row,['大类','大类学科','大类名称','大类中文名','Category']);
+    if(isCas) {
+      add('cas',findZone(raw(row,['大类分区'])),2025,category);
+      for(let n=1;n<=6;n++){
+        const name=raw(row,['小类'+n]).trim();
+        const zone=findZone(raw(row,['小类'+n+'分区']));
+        if(name&&zone)add('cas',zone,2025,'小类：'+name);
+      }
+    }
+    if(isXr) {
+      add('xinrui',findZone(raw(row,['大类新锐分区'])),2026,
+        raw(row,['大类中文名','大类英文名'])||category);
+      const additionalMajor=findZone(raw(row,['大类2新锐分区']));
+      if(additionalMajor)add('xinrui',additionalMajor,2026,
+        '第二大类：'+(raw(row,['大类2中文名','大类2英文名'])||'其他'));
+      for(let n=1;n<=6;n++){
+        const name=raw(row,['小类'+n+'中文名','小类'+n+'英文名']);
+        const zone=findZone(raw(row,['小类'+n+'新锐分区']));
+        if(name&&zone)add('xinrui',zone,2026,'小类：'+name);
+      }
+    }
     add('cas',findZone(raw(row,['CAS2025','中科院2025'])),2025,category);
     add('xinrui',findZone(raw(row,['XR2026','新锐2026'])),2026,category);
     add('jcr',findQuartile(raw(row,['JCR2025','JCR2026'])),2026,category);

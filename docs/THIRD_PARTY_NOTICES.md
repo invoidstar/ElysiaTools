@@ -29,3 +29,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 - LetPub individual journal queries: a small number of individually source-linked, secondary XinRui 2026 factual results; no bulk copying of the LetPub database; https://www.letpub.com.cn/index.php?page=journalapp&view=search
 - CAS 2025, XinRui 2026, Clarivate JCR/JIF: independent, rights-restricted evaluation services. The web frontend does not republish their complete datasets. The CSV import facility accepts *user-held authorized data only*, held in that user's browser.
 - OpenAlex: optional client-side source-indexed work counts, not publisher-certified total article counts; https://openalex.org/
+
+
+## ShowJCR reference CSVs (user-triggered, browser-only)
+
+- Upstream: https://github.com/hitfyd/ShowJCR (GPL-3.0 for ShowJCR application code, **not evidence of licensing rights for upstream Clarivate/CAS/XinRui ranking databases**).
+- Pinned revision: `4687a8f608f20aaf004299992f5d347dba009361`.
+- The ElysiaTools repository includes **no source CSV mirror and no bulk ranking extract**. A visitor may opt in to downloading the three CSV files **to their own browser** if they have authorized use rights. This does not grant permission for publication or redistribution.
+- ElysiaTools imports only its own CSV parsing code; it does not incorporate ShowJCR GPL application code. The public catalog may contain independent bibliographic facts (journal title, ISSN, eISSN) matched against the secondary index, with provenance and original title cross-checking.
+- Official JCR licensing and redistribution questions should be directed to Clarivate: https://clarivate.com/academia-government/blog/a-quick-refresher-on-journal-citation-reports-use-cases-branding-and-terms-of-use/ .

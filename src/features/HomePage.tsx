@@ -43,7 +43,7 @@ export function HomePage({ academic, zone, now, onNavigate, onConferenceSearch, 
   return <div className="page-enter home-page">
     <section className="home-hero">
       <div className="hero-text">
-        <div className="hero-badge"><Sparkles size={15} /> ACADEMIC RESEARCH TOOLKIT <span>V1.2</span></div>
+        <div className="hero-badge"><Sparkles size={15} /> ACADEMIC RESEARCH TOOLKIT <span>V1.3</span></div>
         <h1>让科研信息<span className="headline-comma">，</span><br/><span>变得更简单<span className="accent-dot">.</span></span></h1>
         <p>会议截稿、期刊信息、学术分类与个人日程。<br/>一个精心整理的科研工具箱，帮助你专注于真正重要的研究。</p>
         <div className="hero-search-box">
@@ -92,7 +92,7 @@ export function HomePage({ academic, zone, now, onNavigate, onConferenceSearch, 
 
     <section className="home-section home-bottom-grid">
       <div className="update-panel"><div className="section-heading"><div><span className="section-overline">LATEST UPDATES / 05</span><h2>平台更新</h2></div><button className="inline-link" onClick={()=>onNavigate('tools')}>科研工具 <ArrowRight size={16}/></button></div>
-        <div className="update-row"><span className="update-date">2026.10.12</span><div><strong>年度录用统计与期刊指标查询升级</strong><p>681 条 CCF 推荐记录、1,062 条会议历史统计、本地分区导入</p></div><span className="update-tag">V1.1</span></div>
+        <div className="update-row"><span className="update-date">2026.10.12</span><div><strong>期刊三大分区支持本机一键同步</strong><p>292 本期刊 · 中科院 2025 / 新锐 2026 / JCR 2025 同步与筛选</p></div><span className="update-tag">V1.1</span></div>
         <div className="update-row"><span className="update-date">2026.04.09</span><div><strong>CCF 第七版目录作为分类基准</strong><p>保留目录年份，不混用旧版分类</p></div><span className="update-tag neutral">DATA</span></div>
       </div>
       <div className="my-radar-panel"><span className="section-overline">YOUR PERSONAL SPACE</span><div className="my-radar-orb"><Star size={24}/></div><h2>你的科研关注清单</h2><p>收藏 {academic.conferences.length} 场会议 · {academic.journals.length} 本期刊。你的研究日程由你掌握。</p><button onClick={()=>onNavigate('academic')}>前往 My Academic <ArrowRight size={17}/></button></div>

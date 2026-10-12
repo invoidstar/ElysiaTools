@@ -8,7 +8,7 @@
 
 ElysiaTools 是一套面向研究人员的免费科研信息查询与辅助工具，以 **Conference Explorer** 和 **Journal Explorer** 为核心，整合个人关注、截稿日历与轻量科研工具。无需账号或独立服务器，采用 React + TypeScript + Vite 构建并通过 GitHub Pages 部署。
 
-**Website:** https://invoidstar.github.io/ElysiaTools/ · [Data import & rights](docs/METRIC_IMPORT.md)
+**Website:** https://invoidstar.github.io/ElysiaTools/ · [One-click metric sync and rights](docs/METRIC_IMPORT.md)
 
 ## Features / 主要功能
 
@@ -16,7 +16,7 @@ ElysiaTools 是一套面向研究人员的免费科研信息查询与辅助工�
 | --- | --- |
 | **Home** | 会议与期刊统一搜索、CCF 全目录统计图、录用率趋势、近期截止日期、数据更新摘要 |
 | **Conference Explorer** | CCF 第七版 386 场会议、十大领域、A/B/C 分类；新增 1,062 条有出处的年度投稿/录用统计（官方与社区转录区分）；会议时间线、日历与 ICS 导出 |
-| **Journal Explorer** | 291 本 CCF 期刊（292 本含补充期刊）；CCF/CAS 2025/新锐 2026/JCR/JIF 独立指标，8 本公开新锐评级、期刊来源核验链接；**本地导入有授权的 CSV**，完整筛选和四刊对比；OpenAlex 发文量查询 |
+| **Journal Explorer** | 291 本 CCF 期刊（292 本含补充期刊）；补全 246 本期刊印刷 ISSN、250 本电子 ISSN；支持 ShowJCR 三份参考 CSV **网页内一键同步到本人浏览器**（须确认使用授权），独立展示 CAS 2025 / 新锐 2026 / JCR / JIF 各年份和大小类分区，保留授权本地导入、期刊对比与 OpenAlex 发文量查询 |
 | **My Academic** | 收藏会议和期刊、个人截止日期清单、筛选保存、JSON 导入/导出、个人 ICS 日历 |
 | **Research Utilities** | DOI / arXiv ID / ISSN 解析直达；其他工具按需逐步扩展 |
 | **Data integrity** | 681 条 CCF 目录完整性校验、历史录用率来源分类、CSV 精确期刊身份匹配、AoE、未公布日期 TBD、受限分区不公开批量转载 |
@@ -28,6 +28,10 @@ ElysiaTools 是一套面向研究人员的免费科研信息查询与辅助工�
 V1.1 已覆盖 **CCF 2026 第七版 681 条推荐记录**，包含 **386 场会议 + 295 条期刊领域推荐**。其中 4 本期刊属于跨领域重复推荐，按期刊身份去重为 **291 本 CCF 评级期刊**，额外保留 1 本不在本版目录中的 RA-L，因此期刊检索一共 **292 本**。不同领域的推荐等级在详情页全部保留。与此同时，收录了 **13 条有官方历史来源的录用率记录**，以及首批 8 届会议的 12 条投稿路径和 51 个日程节点。
 
 **2026-10-12 · V1.2 增量：** 已整理 **1,062 条会议年度统计**，覆盖 **273 场会议**，其中 1,049 条源自 [CCF-Deadlines](https://github.com/ccfddl/ccf-deadlines) 的 MIT 许可历史统计，附带原始网页来源。社区转录并不等同于本站逐条核实的官方数字，在图表和年度表格中会分别标记。与已有官方统计冲突的年份不自动覆盖（例如 AAAI 2025）。记录年份通常覆盖 2015—2026。
+
+**2026-10-12 · V1.3 分区同步：** 在 **Journal Explorer → 同步期刊评价数据** 展开同步面板，确认个人数据使用权限后，可以直接通过浏览器同步 [ShowJCR](https://github.com/hitfyd/ShowJCR) 固定版本的三份参考数据，无需逐本下载。我们已经独立检验原始 CSV 的结构与匹配规模，约有 **249 本期刊对应 CAS 2025、248 本对应新锐 2026、249 本对应 JCR 2025**（具体使用时以浏览器实际解析结果为准）。分区数据只保存在本地，不写入公开仓库或 GitHub Pages。联网同步失败时仍支持直接导入本地 CSV。
+
+**同期完善公开期刊身份字段：** 通过原始期刊标题的严格匹配，补充了 **246 本期刊的印刷 ISSN、250 本期刊的电子 ISSN**；身份字段取自公开可查的二级元数据，建议重要用途再次对照 ISSN 官方记录核验。已独立标注的公开 JIF/JCR 和少量新锐分区不受影响。
 
 **期刊分区的使用方式：** 当前公开仓库只收录允许公开展示的少量事实级元数据：**8 本期刊的新锐 2026 公开检索值**、部分出版社公开的 JIF/JCR；不声称已导入全部 291 本的中科院 2025 / JCR 完整表。界面会显示各分区的真实覆盖率，尚无数据的筛选项会禁用，而不是出现误导性的「0 条结果」。用户可在期刊页选择 **补充期刊分区数据**，导入其合法获得的 `FQBJCR2025-UTF8.csv` / `XR2026-UTF8.csv` / `JCR2025-UTF8.csv` 或本站 CSV 模板，完成完整的本地分区查询和筛选。导入仅在当前浏览器解析并持久化，**不上传或发布 CSV 原文**；详见 [分区数据导入指南](docs/METRIC_IMPORT.md)。
 
@@ -51,11 +55,15 @@ React 19 · TypeScript · Vite · Lucide Icons · JSON datasets · GitHub Action
 Repo layout:
 
 - **src/** — app, shared UI, conference / journal / academic / utility views
-- **data/** — CCF 2026 directory, journal metadata, 1,062 historical conference records + source entries, verified editions and permitted indicators
+- **data/** — CCF 2026 directory, improved ISSN/eISSN bibliographic facts, 1,062 historical conference records, official source records and permitted public indicators
 - **scripts/validate.mjs** — data integrity and AoE conversion checks
 - **scripts/sync/check_sources.py** — conservative official-source health monitoring
 - **tests/** — regression checks for date conversion and catalog consistency
 - **.github/workflows/** — build, validation, Pages deployment and scheduled source checks
+
+## Data sync and licensing
+
+Three ShowJCR reference CSVs (CAS 2025, XinRui 2026, JCR 2025 / JIF 2025) are **not vendored into this repository**. Clarivate and institutional ranking products may limit publication and redistribution even when a secondary copy is publicly downloadable. The interactive sync is opt-in, runs exclusively in the user's own browser, and requires the visitor to confirm authorized usage. The upstream source is pinned to commit `4687a8f608f20aaf004299992f5d347dba009361` for reproducibility. Files are obtained directly from GitHub Raw only on user action, matched by ISSN and normalized titles, and stored locally. Source details and manual fallback: [METRIC_IMPORT.md](docs/METRIC_IMPORT.md).
 
 ## Development
 

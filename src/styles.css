@@ -194,3 +194,38 @@
 @media(max-width:1000px){.metric-coverage-bars{grid-template-columns:repeat(2,1fr);gap:16px}.metric-coverage{padding:16px}}
 @media(max-width:800px){.metric-import{grid-column:span 2}.metric-import-actions{flex-direction:row}.metric-import-actions button{flex:1;min-width:0}}
 @media(max-width:580px){.metric-coverage-bars{gap:12px}.coverage-stat>span{font-size:10px}.metric-coverage>p{align-items:flex-start}.metric-import-actions{flex-direction:column}.journal-quick-metrics{margin:3px 0}.metric-import{grid-column:span 2}.acceptance-table th,.acceptance-table td{padding:9px 6px}}
+
+
+/* V1.3 · privacy-preserving, user-triggered reference-data sync */
+.content-page>.metric-import{margin:0 0 27px;background:var(--surface);border:1px solid color-mix(in srgb,var(--primary) 18%,var(--line));box-shadow:var(--shadow)}
+.content-page>.metric-import .metric-import-trigger{background:linear-gradient(115deg,var(--surface),color-mix(in srgb,var(--primary-soft) 48%,var(--surface)));padding:17px 22px;min-height:73px}
+.content-page>.metric-import .metric-import-trigger>svg{width:27px;height:27px;margin-right:4px}
+.content-page>.metric-import .metric-import-trigger strong{font-size:13px}
+.content-page>.metric-import .metric-import-trigger small{font-size:11px}
+.content-page>.metric-import .metric-import-inner{padding:22px 25px;gap:16px}
+.sync-ready-tag{display:inline-flex;align-items:center;gap:5px;background:color-mix(in srgb,#84c9ac 20%,var(--surface));color:#44896b;padding:6px 9px;border-radius:7px;font-size:10px;white-space:nowrap}
+.metric-import-intro a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}
+.reference-files{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.reference-file{display:flex;gap:11px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);background:var(--surface-soft);border-radius:10px}
+.reference-file-icon{background:var(--primary-soft);color:var(--primary);display:grid;place-items:center;width:35px;height:35px;flex-shrink:0;border-radius:10px}
+.reference-file-text{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
+.reference-file-text strong{font-size:11px;color:var(--text);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.reference-file-text small{font-size:9px;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.reference-file>a{color:var(--primary);padding:4px;display:grid;place-items:center}
+.sync-agreement{display:flex;align-items:flex-start;gap:11px;background:var(--surface-soft);border:1px solid var(--line);padding:14px 16px;border-radius:11px;cursor:pointer;font-size:11px;line-height:1.8;color:var(--muted)}
+.sync-agreement>input{margin:3px 0 0;flex-shrink:0;accent-color:var(--primary);height:16px;width:16px}
+.content-page>.metric-import .sync-button{align-self:flex-start;padding:12px 20px;font-size:12px}
+.sync-progress{display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:var(--muted);font-size:11px;padding:12px;background:var(--surface-soft);border-radius:9px}
+.sync-progress-heading{font-weight:700;color:var(--text);flex:1}
+.sync-progress>i{width:100%;height:5px;border-radius:8px;background:var(--line);overflow:hidden}
+.sync-progress>i b{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--primary),#99b6ed);transition:width .15s}
+.sync-timestamp{display:flex;align-items:center;gap:8px;font-size:10px;color:#6ba991;line-height:1.7;margin:0}
+.metric-import-divider{display:flex;align-items:center;gap:13px;color:var(--faint);font-size:10px}
+.metric-import-divider:before,.metric-import-divider:after{content:"";height:1px;background:var(--line);flex:1}
+.content-page>.metric-import .metric-import-actions{flex-direction:row;gap:10px}
+.content-page>.metric-import .metric-import-actions button{width:auto;min-width:180px;padding:10px 15px}
+.content-page>.metric-import .metric-external-links{gap:12px}
+.content-page>.metric-import .metric-import-credit{line-height:1.85}
+.content-page>.metric-import .import-report{padding:13px 17px;gap:8px}
+@media(max-width:950px){.reference-files{grid-template-columns:1fr}.reference-file{padding:10px}.reference-file-text strong{white-space:normal}.content-page>.metric-import .metric-import-inner{padding:18px}.content-page>.metric-import .metric-import-trigger{padding:15px}}
+@media(max-width:580px){.content-page>.metric-import .metric-import-actions{flex-direction:column;align-items:stretch}.content-page>.metric-import .metric-import-actions button{width:100%;min-width:0}.content-page>.metric-import .sync-button{width:100%}.content-page>.metric-import .metric-import-trigger small{font-size:9px}.content-page>.metric-import .metric-import-trigger strong{font-size:12px}.sync-ready-tag{font-size:9px;padding:5px}.content-page>.metric-import .metric-import-inner{padding:15px}.reference-file-text small{font-size:9px}}

@@ -56,6 +56,7 @@ export function JournalPage({ academic, toggleFavorite, toggleCompare, openJourn
     </div>
     <DirectoryViz type="journal" activeField={field} onField={value=>setFilter(setField,value)}/>
     <MetricCoverage/>
+    <MetricImportPanel/>
     <div className="explorer-layout">
       <aside className="filter-panel">
         <div className="panel-title"><SlidersHorizontal size={17} /><strong>筛选条件</strong><button className="text-button" onClick={() => { setKeyword(''); setGrade(''); setField(''); setOa(''); setPublisher(''); setIndicator(''); }}>重置</button></div>
@@ -78,7 +79,7 @@ export function JournalPage({ academic, toggleFavorite, toggleCompare, openJourn
           <option value="jif" disabled={count('jif')===0}>影响因子 · 已载入 {count('jif')} 本</option>
         </select>
         <div className="filter-footnote"><span className="tiny-dot" /> 无数据的评级筛选项会禁用。导入的授权 CSV 仅保存在本机，不会上传或公开。</div>
-        <MetricImportPanel/>
+
       </aside>
       <div className="results-panel">
         <div className="results-toolbar"><div><strong>{filtered.length}</strong><span> 条检索结果</span><small> · 按 CCF 等级整理</small></div><span className="muted small-text">已导入私有指标：{privateCount} 本 · 最多对比 4 本</span></div>

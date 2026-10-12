@@ -40,3 +40,11 @@ Add BibTeX cleaning, statistics, figure checks and CSV plots only after demonstr
 - Initial 8 individually source-linked public LetPub XinRui 2026 facts, kept distinct from official/authorized data.
 - Fully offline CSV/TSV import workflow for authorized CAS 2025, XinRui 2026 and JCR2025 datasets; local storage, exact identifier matching, nonempty per-system filter counts and rich comparisons.
 - Additional input parser tests and source integrity checks.
+
+
+## V1.3 — Authorized reference synchronization (2026-10-12)
+
+- Verified the upstream CAS 2025, XinRui 2026 and JCR 2025 CSV formats and expected overlap against 292 CCF-related journals.
+- Added a user-directed one-click **local** sync path pinned to a stable ShowJCR revision, with explicit permission acknowledgment and manual-file fallback when GitHub Raw is unreachable.
+- Corrected CAS bracketed zone values; preserved category-level CAS, XinRui and JCR classifications; marked synced third-party values separately from public and user-input metrics.
+- Improved the open identity catalog with 246 print ISSNs and 250 electronic ISSNs through exact-title bibliographic cross-reference without republishing a restricted ranking database.

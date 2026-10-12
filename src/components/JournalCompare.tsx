@@ -3,6 +3,7 @@ import { GradeTag } from './Common';
 import { ccfEntries, getSource, journals } from '../lib/catalog';
 import { downloadContent } from '../lib/storage';
 import { useJournalMetrics } from '../lib/metricsContext';
+import { SHOWJCR_REPOSITORY } from '../lib/showJcrSources';
 import type { AcademicState, Journal } from '../types';
 
 interface Props { academic: AcademicState; onClose: () => void; toggleCompare: (id: string) => void; }
@@ -13,7 +14,7 @@ export function JournalCompare({ academic, onClose, toggleCompare }: Props) {
   const {getMetric}=useJournalMetrics();
   const indicator = (j:Journal,system:string)=>{
     const value=getMetric(j,system);
-    return value ? value.value+' · '+value.year+(value.sourceId==='user-import'?' · 本地':'') : '—';
+    return value ? value.value+' · '+value.year+(['user-import','showjcr-local'].includes(value.sourceId)?' · 本机':'') : '—';
   };
   const selected = academic.compare.map(id => journals.find(j => j.id === id)).filter((j): j is Journal => Boolean(j));
   const exportCSV = () => {
@@ -56,8 +57,10 @@ export function JournalCompare({ academic, onClose, toggleCompare }: Props) {
   ];
   function metricCell(j:Journal,system:string,fallback?:string){
     const value=getMetric(j,system);
-    const url=value&&value.sourceId!=='user-import'?getSource(value.sourceId)?.url:fallback;
-    return <div className="comparison-metric"><strong className={value?'metric-known':'metric-missing'}>{value ? value.value : '—'}</strong><small>{value?('指标年度 '+value.year+(value.sourceId==='user-import'?' · 私人数据':'')):'尚未载入数据'}</small>{url&&<a href={url} target="_blank" rel="noopener noreferrer" className="micro-link">查看来源 <ExternalLink size={12}/></a>}</div>;
+    const synced=value?.sourceId==='showjcr-local';
+    const local=value?.sourceId==='user-import';
+    const url=synced?SHOWJCR_REPOSITORY:local?fallback:value?getSource(value.sourceId)?.url:fallback;
+    return <div className="comparison-metric"><strong className={value?'metric-known':'metric-missing'}>{value ? value.value : '—'}</strong><small>{value?('指标年度 '+value.year+(synced?' · 第三方本机参考':local?' · 私人数据':'')):'尚未载入数据'}</small>{url&&<a href={url} target="_blank" rel="noopener noreferrer" className="micro-link">查看来源 <ExternalLink size={12}/></a>}</div>;
   }
   return <div className="modal-backdrop" onClick={onClose}><section className="comparison-modal" role="dialog" aria-modal="true" aria-label="期刊横向比较" onClick={e=>e.stopPropagation()}>
     <div className="modal-heading"><div><div className="eyebrow"><GitCompareArrows size={16} /> JOURNAL COMPARISON</div><h2>期刊横向比较</h2><p>CCF、JCR、2025 中科院历史分区和 2026 新锐分区分别记录，空缺不推测。</p></div><button className="icon-button" onClick={onClose} aria-label="关闭对比"><X size={21} /></button></div>

@@ -5,7 +5,7 @@ export interface ImportedMetric {
   category: string;
   sourceId: string;
   license: string;
-  provenance: 'user-provided';
+  provenance: 'user-provided' | 'third-party-personal';
 }
 export interface ImportStats {
   file: string;

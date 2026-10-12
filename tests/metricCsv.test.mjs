@@ -60,3 +60,47 @@ test('private merge updates only matching system, edition and category',()=>{
   assert.equal(r.tro.length,2);
   assert.equal(r.tro.find(x=>x.system==='cas').value,'2区');
 });
+
+
+test('ShowJCR CAS 2025 bracketed rank format is converted to the correct large and small divisions',()=>{
+  const csv=[
+    'Journal,年份,ISSN/EISSN,Review,大类,大类分区,Top,小类1,小类1分区,小类2,小类2分区',
+    '"IEEE Transactions on Robotics",2025,1552-3098/1552-3098,否,计算机科学,"1 [14/750]",是,ROBOTICS,"1 [4/56]",ENGINEERING,"2 [89/200]"'
+  ].join('\n');
+  const result=parseMetricFile(csv,'FQBJCR2025-UTF8.csv',journals);
+  assert.equal(result.stats.matched,1);
+  const metrics=result.records.tro.filter(x=>x.system==='cas');
+  assert.equal(metrics.length,3);
+  assert.equal(metrics.find(m=>m.category==='计算机科学').value,'1区');
+  assert.ok(metrics.some(m=>m.category==='小类：ROBOTICS'&&m.value==='1区'));
+  assert.ok(metrics.some(m=>m.category==='小类：ENGINEERING'&&m.value==='2区'));
+});
+
+test('ShowJCR XinRui 2026 can parse category-dependent divisions without mixing publishers',()=>{
+  const csv=[
+    'Journal,年份,ISSN,EISSN,大类中文名,大类新锐分区,大类2中文名,大类2新锐分区,小类1中文名,小类1新锐分区',
+    '"IEEE Transactions on Robotics",2026,1552-3098,1552-3098,计算机科学,2 区,工程技术,1 区,机器人学,1 区'
+  ].join('\n');
+  const result=parseMetricFile(csv,'XR2026-UTF8.csv',journals);
+  const metrics=result.records.tro.filter(x=>x.system==='xinrui');
+  assert.equal(metrics.length,3);
+  assert.ok(metrics.some(m=>m.category==='计算机科学'&&m.value==='2区'));
+  assert.ok(metrics.some(m=>m.category==='第二大类：工程技术'&&m.value==='1区'));
+  assert.ok(metrics.some(m=>m.category==='小类：机器人学'&&m.value==='1区'));
+});
+
+test('import refuses duplicate journal names that are ambiguous across different IDs',()=>{
+  const duplicate=[...journals,{id:'duplicate',name:'IEEE Transactions on Robotics',aliases:[],issn:null,eissn:null}];
+  const result=parseMetricFile('Journal,CAS2025\n"IEEE Transactions on Robotics",2区\n',
+    'template.csv',duplicate);
+  assert.equal(result.stats.matched,0);
+  assert.equal(result.stats.unmatched,1);
+});
+
+test('journal identifier crosswalk is sufficiently complete for private syncing',()=>{
+  // The public crosswalk contains only bibliographic ISSN and publisher facts.
+  const data=JSON.parse(readFileSync(new URL('../data/journals.json',import.meta.url),'utf8'));
+  assert.ok(data.filter(j=>j.issn).length>=240);
+  assert.ok(data.filter(j=>j.eissn).length>=240);
+  assert.equal(data.length,292);
+});
