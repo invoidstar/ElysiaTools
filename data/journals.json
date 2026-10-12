@@ -1,5 +1,643 @@
 [
   {
+    "id": "aamas",
+    "acronym": "AAMAS",
+    "name": "Autonomous Agents and Multi-Agent Systems",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/aamas/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "ai",
+    "acronym": "AI",
+    "name": "Artificial Intelligence",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ai/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "A",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "aim",
+    "acronym": "AIM",
+    "name": "Artificial Intelligence in Medicine",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/artmed/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "applied-intelligence",
+    "acronym": "Applied Intelligence",
+    "name": "Applied Intelligence",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/apin/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "artificial-life",
+    "acronym": "Artificial Life",
+    "name": "Artificial Life",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "MIT Press",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/alife/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "computational-intelligence",
+    "acronym": "Computational Intelligence",
+    "name": "Computational Intelligence",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Wiley",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ci/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "computational-linguistics",
+    "acronym": "Computational Linguistics",
+    "name": "Computational Linguistics",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "MIT Press",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/coling/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "computer-speech-language",
+    "acronym": "Computer Speech & Language",
+    "name": "Computer Speech & Language",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/csl/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "connection-science",
+    "acronym": "Connection Science",
+    "name": "Connection Science",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Taylor & Francis",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/connection/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "cviu",
+    "acronym": "CVIU",
+    "name": "Computer Vision and Image Understanding",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cviu/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "dss",
+    "acronym": "DSS",
+    "name": "Decision Support Systems",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/dss/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "eaai",
+    "acronym": "EAAI",
+    "name": "Engineering Applications of Artificial Intelligence",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/eaai/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "eswa",
+    "acronym": "ESWA",
+    "name": "Expert Systems with Applications",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/eswa/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
+  },
+  {
+    "id": "evolutionary-computation",
+    "acronym": "Evolutionary Computation",
+    "name": "Evolutionary Computation",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "MIT Press",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ec/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "expert-systems",
+    "acronym": "Expert Systems",
+    "name": "Expert Systems",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Blackwell/Wiley",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/es/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
+  },
+  {
+    "id": "fuzzy-sets-and-systems",
+    "acronym": "Fuzzy Sets and Systems",
+    "name": "Fuzzy Sets and Systems",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/fss/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 12
+      }
+    ]
+  },
+  {
+    "id": "ida",
+    "acronym": "IDA",
+    "name": "Intelligent Data Analysis",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "IOS Press",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ida/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 17
+      }
+    ]
+  },
+  {
+    "id": "ieee-transactions-on-cybernetics",
+    "acronym": "IEEE Transactions on Cybernetics",
+    "name": "IEEE Transactions on Cybernetics",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tcyb/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "iet-signal-processing",
+    "acronym": "IET Signal Processing",
+    "name": "IET Signal Processing",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "IET",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/iet-spr/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 15
+      }
+    ]
+  },
+  {
+    "id": "iet-cvi",
+    "acronym": "IET-CVI",
+    "name": "IET Computer Vision",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "IET",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/iet-cvi/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 14
+      }
+    ]
+  },
+  {
+    "id": "ijar",
+    "acronym": "IJAR",
+    "name": "International Journal of Approximate Reasoning",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijar/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 13
+      }
+    ]
+  },
+  {
+    "id": "ijcia",
+    "acronym": "IJCIA",
+    "name": "International Journal of Computational Intelligence and Applications",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "World Scientific",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijcia/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 18
+      }
+    ]
+  },
+  {
     "id": "ijcv",
     "acronym": "IJCV",
     "name": "International Journal of Computer Vision",
@@ -17,7 +655,248 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/ijcv/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "A",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "ijdar",
+    "acronym": "IJDAR",
+    "name": "International Journal on Document Analysis and Recognition",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijdar/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 23
+      }
+    ]
+  },
+  {
+    "id": "ijns",
+    "acronym": "IJNS",
+    "name": "International Journal of Neural Systems",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "World Scientific",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijns/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 20
+      }
+    ]
+  },
+  {
+    "id": "ijprai",
+    "acronym": "IJPRAI",
+    "name": "International Journal of Pattern Recognition and Artificial Intelligence",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "World Scientific",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijprai/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 21
+      }
+    ]
+  },
+  {
+    "id": "ijufks",
+    "acronym": "IJUFKS",
+    "name": "International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "World Scientific",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/ijufks/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 22
+      }
+    ]
+  },
+  {
+    "id": "ivc",
+    "acronym": "IVC",
+    "name": "Image and Vision Computing",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ivc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 16
+      }
+    ]
+  },
+  {
+    "id": "jair",
+    "acronym": "JAIR",
+    "name": "Journal of Artificial Intelligence Research",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "AAAI",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jair/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 14
+      }
+    ]
+  },
+  {
+    "id": "jats",
+    "acronym": "JATS",
+    "name": "ACM Journal on Autonomous Transportation Systems",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": null,
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 39
+      }
+    ]
+  },
+  {
+    "id": "jetai",
+    "acronym": "JETAI",
+    "name": "Journal of Experimental and Theoretical Artificial Intelligence",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Taylor & Francis",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jetai/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 24
+      }
+    ]
   },
   {
     "id": "jmlr",
@@ -37,7 +916,422 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/jmlr/",
     "sourceId": "ccf-2026",
     "identifierSource": "https://portal.issn.org/",
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "A",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "journal-of-automated-reasoning",
+    "acronym": "Journal of Automated Reasoning",
+    "name": "Journal of Automated Reasoning",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jar/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 15
+      }
+    ]
+  },
+  {
+    "id": "jslhr",
+    "acronym": "JSLHR",
+    "name": "Journal of Speech, Language, and Hearing Research",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "American Speech-Language Hearing Association",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://jslhr.pubs.asha.org/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 16
+      }
+    ]
+  },
+  {
+    "id": "kbs",
+    "acronym": "KBS",
+    "name": "Knowledge-Based Systems",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/kbs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 25
+      }
+    ]
+  },
+  {
+    "id": "machine-learning",
+    "acronym": "Machine Learning",
+    "name": "Machine Learning",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ml/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 17
+      }
+    ]
+  },
+  {
+    "id": "machine-translation",
+    "acronym": "Machine Translation",
+    "name": "Machine Translation",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/mt/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 26
+      }
+    ]
+  },
+  {
+    "id": "machine-vision-and-applications",
+    "acronym": "Machine Vision and Applications",
+    "name": "Machine Vision and Applications",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/mva/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 27
+      }
+    ]
+  },
+  {
+    "id": "natural-computing",
+    "acronym": "Natural Computing",
+    "name": "Natural Computing",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/nc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 28
+      }
+    ]
+  },
+  {
+    "id": "nca",
+    "acronym": "NCA",
+    "name": "Neural Computing and Applications",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/nca/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 30
+      }
+    ]
+  },
+  {
+    "id": "neural-computation",
+    "acronym": "Neural Computation",
+    "name": "Neural Computation",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "MIT Press",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/neco/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 18
+      }
+    ]
+  },
+  {
+    "id": "neural-networks",
+    "acronym": "Neural Networks",
+    "name": "Neural Networks",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/nn/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 19
+      }
+    ]
+  },
+  {
+    "id": "neurocomputing",
+    "acronym": "Neurocomputing",
+    "name": "Neurocomputing",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijon/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 32
+      }
+    ]
+  },
+  {
+    "id": "nle",
+    "acronym": "NLE",
+    "name": "Natural Language Engineering",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Cambridge University Press",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/nle/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 29
+      }
+    ]
+  },
+  {
+    "id": "npl",
+    "acronym": "NPL",
+    "name": "Neural Processing Letters",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/npl/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 31
+      }
+    ]
+  },
+  {
+    "id": "paa",
+    "acronym": "PAA",
+    "name": "Pattern Analysis and Applications",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/paa/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 33
+      }
+    ]
   },
   {
     "id": "pr",
@@ -57,7 +1351,103 @@
     "indexUrl": "http://dblp.uni-trier.de/db/conf/par/",
     "sourceId": "ccf-2026",
     "identifierSource": "https://portal.issn.org/",
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 20
+      }
+    ]
+  },
+  {
+    "id": "prl",
+    "acronym": "PRL",
+    "name": "Pattern Recognition Letters",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/prl/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 34
+      }
+    ]
+  },
+  {
+    "id": "soft-computing",
+    "acronym": "Soft Computing",
+    "name": "Soft Computing",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/soco/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 35
+      }
+    ]
+  },
+  {
+    "id": "tac",
+    "acronym": "TAC",
+    "name": "IEEE Transactions on Affective Computing",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/taffco/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
   },
   {
     "id": "tacl",
@@ -77,7 +1467,74 @@
     "indexUrl": "https://dblp.org/db/journals/tacl/index.html",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 21
+      }
+    ]
+  },
+  {
+    "id": "tallip",
+    "acronym": "TALLIP",
+    "name": "ACM Transactions on Asian and Low-Resource Language Information Processing",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/talip/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "tap",
+    "acronym": "TAP",
+    "name": "ACM Transactions on Applied Perception",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tap/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
   },
   {
     "id": "taslp",
@@ -97,7 +1554,161 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/taslp/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "tec",
+    "acronym": "TEC",
+    "name": "IEEE Transactions on Evolutionary Computation",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tec/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
+  },
+  {
+    "id": "telo",
+    "acronym": "TELO",
+    "name": "ACM Transactions on Evolutionary Learning and Optimization",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/telo/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 38
+      }
+    ]
+  },
+  {
+    "id": "tfs",
+    "acronym": "TFS",
+    "name": "IEEE Transactions on Fuzzy Systems",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tfs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
+  },
+  {
+    "id": "tg",
+    "acronym": "TG",
+    "name": "IEEE Transactions on Games",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tciaig/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 13
+      }
+    ]
+  },
+  {
+    "id": "tiis",
+    "acronym": "TIIS",
+    "name": "ACM Transactions on Interactive Intelligent Systems",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/tiis/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 37
+      }
+    ]
   },
   {
     "id": "tnnls",
@@ -117,7 +1728,16 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tnn/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 12
+      }
+    ]
   },
   {
     "id": "tpami",
@@ -137,7 +1757,606 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/pami/",
     "sourceId": "ccf-2026",
     "identifierSource": "https://portal.issn.org/",
-    "indicators": []
+    "indicators": [
+      {
+        "system": "jif",
+        "value": "20.4",
+        "year": 2025,
+        "sourceId": "journal-ieee-2025",
+        "category": "Computer Science, Artificial Intelligence",
+        "license": "publisher-public"
+      }
+    ],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "A",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "wi",
+    "acronym": "WI",
+    "name": "Web Intelligence",
+    "aliases": [],
+    "field": "Artificial Intelligence",
+    "fieldZh": "人工智能",
+    "publisher": "IOS Press",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/wias/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 36
+      }
+    ]
+  },
+  {
+    "id": "ir",
+    "acronym": "（原 IR）",
+    "name": "Discover Computing（原 Information Retrieval Journal）",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ir/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "aei",
+    "acronym": "AEI",
+    "name": "Advanced Engineering Informatics",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/aei/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "dke",
+    "acronym": "DKE",
+    "name": "Data & Knowledge Engineering",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/dke/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 4
+      },
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "B",
+        "year": 2026,
+        "seq": 5
+      }
+    ],
+    "additionalFields": [
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "id": "dmkd",
+    "acronym": "DMKD",
+    "name": "Data Mining and Knowledge Discovery",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/datamine/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "dpd",
+    "acronym": "DPD",
+    "name": "Distributed and Parallel Databases",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/dpd/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "dse",
+    "acronym": "DSE",
+    "name": "Data Science and Engineering",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "CCF/Springer Nature",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/dase/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 14
+      }
+    ]
+  },
+  {
+    "id": "ejis",
+    "acronym": "EJIS",
+    "name": "European Journal of Information Systems",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ejis/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "geoinformatica",
+    "acronym": "GeoInformatica",
+    "name": "GeoInformatica",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/geoinformatica/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "i-m",
+    "acronym": "I&M",
+    "name": "Information & Management",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/iam/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "ijcis",
+    "acronym": "IJCIS",
+    "name": "International Journal of Cooperative Information Systems",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "World Scientific",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijcis/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "ijgis",
+    "acronym": "IJGIS",
+    "name": "International Journal of Geographical Information Science",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Taylor & Francis",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/gis/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "ijis",
+    "acronym": "IJIS",
+    "name": "International Journal of Intelligent Systems",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Wiley",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijis/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 7
+      },
+      {
+        "field": "Artificial Intelligence",
+        "fieldZh": "人工智能",
+        "grade": "C",
+        "year": 2026,
+        "seq": 19
+      }
+    ],
+    "additionalFields": [
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "id": "ijkm",
+    "acronym": "IJKM",
+    "name": "International Journal of Knowledge Management",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "IGI",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijkm/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "ijswis",
+    "acronym": "IJSWIS",
+    "name": "International Journal on Semantic Web and Information Systems",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "IGI",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijswis/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "information-sciences",
+    "acronym": "Information Sciences",
+    "name": "Information Sciences",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/isci/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "ipl",
+    "acronym": "IPL",
+    "name": "Information Processing Letters",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ipl/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 3
+      },
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 5
+      }
+    ],
+    "additionalFields": [
+      "Theory"
+    ]
+  },
+  {
+    "id": "ipm",
+    "acronym": "IPM",
+    "name": "Information Processing and Management",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ipm/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "is",
+    "acronym": "IS",
+    "name": "Information Systems",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/is/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
   },
   {
     "id": "jasist",
@@ -157,7 +2376,219 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/jasis/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
+  },
+  {
+    "id": "jcis",
+    "acronym": "JCIS",
+    "name": "Journal of Computer Information Systems",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "IACIS",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jcis/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
+  },
+  {
+    "id": "jdm",
+    "acronym": "JDM",
+    "name": "Journal of Database Management",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "IGI-Global",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jdm/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
+  },
+  {
+    "id": "jgitm",
+    "acronym": "JGITM",
+    "name": "Journal of Global Information Technology Management",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Ivy League Publishing",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/jgim/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 12
+      }
+    ]
+  },
+  {
+    "id": "jiis",
+    "acronym": "JIIS",
+    "name": "Journal of Intelligent Information Systems",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jiis/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 13
+      }
+    ]
+  },
+  {
+    "id": "jsis",
+    "acronym": "JSIS",
+    "name": "The Journal of Strategic Information Systems",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jsis/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 14
+      }
+    ]
+  },
+  {
+    "id": "jws",
+    "acronym": "JWS",
+    "name": "Journal of Web Semantics",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ws/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 12
+      }
+    ]
+  },
+  {
+    "id": "kais",
+    "acronym": "KAIS",
+    "name": "Knowledge and Information Systems",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/kais/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 13
+      }
+    ]
   },
   {
     "id": "tist",
@@ -177,7 +2608,62 @@
     "indexUrl": "https://dblp.uni-trier.de/db/journals/tist/index.html",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [
+      {
+        "system": "jif",
+        "value": "6.6",
+        "year": 2024,
+        "sourceId": "journal-acm-2024",
+        "category": "Computer Science, Artificial Intelligence",
+        "license": "publisher-public"
+      },
+      {
+        "system": "jcr",
+        "value": "Q1",
+        "year": 2025,
+        "sourceId": "journal-acm-2024",
+        "category": "Computer Science, Artificial Intelligence",
+        "license": "publisher-public"
+      }
+    ],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 15
+      }
+    ]
+  },
+  {
+    "id": "tkdd",
+    "acronym": "TKDD",
+    "name": "ACM Transactions on Knowledge Discovery from Data",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tkdd/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
   },
   {
     "id": "tkde",
@@ -197,7 +2683,45 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tkde/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "A",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "tods",
+    "acronym": "TODS",
+    "name": "ACM Transactions on Database Systems",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "ACM",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tods/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "A",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
   },
   {
     "id": "tois",
@@ -217,7 +2741,91 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tois/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [
+      {
+        "system": "jif",
+        "value": "9.1",
+        "year": 2024,
+        "sourceId": "journal-acm-2024",
+        "category": "Computer Science, Information Systems",
+        "license": "publisher-public"
+      },
+      {
+        "system": "jcr",
+        "value": "Q1",
+        "year": 2025,
+        "sourceId": "journal-acm-2024",
+        "category": "Computer Science, Information Systems",
+        "license": "publisher-public"
+      }
+    ],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "A",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "tors",
+    "acronym": "TORS",
+    "name": "ACM Transactions on Recommender Systems",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/tors/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "C",
+        "year": 2026,
+        "seq": 16
+      }
+    ]
+  },
+  {
+    "id": "tweb",
+    "acronym": "TWEB",
+    "name": "ACM Transactions on the Web",
+    "aliases": [],
+    "field": "Data & IR",
+    "fieldZh": "数据库/数据挖掘/内容检索",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tweb/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "B",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
   },
   {
     "id": "vldbj",
@@ -237,7 +2845,567 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/vldb/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Data & IR",
+        "fieldZh": "数据库/数据挖掘/内容检索",
+        "grade": "A",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "c-g",
+    "acronym": "C&G",
+    "name": "Computers & Graphics",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cg/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "cad",
+    "acronym": "CAD",
+    "name": "Computer-Aided Design",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cad/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "B",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "cagd",
+    "acronym": "CAGD",
+    "name": "Computer Aided Geometric Design",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cagd/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "B",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "cavw",
+    "acronym": "CAVW",
+    "name": "Computer animation & virtual worlds",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Wiley",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/jvca/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "cgf",
+    "acronym": "CGF",
+    "name": "Computer Graphics Forum",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Wiley",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cgf/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "B",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "cgta",
+    "acronym": "CGTA",
+    "name": "Computational Geometry: Theory and Applications",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/comgeo/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "cvmj",
+    "acronym": "CVMJ",
+    "name": "Computational Visual Media",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "清华大学出版社/IEEE（原 Tsinghua University/Springer）",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/cvm/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "B",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "dcg",
+    "acronym": "DCG",
+    "name": "Discrete & Computational Geometry",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/dcg/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "gmod",
+    "acronym": "GMOD",
+    "name": "Graphical Models",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cvgip/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 15
+      }
+    ]
+  },
+  {
+    "id": "iet-ipr",
+    "acronym": "IET-IPR",
+    "name": "IET Image Processing",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "IET",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/iet-ipr/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "image",
+    "acronym": "IMAGE",
+    "name": "Signal Processing: Image Communication",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/spic/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
+  },
+  {
+    "id": "jasa",
+    "acronym": "JASA",
+    "name": "The Journal of the Acoustical Society of America",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "AIP",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://scitation.aip.org/content/asa/journal/jasa",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "B",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "jvcir",
+    "acronym": "JVCIR",
+    "name": "Journal of Visual Communication and Image Representation",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jvcir/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "ms",
+    "acronym": "MS",
+    "name": "Multimedia Systems",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/mms/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "mta",
+    "acronym": "MTA",
+    "name": "Multimedia Tools and Applications",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/mta/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "sigpro",
+    "acronym": "SIGPRO",
+    "name": "Signal Processing",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/sigpro/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
+  },
+  {
+    "id": "siims",
+    "acronym": "SIIMS",
+    "name": "SIAM Journal on Imaging Sciences",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "SIAM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/siamis/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "B",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "specom",
+    "acronym": "SPECOM",
+    "name": "Speech Communication",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/speech/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "B",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "spl",
+    "acronym": "SPL",
+    "name": "IEEE Signal Processing Letters",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/spl/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
   },
   {
     "id": "tcsvt",
@@ -257,7 +3425,16 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tcsv/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "B",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
   },
   {
     "id": "tip",
@@ -277,7 +3454,16 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tip/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "A",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
   },
   {
     "id": "tmm",
@@ -297,7 +3483,16 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tmm/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "A",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
   },
   {
     "id": "tog",
@@ -317,7 +3512,33 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tog/",
     "sourceId": "ccf-2026",
     "identifierSource": "https://portal.issn.org/",
-    "indicators": []
+    "indicators": [
+      {
+        "system": "jif",
+        "value": "9.5",
+        "year": 2024,
+        "sourceId": "journal-acm-2024",
+        "category": "Computer Science, Software Engineering",
+        "license": "publisher-public"
+      },
+      {
+        "system": "jcr",
+        "value": "Q1",
+        "year": 2025,
+        "sourceId": "journal-acm-2024",
+        "category": "Computer Science, Software Engineering",
+        "license": "publisher-public"
+      }
+    ],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "A",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
   },
   {
     "id": "tomm",
@@ -340,6 +3561,51 @@
     "indicators": [],
     "additionalFields": [
       "Networking"
+    ],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "B",
+        "year": 2026,
+        "seq": 2
+      },
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "B",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "tvc",
+    "acronym": "TVC",
+    "name": "The Visual Computer",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/vc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 12
+      }
     ]
   },
   {
@@ -360,7 +3626,1415 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tvcg/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "A",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "vi",
+    "acronym": "VI",
+    "name": "Visual Informatics",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "浙江大学出版社",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/vi/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 13
+      }
+    ]
+  },
+  {
+    "id": "vrih",
+    "acronym": "VRIH",
+    "name": "Virtual Reality & Intelligent Hardware",
+    "aliases": [],
+    "field": "Graphics",
+    "fieldZh": "计算机图形学与多媒体",
+    "publisher": "中国科技出版社/北京航空航天大学",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/vrih/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Graphics",
+        "fieldZh": "计算机图形学与多媒体",
+        "grade": "C",
+        "year": 2026,
+        "seq": 14
+      }
+    ]
+  },
+  {
+    "id": "bit",
+    "acronym": "BIT",
+    "name": "Behaviour & Information Technology",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "Taylor & Francis",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/behaviourIT/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "C",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "ccf-tpci",
+    "acronym": "CCF TPCI",
+    "name": "CCF Transactions on Pervasive Computing and Interaction",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "CCF/Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/ccftpci/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "B",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "cscw",
+    "acronym": "CSCW",
+    "name": "Computer Supported Cooperative Work",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cscw/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "B",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "hci",
+    "acronym": "HCI",
+    "name": "Human-Computer Interaction",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "Taylor & Francis",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/hhci/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "B",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "ieee-transactions-on-human-machine-systems",
+    "acronym": "IEEE Transactions on Human-Machine Systems",
+    "name": "IEEE Transactions on Human-Machine Systems",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/thms/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "B",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "ijhci",
+    "acronym": "IJHCI",
+    "name": "International Journal of Human-Computer Interaction",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "Taylor & Francis",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijhci/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "B",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "ijhcs",
+    "acronym": "IJHCS",
+    "name": "International Journal of Human-Computer Studies",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "Elsevier",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijmms/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "A",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "iwc",
+    "acronym": "IWC",
+    "name": "Interacting with Computers",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "Oxford University Press",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/iwc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "B",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "pacmhci",
+    "acronym": "PACMHCI",
+    "name": "Proceedings of the ACM on Human-Computer Interaction",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/pacmhci/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "C",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "pmc",
+    "acronym": "PMC",
+    "name": "Pervasive and Mobile Computing",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/percom/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "C",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "puc",
+    "acronym": "PUC",
+    "name": "Personal and Ubiquitous Computing",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/puc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "C",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "thri",
+    "acronym": "THRI",
+    "name": "ACM Transactions on Human-Robot Interaction",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/thri/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "C",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "tochi",
+    "acronym": "TOCHI",
+    "name": "ACM Transactions on Computer-Human Interaction",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "ACM",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tochi/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "A",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "tsmc",
+    "acronym": "TSMC",
+    "name": "IEEE Transactions on Systems, Man,and Cybernetics: Systems",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/tsmc/tsmc12.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "B",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "umuai",
+    "acronym": "UMUAI",
+    "name": "User Modeling and User-Adapted Interaction",
+    "aliases": [],
+    "field": "HCI",
+    "fieldZh": "人机交互与普适计算",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/umuai/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "HCI",
+        "fieldZh": "人机交互与普适计算",
+        "grade": "B",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "acm-dlt",
+    "acronym": "ACM DLT",
+    "name": "ACM Distributed Ledger Technologies: Research and Practice",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/distribledger/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 16
+      }
+    ]
+  },
+  {
+    "id": "bcra",
+    "acronym": "BCRA",
+    "name": "Blockchain: Research and Applications",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "浙江大学出版社/Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/search?q=BCRA",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 15
+      }
+    ]
+  },
+  {
+    "id": "bioinformatics",
+    "acronym": "Bioinformatics",
+    "name": "Bioinformatics",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "Oxford University Press",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/bioinformatics/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "A",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "bmc-bioinformatics",
+    "acronym": "BMC Bioinformatics",
+    "name": "BMC Bioinformatics",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "BioMed Central",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/bmcbi/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "briefings-in-bioinformatics",
+    "acronym": "Briefings in Bioinformatics",
+    "name": "Briefings in Bioinformatics",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "Oxford University Press",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/bib/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "cognition",
+    "acronym": "Cognition",
+    "name": "Cognition",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://www.journals.elsevier.com/cognition/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "cybernetics-and-systems",
+    "acronym": "Cybernetics and Systems",
+    "name": "Cybernetics and Systems",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "Taylor & Francis",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cas/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "eitee-fitee",
+    "acronym": "EITEE（原 FITEE）",
+    "name": "ENGINEERING Information Technology & Electronic Engineering（原 Frontiers of Information Technology & Electronic Engineering）",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "浙江大学出版社（原 Springer）",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://www.academax.com/EITEE/home",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 12
+      }
+    ]
+  },
+  {
+    "id": "fcs",
+    "acronym": "FCS",
+    "name": "Frontiers of Computer Science",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "Higher Education Press",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/fcsc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 14
+      }
+    ]
+  },
+  {
+    "id": "health",
+    "acronym": "HEALTH",
+    "name": "ACM Transactions on Computing for Healthcare",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/health/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 15
+      }
+    ]
+  },
+  {
+    "id": "ieee-geoscience-and-remote-sensing-letters",
+    "acronym": "IEEE Geoscience and Remote Sensing Letters",
+    "name": "IEEE Geoscience and Remote Sensing Letters",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/lgrs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "ieee-transactions-on-reliability",
+    "acronym": "IEEE Transactions on Reliability",
+    "name": "IEEE Transactions on Reliability",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/tr/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 14
+      }
+    ]
+  },
+  {
+    "id": "iet-intelligent-transport-systems",
+    "acronym": "IET Intelligent Transport Systems",
+    "name": "IET Intelligent Transport Systems",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IET",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://digital-library.theiet.org/content/journals/iet-its",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "jacm",
+    "acronym": "JACM",
+    "name": "Journal of the ACM",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "ACM",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jacm/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "A",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "jamia",
+    "acronym": "JAMIA",
+    "name": "Journal of the American Medical Informatics Association",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "BMJ Journals",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jamia/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
+  },
+  {
+    "id": "jbhi",
+    "acronym": "JBHI",
+    "name": "IEEE Journal of Biomedical and Health Informatics",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/titb/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "jbi",
+    "acronym": "JBI",
+    "name": "Journal of Biomedical Informatics",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/jbi/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "jcst",
+    "acronym": "JCST",
+    "name": "Journal of Computer Science and Technology",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "SCIENCE PRESS/Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jcst/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "medical-image-analysis",
+    "acronym": "Medical Image Analysis",
+    "name": "Medical Image Analysis",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/mia/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "plos-computational-biology",
+    "acronym": "PLOS Computational Biology",
+    "name": "PLOS Computational Biology",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "Public Library of Science",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ploscb/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
+  },
+  {
+    "id": "proc-ieee",
+    "acronym": "Proc. IEEE",
+    "name": "Proceedings of the IEEE",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/pieee/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "A",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "scis",
+    "acronym": "SCIS",
+    "name": "Science China Information Sciences",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "Science in China Press/Springer",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/chinaf/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "A",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "tro",
+    "acronym": "T-RO",
+    "name": "IEEE Transactions on Robotics",
+    "aliases": [
+      "TRO",
+      "IEEE T-RO",
+      "TR"
+    ],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": "1552-3098",
+    "eissn": null,
+    "issnL": "1552-3098",
+    "oa": "unknown",
+    "website": "https://www.ieee-ras.org/publications/t-ro",
+    "indexUrl": null,
+    "sourceId": "ccf-2026",
+    "identifierSource": "https://portal.issn.org/resource/ISSN/1552-3098",
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 7
+      }
+    ],
+    "additionalFields": [
+      "Robotics"
+    ]
+  },
+  {
+    "id": "tasae",
+    "acronym": "TASAE",
+    "name": "IEEE Transactions on Automation Science and Engineering",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tase/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "tbd",
+    "acronym": "TBD",
+    "name": "IEEE Transactions on Big Data",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/tbd/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "tcbb",
+    "acronym": "TCBB",
+    "name": "IEEE/ACM Transactions on Computational Biology and Bioinformatics",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE/ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tcbb/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "tcps",
+    "acronym": "TCPS",
+    "name": "ACM Transactions on Cyber-Physical Systems",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/tcps/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
+  },
+  {
+    "id": "tcss",
+    "acronym": "TCSS",
+    "name": "IEEE Transactions on Computational Social Systems",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/tcss/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 13
+      }
+    ]
+  },
+  {
+    "id": "tgars",
+    "acronym": "TGARS",
+    "name": "IEEE Transactions on Geoscience and Remote Sensing",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tgrs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "the-computer-journal",
+    "acronym": "The Computer Journal",
+    "name": "The Computer Journal",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "Oxford University Press",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cj/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 12
+      }
+    ]
+  },
+  {
+    "id": "tii",
+    "acronym": "TII",
+    "name": "IEEE Transactions on Industrial Informatics",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/tii/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
   },
   {
     "id": "tits",
@@ -380,7 +5054,277 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tits/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "tmi",
+    "acronym": "TMI",
+    "name": "IEEE Transactions on Medical Imaging",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tmi/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "toce",
+    "acronym": "TOCE",
+    "name": "ACM Transactions on Computing Education",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/jeric/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "C",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
+  },
+  {
+    "id": "www",
+    "acronym": "WWW",
+    "name": "World Wide Web",
+    "aliases": [],
+    "field": "Interdisciplinary",
+    "fieldZh": "交叉/综合/新兴",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/www/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Interdisciplinary",
+        "fieldZh": "交叉/综合/新兴",
+        "grade": "B",
+        "year": 2026,
+        "seq": 13
+      }
+    ]
+  },
+  {
+    "id": "ad-hoc-networks",
+    "acronym": "Ad Hoc Networks",
+    "name": "Ad Hoc Networks",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/adhoc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "cc",
+    "acronym": "CC",
+    "name": "Computer Communications",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/comcom/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "cn",
+    "acronym": "CN",
+    "name": "Computer Networks",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cn/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "B",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "iet-communications",
+    "acronym": "IET Communications",
+    "name": "IET Communications",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "IET",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/iet-com/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "iot",
+    "acronym": "IOT",
+    "name": "IEEE Internet of Things Journal",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/iotj/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
+  },
+  {
+    "id": "jnca",
+    "acronym": "JNCA",
+    "name": "Journal of Network and Computer Applications",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jnca/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
   },
   {
     "id": "jsac",
@@ -400,7 +5344,170 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/jsac/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [
+      {
+        "system": "jif",
+        "value": "16.8",
+        "year": 2025,
+        "sourceId": "journal-ieee-2025",
+        "category": "Telecommunications",
+        "license": "publisher-public"
+      }
+    ],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "A",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "monet",
+    "acronym": "MONET",
+    "name": "Mobile Networks and Applications",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/monet/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "networks",
+    "acronym": "Networks",
+    "name": "Networks",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "Wiley",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/networks/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "ppna",
+    "acronym": "PPNA",
+    "name": "Peer-to-Peer Networking and Applications",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ppna/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "tcom",
+    "acronym": "TCOM",
+    "name": "IEEE Transactions on Communications",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tcom/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "B",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "tiot",
+    "acronym": "TIOT",
+    "name": "ACM Transactions on Internet of Things",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/tiot/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 12
+      }
+    ]
   },
   {
     "id": "tmc",
@@ -420,7 +5527,74 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tmc/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "A",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "tnsm",
+    "acronym": "TNSM",
+    "name": "IEEE Transactions on Network and Service Management",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tnsm/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "toit",
+    "acronym": "TOIT",
+    "name": "ACM Transactions on Internet Technology",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/toit/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "B",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
   },
   {
     "id": "ton",
@@ -440,7 +5614,132 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/ton/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "A",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "tosn",
+    "acronym": "TOSN",
+    "name": "ACM Transactions on Sensor Networks",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tosn/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "B",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "twc",
+    "acronym": "TWC",
+    "name": "IEEE Transactions on Wireless Communications",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/twc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "B",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "wcmc",
+    "acronym": "WCMC",
+    "name": "Wireless Communications and Mobile Computing",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "Wiley",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/wicomm/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "wireless-networks",
+    "acronym": "Wireless Networks",
+    "name": "Wireless Networks",
+    "aliases": [],
+    "field": "Networking",
+    "fieldZh": "计算机网络",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/winet/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Networking",
+        "fieldZh": "计算机网络",
+        "grade": "C",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
   },
   {
     "id": "ral",
@@ -464,30 +5763,414 @@
     "indexUrl": null,
     "sourceId": "publisher",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": []
   },
   {
-    "id": "tro",
-    "acronym": "T-RO",
-    "name": "IEEE Transactions on Robotics",
-    "aliases": [
-      "TRO",
-      "IEEE T-RO"
-    ],
-    "field": "Robotics",
-    "fieldZh": "机器人学",
-    "publisher": "IEEE",
-    "ccf": null,
-    "ccfYear": null,
-    "issn": "1552-3098",
+    "id": "clsr",
+    "acronym": "CLSR",
+    "name": "Computer Law & Security Review",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
     "eissn": null,
-    "issnL": "1552-3098",
+    "issnL": null,
     "oa": "unknown",
-    "website": "https://www.ieee-ras.org/publications/t-ro",
-    "indexUrl": null,
-    "sourceId": "issn-registry",
-    "identifierSource": "https://portal.issn.org/resource/ISSN/1552-3098",
-    "indicators": []
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/clsr/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "C",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "computers-security",
+    "acronym": "Computers & Security",
+    "name": "Computers & Security",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/compsec/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "B",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "cybersecurity",
+    "acronym": "Cybersecurity",
+    "name": "Cybersecurity",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "Springer（原中国科学院信息工程研究所/科学出版社）",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/cybersec/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "B",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "designs-codes-and-cryptography",
+    "acronym": "Designs, Codes and Cryptography",
+    "name": "Designs, Codes and Cryptography",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/dcc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "B",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "eurasip-journal-on-information-security",
+    "acronym": "EURASIP Journal on Information Security",
+    "name": "EURASIP Journal on Information Security",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ejisec/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "C",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "hcc",
+    "acronym": "HCC",
+    "name": "High-Confidence Computing",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://www.journals.elsevier.com/high-confidence-computing",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "C",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "iet-information-security",
+    "acronym": "IET Information Security",
+    "name": "IET Information Security",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "IET",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/iet-ifs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "C",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "ijics",
+    "acronym": "IJICS",
+    "name": "International Journal of Information and Computer Security",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "Inderscience",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijics/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "C",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "ijisp",
+    "acronym": "IJISP",
+    "name": "International Journal of Information Security and Privacy",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "IGI Global",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijisp/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "C",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "imcs",
+    "acronym": "IMCS",
+    "name": "Information and Computer Security",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "Emerald",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/imcs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "C",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "jcs",
+    "acronym": "JCS",
+    "name": "Journal of Computer Security",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "IOS Press",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jcs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "B",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "jisa",
+    "acronym": "JISA",
+    "name": "Journal of Information Security and Applications",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/istr/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "C",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "journal-of-cryptology",
+    "acronym": "Journal of Cryptology",
+    "name": "Journal of Cryptology",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "Springer",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/joc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "A",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "scn",
+    "acronym": "SCN",
+    "name": "Security and Communication Networks",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "Wiley",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/scn/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "C",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
   },
   {
     "id": "tdsc",
@@ -507,7 +6190,16 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tdsc/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "A",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
   },
   {
     "id": "tifs",
@@ -527,7 +6219,625 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tifs/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "A",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "tops",
+    "acronym": "TOPS",
+    "name": "ACM Transactions on Privacy and Security",
+    "aliases": [],
+    "field": "Security",
+    "fieldZh": "网络与信息安全",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/tissec/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Security",
+        "fieldZh": "网络与信息安全",
+        "grade": "B",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "ase",
+    "acronym": "ASE",
+    "name": "Automated Software Engineering",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ase/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "cl",
+    "acronym": "CL",
+    "name": "Computer Languages, Systems and Structures",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cl/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "C",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "ese",
+    "acronym": "ESE",
+    "name": "Empirical Software Engineering",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ese/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "iets",
+    "acronym": "IETS",
+    "name": "IET Software",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "IET",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/iet-sen/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "ijseke",
+    "acronym": "IJSEKE",
+    "name": "International Journal of Software Engineering and Knowledge Engineering",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "World Scientific",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/ijseke/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "C",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "ist",
+    "acronym": "IST",
+    "name": "Information and Software Technology",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/infsof/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "jfp",
+    "acronym": "JFP",
+    "name": "Journal of Functional Programming",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Cambridge University Press",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jfp/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "jlamp",
+    "acronym": "JLAMP",
+    "name": "Journal of Logical and Algebraic Methods in Programming",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/jlap/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "C",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "journal-of-software-evolution-and-process",
+    "acronym": "Journal of Software: Evolution and Process",
+    "name": "Journal of Software: Evolution and Process",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Wiley",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/smr/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "jss",
+    "acronym": "JSS",
+    "name": "Journal of Systems and Software",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jss/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "jwe",
+    "acronym": "JWE",
+    "name": "Journal of Web Engineering",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Rinton Press",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jwe/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "C",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "pacm-pl",
+    "acronym": "PACM PL",
+    "name": "Proceedings of the ACM on Programming Languages",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/pacmpl/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "C",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "re",
+    "acronym": "RE",
+    "name": "Requirements Engineering",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/re/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "scp",
+    "acronym": "SCP",
+    "name": "Science of Computer Programming",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/scp/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "soca",
+    "acronym": "SOCA",
+    "name": "Service Oriented Computing and Applications",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/soca/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "C",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "sosym",
+    "acronym": "SoSyM",
+    "name": "Software and Systems Modeling",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/sosym/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
+  },
+  {
+    "id": "spe",
+    "acronym": "SPE",
+    "name": "Software: Practice and Experience",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Wiley",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/spe/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 12
+      }
+    ]
+  },
+  {
+    "id": "sqj",
+    "acronym": "SQJ",
+    "name": "Software Quality Journal",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/sqj/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "C",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "sttt",
+    "acronym": "STTT",
+    "name": "International Journal of Software Tools for Technology Transfer",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/sttt/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "C",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "stvr",
+    "acronym": "STVR",
+    "name": "Software Testing, Verification and Reliability",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Wiley",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/stvr/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "B",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
   },
   {
     "id": "toplas",
@@ -547,7 +6857,16 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/toplas/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "A",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
   },
   {
     "id": "tosem",
@@ -567,7 +6886,74 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tosem/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "A",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "tplp",
+    "acronym": "TPLP",
+    "name": "Theory and Practice of Logic Programming",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "Cambridge University Press",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tplp/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "C",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "tsc",
+    "acronym": "TSC",
+    "name": "IEEE Transactions on Services Computing",
+    "aliases": [],
+    "field": "Software",
+    "fieldZh": "软件工程/系统软件/程序设计语言",
+    "publisher": "IEEE",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tsc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "A",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
   },
   {
     "id": "tse",
@@ -587,7 +6973,422 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tse/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Software",
+        "fieldZh": "软件工程/系统软件/程序设计语言",
+        "grade": "A",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "ccf-thpc",
+    "acronym": "CCF-THPC",
+    "name": "CCF Transactions on High Performance Computing",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "CCF",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/ccfthpc/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
+  },
+  {
+    "id": "concurrency-and-computation-practice-and-experience",
+    "acronym": "Concurrency and Computation: Practice and Experience",
+    "name": "Concurrency and Computation: Practice and Experience",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Wiley",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/concurrency/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "dc",
+    "acronym": "DC",
+    "name": "Distributed Computing",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/dc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "fgcs",
+    "acronym": "FGCS",
+    "name": "Future Generation Computer Systems",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/fgcs",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "integration",
+    "acronym": "Integration",
+    "name": "Integration, the VLSI Journal",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/integration",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "jetc",
+    "acronym": "JETC",
+    "name": "ACM Journal on Emerging Technologies in Computing Systems",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jetc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "jetta",
+    "acronym": "JETTA",
+    "name": "Journal of Electronic Testing-Theory and Applications",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/et/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "jgc",
+    "acronym": "JGC",
+    "name": "Journal of Grid computing",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/grid/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "jpdc",
+    "acronym": "JPDC",
+    "name": "Journal of Parallel and Distributed Computing",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jpdc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "B",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "jsa",
+    "acronym": "JSA",
+    "name": "Journal of Systems Architecture: Embedded Software Design",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jsa/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "B",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "parallel-computing",
+    "acronym": "Parallel Computing",
+    "name": "Parallel Computing",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/pc/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "B",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "performance-evaluation-an-international-journal",
+    "acronym": "Performance Evaluation: An International Journal",
+    "name": "Performance Evaluation: An International Journal",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/pe/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "B",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "rts",
+    "acronym": "RTS",
+    "name": "Real-Time Systems",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/rts/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "taas",
+    "acronym": "TAAS",
+    "name": "ACM Transactions on Autonomous and Adaptive Systems",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/taas/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "B",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
   },
   {
     "id": "taco",
@@ -607,7 +7408,16 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/taco/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "A",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
   },
   {
     "id": "tc",
@@ -627,7 +7437,16 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tc/index.html",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "A",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
   },
   {
     "id": "tcad",
@@ -647,7 +7466,132 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tcad/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "A",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "tcasi",
+    "acronym": "TCASI",
+    "name": "IEEE Transactions on Circuits and Systems I: Regular Papers",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/tcasI/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
+  },
+  {
+    "id": "tcc",
+    "acronym": "TCC",
+    "name": "IEEE Transactions on Cloud Computing",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.uni-trier.de/db/journals/tcc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "B",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
+  },
+  {
+    "id": "tecs",
+    "acronym": "TECS",
+    "name": "ACM Transactions on Embedded Computing Systems",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tecs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "B",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "tjsc",
+    "acronym": "TJSC",
+    "name": "The Journal of Supercomputing",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tjs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
   },
   {
     "id": "tocs",
@@ -667,7 +7611,45 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tocs/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "A",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "todaes",
+    "acronym": "TODAES",
+    "name": "ACM Transactions on Design Automation of Electronic Systems",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/todaes/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "B",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
   },
   {
     "id": "tos",
@@ -687,7 +7669,16 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tos/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "A",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
   },
   {
     "id": "tpds",
@@ -707,6 +7698,885 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tpds/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": []
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "A",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "trets",
+    "acronym": "TRETS",
+    "name": "ACM Transactions on Reconfigurable Technology and Systems",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/trets/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "B",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "tsusc",
+    "acronym": "TSUSC",
+    "name": "IEEE Transactions on Sustainable Computing",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "IEEE",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/tsusc/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "C",
+        "year": 2026,
+        "seq": 12
+      }
+    ]
+  },
+  {
+    "id": "tvlsi",
+    "acronym": "TVLSI",
+    "name": "IEEE Transactions on Very Large Scale Integration (VLSI) Systems",
+    "aliases": [],
+    "field": "Systems",
+    "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+    "publisher": "IEEE",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tvlsi/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Systems",
+        "fieldZh": "计算机体系结构/并行与分布计算/存储系统",
+        "grade": "B",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "acta",
+    "acronym": "ACTA",
+    "name": "Acta Informatica",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/acta/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "algorithmica",
+    "acronym": "Algorithmica",
+    "name": "Algorithmica",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/algorithmica/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "apal",
+    "acronym": "APAL",
+    "name": "Annals of Pure and Applied Logic",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/apal/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "cc-theory",
+    "acronym": "CC",
+    "name": "Computational Complexity",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/cc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 5
+      }
+    ]
+  },
+  {
+    "id": "dam",
+    "acronym": "DAM",
+    "name": "Discrete Applied Mathematics",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/dam/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "fac",
+    "acronym": "FAC",
+    "name": "Formal Aspects of Computing",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/fac/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "fmsd",
+    "acronym": "FMSD",
+    "name": "Formal Methods in System Design",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/fmsd/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "fuin",
+    "acronym": "FUIN",
+    "name": "Fundamenta Informaticae",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "IOS Press",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/fuin/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 4
+      }
+    ]
+  },
+  {
+    "id": "iandc",
+    "acronym": "IANDC",
+    "name": "Information and Computation",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Elsevier",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/iandc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "A",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "informs",
+    "acronym": "INFORMS",
+    "name": "INFORMS Journal on Computing",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "INFORMS",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/informs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "jcomplexi-ty",
+    "acronym": "JCOMPLEXI TY",
+    "name": "Journal of Complexity",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Elsevier",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 6
+      }
+    ]
+  },
+  {
+    "id": "jcss",
+    "acronym": "JCSS",
+    "name": "Journal of Computer and System Sciences",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jcss/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "jgo",
+    "acronym": "JGO",
+    "name": "Journal of Global Optimization",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Springer",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jgo/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
+  },
+  {
+    "id": "jsc",
+    "acronym": "JSC",
+    "name": "Journal of Symbolic Computation",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jsc/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
+  },
+  {
+    "id": "jsl",
+    "acronym": "JSL",
+    "name": "The Journal of Symbolic Logic",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Association for Symbolic Logic",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/jsyml/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 8
+      }
+    ]
+  },
+  {
+    "id": "lmcs",
+    "acronym": "LMCS",
+    "name": "Logical Methods in Computer Science",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "LMCS",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/lmcs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 9
+      }
+    ]
+  },
+  {
+    "id": "logcom",
+    "acronym": "LOGCOM",
+    "name": "Journal of Logic and Computation",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Oxford University Press",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/logcom/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 7
+      }
+    ]
+  },
+  {
+    "id": "mscs",
+    "acronym": "MSCS",
+    "name": "Mathematical Structures in Computer Science",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Cambridge University Press",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/mscs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 12
+      }
+    ]
+  },
+  {
+    "id": "sicomp",
+    "acronym": "SICOMP",
+    "name": "SIAM Journal on Computing",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "SIAM",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/siamcomp/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "A",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "sidma",
+    "acronym": "SIDMA",
+    "name": "SIAM Journal on Discrete Mathematics",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "SIAM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/siamdm/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 10
+      }
+    ]
+  },
+  {
+    "id": "talg",
+    "acronym": "TALG",
+    "name": "ACM Transactions on Algorithms",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/talg/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "tcs",
+    "acronym": "TCS",
+    "name": "Theoretical Computer Science",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Elsevier",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tcs/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 13
+      }
+    ]
+  },
+  {
+    "id": "theory-of-computing-systems",
+    "acronym": "Theory of Computing Systems",
+    "name": "Theory of Computing Systems",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "Springer",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/mst/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 11
+      }
+    ]
+  },
+  {
+    "id": "tit",
+    "acronym": "TIT",
+    "name": "IEEE Transactions on Information Theory",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "IEEE",
+    "ccf": "A",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tit/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "A",
+        "year": 2026,
+        "seq": 1
+      }
+    ]
+  },
+  {
+    "id": "tocl",
+    "acronym": "TOCL",
+    "name": "ACM Transactions on Computational Logic",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/tocl/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 2
+      }
+    ]
+  },
+  {
+    "id": "toms",
+    "acronym": "TOMS",
+    "name": "ACM Transactions on Mathematical Software",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "ACM",
+    "ccf": "B",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "http://dblp.uni-trier.de/db/journals/toms/",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "B",
+        "year": 2026,
+        "seq": 3
+      }
+    ]
+  },
+  {
+    "id": "tqc",
+    "acronym": "TQC",
+    "name": "ACM Transactions in Quantum Computing",
+    "aliases": [],
+    "field": "Theory",
+    "fieldZh": "计算机科学理论",
+    "publisher": "ACM",
+    "ccf": "C",
+    "ccfYear": 2026,
+    "issn": null,
+    "eissn": null,
+    "issnL": null,
+    "oa": "unknown",
+    "website": null,
+    "indexUrl": "https://dblp.org/db/journals/tqc/index.html",
+    "sourceId": "ccf-2026",
+    "identifierSource": null,
+    "indicators": [],
+    "ccfEntries": [
+      {
+        "field": "Theory",
+        "fieldZh": "计算机科学理论",
+        "grade": "C",
+        "year": 2026,
+        "seq": 12
+      }
+    ]
   }
 ]

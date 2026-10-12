@@ -10,9 +10,17 @@
 - DOI / arXiv / ISSN identifier links.
 - Provenance policy, data tests and scheduled source-health reports.
 
+## V1.1 — Full directory & visual intelligence
+
+- CCF seventh edition: 386 conference entries plus 295 journal subject recommendation rows; four cross-listed titles deduplicated to 291 rated journal identities while maintaining all subjects.
+- Source-backed multi-year acceptance rates for major conferences with explicit publication year, track, numerator/denominator where available.
+- Interactive CCF A/B/C donuts, stacked field bars, conference acceptance charts and home dashboard with minimal external UI dependencies.
+- Journal metrics shown as independent CAS 2025 historical, XinRui 2026 independent, JCR quartile, and metric-year JIF. Publisher-public indicators only; no copyright-violating redistribution.
+- On-demand 2025 OpenAlex indexed publication counts with exact journal identity checks, publisher filters and richer journal comparison exports.
+
 ## Data coverage expansion
 
-- Expand conference and journal selection across all CCF domains with independent evidence.
+- Maintain full CCF grades and cross-disciplinary memberships; add independent official journal identifiers and official webpages where available.
 - Add historic year/track timelines, verified deadline change records and permitted metrics.
 - Develop conservative human-reviewed CFP change detection, distinguishing a broken page from an actual deadline change.
 

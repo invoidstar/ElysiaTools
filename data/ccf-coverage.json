@@ -1,0 +1,15 @@
+{
+  "edition": 2026,
+  "label": "CCF 国际学术会议和期刊目录，第七版，2026-04-09 勘误版",
+  "officialUrl": "https://www.ccf.org.cn/Academic_Evaluation/By_category/",
+  "listedRows": 681,
+  "conferenceRows": 386,
+  "journalRows": 295,
+  "uniqueConferences": 386,
+  "uniqueCCFJournals": 291,
+  "crossListedJournalNames": 4,
+  "supplementalJournals": 1,
+  "fields": 10,
+  "compiledAt": "2026-10-12",
+  "policy": "CCF 官网为最终依据。重复期刊保留每个领域的分级条目；原始分类事实与授权受限的指标数据分离；收录不等同于日期核验。"
+}

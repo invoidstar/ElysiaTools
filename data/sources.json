@@ -96,5 +96,165 @@
     "kind": "publisher",
     "owner": "IEEE RAS",
     "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-cvpr-2023",
+    "title": "CVPR 2023 statistics (CVF)",
+    "url": "https://cvpr.thecvf.com/Conferences/2023/AcceptedPapers",
+    "kind": "official-history",
+    "owner": "CVF",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-cvpr-2024",
+    "title": "CVPR 2024 technical program (CVF)",
+    "url": "https://cvpr.thecvf.com/Conferences/2024/News/Oral_Papers",
+    "kind": "official-history",
+    "owner": "CVF",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-cvpr-2025",
+    "title": "CVPR 2025 program chairs official report",
+    "url": "https://media.eventhosts.cc/Conferences/CVPR2025/CVPR_main_conf_2025.pdf",
+    "kind": "official-history",
+    "owner": "CVF",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-iclr-2025-fact",
+    "title": "ICLR 2025 official fact sheet",
+    "url": "https://media.iclr.cc/Conferences/ICLR2025/ICLR2025_Fact_Sheet.pdf",
+    "kind": "official-history",
+    "owner": "ICLR",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-iclr-2026",
+    "title": "ICLR 2026 program chairs retrospective",
+    "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/",
+    "kind": "official-history",
+    "owner": "ICLR",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-neurips-2024",
+    "title": "NeurIPS 2024 fact sheet",
+    "url": "https://media.neurips.cc/Conferences/NeurIPS2024/NeurIPS2024-Fact_Sheet.pdf",
+    "kind": "official-history",
+    "owner": "NeurIPS",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-neurips-2025",
+    "title": "NeurIPS 2025 fact sheet",
+    "url": "https://media.neurips.cc/Conferences/NeurIPS2025/press/NeurIPS2025-Fact_Sheet.pdf",
+    "kind": "official-history",
+    "owner": "NeurIPS",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-aaai-2025",
+    "title": "AAAI-25 official conference statistics",
+    "url": "https://aaai.org/wp-content/uploads/2025/06/Sponsorship-Infographic-v2.pdf",
+    "kind": "official-history",
+    "owner": "AAAI",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-aaai-2026",
+    "title": "AAAI-26 opening remarks (official acceptance figure)",
+    "url": "https://aaai.org/wp-content/uploads/2026/01/AAAI-26-Opening-Ceremony.pdf",
+    "kind": "official-history",
+    "owner": "AAAI",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-icml-2024",
+    "title": "ICML 2024 fact sheet",
+    "url": "https://media.icml.cc/Conferences/ICML2024/ICML2024_Fact_Sheet.pdf",
+    "kind": "official-history",
+    "owner": "ICML",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-icml-2025",
+    "title": "ICML 2025 fact sheet",
+    "url": "https://media.icml.cc/Conferences/ICML2025/ICML2025_Fact_Sheet.pdf",
+    "kind": "official-history",
+    "owner": "ICML",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "hist-acl-2025",
+    "title": "ACL 2025 official program chairs report",
+    "url": "https://www.aclweb.org/adminwiki/index.php/2025Q3_Reports:_Program_Chairs",
+    "kind": "official-history",
+    "owner": "ACL",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "journal-ieee-2025",
+    "title": "IEEE 2025 JCR highlights (released 2026)",
+    "url": "https://innovate.ieee.org/ieee-journals-continue-to-excel-in-citation-rankings/",
+    "kind": "publisher-metric",
+    "owner": "IEEE",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "journal-acm-2024",
+    "title": "ACM 2025 JCR highlights (reflects 2024 JIF)",
+    "url": "https://www.acm.org/binaries/content/assets/press-releases/2025/july/news-release_impact_factors_2025_final.pdf",
+    "kind": "publisher-metric",
+    "owner": "ACM",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "cas-2025-official",
+    "title": "CAS journal division discontinuation notice",
+    "url": "https://nssc.cas.cn/library/dtxx/202604/t20260409_8183275.html",
+    "kind": "policy",
+    "owner": "CAS",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "cas-2025-access",
+    "title": "CAS historical division (license notice)",
+    "url": "https://www.lib.szu.edu.cn/er/fenqubiao",
+    "kind": "policy",
+    "owner": "University Library",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "xinrui-2026-official",
+    "title": "2026 XinRui Ranking official query service",
+    "url": "https://www.xr-scholar.com/Journals/Search",
+    "kind": "policy",
+    "owner": "XinRui Scholar",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "xinrui-terms",
+    "title": "XinRui copyright / permitted access terms",
+    "url": "https://www.xr-scholar.com/terms",
+    "kind": "policy",
+    "owner": "XinRui Scholar",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "jcr-official",
+    "title": "Clarivate authorized Journal Citation Reports portal",
+    "url": "https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/",
+    "kind": "policy",
+    "owner": "Clarivate",
+    "verifiedAt": "2026-10-12"
+  },
+  {
+    "id": "openalex-data",
+    "title": "OpenAlex published outputs count definition",
+    "url": "https://help.openalex.org/data/sources/attributes/",
+    "kind": "policy",
+    "owner": "OpenAlex",
+    "verifiedAt": "2026-10-12"
   }
 ]

@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react';
 import { ArrowRight, ArrowUpRight, CalendarClock, CalendarDays, CheckCircle2, ChevronRight, Compass, LibraryBig, Search, ShieldCheck, Sparkles, Star, Target } from 'lucide-react';
-import { conferences, journals, matches, upcomingRows } from '../lib/catalog';
+import { conferences, journals, matches, upcomingRows, coverage, acceptance } from '../lib/catalog';
 import { countdown, displayEvent, type ZoneChoice } from '../lib/time';
 import type { AcademicState } from '../types';
+import { AcceptanceTrend, DirectoryViz, DirectorySnapshot } from '../components/ResearchCharts';
 
 interface Props {
   academic: AcademicState;
@@ -62,7 +63,7 @@ export function HomePage({ academic, zone, now, onNavigate, onConferenceSearch, 
         <div className="visual-bottomline"><span>DISCOVER <i/> COMPARE <i/> ORGANIZE</span><span className="visual-verified"><CheckCircle2 size={13}/> SOURCE AWARE</span></div>
       </div>
     </section>
-    <section className="home-stats"><div><span className="stat-icon"><CalendarDays size={19}/></span><strong>{conferences.length}<small>+</small></strong><span>学术会议</span></div><div><span className="stat-icon"><LibraryBig size={19}/></span><strong>{journals.length}<small>+</small></strong><span>学术期刊</span></div><div><span className="stat-icon"><Target size={19}/></span><strong>10</strong><span>CCF 学科领域</span></div><div><span className="stat-icon"><ShieldCheck size={19}/></span><strong>2026</strong><span>CCF 第七版</span></div></section>
+    <section className="home-stats"><div><span className="stat-icon"><CalendarDays size={19}/></span><strong>{coverage.conferenceRows}</strong><span>CCF 会议</span></div><div><span className="stat-icon"><LibraryBig size={19}/></span><strong>{coverage.uniqueCCFJournals}</strong><span>CCF 期刊</span></div><div><span className="stat-icon"><Target size={19}/></span><strong>{coverage.listedRows}</strong><span>CCF 分类记录</span></div><div><span className="stat-icon"><ShieldCheck size={19}/></span><strong>{acceptance.length}</strong><span>已核实录用率记录</span></div></section>
 
     <section className="home-section">
       <div className="section-heading"><div><span className="section-overline">START EXPLORING / 01</span><h2>从这里开始探索</h2><p>找到适合你的科研入口，减少重复查找的时间。</p></div></div>
@@ -71,19 +72,27 @@ export function HomePage({ academic, zone, now, onNavigate, onConferenceSearch, 
         <button className="feature-card feature-academic" onClick={()=>onNavigate('academic')}><span className="feature-icon"><Star size={23}/></span><span className="feature-number">03 — MY ACADEMIC</span><h3>我的科研工作台</h3><p>收藏关注 · 截稿日历 · 本地备份</p><span className="feature-link">打开工作台 <ArrowUpRight size={18}/></span><span className="feature-decoration deco-star"><Star size={126} strokeWidth={0.85}/></span></button></div>
     </section>
 
+    <section className="home-section research-insights-section">
+      <div className="section-heading"><div><span className="section-overline">ACADEMIC INSIGHTS / 02</span><h2>用数据探索科研版图</h2><p>收录 CCF 第七版全部推荐记录，查看不同领域与等级的分布。</p></div><span className="planned-label">2026 · 完整目录</span></div>
+      <div className="insights-grid">
+        <DirectorySnapshot/>
+        <div className="insights-trend"><AcceptanceTrend conferenceId="cvpr"/><button className="inline-link" onClick={()=>onNavigate('conference/cvpr')}>查看 CVPR 历年数据 <ArrowRight size={16}/></button></div>
+      </div>
+      <DirectoryViz type="conference" onField={field=>onConferenceSearch('',field)} />
+    </section>
     <section className="home-section deadline-section">
-      <div className="section-heading"><div><span className="section-overline">DEADLINE RADAR / 02</span><h2>即将到来的截稿</h2><p>仅展示已核实、尚未截止的官方时间节点。</p></div><button className="inline-link" onClick={()=>onNavigate('conference')}>查看全部会议 <ArrowRight size={17}/></button></div>
+      <div className="section-heading"><div><span className="section-overline">DEADLINE RADAR / 03</span><h2>即将到来的截稿</h2><p>仅展示已核实、尚未截止的官方时间节点。</p></div><button className="inline-link" onClick={()=>onNavigate('conference')}>查看全部会议 <ArrowRight size={17}/></button></div>
       {featured.length ? <div className="deadline-feature-grid">{featured.map((r,index)=><button className="deadline-feature" key={r.edition.id+r.track.id+r.event.id} onClick={()=>onNavigate('conference/'+r.conference.id)}><div className="feature-deadline-top"><span>0{index+1} / {r.conference.field}</span><span className="deadline-countdown"><CalendarClock size={13}/> {countdown(r.event,now)}</span></div><strong>{r.conference.acronym} <small>{r.edition.year}</small></strong><p>{r.event.title} · {r.track.name}</p><div className="deadline-feature-bottom"><span>{displayEvent(r.event,zone)}</span><ArrowUpRight size={17}/></div></button>)}</div> : <div className="no-upcoming"><ShieldCheck size={18}/> 当前没有更多已核验的未来投稿时间，请查看会议目录和官方来源。</div>}
       <p className="section-disclaimer"><ShieldCheck size={15}/> AoE = UTC−12；所有时间可在页面右上角切换时区。核验记录不代表会议信息永不变化。</p>
     </section>
 
-    <section className="home-section fields-section"><div className="section-heading"><div><span className="section-overline">EXPLORE BY FIELD / 03</span><h2>按研究领域浏览</h2><p>以 CCF 学术领域为基础，从你熟悉的方向开始。</p></div></div>
+    <section className="home-section fields-section"><div className="section-heading"><div><span className="section-overline">EXPLORE BY FIELD / 04</span><h2>按研究领域浏览</h2><p>以 CCF 学术领域为基础，从你熟悉的方向开始。</p></div></div>
       <div className="field-grid">{areas.map((a,i)=><button key={a.name} onClick={()=>onConferenceSearch('',a.name)} className="field-card"><span className={'field-symbol field-'+i}>{a.symbol}</span><div><strong>{a.zh}</strong><span>{a.desc}</span></div><ArrowUpRight size={17}/></button>)}</div>
     </section>
 
     <section className="home-section home-bottom-grid">
-      <div className="update-panel"><div className="section-heading"><div><span className="section-overline">LATEST UPDATES / 04</span><h2>平台更新</h2></div><button className="inline-link" onClick={()=>onNavigate('tools')}>科研工具 <ArrowRight size={16}/></button></div>
-        <div className="update-row"><span className="update-date">2026.10.12</span><div><strong>首批会议时间线与期刊资料上线</strong><p>官方来源、时区转换、日历导出与期刊比较</p></div><span className="update-tag">V1.0</span></div>
+      <div className="update-panel"><div className="section-heading"><div><span className="section-overline">LATEST UPDATES / 05</span><h2>平台更新</h2></div><button className="inline-link" onClick={()=>onNavigate('tools')}>科研工具 <ArrowRight size={16}/></button></div>
+        <div className="update-row"><span className="update-date">2026.10.12</span><div><strong>CCF 全目录与可视化数据升级</strong><p>681 条 CCF 推荐记录、会议录用率曲线、独立期刊评价指标</p></div><span className="update-tag">V1.1</span></div>
         <div className="update-row"><span className="update-date">2026.04.09</span><div><strong>CCF 第七版目录作为分类基准</strong><p>保留目录年份，不混用旧版分类</p></div><span className="update-tag neutral">DATA</span></div>
       </div>
       <div className="my-radar-panel"><span className="section-overline">YOUR PERSONAL SPACE</span><div className="my-radar-orb"><Star size={24}/></div><h2>你的科研关注清单</h2><p>收藏 {academic.conferences.length} 场会议 · {academic.journals.length} 本期刊。你的研究日程由你掌握。</p><button onClick={()=>onNavigate('academic')}>前往 My Academic <ArrowRight size={17}/></button></div>

@@ -1,6 +1,7 @@
 import { ArrowUpRight, CalendarPlus, CheckCircle2, Clock3, ExternalLink, GitCompareArrows, Info, Link2, MapPin, Star, X } from 'lucide-react';
 import { GradeTag, SourceAnchor } from './Common';
-import { getConference, getEdition, getJournal, getSource, isFuture, sourceForRow } from '../lib/catalog';
+import { AcceptanceTrend, JournalMetricCards, JournalPublicationCount } from './ResearchCharts';
+import { ccfEntries, getConference, getEdition, getJournal, getSource, isFuture, sourceForRow } from '../lib/catalog';
 import { countdown, displayEvent, kindLabel, originalDate, prettyDate, type ZoneChoice } from '../lib/time';
 import { calendarICS } from '../lib/ics';
 import { downloadContent } from '../lib/storage';
@@ -31,7 +32,7 @@ export function DetailDrawer({ kind, id, onClose, academic, toggleFavorite, togg
     <aside className="detail-drawer" role="dialog" aria-modal="true" aria-label={item.name} onClick={e => e.stopPropagation()}>
       <div className="drawer-top"><span className="drawer-kicker">ACADEMIC DIRECTORY / {kind === 'conference' ? 'CONFERENCE' : 'JOURNAL'}</span><button className="icon-button" onClick={onClose} aria-label="关闭详情"><X size={20} /></button></div>
       <div className="drawer-heading"><span className="detail-avatar">{item.acronym.slice(0, 2).toUpperCase()}</span><div><div className="detail-title-line"><h2>{item.acronym}</h2><GradeTag grade={item.ccf} year={item.ccfYear} /></div><p>{item.name}</p></div></div>
-      <div className="detail-tags"><span>{item.field}</span><span>CCF · {item.ccfYear || '未提供'} 版</span>{c && edition && <span>{edition.year} Edition</span>}</div>
+      <div className="detail-tags"><span>{item.fieldZh}</span><span>CCF · {item.ccfYear || '未提供'} 版</span><span>{ccfEntries(item).length} 条领域推荐</span>{c && edition && <span>{edition.year} Edition</span>}</div>
       <div className="drawer-actions">
         <button className="primary-button" onClick={() => toggleFavorite(kind, id)}><Star size={16} fill={saved ? 'currentColor' : 'none'} />{saved ? '已收藏' : '加入收藏'}</button>
         {c && <button className="secondary-button" onClick={handleICS} disabled={!allRows.length}><CalendarPlus size={16} /> 导出 .ics</button>}
@@ -47,6 +48,12 @@ export function DetailDrawer({ kind, id, onClose, academic, toggleFavorite, togg
               <div><span>数据最后核验</span><strong>{edition?.verifiedAt || '待核验'}</strong></div>
             </div>
             <div className="link-stack"><SourceAnchor href={c.website}>会议官方网站 <ArrowUpRight size={14} /></SourceAnchor><SourceAnchor href={c.indexUrl}>学术索引 / DBLP</SourceAnchor></div>
+          </section>
+          <section className="drawer-section"><h3>历年录用趋势 <span>ACCEPTANCE HISTORY</span></h3>
+            <AcceptanceTrend conferenceId={c.id}/>
+          </section>
+          <section className="drawer-section"><h3>CCF 分类领域 <span>CCF 2026</span></h3>
+            <div className="ccf-class-list">{ccfEntries(c).map(entry=><div key={entry.field}><span>{entry.fieldZh}</span><GradeTag grade={entry.grade} year={entry.year}/></div>)}</div>
           </section>
           <section className="drawer-section"><h3>投稿时间线 <span>SUBMISSION TIMELINE</span></h3>
             {!edition && <div className="notice-soft"><Info size={17} /> 当前尚未收录有官方来源的当届日程。历史日期不会自动套用。</div>}
@@ -79,14 +86,12 @@ export function DetailDrawer({ kind, id, onClose, academic, toggleFavorite, togg
             <div className="link-stack"><SourceAnchor href={j.website}>期刊官方网站 <ArrowUpRight size={14} /></SourceAnchor><SourceAnchor href={j.indexUrl}>学术索引 / DBLP</SourceAnchor>{j.identifierSource && <SourceAnchor href={j.identifierSource}>标识符来源</SourceAnchor>}</div>
           </section>
           <section className="drawer-section"><h3>学术评价 <span>INDICATORS</span></h3>
-            <div className="metric-grid">
-              <div className="metric-tile"><span>CCF 推荐分类</span><strong>{j.ccf ? 'CCF ' + j.ccf : '—'}</strong><small>2026 · 第七版</small></div>
-              <div className="metric-tile"><span>JCR / JIF</span><strong>—</strong><small>暂无获授权的年度指标</small></div>
-              <div className="metric-tile"><span>中科院分区</span><strong>—</strong><small>历史分区，暂无可核验记录</small></div>
-            </div>
-            <div className="notice-soft"><Info size={17} /> CCF、JCR 和中科院分区属于不同体系。本平台不会以非授权、未标明年份的数据填充指标。</div>
+            <div className="ccf-class-list">{ccfEntries(j).length ? ccfEntries(j).map(entry=><div key={entry.field}><span>{entry.fieldZh}</span><GradeTag grade={entry.grade} year={entry.year}/></div>):<div><span>本期刊不在已收录的 CCF 2026 目录中</span></div>}</div>
+            <JournalMetricCards journal={j}/>
+            <JournalPublicationCount journal={j}/>
+            <div className="notice-soft"><Info size={17} /> 2025 中科院分区与 2026 新锐分区是两个独立机构的体系。原中科院分区平台已停服，新锐数据和完整 JCR 指标需在官方平台查询。已公开的 JIF 标注的是数据年份，而非 JCR 发布年份。</div>
           </section>
-          <section className="drawer-section"><h3>研究范围与投稿 <span>SCOPE & SUBMISSION</span></h3><p className="body-muted">所属领域：{j.fieldZh}。Aims &amp; Scope、文章类型及 APC 应以出版社的最新说明为准，未核实的费用和审稿周期暂不展示。</p><SourceAnchor href={j.website}>前往期刊官方页面查看投稿说明</SourceAnchor></section>
+          <section className="drawer-section"><h3>研究范围与投稿 <span>SCOPE & SUBMISSION</span></h3><p className="body-muted">所属领域：{ccfEntries(j).map(e=>e.fieldZh).join("、") || j.fieldZh}。Aims &amp; Scope、文章类型及 APC 应以出版社的最新说明为准，未核实的费用和审稿周期暂不展示。</p><SourceAnchor href={j.website}>前往期刊官方页面查看投稿说明</SourceAnchor></section>
           <section className="drawer-section"><h3>来源与标识 <span>PROVENANCE</span></h3><div className="source-panel"><CheckCircle2 size={18} /><div><strong>{j.ccf ? 'CCF 2026 推荐目录' : '出版社 / ISSN 资料'}</strong><p>等级与身份数据来源分离管理；尚未完成核验的字段明确留空。</p><SourceAnchor href={getSource(j.sourceId)?.url}>查看记录来源</SourceAnchor></div></div></section>
         </>}
         <div className="detail-end"><MapPin size={15} /> ElysiaTools · Research, Made Easier.</div>

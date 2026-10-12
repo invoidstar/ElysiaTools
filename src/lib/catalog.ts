@@ -2,12 +2,24 @@ import conferenceData from '../../data/conferences.json';
 import editionData from '../../data/editions.json';
 import journalData from '../../data/journals.json';
 import sourceData from '../../data/sources.json';
-import type { Conference, Edition, Journal, SourceRecord, DeadlineRow, DeadlineEvent } from '../types';
+import acceptanceData from '../../data/acceptance.json';
+import coverageData from '../../data/ccf-coverage.json';
+import type { Conference, Edition, Journal, SourceRecord, DeadlineRow, DeadlineEvent, AcceptanceRecord, CCFCoverage } from '../types';
 
 export const conferences = conferenceData as unknown as Conference[];
 export const editions = editionData as unknown as Edition[];
 export const journals = journalData as unknown as Journal[];
 export const sources = sourceData as unknown as SourceRecord[];
+export const acceptance = acceptanceData as unknown as AcceptanceRecord[];
+export const coverage = coverageData as unknown as CCFCoverage;
+export const getAcceptance = (conferenceId: string) => acceptance.filter(x => x.conferenceId === conferenceId).sort((a,b) => a.year - b.year);
+export const latestAcceptance = (conferenceId: string) => getAcceptance(conferenceId).at(-1);
+export const journalMetric = (journal: Journal, system: string) => journal.indicators.filter(x => x.system === system).sort((a,b) => b.year - a.year)[0];
+export const ccfEntries = (venue: Conference | Journal) => venue.ccfEntries?.length ? venue.ccfEntries : venue.ccf ? [{ field: venue.field,fieldZh:venue.fieldZh,grade:venue.ccf,year:venue.ccfYear || coverage.edition, seq:0 }] : [];
+export const directoryGrades = (type: 'conference' | 'journal', field?: string) => {
+ const venues = type === 'conference' ? conferences : journals;
+ return venues.flatMap(v=>ccfEntries(v).filter(x=>!field || x.field===field)).reduce((result,entry)=>{result[entry.grade]++;return result;},{A:0,B:0,C:0});
+};
 
 const sourceById = new Map(sources.map(s => [s.id, s]));
 export const getSource = (id: string) => sourceById.get(id);

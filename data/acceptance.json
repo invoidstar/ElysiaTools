@@ -1,0 +1,121 @@
+[
+  {
+    "conferenceId": "cvpr",
+    "year": 2023,
+    "track": "Main Conference",
+    "submissions": 9155,
+    "accepted": 2359,
+    "rate": 25.8,
+    "sourceId": "hist-cvpr-2023"
+  },
+  {
+    "conferenceId": "cvpr",
+    "year": 2024,
+    "track": "Main Conference",
+    "submissions": 11532,
+    "accepted": 2719,
+    "rate": 23.6,
+    "sourceId": "hist-cvpr-2024"
+  },
+  {
+    "conferenceId": "cvpr",
+    "year": 2025,
+    "track": "Main Conference",
+    "submissions": 13008,
+    "accepted": 2878,
+    "rate": 22.1,
+    "sourceId": "hist-cvpr-2025"
+  },
+  {
+    "conferenceId": "iclr",
+    "year": 2024,
+    "track": "Main Conference",
+    "submissions": null,
+    "accepted": null,
+    "rate": 31,
+    "sourceId": "hist-iclr-2025-fact"
+  },
+  {
+    "conferenceId": "iclr",
+    "year": 2025,
+    "track": "Main Conference",
+    "submissions": 11603,
+    "accepted": 3704,
+    "rate": 32,
+    "sourceId": "hist-iclr-2025-fact"
+  },
+  {
+    "conferenceId": "iclr",
+    "year": 2026,
+    "track": "Main Conference",
+    "submissions": 19525,
+    "accepted": 5355,
+    "rate": 27.4,
+    "sourceId": "hist-iclr-2026",
+    "note": "官方录用率以 19,525 份有效稿件为分母；完成最终判定的论文数另计为 13,763"
+  },
+  {
+    "conferenceId": "neurips",
+    "year": 2024,
+    "track": "Main Conference",
+    "submissions": 15671,
+    "accepted": 4037,
+    "rate": 25.8,
+    "sourceId": "hist-neurips-2024"
+  },
+  {
+    "conferenceId": "neurips",
+    "year": 2025,
+    "track": "Main Conference",
+    "submissions": 21575,
+    "accepted": 5290,
+    "rate": 24.52,
+    "sourceId": "hist-neurips-2025"
+  },
+  {
+    "conferenceId": "aaai",
+    "year": 2025,
+    "track": "Main Technical Track",
+    "submissions": 12957,
+    "accepted": 3029,
+    "rate": 23.4,
+    "sourceId": "hist-aaai-2025"
+  },
+  {
+    "conferenceId": "aaai",
+    "year": 2026,
+    "track": "Main Technical Track",
+    "submissions": null,
+    "accepted": null,
+    "rate": 17.5,
+    "sourceId": "hist-aaai-2026"
+  },
+  {
+    "conferenceId": "icml",
+    "year": 2024,
+    "track": "Main Conference",
+    "submissions": null,
+    "accepted": null,
+    "rate": 27.5,
+    "sourceId": "hist-icml-2024"
+  },
+  {
+    "conferenceId": "icml",
+    "year": 2025,
+    "track": "Main Conference",
+    "submissions": null,
+    "accepted": 3260,
+    "rate": 27,
+    "sourceId": "hist-icml-2025"
+  },
+  {
+    "conferenceId": "acl",
+    "year": 2025,
+    "track": "Main Conference",
+    "submissions": 8360,
+    "accepted": 1699,
+    "rate": 20.3,
+    "sourceId": "hist-acl-2025",
+    "note": "ARR 两个周期独立投稿数为分母，Findings 不计入主会"
+  }
+]

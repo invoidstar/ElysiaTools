@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import { CalendarDays, ChevronLeft, ChevronRight, Clock3, FileDown, List, Search, SlidersHorizontal, BookmarkPlus } from 'lucide-react';
 import { FavoriteButton, GradeTag, EmptyState } from '../components/Common';
-import { conferences, deadlineRows, deadlineState, eventMillis, nextDeadline, orderedConferences, matches } from '../lib/catalog';
+import { DirectoryViz } from '../components/ResearchCharts';
+import { conferences, coverage, deadlineRows, deadlineState, eventMillis, nextDeadline, orderedConferences, matches, latestAcceptance } from '../lib/catalog';
 import { countdown, displayEvent, kindLabel, monthKey, zoneValue, type ZoneChoice } from '../lib/time';
 import type { AcademicState, DeadlineRow } from '../types';
 
@@ -34,6 +35,7 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
   const [view, setView] = useState<'list' | 'calendar'>('list');
   const [month, setMonth] = useState(() => new Date(new Date().getFullYear(), new Date().getMonth(), 1));
   const [limit, setLimit] = useState(18);
+  const [historyOnly, setHistoryOnly] = useState(false);
   const fields = useMemo(() => [...new Set(conferences.map(c => c.field))].sort(), []);
   const change = (key: keyof ConferenceFilters, value: string) => { onFilters({ ...filters, [key]: value }); setLimit(18); };
   const filtered = useMemo(() => {
@@ -47,13 +49,14 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
       return true;
     };
     return orderedConferences(conferences.filter(c =>
+      (!historyOnly || Boolean(latestAcceptance(c.id))) &&
       matches(c, filters.keyword) &&
       (!filters.grade || c.ccf === filters.grade) &&
       (!filters.field || c.field === filters.field) &&
       (!filters.status || deadlineState(c.id, now) === filters.status) &&
       matchesDate(c.id)
     ), now);
-  }, [filters, now]);
+  }, [filters, now, historyOnly]);
 
   const year = month.getFullYear(), monthNumber = month.getMonth();
   const firstOffset = (new Date(year, monthNumber, 1).getDay() + 6) % 7;
@@ -72,12 +75,13 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
       <div className="eyebrow"><CalendarDays size={15} /> CONFERENCE EXPLORER <span className="eyebrow-line" /></div>
       <h1>学术会议<span className="accent-dot">.</span></h1>
       <p>从研究方向到下一次截稿，在一个地方掌握会议动态。</p>
-      <div className="intro-stats"><span><b>{conferences.length}</b> 场精选会议</span><span><b>{new Set(conferences.map(x => x.field)).size}</b> 个学科领域</span><span>CCF 第七版 · 2026</span></div>
+      <div className="intro-stats"><span><b>{coverage.conferenceRows}</b> 场 CCF 评级会议</span><span><b>{coverage.fields}</b> 个研究领域</span><span>CCF 第七版 · 2026</span></div>
     </div>
 
+    <DirectoryViz type="conference" activeField={filters.field} onField={field=>onFilters({...filters,field})}/>
     <div className="explorer-layout">
       <aside className="filter-panel">
-        <div className="panel-title"><SlidersHorizontal size={17} /><strong>筛选条件</strong><button onClick={() => onFilters(emptyConferenceFilters)} className="text-button">重置</button></div>
+        <div className="panel-title"><SlidersHorizontal size={17} /><strong>筛选条件</strong><button onClick={() => {onFilters(emptyConferenceFilters);setHistoryOnly(false);}} className="text-button">重置</button></div>
         <label className="filter-label">检索会议</label>
         <div className="field-with-icon"><Search size={17} /><input value={filters.keyword} onChange={e => change('keyword', e.target.value)} placeholder="会议名称 / 简称 / 领域" /></div>
         <label className="filter-label">CCF 推荐等级</label>
@@ -88,6 +92,8 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
         <select id="conf-state" className="select-input" value={filters.status} onChange={e => change('status', e.target.value)}>
           <option value="">全部状态</option><option value="upcoming">尚有投稿节点</option><option value="closed">已截止</option><option value="tbd">尚未公布 / TBD</option>
         </select>
+        <label className="filter-label" htmlFor="conf-history">录用率信息</label>
+        <label className="history-check"><input type="checkbox" checked={historyOnly} onChange={e=>setHistoryOnly(e.target.checked)} id="conf-history"/> 仅显示有官方历年录用率的会议</label>
         <label className="filter-label">最近截稿日期范围</label>
         <div className="date-pair"><input type="date" aria-label="开始日期" value={filters.from} onChange={e => change('from', e.target.value)} /><span>至</span><input type="date" aria-label="结束日期" value={filters.to} onChange={e => change('to', e.target.value)} /></div>
         <button className="save-filter" onClick={saveFilter}><BookmarkPlus size={16} /> 保存当前筛选</button>
@@ -107,7 +113,7 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
             return <article key={conf.id} className="venue-row">
               <button className="venue-main" onClick={() => openConference(conf.id)}>
                 <span className="venue-monogram">{conf.acronym.slice(0, 2).toUpperCase()}</span>
-                <span className="venue-identity"><span className="venue-title">{conf.acronym} <GradeTag grade={conf.ccf} year={conf.ccfYear} /></span><span className="venue-subtitle">{conf.name}</span><span className="venue-field">{conf.field}</span></span>
+                <span className="venue-identity"><span className="venue-title">{conf.acronym} <GradeTag grade={conf.ccf} year={conf.ccfYear} /></span><span className="venue-subtitle">{conf.name}</span><span className="venue-field">{conf.fieldZh} {latestAcceptance(conf.id) && <span className="acceptance-tiny">· {latestAcceptance(conf.id)?.year} 录用率 {latestAcceptance(conf.id)?.rate}%</span>}</span></span>
               </button>
               <button className="deadline-cell" onClick={() => openConference(conf.id)}>
                 {state === 'upcoming' && row ? <>
@@ -132,6 +138,6 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
         </div>}
       </div>
     </div>
-    <div className="data-note"><FileDown size={16} /> 所有截稿信息都可以在会议详情中查看官方出处，并支持导出日历文件。</div>
+    <div className="data-note"><FileDown size={16} /> 已覆盖 CCF 2026 全部会议推荐记录；历年录用率、当届日程仅在有主办方证据时显示，未核实项为 TBD。</div>
   </section>;
 }

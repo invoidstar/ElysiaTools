@@ -52,7 +52,7 @@
             "kind": "rebuttal",
             "title": "Author feedback opens",
             "precision": "date",
-            "original": "2026-10-19",
+            "original": "2026-10-24",
             "timezone": "Etc/GMT+12",
             "id": "main-5"
           },
@@ -60,7 +60,7 @@
             "kind": "rebuttal",
             "title": "Author feedback closes",
             "precision": "date",
-            "original": "2026-10-25",
+            "original": "2026-10-31",
             "timezone": "Etc/GMT+12",
             "id": "main-6"
           },
@@ -76,7 +76,13 @@
         "pending": []
       }
     ],
-    "changeLog": []
+    "changeLog": [
+      {
+        "date": "2026-10-12",
+        "note": "AAAI-27 主会作者反馈窗口由 10 月 19—25 日调整至 10 月 24—31 日，官方页面明确显示划线修改。",
+        "sourceId": "aaai-27"
+      }
+    ]
   },
   {
     "id": "cvpr-2027",

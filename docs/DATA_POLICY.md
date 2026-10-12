@@ -2,7 +2,7 @@
 
 ## 1. Sources and ranking systems
 
-1. **CCF (2026, seventh edition)**: the source of grades for curated computer-science conferences and journals. Reference: https://www.ccf.org.cn/Academic_Evaluation/By_category/ (formal edition March 31, 2026; corrected April 9, 2026). Store CCF grade and edition year on the venue. An empty grade is not equivalent to “non-CCF” unless proven.
+1. **CCF (2026, seventh edition)**: the source of all 386 conference rows and all 295 journal recommendation rows. Four cross-listed journal names are deduplicated to 291 journal identities without losing any category membership. Reference: https://www.ccf.org.cn/Academic_Evaluation/By_category/ (formal edition March 31, 2026; corrected April 9, 2026). Store CCF grade and edition year on the venue. An empty grade is not equivalent to “non-CCF” unless proven.
 2. **Conference deadlines**: official edition pages or the official Call for Papers take precedence. Community aggregators may flag discrepancies for manual checking, but cannot overwrite official evidence on their own.
 3. **Journal identity**: use ISSN-L where verified, with distinct print ISSN/eISSN. Never assume the same abbreviation means the same publication (e.g. FSE has different conference identities in separate disciplines).
 4. **JCR / JIF**: display only legally accessible, authorized, year-tagged figures and their respective subject categories. Never import premium metrics from scraped secondary sites.
@@ -16,6 +16,8 @@ The initial CCF facts were curated from the formal directory with reference to a
 - **data/conferences.json:** long-lived Conference (ID, acronym, name, aliases, discipline, CCF grade & edition).
 - **data/editions.json:** annual Conference Edition with meeting dates and location. It contains separately identified Submission Track and Deadline Event objects.
 - **data/journals.json:** Journal with stable ID, verified identifiers, publisher, OA state, grade and per-system Journal Indicator records if available.
+- **data/acceptance.json:** source-backed historical acceptance data with year, track, submissions, accepted and rate (when officially published).
+- **data/ccf-coverage.json:** formal edition and row-count contract (386 conference rows / 295 journal rows / 10 subjects).
 - **data/sources.json:** Source Record with stable ID, link, type, owner, verification date and notes.
 
 No entity should use its free-text name alone as a join key.
@@ -40,12 +42,22 @@ If only a calendar day has been published, use **precision: date** and **origina
 
 Unknown deadlines appear in the separate Track pending array and are displayed as **TBD**. Independent submission tracks and cycles must not share guessed dates. Future verified changes should record previous value, new value, source and date.
 
-## 4. Quality controls
+## 4. Journal rankings, licensing and article counts
 
-**npm run validate** checks IDs, referential integrity, CCF year, ISSN checksum, source resolution, timezone support, precision and AoE UTC conversion. **npm test** checks known tricky edge cases such as CVPR AoE, separate USENIX cycles and KDD unpublished rounds.
+**CAS 2025** is the last historical edition from the Chinese Academy of Sciences journal division before discontinuation in 2026. Historical fields are optional and should be populated only from rights-cleared primary evidence. Official discontinuation: https://nssc.cas.cn/library/dtxx/202604/t20260409_8183275.html .
+
+**XinRui (新锐), 2026** is published by an independent institution and must never be relabeled “CAS 2026”. Its official search and terms: https://www.xr-scholar.com/Journals/Search . Its website terms restrict republication. ElysiaTools therefore does not republish the underlying restricted divisions without a license; links lead users to authorized lookup.
+
+**JCR / JIF** each carry the original subject/year and source. JCR published in 2026 commonly contains **2025 JIF values**, whereas a 2025 JCR publisher notice may cite **2024 JIF**. A Q1 JCR classification is not a CAS 1 区 result. Only issuer/publisher publicly disclosed facts may be reproduced, e.g. IEEE and ACM notices with URLs in the Source Registry.
+
+**Publication count** is user-initiated and retrieved from OpenAlex's source `counts_by_year` with the index year **2025**. It means “works indexed by OpenAlex”; it is not official total published article count, and may include non-research items. The frontend matches the journal by verified ISSN or a full normalized name; near-match results are rejected. If unavailable it shows an informative error and never supplies a guess.
+
+## 5. Quality controls
+
+**npm run validate** checks IDs, source resolution, complete CCF 681 row count, cross-listed journals, independent grades and systems, acceptance numerator/denominator, ISSN checksum, timezone support and AoE UTC conversion. **npm test** checks known tricky edge cases such as CVPR AoE, separate USENIX cycles and KDD unpublished rounds.
 
 The source-health workflow can observe unavailable pages or changed content, but neither is proof of a changed deadline. Bot restrictions, CDN content and layouts can vary. The monitor never silently rewrites data or relabels an old check as verified today. It produces reports for human review.
 
-## 5. Personal data
+## 6. Personal data
 
 My Academic stores preferences in localStorage, not in a cloud database. Export and import are user-controlled. Backups contain only selected preferences, not credentials. No analytics or server-side user profile is included in V1.0.

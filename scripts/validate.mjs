@@ -7,6 +7,8 @@ const conferences = load('data/conferences.json');
 const editions = load('data/editions.json');
 const journals = load('data/journals.json');
 const sources = load('data/sources.json');
+const acceptance = load('data/acceptance.json');
+const coverage = load('data/ccf-coverage.json');
 const check = (condition, reason) => assert.ok(condition, reason);
 const grade = v => v === null || ['A','B','C'].includes(v);
 const yyyyMmDd = text => /^\d{4}-\d{2}-\d{2}$/.test(text) && !Number.isNaN(Date.parse(text + 'T00:00:00Z'));
@@ -88,4 +90,64 @@ for (const e of editions) {
   }
 }
 check(sources.some(s => s.id === 'ccf-2026'), 'CCF 2026 source required');
+function verifyCCFEntries(venue, kind) {
+  if (venue.ccf === null) {
+    check((venue.ccfEntries || []).length === 0, kind + ' unranked entry cannot claim CCF category: ' + venue.id);
+    return 0;
+  }
+  check(venue.ccfEntries?.length > 0, 'CCF entries missing from '+kind+': ' + venue.id);
+  unique(venue.ccfEntries.map(v=>v.field), kind + ' CCF fields for ' + venue.id);
+  for (const entry of venue.ccfEntries) {
+    check(['A','B','C'].includes(entry.grade), kind + ' CCF entry grade invalid: ' + venue.id);
+    check(entry.year === coverage.edition && entry.field && entry.fieldZh && Number.isInteger(entry.seq),
+      kind + ' CCF entry must contain grade/year/subject/sequence: ' + venue.id);
+  }
+  check(venue.ccfEntries.some(entry=>entry.grade===venue.ccf),'CCF principal grade mismatch: ' + venue.id);
+  return venue.ccfEntries.length;
+}
+const listedConferences = conferences.reduce((n,v)=>n+verifyCCFEntries(v,'conference'),0);
+const listedJournals = journals.reduce((n,v)=>n+verifyCCFEntries(v,'journal'),0);
+check(coverage.edition===2026 && coverage.listedRows===681 && coverage.fields===10,
+  'CCF seventh edition metadata invalid');
+check(conferences.length === coverage.uniqueConferences && listedConferences === coverage.conferenceRows,
+  'CCF 2026 conference directory coverage incomplete');
+check(journals.filter(j=>j.ccf!==null).length === coverage.uniqueCCFJournals &&
+    listedJournals === coverage.journalRows,
+  'CCF 2026 journal directory coverage incomplete');
+check(listedConferences+listedJournals === coverage.listedRows,
+  'CCF directory row count mismatch');
+check(coverage.uniqueCCFJournals === 291 && coverage.journalRows === 295 &&
+    journals.filter(j=>j.ccf===null).length === coverage.supplementalJournals,
+  'Cross-listed journals must be deduplicated without losing subject memberships');
+const approval=new Set();
+for (const row of acceptance) {
+  check(confIds.has(row.conferenceId),'acceptance references unknown conference: '+row.conferenceId);
+  check(Number.isInteger(row.year)&&row.year>=1990&&row.year<=2026&&row.track,
+    'acceptance requires official year and track: '+row.conferenceId);
+  check(typeof row.rate==='number'&&row.rate>=0&&row.rate<=100&&Number.isFinite(row.rate),
+    'acceptance rate invalid: '+row.conferenceId+' '+row.year);
+  source(row.sourceId, 'acceptance history');
+  if(row.submissions!=null)check(Number.isInteger(row.submissions)&&row.submissions>0,
+    'submissions invalid: '+row.conferenceId);
+  if(row.accepted!=null)check(Number.isInteger(row.accepted)&&row.accepted>0,
+    'accepted invalid: '+row.conferenceId);
+  if(row.submissions!=null&&row.accepted!=null) {
+    check(row.accepted<=row.submissions,'accepted exceeds submissions: '+row.conferenceId);
+    check(Math.abs(100*row.accepted/row.submissions-row.rate)<=0.6,
+      'acceptance numerator/denominator conflict: '+row.conferenceId+' '+row.year);
+  }
+  const key=[row.conferenceId,row.year,row.track].join('::');
+  check(!approval.has(key),'duplicate historical acceptance row: '+key);
+  approval.add(key);
+}
+for(const j of journals)for(const i of j.indicators){
+  check(['jif','jcr','cas','xinrui','articles'].includes(i.system),
+    'journal metric system not recognized: '+j.id);
+  if(i.system==='jcr')check(/^Q[1-4]$/.test(i.value),'JCR quartile invalid '+j.id);
+  if(i.system==='cas'||i.system==='xinrui')
+    check(i.license && i.sourceId,'division record requires explicit licensed provenance '+j.id);
+}
+check(acceptance.length>=10,'official acceptance history not populated');
+
+console.log('VALID: CCF 2026 '+coverage.listedRows+' recommendation rows / '+coverage.uniqueConferences+' conferences / '+coverage.uniqueCCFJournals+' ranked journals / '+acceptance.length+' acceptance records.');
 console.log('VALID: ' + conferences.length + ' conferences / ' + journals.length + ' journals / ' + editions.length + ' editions / ' + tracks + ' tracks / ' + events + ' events (' + timed + ' timed, ' + days + ' date-only).');

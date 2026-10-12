@@ -1,4 +1,10 @@
 export type Grade = 'A' | 'B' | 'C' | null;
+
+export interface CCFEntry { field: string; fieldZh: string; grade: 'A' | 'B' | 'C'; year: number; seq: number; }
+
+export interface AcceptanceRecord { conferenceId: string; year: number; track: string; submissions?: number | null; accepted?: number | null; rate: number; sourceId: string; note?: string; }
+
+export interface CCFCoverage { edition: number; label: string; officialUrl: string; listedRows: number; conferenceRows: number; journalRows: number; uniqueConferences: number; uniqueCCFJournals: number; crossListedJournalNames: number; supplementalJournals: number; fields: number; compiledAt: string; policy: string; }
 export type Precision = 'minute' | 'date';
 export type Kind = 'abstract' | 'paper' | 'supplement' | 'rebuttal' | 'notification' | 'camera-ready' | 'review' | 'revision';
 
@@ -22,6 +28,7 @@ export interface Conference {
   fieldZh: string;
   ccf: Grade;
   ccfYear: number | null;
+  ccfEntries?: CCFEntry[];
   website: string | null;
   indexUrl: string | null;
   sourceId: string;
@@ -76,6 +83,7 @@ export interface Journal {
   field: string;
   fieldZh: string;
   additionalFields?: string[];
+  ccfEntries?: CCFEntry[];
   publisher: string | null;
   ccf: Grade;
   ccfYear: number | null;
