@@ -78,3 +78,10 @@ The original provider CSVs are fetched in GitHub Actions at a pinned ShowJCR com
 The site operator reports receiving permissions for public republication and derivative use. **Permission scope is not independently verified here.** ShowJCR's software GPL cannot substitute for provider-specific permissions covering CAS, Clarivate JCR and XinRui source data.
 
 Never infer a missing rating, combine evaluation systems, or merge two publications solely because they share a title. Maintain separate year, category and source attribution. See [METRIC_IMPORT.md](METRIC_IMPORT.md).
+
+
+## V1.6 OpenAlex and bibliography operation
+
+The journal source API client uses a browser-local 48-hour source cache (100 records), a clearly labeled 90-day stale-data fallback, a 24-hour negative identity cache and serialized requests. It honors OpenAlex HTTP 429 response headers to avoid repeated calls while the anonymous quota is exhausted. These measures do not expand the external API quota. Public GitHub Pages must not embed an OpenAlex API key; personal keys are authentication credentials. The legacy email-based polite-pool approach no longer changes rate limits.
+
+The BibTeX organizer parses and formats user text locally, without sending bibliographies to a server. The original braced LaTeX field contents, string definitions and citation keys are retained; suspected same-title references are review hints rather than automatic duplicate deletion.

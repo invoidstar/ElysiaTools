@@ -275,3 +275,5 @@
 .bib-expand{margin:13px auto 0;display:flex;font-size:11px}.bib-note{font-size:10px;line-height:1.75;color:var(--muted);margin:21px 0 2px}
 @media(max-width:850px){.bib-editors{grid-template-columns:1fr}.bib-head{flex-direction:column}.bib-private{align-self:flex-start}}
 @media(max-width:580px){.bib-workspace{padding:15px}.bib-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.bib-references{grid-template-columns:1fr}.bib-editor{padding:10px}.bib-editor-actions .primary-button{margin-left:0}}
+
+.publication-cache-note{font-size:10px;line-height:1.65;color:var(--muted);background:var(--surface-soft);border:1px solid var(--line);padding:9px 10px;border-radius:8px;margin:13px 0 3px}

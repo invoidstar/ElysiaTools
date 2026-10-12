@@ -14,7 +14,7 @@ ElysiaTools uses React, TypeScript and Vite and runs exclusively on **GitHub Pag
 | Conferences | CCF 2026 A/B/C full conference directory, historic acceptance, deadlines, timezone conversion, ICS |
 | Journals | **23,100 unique journal identities**; name/ISSN search, CAS 2025 historical divisions, XinRui 2026 divisions, JCR 2025 quartiles, JIF 2025, CCF 2026 classifications, filters, detail views and comparisons |
 | My Academic | Browser-local favorites, comparison lists, backups |
-| Tools | Academic identifiers |
+| Tools | DOI / arXiv / ISSN links plus a local BibTeX organizer: parse, check, deduplicate, sort, copy and export |
 
 Light/dark mode and responsive layouts are included.
 
@@ -44,6 +44,25 @@ The [journal generator](scripts/sync/build_journal_universe.mjs) downloads sourc
 The journal index now retains **all known identities**, including the 74 original CCF/supplementary titles without any metric in the pinned annual CSVs. Each journal has a four-system status: **available**, **listed but no valid metric**, **not matched in this annual source**, or **identity conflict requiring review**. Search can filter these statuses and the detail panel shows source record numbers, match method and matching issues. The [per-journal audit](https://invoidstar.github.io/ElysiaTools/data/journal-diagnostics.json) is generated with Pages, while [coverage counters](https://invoidstar.github.io/ElysiaTools/data/journal-coverage.json) summarize each missingness class. Both reflect the pinned annual snapshot, not a real-time publisher query.
 
 The journal detail page now resolves a publisher/journal homepage on demand from the matching OpenAlex source record when a verified website is absent. OpenAlex also supplies an **automatic rolling five-year publication chart** (including the current partial year), with unavailable years shown as missing rather than zero. OpenAlex indexing is **not a publisher-certified article count** and its public API can occasionally be rate-limited. For conferences with a verified annual edition, the direct yearly homepage and that edition's official CFP are both linked; years without a verified edition are not guessed.
+
+### OpenAlex request-limit handling (V1.6)
+
+The OpenAlex anonymous API has a smaller daily budget than free-key access. Because ElysiaTools runs on public GitHub Pages, an OpenAlex API key must never be inserted into frontend JavaScript: it is also an account credential. The old mailto polite-pool parameter is deprecated.
+
+The journal lookup now:
+- Shares one pending request per journal, across publication charts and homepage links.
+- Stores successful responses in browser-local cache for 48 hours (maximum 100 journals), with a visibly labeled stale-cache fallback up to 90 days.
+- Remembers unmatched journal identities for 24 hours instead of repeatedly querying the same unsuccessful record.
+- Runs at roughly one request every 850 ms per browser tab.
+- Applies bounded retries and respects OpenAlex Retry-After / X-RateLimit-Reset hints, pausing additional anonymous traffic when the quota is exhausted.
+
+These improvements cannot eliminate API-wide quotas for first-time visitors. At larger scale, use a server-side proxy with a protected key and shared cache (for example Cloudflare Worker + KV/D1), subject to later approval. No server has been added in this version.
+
+### BibTeX organizer (V1.6)
+
+The new BibTeX workspace runs entirely in the browser at the Tools page. It accepts pasted references or imported .bib files (up to 3 MB / 4,000 entries), preserves LaTeX braces/commands and BibTeX string definitions, identifies strong DOI / arXiv duplicate candidates, flags missing fields and conflicting citation keys, and supports sorting, review, copy and export.
+
+Only identifier-backed duplicate suggestions may be excluded automatically; title/year similarity alone does not remove records. Existing citation keys are not silently renamed because this might break references in LaTeX manuscripts. The three previous unused image-check, statistics and academic plotting roadmap cards have been removed from the published Tools page.
 
 The former online “同步期刊评价数据” function remains removed. A standalone aggregated [historic matching audit](scripts/sync/audit_metric_csv.py) is retained for developers. The CCF source data and 2026 conference/acceptance directory remain unchanged.
 

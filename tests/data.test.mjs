@@ -179,3 +179,20 @@ test('journal publication figures load automatically for a rolling five-year per
   assert.ok(!component.includes('onClick={lookup}'),'publication history must not require a button');
   assert.ok(component.includes('year===currentYear'),'incomplete current year must be disclosed');
 });
+
+test('Bibliography organizer is fully usable and placeholder tool cards are removed',()=>{
+  const source=readFileSync(new URL('../src/features/ToolsPage.tsx',import.meta.url),'utf8');
+  const editor=readFileSync(new URL('../src/components/BibtexTool.tsx',import.meta.url),'utf8');
+  for(const removed of ['论文图像检查','科研统计计算','学术绘图助手','ON THE ROADMAP'])
+    assert.ok(!source.includes(removed),'Unused card should be deleted: '+removed);
+  assert.ok(source.includes('<BibtexTool/>'));
+  for(const token of ['parseBibtex','analyzeBibtex','formatBibtex','downloadContent','type="file"'])
+    assert.ok(editor.includes(token),'Missing organizer capability: '+token);
+});
+test('OpenAlex client caches results and honors anonymous quota cooldown without hardcoded keys',()=>{
+  const source=readFileSync(new URL('../src/lib/openAlex.ts',import.meta.url),'utf8');
+  for(const token of ['getCachedSource','putCachedSource','getApiCooldown','Retry-After','X-RateLimit-Reset'])
+    assert.ok(source.includes(token),'Missing source API control: '+token);
+  assert.ok(!source.includes('api_key='));
+  assert.ok(!source.includes('mailto='));
+});
