@@ -166,7 +166,7 @@ test('journal UI hides identifier fields but retains internal identity matching'
   const page=readFileSync(new URL('../src/features/JournalPage.tsx',import.meta.url),'utf8');
   const compare=readFileSync(new URL('../src/components/JournalCompare.tsx',import.meta.url),'utf8');
   for(const text of [drawer,page,compare]){
-    assert.ok(!/ISSN-L|ISSN \\/|eISSN|ISSN 待补充/.test(text));
+    assert.ok(!['ISSN-L','ISSN /','eISSN','ISSN 待补充'].some(term=>text.includes(term)));
   }
   const indexer=readFileSync(new URL('../scripts/sync/build_journal_universe.mjs',import.meta.url),'utf8');
   assert.ok(indexer.includes('canonicalISSN'),'must retain internal identity crosswalk');
