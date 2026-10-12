@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
-import { CalendarDays, ChevronLeft, ChevronRight, Clock3, FileDown, List, Search, SlidersHorizontal, BookmarkPlus } from 'lucide-react';
+import { CalendarDays, ChevronLeft, ChevronRight, Clock3, FileDown, List, Search, SlidersHorizontal, BookmarkPlus, ExternalLink } from 'lucide-react';
 import { FavoriteButton, GradeTag, EmptyState } from '../components/Common';
 import { DirectoryViz } from '../components/ResearchCharts';
-import { conferences, coverage, deadlineRows, deadlineState, eventMillis, nextDeadline, orderedConferences, matches, latestAcceptance } from '../lib/catalog';
+import { conferences, coverage, deadlineRows, deadlineState, eventMillis, nextDeadline, orderedConferences, matches, latestAcceptance, getEdition } from '../lib/catalog';
 import { countdown, displayEvent, kindLabel, monthKey, zoneValue, type ZoneChoice } from '../lib/time';
 import type { AcademicState, DeadlineRow } from '../types';
 
@@ -110,19 +110,23 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
           {filtered.slice(0, limit).map(conf => {
             const state = deadlineState(conf.id, now);
             const row = nextDeadline(conf.id, now);
+            const edition = getEdition(conf.id);
             return <article key={conf.id} className="venue-row">
               <button className="venue-main" onClick={() => openConference(conf.id)}>
                 <span className="venue-monogram">{conf.acronym.slice(0, 2).toUpperCase()}</span>
                 <span className="venue-identity"><span className="venue-title">{conf.acronym} <GradeTag grade={conf.ccf} year={conf.ccfYear} /></span><span className="venue-subtitle">{conf.name}</span><span className="venue-field">{conf.fieldZh} {latestAcceptance(conf.id) && <span className="acceptance-tiny">· {latestAcceptance(conf.id)?.year} 录用率 {latestAcceptance(conf.id)?.rate}%</span>}</span></span>
               </button>
-              <button className="deadline-cell" onClick={() => openConference(conf.id)}>
+              <div className="deadline-wrapper"><button className="deadline-cell" onClick={() => openConference(conf.id)}>
                 {state === 'upcoming' && row ? <>
                   <span className="deadline-main">{displayEvent(row.event, zone)}</span>
                   <span className="deadline-sub">{row.edition.year} · {row.track.name} · {kindLabel[row.event.kind]}</span>
                   <span className="countdown-small"><Clock3 size={13} /> {countdown(row.event, now)}</span>
                 </> : state === 'closed' ? <><span className="state-closed">本轮已截止</span><span className="deadline-sub">{row?.edition.year || ''} · 查看历史时间线</span></> :
                   <><span className="state-tbd">TBD</span><span className="deadline-sub">暂无可核验的当届截稿</span></>}
-              </button>
+              </button>{edition?.website && <a className="conference-year-link"
+                href={edition.website} target="_blank" rel="noopener noreferrer">
+                {edition.year} 年官网 <ExternalLink size={12}/>
+              </a>}</div>
               <FavoriteButton active={academic.conferences.includes(conf.id)} onClick={() => toggleFavorite(conf.id)} label={conf.acronym} />
             </article>;
           })}
