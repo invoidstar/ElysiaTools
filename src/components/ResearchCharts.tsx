@@ -101,7 +101,7 @@ export function JournalMetricCards({journal}:{journal:Journal}) {
   const metrics = [
     {id:'cas',year:2025,caption:'原中科院 2025 升级版'},
     {id:'xinrui',year:2026,caption:'独立机构 2026'},
-    {id:'jcr',year:2026,caption:'2026 JCR · 学科 Q1–Q4'},
+    {id:'jcr',year:2026,caption:'2025 年度 JCR · 2026 发布'},
     {id:'jif',year:2025,caption:'2025 JIF · 2026 发布'}
   ];
   return <div className="journal-metric-dashboard">{metrics.map(m=>{
@@ -112,11 +112,11 @@ export function JournalMetricCards({journal}:{journal:Journal}) {
     return <div key={m.id} className={'journal-metric-card metric-'+m.id}>
       <span>{metricTitle[m.id]}</span>
       <strong className={found?'has-data':''}>{found ? found.value : '—'}</strong>
-      <small>{found?(secondarySource?'LetPub 二次来源 · '+found.year:m.id==='jif'?'JIF '+found.year+' · '+(found.year+1)+' 年发布':'指标年份 '+found.year):m.caption}</small>
+      <small>{found?(secondarySource?'LetPub 二次来源 · '+found.year:m.id==='jif'?'JIF '+found.year+' · '+(found.year+1)+' 年发布':m.id==='jcr'?'JCR 2025 评价 · 2026 年发布':'指标年份 '+found.year):m.caption}</small>
       {found?.category && <p className="metric-category" title={found.category}>{found.category}</p>}
       {url && <a href={url} target="_blank" rel="noopener noreferrer">{source?'查看数据出处':'前往官方查询'} <ArrowUpRight size={12}/></a>}
       {['jcr','cas','xinrui'].includes(m.id) && getMetrics(journal,m.id).length>1 && <div className="metric-subjects">
-        {getMetrics(journal,m.id).slice(0,7).map((v,i)=><small key={v.category+'-'+i}>{v.category||'所属学科'} · {v.value}</small>)}
+        {getMetrics(journal,m.id).map((v,i)=><small key={v.category+'-'+i}>{v.category||'所属学科'} · {v.value}</small>)}
       </div>}
     </div>;
   })}</div>;

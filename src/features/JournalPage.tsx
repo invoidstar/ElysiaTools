@@ -33,6 +33,7 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
   const [tier, setTier] = useState('');
   const [limit, setLimit] = useState(18);
   const fields = [...new Set(journals.flatMap(j => [j.field, ...(j.additionalFields || [])]))].sort();
+  const fieldTitles = new Map(journals.map(j=>[j.field,j.fieldZh]));
   const publishers = [...new Set(journals.map(j => j.publisher).filter((p): p is string => Boolean(p)))].sort();
   const filtered = useMemo(() =>
     journals.filter(j =>
@@ -65,11 +66,11 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
       <aside className="filter-panel">
         <div className="panel-title"><SlidersHorizontal size={17} /><strong>筛选条件</strong><button className="text-button" onClick={() => { setKeyword(''); setGrade(''); setField(''); setOa(''); setPublisher(''); setIndicator(''); setTier(''); }}>重置</button></div>
         <label className="filter-label">检索期刊</label>
-        <div className="field-with-icon"><Search size={17} /><input value={keyword} onChange={e => setFilter(setKeyword, e.target.value)} placeholder="名称 / 简称 / 领域" /></div>
+        <div className="field-with-icon"><Search size={17} /><input value={keyword} onChange={e => setFilter(setKeyword, e.target.value)} placeholder="期刊名称 / ISSN / 研究领域" /></div>
         <label className="filter-label">CCF 推荐等级</label>
         <div className="chip-choice">{['','A','B','C'].map(g => <button key={g || 'all'} className={'chip ' + (grade === g ? 'active' : '')} onClick={() => setFilter(setGrade, g)}>{g ? 'CCF ' + g : '全部'}</button>)}</div>
         <label className="filter-label" htmlFor="jour-field">研究领域</label>
-        <select id="jour-field" className="select-input" value={field} onChange={e => setFilter(setField, e.target.value)}><option value="">全部领域</option>{fields.map(f => <option key={f} value={f}>{f}</option>)}</select>
+        <select id="jour-field" className="select-input" value={field} onChange={e => setFilter(setField, e.target.value)}><option value="">全部领域</option>{fields.map(f => <option key={f} value={f}>{fieldTitles.get(f)||f}</option>)}</select>
         <label className="filter-label" htmlFor="jour-oa">开放获取</label>
         <select id="jour-oa" className="select-input" value={oa} onChange={e => setFilter(setOa, e.target.value)}><option value="">全部类型</option>{Object.entries(oaText).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select>
         <label className="filter-label" htmlFor="jour-publisher">出版社</label>

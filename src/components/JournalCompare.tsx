@@ -10,8 +10,8 @@ const ccfLabel = (j:Journal)=>ccfEntries(j).map(r=>r.field+' · '+r.grade).join(
 
 export function JournalCompare({ journals, academic, onClose, toggleCompare }: Props) {
   const indicator = (j:Journal,system:string)=>{
-    const value=journalMetric(j,system);
-    return value ? value.value + ' · ' + value.year : '—';
+    const found=j.indicators.filter(m=>m.system===system).sort((a,b)=>b.year-a.year);
+    return found.length ? found.map(m=>(m.category?m.category+': ':'')+m.value+' ['+m.year+']').join('；') : '—';
   };
   const selected = academic.compare.map(id => journals.find(j => j.id === id)).filter((j): j is Journal => Boolean(j));
   const exportCSV = () => {
@@ -53,9 +53,10 @@ export function JournalCompare({ journals, academic, onClose, toggleCompare }: P
     {label:'官方网站',value:j=>j.website ? <a href={j.website} target="_blank" rel="noopener noreferrer" className="micro-link">访问期刊 <ExternalLink size={13}/></a> : '尚未收录官方链接'}
   ];
   function metricCell(j:Journal,system:string,fallback?:string){
-    const value=journalMetric(j,system);
+    const metrics=j.indicators.filter(m=>m.system===system).sort((a,b)=>b.year-a.year);
+    const value=metrics[0];
     const url=value?getSource(value.sourceId)?.url || fallback:fallback;
-    return <div className="comparison-metric"><strong className={value?'metric-known':'metric-missing'}>{value ? value.value : '—'}</strong><small>{value?('指标年份 '+value.year):'暂无可公开核验数据'}</small>{url&&<a href={url} target="_blank" rel="noopener noreferrer" className="micro-link">查看来源 <ExternalLink size={12}/></a>}</div>;
+    return <div className="comparison-metric"><strong className={value?'metric-known':'metric-missing'}>{value ? value.value : '—'}</strong><small>{value?(system==='jcr'?'JCR 2025 · 2026 发布':'指标年份 '+value.year):'本版无对应记录'}</small>{metrics.length>1 && <div className="metric-subjects">{metrics.map((m,i)=><small key={m.category+'-'+i}>{m.category||'所属学科'} · {m.value}</small>)}</div>}{url&&<a href={url} target="_blank" rel="noopener noreferrer" className="micro-link">查看来源 <ExternalLink size={12}/></a>}</div>;
   }
   return <div className="modal-backdrop" onClick={onClose}><section className="comparison-modal" role="dialog" aria-modal="true" aria-label="期刊横向比较" onClick={e=>e.stopPropagation()}>
     <div className="modal-heading"><div><div className="eyebrow"><GitCompareArrows size={16} /> JOURNAL COMPARISON</div><h2>期刊横向比较</h2><p>CCF、JCR、2025 中科院历史分区和 2026 新锐分区分别记录，空缺不推测。</p></div><button className="icon-button" onClick={onClose} aria-label="关闭对比"><X size={21} /></button></div>

@@ -42,7 +42,7 @@ export const getEdition = (conferenceId: string) =>
 export const matches = (venue: Conference | Journal, term: string) => {
   const query = term.trim().toLocaleLowerCase();
   if (!query) return true;
-  return [venue.acronym, venue.name, venue.field, venue.fieldZh, ...(venue.aliases || []), ...('additionalFields' in venue ? (venue.additionalFields || []) : [])]
+  return [venue.acronym, venue.name, venue.field, venue.fieldZh, ...(venue.aliases || []), ...('additionalFields' in venue ? (venue.additionalFields || []) : []), ...('issn' in venue ? [venue.issn, venue.eissn, venue.issnL] : [])]
     .filter(Boolean).join(' ').toLocaleLowerCase().includes(query);
 };
 
