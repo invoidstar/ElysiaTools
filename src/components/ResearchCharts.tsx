@@ -153,6 +153,10 @@ export function JournalPublicationCount({journal}:{journal:Journal}) {
       <CircleHelp size={16}/> {profile.message}
     </div>}
     {profile.status==='success'&&<>
+      {profile.source._cached&&<p className="publication-cache-note">
+        {profile.source._cached==='stale'?'OpenAlex 当前暂不可用，正在显示之前缓存的记录。':'已使用浏览器本地缓存，减少 OpenAlex 重复请求。'}
+        {profile.source._cachedAt?' · 缓存日期 '+new Date(profile.source._cachedAt).toLocaleDateString('zh-CN'):''}
+      </p>}
       <div className="publication-summary">
         <strong>{known.length?sum.toLocaleString('zh-CN'):'—'}</strong>
         <span>{known.length?'篇已查询到的收录作品':'暂无可用年度作品数'} · {known.length} / 5 个年份具有记录</span>

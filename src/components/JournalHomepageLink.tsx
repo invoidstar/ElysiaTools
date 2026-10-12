@@ -19,6 +19,7 @@ export function JournalHomepageLink({journal,description=false}:Props) {
             profile.status==='error'?'暂未核实期刊官网':'暂无期刊官网链接'}
         </span>
     }
+    {description&&profile.status==='error'&&!verified&&<small className="homepage-provenance">{profile.message}</small>}
     {description&&openalex&&!verified&&<small className="homepage-provenance">
       主页地址来自准确匹配的 OpenAlex 期刊记录；投稿前请核对出版社页面。
     </small>}
