@@ -1,0 +1,238 @@
+{
+  "version": 1,
+  "verifiedAt": "2026-10-12",
+  "entries": [
+    {
+      "id": "er",
+      "year": 2026,
+      "url": "https://er2026.org/",
+      "reference": "https://er2026.org/"
+    },
+    {
+      "id": "mdm",
+      "year": 2026,
+      "url": "https://mdm-2026.github.io/",
+      "reference": "https://mdm-2026.github.io/"
+    },
+    {
+      "id": "ssdbm",
+      "year": 2027,
+      "url": "https://ssdbm.org/2027/",
+      "website": "https://ssdbm.org/",
+      "reference": "https://ssdbm.org/2027/"
+    },
+    {
+      "id": "sstd",
+      "year": 2025,
+      "url": "https://sstd2025.github.io/",
+      "reference": "https://sstd2025.github.io/"
+    },
+    {
+      "id": "asru",
+      "year": 2025,
+      "url": "https://2025.ieeeasru.org/",
+      "reference": "https://2025.ieeeasru.org/"
+    },
+    {
+      "id": "cad-graphics",
+      "year": 2026,
+      "url": "https://www.art-science.org/cadgraphics2026/",
+      "reference": "https://www.art-science.org/cadgraphics2026/"
+    },
+    {
+      "id": "i3d",
+      "year": 2026,
+      "url": "https://i3dsymposium.org/",
+      "website": "https://i3dsymposium.org/",
+      "reference": "https://i3dsymposium.org/"
+    },
+    {
+      "id": "vrst",
+      "year": 2026,
+      "url": "https://vrst.acm.org/vrst2026/",
+      "website": "https://vrst.acm.org/",
+      "reference": "https://vrst.acm.org/vrst2026/"
+    },
+    {
+      "id": "avi",
+      "year": 2026,
+      "url": "https://www.unive.it/web/en/18326/overview",
+      "website": "https://www.sigweb.org/avi/",
+      "reference": "https://www.unive.it/web/en/18326/overview"
+    },
+    {
+      "id": "coopis",
+      "year": 2026,
+      "url": "https://coopis.scitevents.org/",
+      "website": "https://coopisconference.org/",
+      "reference": "https://coopis.scitevents.org/"
+    },
+    {
+      "id": "icxr",
+      "year": 2026,
+      "url": "https://icxr.net/2026/index.html",
+      "website": "https://icxr.net/",
+      "reference": "https://icxr.net/2026/index.html"
+    },
+    {
+      "id": "mobiquitous",
+      "year": 2026,
+      "url": "https://mobiquitous.eai-conferences.org/2026/",
+      "reference": "https://mobiquitous.eai-conferences.org/2026/"
+    },
+    {
+      "id": "amia",
+      "year": 2026,
+      "url": "https://amia.org/education-events/amia-2026-annual-symposium",
+      "website": "https://amia.org/education-events/annual-symposium",
+      "reference": "https://amia.org/education-events/amia-2026-annual-symposium"
+    },
+    {
+      "id": "cosit",
+      "website": "https://cosit.ca/",
+      "reference": "https://cosit.ca/"
+    },
+    {
+      "id": "icss",
+      "year": 2026,
+      "url": "https://ccf.org.cn/ICSS2026",
+      "reference": "https://ccf.org.cn/ICSS2026"
+    },
+    {
+      "id": "ijtcs-faw",
+      "year": 2026,
+      "url": "https://ijtcs-faw2026.github.io/IJTCS-FAW2026/",
+      "reference": "https://ijtcs-faw2026.github.io/IJTCS-FAW2026/"
+    },
+    {
+      "id": "apnoms",
+      "year": 2026,
+      "url": "https://www.ieice.org/cs/icm/apnoms/2026/index.html",
+      "website": "https://www.apnoms.org/",
+      "reference": "https://www.ieice.org/cs/icm/apnoms/2026/index.html"
+    },
+    {
+      "id": "ipccc",
+      "year": 2026,
+      "url": "https://ipccc.org/",
+      "website": "https://ipccc.org/",
+      "reference": "https://ipccc.org/"
+    },
+    {
+      "id": "mass",
+      "year": 2026,
+      "url": "https://mass-conf.github.io/2026/",
+      "reference": "https://mass-conf.github.io/2026/"
+    },
+    {
+      "id": "cc",
+      "year": 2026,
+      "url": "https://conf.researchr.org/home/CC-2026",
+      "website": "https://conf.researchr.org/series/cc",
+      "reference": "https://conf.researchr.org/home/CC-2026"
+    },
+    {
+      "id": "icwe",
+      "year": 2026,
+      "url": "https://icwe2026.webengineering.org/",
+      "reference": "https://icwe2026.webengineering.org/"
+    },
+    {
+      "id": "lopstr",
+      "year": 2026,
+      "url": "https://icfp26.sigplan.org/home/lopstr-ppdp-2026",
+      "website": "https://lopstr.github.io/",
+      "reference": "https://icfp26.sigplan.org/home/lopstr-ppdp-2026"
+    },
+    {
+      "id": "fpl",
+      "website": "https://www.fpl.org/",
+      "reference": "https://www.fpl.org/"
+    },
+    {
+      "id": "hoti",
+      "year": 2026,
+      "url": "https://hoti.org/",
+      "website": "https://hoti.org/",
+      "reference": "https://hoti.org/"
+    },
+    {
+      "id": "islped",
+      "year": 2026,
+      "url": "https://www.islped.org/2026/",
+      "reference": "https://www.islped.org/2026/"
+    },
+    {
+      "id": "npc",
+      "year": 2026,
+      "url": "https://npc-conference.github.io/",
+      "website": "https://www.npc-conference.com/",
+      "reference": "https://npc-conference.github.io/"
+    },
+    {
+      "id": "vts",
+      "year": 2026,
+      "url": "https://www.tttc-vts.org/public_html/new/2026/index.html",
+      "website": "https://tttc-vts.org/",
+      "reference": "https://www.tttc-vts.org/public_html/new/2026/index.html"
+    },
+    {
+      "id": "fsttcs",
+      "year": 2026,
+      "url": "https://www.fsttcs.org.in/2026/",
+      "website": "https://www.fsttcs.org.in/",
+      "reference": "https://www.fsttcs.org.in/2026/"
+    },
+    {
+      "id": "fscd-rta",
+      "year": 2026,
+      "url": "https://fscd2026.github.io/",
+      "website": "https://fscd-conference.org/",
+      "reference": "https://fscd2026.github.io/"
+    },
+    {
+      "id": "stacs",
+      "year": 2026,
+      "url": "https://stacs2026.imag.fr/",
+      "website": "https://www.stacs-conf.org/",
+      "reference": "https://stacs2026.imag.fr/"
+    },
+    {
+      "id": "memocode",
+      "year": 2026,
+      "url": "https://memocode2026.github.io/index.html",
+      "reference": "https://memocode2026.github.io/index.html"
+    },
+    {
+      "id": "dsaa",
+      "website": "https://dsaa.co/",
+      "reference": "https://dsaa.co/"
+    },
+    {
+      "id": "cases",
+      "year": 2026,
+      "url": "https://esweek.org/cases/",
+      "reference": "https://esweek.org/cases/"
+    },
+    {
+      "id": "spin",
+      "year": 2026,
+      "url": "https://spin-web.github.io/SPIN2026/",
+      "website": "https://spinroot.com/spin/Workshops/",
+      "reference": "https://spin-web.github.io/SPIN2026/"
+    },
+    {
+      "id": "csl",
+      "year": 2026,
+      "url": "https://csl2026.github.io/",
+      "website": "https://www.eacsl.org/csl-conferences/",
+      "reference": "https://csl2026.github.io/"
+    },
+    {
+      "id": "gpc",
+      "year": 2026,
+      "url": "https://www.crowdos.cn/GPC2026/home.html",
+      "reference": "https://www.crowdos.cn/GPC2026/home.html"
+    }
+  ]
+}
