@@ -4,6 +4,7 @@ import { EmptyState, FavoriteButton, GradeTag } from '../components/Common';
 import { matches, coverage, journalMetric } from '../lib/catalog';
 import { DirectoryViz } from '../components/ResearchCharts';
 import { MetricCoverage } from '../components/MetricCoverage';
+import { journalTierOptions, matchesJournalRankFilters } from '../lib/journalFilters.mjs';
 import type { AcademicState, Journal } from '../types';
 
 interface Props {
@@ -33,6 +34,7 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
   const [tier, setTier] = useState('');
   const [dataStatus, setDataStatus] = useState('');
   const [limit, setLimit] = useState(18);
+  const tierChoices = journalTierOptions(indicator);
   const fields = [...new Set(journals.flatMap(j => [j.field, ...(j.additionalFields || [])]))].sort();
   const fieldTitles = new Map(journals.map(j=>[j.field,j.fieldZh]));
   const publishers = [...new Set(journals.map(j => j.publisher).filter((p): p is string => Boolean(p)))].sort();
@@ -43,14 +45,7 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
       (!field || j.field === field || j.additionalFields?.includes(field)) &&
       (!oa || j.oa === oa) &&
       (!publisher || j.publisher === publisher) &&
-      (!indicator || (
-        dataStatus==='all' ? true :
-        dataStatus==='issues' ? Boolean(j.diagnostic?.issues.length) :
-        dataStatus ? j.diagnostic?.status[indicator as 'cas'|'xinrui'|'jcr'|'jif']===dataStatus :
-        j.indicators.some(m => m.system===indicator)
-      )) &&
-      (!tier || j.indicators.some(m=>m.system===indicator&&m.value===tier &&
-        (indicator==='jcr' || (!m.category?.startsWith('小类:')&&!m.category?.startsWith('第二大类:')))))
+      matchesJournalRankFilters(j,indicator,dataStatus,tier)
     ).sort((a, b) => {
       const rank = { A: 0, B: 1, C: 2 };
       const av = a.ccf ? rank[a.ccf] : 3;
@@ -84,29 +79,38 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
         <label className="filter-label" htmlFor="jour-publisher">出版社</label>
         <select id="jour-publisher" className="select-input" value={publisher} onChange={e=>setFilter(setPublisher,e.target.value)}><option value="">全部出版社</option>{publishers.map(p=><option key={p} value={p}>{p}</option>)}</select>
         <label className="filter-label" htmlFor="jour-indicator">期刊评价体系</label>
-        <select id="jour-indicator" className="select-input" value={indicator} onChange={e=>{setFilter(setIndicator,e.target.value);setTier('');setDataStatus('');}}>
+        <select id="jour-indicator" className="select-input journal-filter-select" value={indicator} onChange={e=>{setFilter(setIndicator,e.target.value);setTier('');setDataStatus('');}}>
           <option value="">不限 · 显示全部期刊</option>
-          <option value="cas" disabled={!loading&&count('cas')===0}>中科院历史 2025 · {count('cas').toLocaleString('zh-CN')} 本</option>
-          <option value="xinrui" disabled={!loading&&count('xinrui')===0}>新锐 2026 · {count('xinrui').toLocaleString('zh-CN')} 本</option>
-          <option value="jcr" disabled={!loading&&count('jcr')===0}>JCR 2025 · {count('jcr').toLocaleString('zh-CN')} 本</option>
-          <option value="jif" disabled={!loading&&count('jif')===0}>JIF 2025 · {count('jif').toLocaleString('zh-CN')} 本</option>
+          <option value="cas">中科院历史 2025 · {count('cas').toLocaleString('zh-CN')} 本</option>
+          <option value="xinrui">新锐 2026 · {count('xinrui').toLocaleString('zh-CN')} 本</option>
+          <option value="jcr">JCR 2025 · {count('jcr').toLocaleString('zh-CN')} 本</option>
+          <option value="jif">JIF 2025 · {count('jif').toLocaleString('zh-CN')} 本</option>
         </select>
         <label className="filter-label" htmlFor="jour-data-status">年度数据状态</label>
-        <select id="jour-data-status" className="select-input" disabled={!indicator} value={dataStatus}
+        <select id="jour-data-status" className="select-input journal-filter-select" value={dataStatus}
           onChange={e=>{setFilter(setDataStatus,e.target.value);setTier('');}}>
-          <option value="">有对应指标</option>
-          <option value="all">全部状态</option>
+          <option value="">{indicator?'有对应指标（默认）':'全部状态（不限）'}</option>
+          <option value="all">全部记录（不限状态）</option>
+          <option value="available">{indicator?'该体系已有指标':'任一体系已有指标'}</option>
           <option value="source_no_metric">原始表收录，但缺少该指标</option>
           <option value="not_in_source">本年度来源未匹配收录</option>
           <option value="identity_review">当前体系身份待核对</option>
           <option value="issues">存在身份 / 指标核查提示</option>
         </select>
         <label className="filter-label" htmlFor="jour-tier">分区等级</label>
-        <select id="jour-tier" className="select-input" disabled={!indicator || indicator==='jif' || !!dataStatus && dataStatus!=='all'} value={tier} onChange={e=>setFilter(setTier,e.target.value)}>
-          <option value="">全部等级</option>
-          {(indicator==='jcr'?['Q1','Q2','Q3','Q4']:['1区','2区','3区','4区']).map(v=><option key={v} value={v}>{v}</option>)}
+        <select id="jour-tier" className="select-input journal-filter-select" value={tier}
+          onChange={e=>{
+            setFilter(setTier,e.target.value);
+            if(dataStatus && !['all','available'].includes(dataStatus))setDataStatus('');
+          }}>
+          <option value="">{indicator==='jif'?'影响因子不设分区等级':'全部分区等级（不限）'}</option>
+          {[...new Set(tierChoices.map(choice=>choice.group))].map(group=>
+            <optgroup label={group} key={group}>
+              {tierChoices.filter(choice=>choice.group===group).map(choice=>
+                <option key={choice.value} value={choice.value}>{indicator?choice.label:group+' · '+choice.label}</option>)}
+            </optgroup>)}
         </select>
-        <div className="filter-footnote"><span className="tiny-dot" /> 中科院和新锐等级按大类筛选；JCR 按任一学科分区匹配。各评价体系与年份独立，不合并为统一评级。</div>
+        <div className="filter-footnote"><span className="tiny-dot" /> 筛选器现在都可独立使用。未选评价体系也可以直接选择中科院、新锐或 JCR 分区；中科院与新锐按大类筛选，JCR 按学科分区筛选。</div>
 
       </aside>
       <div className="results-panel">
