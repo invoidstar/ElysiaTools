@@ -9,7 +9,18 @@ import type { Conference, Edition, Journal, SourceRecord, DeadlineRow, DeadlineE
 export const conferences = conferenceData as unknown as Conference[];
 export const editions = editionData as unknown as Edition[];
 export const journals = journalData as unknown as Journal[];
-export const sources = sourceData as unknown as SourceRecord[];
+const annualMetricSources: SourceRecord[] = [
+ {id:'showjcr-cas2025',title:'中科院 2025 历史分区（固定版本）',
+  url:'https://github.com/hitfyd/ShowJCR/tree/4687a8f608f20aaf004299992f5d347dba009361/%E4%B8%AD%E7%A7%91%E9%99%A2%E5%88%86%E5%8C%BA%E8%A1%A8%E5%8F%8AJCR%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6',
+  kind:'licensed-snapshot',owner:'中科院分区资料 / ShowJCR 汇编',verifiedAt:'2026-10-12'},
+ {id:'showjcr-xinrui2026',title:'新锐 2026 年度分区（固定版本）',
+  url:'https://www.xr-scholar.com/Journals/Search',kind:'licensed-snapshot',
+  owner:'新锐期刊分区',verifiedAt:'2026-10-12'},
+ {id:'showjcr-jcr2025',title:'2025 年 JCR 学科分区及 JIF（2026 年发布）',
+  url:'https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/',
+  kind:'licensed-snapshot',owner:'Clarivate JCR / ShowJCR 汇编',verifiedAt:'2026-10-12'}
+];
+export const sources = [...(sourceData as unknown as SourceRecord[]), ...annualMetricSources];
 export const acceptance = acceptanceData as unknown as AcceptanceRecord[];
 export const coverage = coverageData as unknown as CCFCoverage;
 export const getAcceptance = (conferenceId: string) => acceptance.filter(x => x.conferenceId === conferenceId).sort((a,b) => a.year - b.year);

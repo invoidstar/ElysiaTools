@@ -1,11 +1,12 @@
 import { Archive, CalendarDays, Clock3, Download, FileDown, FolderHeart, GitCompareArrows, Import, Star, Trash2, Upload } from 'lucide-react';
 import { EmptyState, GradeTag } from '../components/Common';
-import { conferences, deadlineRows, eventMillis, getConference, getJournal, isFuture, journals, sourceForRow } from '../lib/catalog';
+import { conferences, deadlineRows, eventMillis, getConference, isFuture, sourceForRow } from '../lib/catalog';
 import { countdown, displayEvent, kindLabel, type ZoneChoice } from '../lib/time';
-import type { AcademicState } from '../types';
+import type { AcademicState, Journal } from '../types';
 import type { ChangeEvent } from 'react';
 
 interface Props {
+  journals: Journal[];
   academic: AcademicState;
   zone: ZoneChoice;
   now: number;
@@ -20,9 +21,9 @@ interface Props {
   openComparison: () => void;
 }
 
-export function AcademicPage({ academic, zone, now, toggleFavorite, openConference, openJournal, exportData, importData, exportCalendar, restoreFilter, removeFilter, openComparison }: Props) {
+export function AcademicPage({ journals, academic, zone, now, toggleFavorite, openConference, openJournal, exportData, importData, exportCalendar, restoreFilter, removeFilter, openComparison }: Props) {
   const favorites = academic.conferences.map(getConference).filter((c): c is (typeof conferences)[number] => Boolean(c));
-  const savedJournals = academic.journals.map(getJournal).filter((j): j is (typeof journals)[number] => Boolean(j));
+  const savedJournals = academic.journals.map(id=>journals.find(j=>j.id===id)).filter((j): j is (typeof journals)[number] => Boolean(j));
   const upcoming = deadlineRows.filter(r => academic.conferences.includes(r.conference.id) && isFuture(r.event, now))
     .sort((a, b) => eventMillis(a.event) - eventMillis(b.event)).slice(0, 12);
 

@@ -1,11 +1,13 @@
 import { useMemo, useState } from 'react';
 import { ArrowRight, ArrowUpRight, CalendarClock, CalendarDays, CheckCircle2, ChevronRight, Compass, LibraryBig, Search, ShieldCheck, Sparkles, Star, Target } from 'lucide-react';
-import { conferences, journals, matches, upcomingRows, coverage, acceptance } from '../lib/catalog';
+import { conferences, matches, upcomingRows, coverage, acceptance } from '../lib/catalog';
 import { countdown, displayEvent, type ZoneChoice } from '../lib/time';
-import type { AcademicState } from '../types';
+import type { AcademicState, Journal } from '../types';
 import { AcceptanceTrend, DirectoryViz, DirectorySnapshot } from '../components/ResearchCharts';
 
 interface Props {
+  journalCatalogue: Journal[];
+  catalogueReady: boolean;
   academic: AcademicState;
   zone: ZoneChoice;
   now: number;
@@ -14,11 +16,11 @@ interface Props {
   onJournalSearch: (value: string) => void;
 }
 
-export function HomePage({ academic, zone, now, onNavigate, onConferenceSearch, onJournalSearch }: Props) {
+export function HomePage({ academic, zone, now, onNavigate, onConferenceSearch, onJournalSearch, journalCatalogue, catalogueReady }: Props) {
   const [query, setQuery] = useState('');
   const [searchMode, setSearchMode] = useState<'all' | 'conference' | 'journal'>('all');
   const confMatches = useMemo(() => query.trim() ? conferences.filter(c => matches(c, query)).slice(0, 4) : [], [query]);
-  const journalMatches = useMemo(() => query.trim() ? journals.filter(j => matches(j, query)).slice(0, 4) : [], [query]);
+  const journalMatches = useMemo(() => query.trim() ? journalCatalogue.filter(j => matches(j, query)).slice(0, 4) : [], [query,journalCatalogue]);
   const featured = useMemo(() => {
     const seen = new Set<string>();
     return upcomingRows(now, 60).filter(r => {
@@ -52,7 +54,7 @@ export function HomePage({ academic, zone, now, onNavigate, onConferenceSearch, 
           {query.trim() && <div className="quick-results">
             {searchMode !== 'journal' && confMatches.map(c=><button key={c.id} onClick={()=>onNavigate('conference/'+c.id)}><CalendarDays size={15}/><strong>{c.acronym}</strong><span>{c.name}</span><ChevronRight size={15}/></button>)}
             {searchMode !== 'conference' && journalMatches.map(j=><button key={j.id} onClick={()=>onNavigate('journal/'+j.id)}><LibraryBig size={15}/><strong>{j.acronym}</strong><span>{j.name}</span><ChevronRight size={15}/></button>)}
-            {(!confMatches.length && !journalMatches.length) && <span className="quick-empty">没有找到匹配条目，试试其他关键词。</span>}
+            {(!confMatches.length && !journalMatches.length) && <span className="quick-empty">{searchMode==='journal'&&!catalogueReady?'按 Enter 搜索完整期刊目录。':'没有找到匹配条目，试试其他关键词。'}</span>}
           </div>}
         </div>
         <div className="popular-search"><span>试试搜索</span>{['CVPR','ICLR','TPAMI','Security'].map(q=><button key={q} onClick={()=>setQuery(q)}>{q}<ArrowUpRight size={12}/></button>)}</div>

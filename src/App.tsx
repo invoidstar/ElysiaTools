@@ -8,10 +8,11 @@ import { ToolsPage } from './features/ToolsPage';
 import { DetailDrawer } from './components/DetailDrawer';
 import { JournalCompare } from './components/JournalCompare';
 import { calendarICS } from './lib/ics';
-import { deadlineRows } from './lib/catalog';
+import { deadlineRows, journals as baselineJournals } from './lib/catalog';
+import { loadJournalUniverse } from './lib/journalUniverse';
 import { downloadContent, exportAcademic, parseAcademic, readAcademic, writeAcademic } from './lib/storage';
 import { localZone, type ZoneChoice } from './lib/time';
-import type { AcademicState } from './types';
+import type { AcademicState, Journal } from './types';
 
 const menu = [
   { id: 'home', title: '首页', icon: Sparkles },
@@ -44,6 +45,9 @@ export default function App() {
   const [now, setNow] = useState(Date.now);
   const [confFilters, setConfFilters] = useState<ConferenceFilters>(emptyConferenceFilters);
   const [journalKeyword, setJournalKeyword] = useState('');
+  const [journalList, setJournalList] = useState<Journal[]>(baselineJournals);
+  const [journalStatus, setJournalStatus] = useState<'idle'|'loading'|'ready'|'error'>('idle');
+  const [journalFetchTick, setJournalFetchTick] = useState(0);
   const [compareOpen, setCompareOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [toast, setToast] = useState('');
@@ -61,6 +65,20 @@ export default function App() {
     return () => window.clearInterval(timer);
   }, []);
   useEffect(() => { writeAcademic(academic); }, [academic]);
+  useEffect(() => {
+    const shouldLoad = activePage==='journal' ||
+      (activePage==='academic' && (academic.journals.length>0 || academic.compare.length>0)) || compareOpen;
+    if(!shouldLoad||journalList.length>1000)return;
+    let alive=true;
+    setJournalStatus('loading');
+    loadJournalUniverse().then(rows=>{
+      if(alive){setJournalList(rows);setJournalStatus('ready');}
+    }).catch(error=>{
+      if(alive){console.warn('Journal catalogue request failed:',error);setJournalStatus('error');}
+    });
+    return ()=>{alive=false;};
+  },[activePage,academic.journals.length,academic.compare.length,compareOpen,journalFetchTick]);
+
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     try { localStorage.setItem('elysiatools-theme', theme); } catch { /* disabled storage */ }
@@ -153,16 +171,16 @@ export default function App() {
       </div>
     </div></header>
     <main className="main-container">
-      {activePage === 'home' && <HomePage academic={academic} zone={zone} now={now} onNavigate={navigate} onConferenceSearch={conferenceSearch} onJournalSearch={journalSearch}/>}
+      {activePage === 'home' && <HomePage academic={academic} zone={zone} now={now} onNavigate={navigate} onConferenceSearch={conferenceSearch} onJournalSearch={journalSearch} journalCatalogue={journalList} catalogueReady={journalStatus==='ready'}/>}
       {activePage === 'conference' && <ConferencePage filters={confFilters} onFilters={setConfFilters} academic={academic} toggleFavorite={id=>toggleFavorite('conference',id)} openConference={id=>navigate('conference/'+id)} zone={zone} now={now} saveFilter={saveFilter}/>}
-      {activePage === 'journal' && <JournalPage academic={academic} toggleFavorite={id=>toggleFavorite('journal',id)} toggleCompare={toggleCompare} openJournal={id=>navigate('journal/'+id)} openComparison={()=>setCompareOpen(true)} keyword={journalKeyword} setKeyword={setJournalKeyword}/>}
-      {activePage === 'academic' && <AcademicPage academic={academic} zone={zone} now={now} toggleFavorite={toggleFavorite} openConference={id=>navigate('conference/'+id)} openJournal={id=>navigate('journal/'+id)} exportData={()=>{downloadContent('elysiatools-backup.json',exportAcademic(academic),'application/json');setToast('备份已导出');}} importData={importData} exportCalendar={exportCalendar} restoreFilter={restoreFilter} removeFilter={id=>setAcademic(prev=>({...prev,savedFilters:prev.savedFilters.filter(x=>x.id!==id)}))} openComparison={()=>setCompareOpen(true)}/>}
+      {activePage === 'journal' && <JournalPage journals={journalList} loading={journalStatus==='loading'||journalStatus==='idle'} error={journalStatus==='error'} retry={()=>setJournalFetchTick(t=>t+1)} academic={academic} toggleFavorite={id=>toggleFavorite('journal',id)} toggleCompare={toggleCompare} openJournal={id=>navigate('journal/'+id)} openComparison={()=>setCompareOpen(true)} keyword={journalKeyword} setKeyword={setJournalKeyword}/>}
+      {activePage === 'academic' && <AcademicPage journals={journalList} academic={academic} zone={zone} now={now} toggleFavorite={toggleFavorite} openConference={id=>navigate('conference/'+id)} openJournal={id=>navigate('journal/'+id)} exportData={()=>{downloadContent('elysiatools-backup.json',exportAcademic(academic),'application/json');setToast('备份已导出');}} importData={importData} exportCalendar={exportCalendar} restoreFilter={restoreFilter} removeFilter={id=>setAcademic(prev=>({...prev,savedFilters:prev.savedFilters.filter(x=>x.id!==id)}))} openComparison={()=>setCompareOpen(true)}/>}
       {activePage === 'tools' && <ToolsPage/>}
       {!menu.some(item=>item.id===activePage) && <section className="unknown-route"><Search size={30}/><h2>暂未找到该页面</h2><button className="primary-button" onClick={()=>navigate('home')}>返回首页 <ArrowRight size={16}/></button></section>}
     </main>
     <footer className="site-footer"><div className="footer-inner"><div className="footer-identity"><span className="footer-mark">E.</span><div><strong>ElysiaTools</strong><small>Research, Made Easier.</small></div></div><div className="footer-links"><button onClick={()=>navigate('conference')}>Conferences</button><button onClick={()=>navigate('journal')}>Journals</button><button onClick={()=>navigate('academic')}>My Academic</button><a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/" target="_blank" rel="noopener noreferrer">CCF Source</a><a href="https://github.com/invoidstar/ElysiaTools" target="_blank" rel="noopener noreferrer">GitHub</a></div><div className="footer-bottom"><span>© 2026 ElysiaTools · Open source, built for research.</span><span><Check size={14}/> GitHub Pages · Static &amp; Privacy-first</span></div></div></footer>
-    {((activePage === 'conference' || activePage === 'journal') && detailId) && <DetailDrawer kind={activePage} id={detailId} onClose={()=>navigate(activePage)} academic={academic} toggleFavorite={toggleFavorite} toggleCompare={toggleCompare} zone={zone} now={now}/>}
-    {compareOpen && <JournalCompare academic={academic} toggleCompare={toggleCompare} onClose={()=>setCompareOpen(false)}/>}
+    {((activePage === 'conference' || activePage === 'journal') && detailId) && <DetailDrawer journalRecord={activePage==='journal'?journalList.find(j=>j.id===detailId):undefined} kind={activePage} id={detailId} onClose={()=>navigate(activePage)} academic={academic} toggleFavorite={toggleFavorite} toggleCompare={toggleCompare} zone={zone} now={now}/>}
+    {compareOpen && <JournalCompare journals={journalList} academic={academic} toggleCompare={toggleCompare} onClose={()=>setCompareOpen(false)}/>}
     {toast && <div className="toast" role="status"><Check size={17}/>{toast}</div>}
   </div>;
 }

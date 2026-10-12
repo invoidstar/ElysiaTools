@@ -1,14 +1,14 @@
 import { Download, ExternalLink, GitCompareArrows, X } from 'lucide-react';
 import { GradeTag } from './Common';
-import { ccfEntries, getSource, journalMetric, journals } from '../lib/catalog';
+import { ccfEntries, getSource, journalMetric } from '../lib/catalog';
 import { downloadContent } from '../lib/storage';
 import type { AcademicState, Journal } from '../types';
 
-interface Props { academic: AcademicState; onClose: () => void; toggleCompare: (id: string) => void; }
+interface Props { journals: Journal[]; academic: AcademicState; onClose: () => void; toggleCompare: (id: string) => void; }
 const oaName = { open: '开放获取', hybrid: 'Hybrid OA', subscription: '订阅制', unknown: '尚未核验' };
 const ccfLabel = (j:Journal)=>ccfEntries(j).map(r=>r.field+' · '+r.grade).join('；')||'—';
 
-export function JournalCompare({ academic, onClose, toggleCompare }: Props) {
+export function JournalCompare({ journals, academic, onClose, toggleCompare }: Props) {
   const indicator = (j:Journal,system:string)=>{
     const value=journalMetric(j,system);
     return value ? value.value + ' · ' + value.year : '—';
