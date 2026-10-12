@@ -82,7 +82,9 @@
         "note": "AAAI-27 主会作者反馈窗口由 10 月 19—25 日调整至 10 月 24—31 日，官方页面明确显示划线修改。",
         "sourceId": "aaai-27"
       }
-    ]
+    ],
+    "website": "https://aaai.org/conference/aaai/aaai-27/",
+    "websiteSourceId": "aaai-27"
   },
   {
     "id": "cvpr-2027",
@@ -170,7 +172,9 @@
         "pending": []
       }
     ],
-    "changeLog": []
+    "changeLog": [],
+    "website": "https://cvpr.thecvf.com/Conferences/2027",
+    "websiteSourceId": "cvpr-27"
   },
   {
     "id": "iclr-2027",
@@ -232,7 +236,9 @@
         "pending": []
       }
     ],
-    "changeLog": []
+    "changeLog": [],
+    "website": "https://iclr.cc/Conferences/2027",
+    "websiteSourceId": "iclr-27"
   },
   {
     "id": "acl-2027",
@@ -265,7 +271,9 @@
         ]
       }
     ],
-    "changeLog": []
+    "changeLog": [],
+    "website": "https://2027.aclweb.org/",
+    "websiteSourceId": "acl-27"
   },
   {
     "id": "sigkdd-2027",
@@ -383,7 +391,9 @@
         ]
       }
     ],
-    "changeLog": []
+    "changeLog": [],
+    "website": "https://kdd2027.kdd.org/",
+    "websiteSourceId": "kdd-27-research"
   },
   {
     "id": "usenix-security-2027",
@@ -530,7 +540,9 @@
         "pending": []
       }
     ],
-    "changeLog": []
+    "changeLog": [],
+    "website": "https://www.usenix.org/conference/usenixsecurity27",
+    "websiteSourceId": "usenix-27"
   },
   {
     "id": "chi-2027",
@@ -593,7 +605,9 @@
         "pending": []
       }
     ],
-    "changeLog": []
+    "changeLog": [],
+    "website": "https://chi2027.acm.org/",
+    "websiteSourceId": "chi-27"
   },
   {
     "id": "neurips-2026",
@@ -639,6 +653,8 @@
         "pending": []
       }
     ],
-    "changeLog": []
+    "changeLog": [],
+    "website": "https://neurips.cc/Conferences/2026",
+    "websiteSourceId": "neurips-26"
   }
 ]

@@ -1,7 +1,9 @@
 import { Download, ExternalLink, GitCompareArrows, X } from 'lucide-react';
 import { GradeTag } from './Common';
+import { JournalHomepageLink } from './JournalHomepageLink';
 import { ccfEntries, getSource } from '../lib/catalog';
 import { downloadContent } from '../lib/storage';
+import { JournalPublicationSummary } from './ResearchCharts';
 import type { AcademicState, Journal } from '../types';
 
 interface Props { journals: Journal[]; academic: AcademicState; onClose: () => void; toggleCompare: (id: string) => void; }
@@ -23,14 +25,12 @@ export function JournalCompare({ journals, academic, onClose, toggleCompare }: P
       ['CCF grade', ...selected.map(j => j.ccf || '')],
       ['CCF subject classifications', ...selected.map(ccfLabel)],
       ['CCF edition', ...selected.map(j => j.ccf ? '2026' : '')],
-      ['ISSN', ...selected.map(j => j.issn || '')],
-      ['eISSN', ...selected.map(j => j.eissn || '')],
       ['Open access', ...selected.map(j => oaName[j.oa])],
       ['JCR Quartile and metric year', ...selected.map(j=>indicator(j,'jcr'))],
       ['Journal Impact Factor and metric year', ...selected.map(j=>indicator(j,'jif'))],
       ['CAS 2025 historical division', ...selected.map(j=>indicator(j,'cas'))],
       ['Independent XinRui 2026 division', ...selected.map(j=>indicator(j,'xinrui'))],
-      ['2025 publications (OpenAlex)', ...selected.map(()=>'Look up from journal details')],
+      ['5-year publication history (OpenAlex)', ...selected.map(()=>'Shown live in website comparison')],
       ['Official journal URL', ...selected.map(j => j.website || '')]
     ];
     const cell = (v: string) => '"' + v.replace(/"/g, '""') + '"';
@@ -43,14 +43,13 @@ export function JournalCompare({ journals, academic, onClose, toggleCompare }: P
     {label:'出版社',value:j=>j.publisher || '—'},
     {label:'CCF 2026 推荐',value:j=><GradeTag grade={j.ccf} year={j.ccfYear} />},
     {label:'CCF 推荐领域',value:j=><div className="comparison-ccf">{ccfEntries(j).map(e=><span key={e.field}>{e.fieldZh} · {e.grade}</span>)}</div>},
-    {label:'ISSN / eISSN',value:j=><>{j.issn || '—'} / {j.eissn || '—'}</>},
     {label:'OA 类型',value:j=>oaName[j.oa]},
     {label:'JCR 分区',value:j=>metricCell(j,'jcr')},
     {label:'JIF 影响因子',value:j=>metricCell(j,'jif')},
     {label:'中科院 2025 历史分区',value:j=>metricCell(j,'cas','https://www.lib.szu.edu.cn/er/fenqubiao')},
     {label:'新锐 2026 分区',value:j=>metricCell(j,'xinrui','https://www.xr-scholar.com/Journals/Search')},
-    {label:'2025 年发文量',value:()=><span className="metric-missing">详情页按需查询 OpenAlex</span>},
-    {label:'官方网站',value:j=>j.website ? <a href={j.website} target="_blank" rel="noopener noreferrer" className="micro-link">访问期刊 <ExternalLink size={13}/></a> : '尚未收录官方链接'}
+    {label:'近五年发文量',value:j=><JournalPublicationSummary journal={j}/>},
+    {label:'期刊主页',value:j=><JournalHomepageLink journal={j}/>}
   ];
   function metricCell(j:Journal,system:string,fallback?:string){
     const metrics=j.indicators.filter(m=>m.system===system).sort((a,b)=>b.year-a.year);

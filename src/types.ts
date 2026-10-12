@@ -62,6 +62,8 @@ export interface Edition {
   meetingEnd: string | null;
   sourceId: string;
   verifiedAt: string;
+  website?: string | null;
+  websiteSourceId?: string;
   tracks: SubmissionTrack[];
   changeLog: Array<{ date: string; note: string; sourceId?: string }>;
 }
@@ -101,6 +103,8 @@ export interface Journal {
   issnL: string | null;
   extraIssns?: string[];
   diagnostic?: JournalDiagnostic;
+  indexing?: string[];
+  language?: string;
   oa: 'open' | 'hybrid' | 'subscription' | 'unknown';
   website: string | null;
   indexUrl: string | null;

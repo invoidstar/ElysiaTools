@@ -14,12 +14,12 @@ const reasons = {
   identity_review:'存在同名或 ISSN 身份冲突，未进行不确定的自动合并'
 };
 const issueNames:Record<string,string>={
-  title_issn_conflict:'同名期刊存在不一致的 ISSN；已避免自动合并',
-  multiple_issn_candidates:'来源标识符匹配多个期刊；需要人工确认',
+  title_issn_conflict:'同名期刊的出版标识不一致；已避免自动合并',
+  multiple_issn_candidates:'出版标识符关联多个期刊；需要人工确认',
   ambiguous_title:'同名候选不唯一；已保留独立记录',
-  invalid_identifier:'来源标识符未通过 ISSN 校验',
+  invalid_identifier:'来源出版标识符未通过格式校验',
   missing_title:'原始记录缺少期刊名，依据有效 ISSN 单独保留',
-  alias_collision:'期刊别名存在冲突',
+  alias_collision:'期刊别名或出版标识存在冲突',
   metric_conflict:'同一评价分类出现不同值，已记录冲突以供核查'
 };
 const methods={issn:'ISSN 匹配',title:'唯一名称匹配',new:'独立来源记录',review:'身份待核对'};

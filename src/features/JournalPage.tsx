@@ -74,7 +74,7 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
       <aside className="filter-panel">
         <div className="panel-title"><SlidersHorizontal size={17} /><strong>筛选条件</strong><button className="text-button" onClick={() => { setKeyword(''); setGrade(''); setField(''); setOa(''); setPublisher(''); setIndicator(''); setTier(''); setDataStatus(''); }}>重置</button></div>
         <label className="filter-label">检索期刊</label>
-        <div className="field-with-icon"><Search size={17} /><input value={keyword} onChange={e => setFilter(setKeyword, e.target.value)} placeholder="期刊名称 / ISSN / 研究领域" /></div>
+        <div className="field-with-icon"><Search size={17} /><input value={keyword} onChange={e => setFilter(setKeyword, e.target.value)} placeholder="期刊名称 / 研究领域 / 关键词" /></div>
         <label className="filter-label">CCF 推荐等级</label>
         <div className="chip-choice">{['','A','B','C'].map(g => <button key={g || 'all'} className={'chip ' + (grade === g ? 'active' : '')} onClick={() => setFilter(setGrade, g)}>{g ? 'CCF ' + g : '全部'}</button>)}</div>
         <label className="filter-label" htmlFor="jour-field">研究领域</label>
@@ -121,7 +121,7 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
             </button>
             <button className="journal-publisher" onClick={() => openJournal(j.id)}>
               <strong>{j.publisher || '出版社待核验'}</strong>
-              <span>{j.issn ? 'ISSN ' + j.issn : 'ISSN 待补充'}</span>
+
               <small>{oaText[j.oa]}</small>
               <span className="journal-quick-metrics">
                 {(['cas','xinrui','jcr','jif'] as const).filter(sys=>getMetric(j,sys)).map(sys=><span className={'journal-metric-preview source-'+sys} key={sys}>{({cas:'中科院',xinrui:'新锐',jcr:'JCR',jif:'JIF'})[sys]} {getMetric(j,sys)?.value}</span>)}
