@@ -60,9 +60,11 @@ These improvements cannot eliminate API-wide quotas for first-time visitors. At 
 
 ### BibTeX organizer (V1.6)
 
-The new BibTeX workspace runs entirely in the browser at the Tools page. It accepts pasted references or imported .bib files (up to 3 MB / 4,000 entries), preserves LaTeX braces/commands and BibTeX string definitions, identifies strong DOI / arXiv duplicate candidates, flags missing fields and conflicting citation keys, and supports sorting, review, copy and export.
+The new BibTeX workspace has its own independent page at [Tools → BibTeX](https://invoidstar.github.io/ElysiaTools/#tools/bibtex). The identifier resolver has its own page at [Tools → Identifier Resolver](https://invoidstar.github.io/ElysiaTools/#tools/identifier). The [Tools landing page](https://invoidstar.github.io/ElysiaTools/#tools) is now a simple directory of fully operational tools. It accepts pasted references or imported .bib files (up to 3 MB / 4,000 entries), preserves LaTeX braces/commands and BibTeX string definitions, identifies strong DOI / arXiv duplicate candidates, flags missing fields and conflicting citation keys, and supports sorting, review, copy and export.
 
-Only identifier-backed duplicate suggestions may be excluded automatically; title/year similarity alone does not remove records. Existing citation keys are not silently renamed because this might break references in LaTeX manuscripts. The three previous unused image-check, statistics and academic plotting roadmap cards have been removed from the published Tools page.
+Only identifier-backed duplicate suggestions may be excluded automatically; title/year similarity alone does not remove records. Existing citation keys are not silently renamed because this might break references in LaTeX manuscripts. The three unused image-check, statistics and academic plotting roadmap cards remain removed from the Tools directory.
+
+The three journal rating filters are now independently selectable from the first render: evaluation system, annual data status, and zone/quartile. Tier values explicitly identify CAS, XinRui or JCR, even when the evaluation system filter is left on All.
 
 The former online “同步期刊评价数据” function remains removed. A standalone aggregated [historic matching audit](scripts/sync/audit_metric_csv.py) is retained for developers. The CCF source data and 2026 conference/acceptance directory remain unchanged.
 

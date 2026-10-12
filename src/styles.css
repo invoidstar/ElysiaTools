@@ -277,3 +277,43 @@
 @media(max-width:580px){.bib-workspace{padding:15px}.bib-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.bib-references{grid-template-columns:1fr}.bib-editor{padding:10px}.bib-editor-actions .primary-button{margin-left:0}}
 
 .publication-cache-note{font-size:10px;line-height:1.65;color:var(--muted);background:var(--surface-soft);border:1px solid var(--line);padding:9px 10px;border-radius:8px;margin:13px 0 3px}
+
+
+/* Journal dropdowns stay usable and visually active from the first render */
+.journal-filter-select{cursor:pointer;background:var(--surface);color:var(--text);border-color:var(--line-strong);transition:border-color .16s,box-shadow .16s}
+.journal-filter-select:hover{border-color:var(--primary);box-shadow:0 0 0 2px var(--primary-soft)}
+.journal-filter-select:focus-visible{border-color:var(--primary);outline:2px solid var(--primary-soft);outline-offset:2px}
+.journal-filter-select optgroup{color:var(--muted);font-weight:700}
+.journal-filter-select option{color:var(--text);background:var(--surface);font-weight:500}
+/* Tools landing hub + dedicated pages */
+.tool-hub-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:31px 0 22px}
+.tool-hub-intro h2{font-size:25px;letter-spacing:-.5px;margin:0 0 8px}
+.tool-hub-intro p{font-size:12px;color:var(--muted);line-height:1.75;margin:0}
+.tool-hub-ready{display:inline-flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.5px;color:var(--primary);font-weight:750;white-space:nowrap;padding-bottom:7px}
+.tool-hub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.tool-hub-card{min-width:0;position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:0;text-align:left;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:19px;padding:27px 28px 24px;min-height:320px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s}
+.tool-hub-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:var(--line-strong)}
+.tool-hub-card:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.tool-hub-card-top{display:flex;align-items:flex-start;justify-content:space-between;width:100%;margin-bottom:25px}
+.tool-hub-icon{display:grid;place-items:center;width:53px;height:53px;border:1px solid #dfd9ff;background:var(--primary-soft);color:var(--primary);border-radius:15px}
+.tool-hub-bibtex .tool-hub-icon{background:#eaf1ff;color:#608acb;border-color:#dbe8fc}
+:root[data-theme="dark"] .tool-hub-bibtex .tool-hub-icon{background:#27334a;color:#96b8ec;border-color:#3a4962}
+.tool-hub-number{font-size:11px;font-weight:700;color:var(--faint);letter-spacing:1px}
+.tool-hub-kicker{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--primary);margin-bottom:9px}
+.tool-hub-title{display:block;font-size:21px;font-weight:820;letter-spacing:-.45px}
+.tool-hub-desc{font-size:12px;color:var(--muted);line-height:1.8;margin:11px 0 20px;max-width:420px}
+.tool-hub-features{display:flex;flex-direction:column;gap:9px;flex:1}
+.tool-hub-features>span{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}
+.tool-hub-features svg{color:var(--primary)}
+.tool-hub-action{display:inline-flex;align-items:center;gap:9px;font-weight:750;color:var(--primary);font-size:12px;margin-top:26px;padding-top:16px;width:100%;border-top:1px solid var(--line)}
+.tool-hub-action svg{transition:transform .2s}
+.tool-hub-card:hover .tool-hub-action svg{transform:translate(3px,-2px)}
+.tool-hub-note{display:flex;align-items:flex-start;gap:10px;color:var(--muted);background:var(--surface-soft);padding:18px 20px;border:1px solid var(--line);border-radius:12px;margin:21px 0 40px;font-size:11px;line-height:1.8}
+.tool-hub-note svg{color:var(--primary);flex-shrink:0;margin-top:1px}
+.tool-back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:12px;font-weight:700;background:none;padding:0;margin:0 0 28px;transition:color .2s}
+.tool-back-link:hover{color:var(--primary)}
+.tool-detail-page .page-intro{margin-bottom:28px}
+.tool-detail-page .bib-workspace{margin-top:0}
+.tool-single-panel{max-width:1040px;margin-top:0}
+@media(max-width:760px){.tool-hub-grid{grid-template-columns:1fr}.tool-hub-card{min-height:285px}.tool-hub-intro{align-items:flex-start;flex-direction:column;gap:11px}.tool-hub-note{margin-top:15px}}
+@media(max-width:580px){.tool-hub-card{padding:22px;min-height:286px}.tool-hub-title{font-size:20px}.tool-single-panel{padding:23px}}

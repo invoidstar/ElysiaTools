@@ -79,7 +79,11 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
         <label className="filter-label" htmlFor="jour-publisher">出版社</label>
         <select id="jour-publisher" className="select-input" value={publisher} onChange={e=>setFilter(setPublisher,e.target.value)}><option value="">全部出版社</option>{publishers.map(p=><option key={p} value={p}>{p}</option>)}</select>
         <label className="filter-label" htmlFor="jour-indicator">期刊评价体系</label>
-        <select id="jour-indicator" className="select-input journal-filter-select" value={indicator} onChange={e=>{setFilter(setIndicator,e.target.value);setTier('');setDataStatus('');}}>
+        <select id="jour-indicator" className="select-input journal-filter-select" value={indicator} onChange={e=>{
+          const next=e.target.value;
+          setFilter(setIndicator,next);
+          if(next && tier && !tier.startsWith(next+'|'))setTier('');
+        }}>
           <option value="">不限 · 显示全部期刊</option>
           <option value="cas">中科院历史 2025 · {count('cas').toLocaleString('zh-CN')} 本</option>
           <option value="xinrui">新锐 2026 · {count('xinrui').toLocaleString('zh-CN')} 本</option>
@@ -88,21 +92,18 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
         </select>
         <label className="filter-label" htmlFor="jour-data-status">年度数据状态</label>
         <select id="jour-data-status" className="select-input journal-filter-select" value={dataStatus}
-          onChange={e=>{setFilter(setDataStatus,e.target.value);setTier('');}}>
+          onChange={e=>setFilter(setDataStatus,e.target.value)}>
           <option value="">{indicator?'有对应指标（默认）':'全部状态（不限）'}</option>
           <option value="all">全部记录（不限状态）</option>
           <option value="available">{indicator?'该体系已有指标':'任一体系已有指标'}</option>
-          <option value="source_no_metric">原始表收录，但缺少该指标</option>
-          <option value="not_in_source">本年度来源未匹配收录</option>
+          <option value="source_no_metric">{indicator?'该体系收录但缺少指标':'任一体系收录但缺少指标'}</option>
+          <option value="not_in_source">{indicator?'该体系来源未匹配收录':'任一体系来源未匹配收录'}</option>
           <option value="identity_review">当前体系身份待核对</option>
           <option value="issues">存在身份 / 指标核查提示</option>
         </select>
         <label className="filter-label" htmlFor="jour-tier">分区等级</label>
         <select id="jour-tier" className="select-input journal-filter-select" value={tier}
-          onChange={e=>{
-            setFilter(setTier,e.target.value);
-            if(dataStatus && !['all','available'].includes(dataStatus))setDataStatus('');
-          }}>
+          onChange={e=>setFilter(setTier,e.target.value)}>
           <option value="">{indicator==='jif'?'影响因子不设分区等级':'全部分区等级（不限）'}</option>
           {[...new Set(tierChoices.map(choice=>choice.group))].map(group=>
             <optgroup label={group} key={group}>

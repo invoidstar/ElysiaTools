@@ -180,14 +180,22 @@ test('journal publication figures load automatically for a rolling five-year per
   assert.ok(component.includes('year===currentYear'),'incomplete current year must be disclosed');
 });
 
-test('Bibliography organizer is fully usable and placeholder tool cards are removed',()=>{
-  const source=readFileSync(new URL('../src/features/ToolsPage.tsx',import.meta.url),'utf8');
+test('research utilities have independent navigable pages and retain working BibTeX editing',()=>{
+  const hub=readFileSync(new URL('../src/features/ToolsPage.tsx',import.meta.url),'utf8');
+  const bibPage=readFileSync(new URL('../src/features/BibtexToolPage.tsx',import.meta.url),'utf8');
+  const identifier=readFileSync(new URL('../src/features/IdentifierToolPage.tsx',import.meta.url),'utf8');
   const editor=readFileSync(new URL('../src/components/BibtexTool.tsx',import.meta.url),'utf8');
+  const app=readFileSync(new URL('../src/App.tsx',import.meta.url),'utf8');
   for(const removed of ['论文图像检查','科研统计计算','学术绘图助手','ON THE ROADMAP'])
-    assert.ok(!source.includes(removed),'Unused card should be deleted: '+removed);
-  assert.ok(source.includes('<BibtexTool/>'));
-  for(const token of ['parseBibtex','analyzeBibtex','formatBibtex','downloadContent','type="file"'])
-    assert.ok(editor.includes(token),'Missing organizer capability: '+token);
+    assert.ok(!hub.includes(removed),'Unused card should not be displayed: '+removed);
+  assert.ok(hub.includes("onNavigate('tools/'+tool.id)"));
+  assert.ok(hub.includes("id:'identifier'") && hub.includes("id:'bibtex'"));
+  assert.ok(bibPage.includes('<BibtexTool/>'));
+  assert.ok(identifier.includes('resolver-box') && identifier.includes('onBack'));
+  for(const route of ["detailId === 'identifier'","detailId === 'bibtex'"])
+    assert.ok(app.includes(route),'Independent tool route missing: '+route);
+  for(const feature of ['parseBibtex','analyzeBibtex','formatBibtex','downloadContent','type="file"'])
+    assert.ok(editor.includes(feature),'BibTeX editor is missing capability: '+feature);
 });
 test('OpenAlex client caches results and honors anonymous quota cooldown without hardcoded keys',()=>{
   const source=readFileSync(new URL('../src/lib/openAlex.ts',import.meta.url),'utf8');
@@ -195,4 +203,14 @@ test('OpenAlex client caches results and honors anonymous quota cooldown without
     assert.ok(source.includes(token),'Missing source API control: '+token);
   assert.ok(!source.includes('api_key='));
   assert.ok(!source.includes('mailto='));
+});
+
+test('journal dropdowns stay enabled and offer separate evaluation-system tiers',()=>{
+  const page=readFileSync(new URL('../src/features/JournalPage.tsx',import.meta.url),'utf8');
+  assert.ok(page.includes('journalTierOptions(indicator)'));
+  assert.ok(page.includes('matchesJournalRankFilters'));
+  assert.ok(!page.includes('disabled={!indicator}'));
+  assert.ok(!page.includes('disabled={!indicator ||'));
+  assert.ok(!page.includes("disabled={!loading&&count("));
+  assert.ok(page.includes('<optgroup label={group}'));
 });

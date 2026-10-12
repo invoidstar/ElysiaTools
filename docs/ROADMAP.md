@@ -14,3 +14,9 @@
 3. Verified conference annual website/CFP coverage — prioritize source accuracy and timely updates.
 
 Focus on working, simple features and data quality rather than speculative dashboards. Preserve GitHub Pages-only deployment until an actual shared backend is explicitly approved.
+
+
+## V1.6 interface refinement
+
+- Journal system, annual data status and zone/quartile selectors are no longer disabled by an earlier selection. Rank options carry separate CAS, XinRui and JCR system identifiers.
+- The Tools landing page is a lightweight directory only. Active utilities have their own deep-linkable GitHub Pages routes (#tools/identifier and #tools/bibtex), with working back navigation.
