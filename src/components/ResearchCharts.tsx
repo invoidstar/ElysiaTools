@@ -1,7 +1,7 @@
 import { ArrowUpRight, BarChart3, CircleHelp, Database, ExternalLink, History, Layers3, LoaderCircle, ShieldCheck, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 import { acceptance, ccfEntries, conferences, coverage, getSource, journalMetric, journals } from '../lib/catalog';
-import type { Conference, Journal, AcceptanceRecord } from '../types';
+import type { Journal } from '../types';
 
 const colors = { A: '#8271e8', B: '#69adc9', C: '#a8b8d3' };
 const fields = [
