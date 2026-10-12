@@ -11,18 +11,18 @@ const reasons = {
   available:'该年度来源已匹配到有效指标',
   source_no_metric:'原始年度表包含该期刊，但此项指标为空或无有效分区',
   not_in_source:'该年度来源没有匹配到这本期刊',
-  identity_review:'存在同名或 ISSN 身份冲突，未进行不确定的自动合并'
+  identity_review:'期刊身份存在冲突，尚未进行不确定的自动合并'
 };
 const issueNames:Record<string,string>={
   title_issn_conflict:'同名期刊的出版标识不一致；已避免自动合并',
   multiple_issn_candidates:'出版标识符关联多个期刊；需要人工确认',
   ambiguous_title:'同名候选不唯一；已保留独立记录',
   invalid_identifier:'来源出版标识符未通过格式校验',
-  missing_title:'原始记录缺少期刊名，依据有效 ISSN 单独保留',
+  missing_title:'原始记录缺少期刊名，依据内部出版标识独立保留',
   alias_collision:'期刊别名或出版标识存在冲突',
   metric_conflict:'同一评价分类出现不同值，已记录冲突以供核查'
 };
-const methods={issn:'ISSN 匹配',title:'唯一名称匹配',new:'独立来源记录',review:'身份待核对'};
+const methods={issn:'出版标识匹配',title:'唯一名称匹配',new:'独立来源记录',review:'身份待核对'};
 export function JournalDiagnostics({journal}:{journal:Journal}) {
   const diagnostic=journal.diagnostic;
   if(!diagnostic)return null;
