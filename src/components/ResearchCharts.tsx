@@ -107,13 +107,14 @@ export function JournalMetricCards({journal}:{journal:Journal}) {
   return <div className="journal-metric-dashboard">{metrics.map(m=>{
     const found=getMetric(journal,m.id);
     const privatelyImported=found?.sourceId==='user-import';
+    const secondarySource=found && !privatelyImported && getSource(found.sourceId)?.kind==='thirdparty-public-fact';
     const url=m.id==='xinrui'
       ? 'https://www.xr-scholar.com/Journals/Search?keyword='+encodeURIComponent(journal.name)+'&year=2026'
       : privatelyImported ? metricLink[m.id] : found ? getSource(found.sourceId)?.url : metricLink[m.id];
     return <div key={m.id} className={'journal-metric-card metric-'+m.id}>
       <span>{metricTitle[m.id]}</span>
       <strong className={found?'has-data':''}>{found ? found.value : '—'}</strong>
-      <small>{found?(privatelyImported?'本地授权导入 · '+found.year:m.id==='jif'?'JIF '+found.year+' · JCR '+(found.year+1):'版本 '+found.year):m.caption}</small>
+      <small>{found?(privatelyImported?'本地授权导入 · '+found.year:secondarySource?'LetPub 第三方检索 · '+found.year:m.id==='jif'?'JIF '+found.year+' · JCR '+(found.year+1):'版本 '+found.year):m.caption}</small>
       {found?.category && <p className="metric-category" title={found.category}>{found.category}</p>}
       {url && <a href={url} target="_blank" rel="noopener noreferrer">{privatelyImported?'前往核验':'查询来源'} <ArrowUpRight size={12}/></a>}
       {privatelyImported&&<span className="local-data-indicator">仅在当前浏览器</span>}
