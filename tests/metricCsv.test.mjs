@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { parseCsvRows, parseMetricFile, mergeImportedMetrics } from '../src/lib/metricCsv.mjs';
+import { parseCsvRows, parseMetricFile, mergeImportedMetrics, extractAnnualMetrics } from '../src/lib/metricCsv.mjs';
 
 const journals=[
   {id:'tro',name:'IEEE Transactions on Robotics',issn:'1552-3098',eissn:null,issnL:'1552-3098',aliases:['T-RO']},
@@ -107,7 +107,6 @@ test('journal identifier crosswalk is sufficiently complete for private syncing'
 });
 
 test('row-level metric extraction distinguishes listed-but-unranked from an absent record',()=>{
-  const {extractAnnualMetrics}=await import('../src/lib/metricCsv.mjs');
   assert.deepEqual(extractAnnualMetrics({
     'IF(2025)':'4.7','Category_1':'RELIGION','IF Quartile(2025)_1':''
   },'jcr'),[{system:'jif',value:'4.7',year:2025,category:''}]);
