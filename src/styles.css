@@ -224,3 +224,14 @@
  .publication-track{height:90px}
  .publication-year>strong{font-size:11px}
 }
+
+
+/* A conference homepage is tied to a verified edition, never guessed from its acronym. */
+.deadline-wrapper{display:flex;flex-direction:column;align-items:flex-start;min-width:0;gap:7px}
+.deadline-wrapper .deadline-cell{width:100%;text-align:left}
+.conference-year-link{display:inline-flex;align-items:center;gap:4px;color:var(--primary);font-size:10px;font-weight:720}
+.conference-year-link:hover{text-decoration:underline}
+.publication-compact{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.publication-compact small{font-size:10px;color:var(--muted)}
+.publication-compact strong{color:var(--text);font-variant-numeric:tabular-nums}
+.publication-compact a{margin-top:5px}
