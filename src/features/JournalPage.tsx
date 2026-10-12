@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react';
 import { ArrowUpRight, GitCompareArrows, LibraryBig, Search, SlidersHorizontal, X } from 'lucide-react';
 import { EmptyState, FavoriteButton, GradeTag } from '../components/Common';
-import { journals, matches, journalMetric, coverage } from '../lib/catalog';
+import { journals, matches, coverage } from '../lib/catalog';
 import { DirectoryViz } from '../components/ResearchCharts';
+import { MetricCoverage, MetricImportPanel } from '../components/MetricImport';
+import { useJournalMetrics } from '../lib/metricsContext';
 import type { AcademicState, Journal } from '../types';
 
 interface Props {
@@ -18,6 +20,7 @@ interface Props {
 const oaText: Record<string, string> = { open: '开放获取', hybrid: 'Hybrid OA', subscription: '订阅', unknown: '尚未核验' };
 
 export function JournalPage({ academic, toggleFavorite, toggleCompare, openJournal, openComparison, keyword, setKeyword }: Props) {
+  const {getMetric,count,privateCount}=useJournalMetrics();
   const [grade, setGrade] = useState('');
   const [field, setField] = useState('');
   const [oa, setOa] = useState('');
@@ -33,13 +36,13 @@ export function JournalPage({ academic, toggleFavorite, toggleCompare, openJourn
       (!field || j.field === field || j.additionalFields?.includes(field)) &&
       (!oa || j.oa === oa) &&
       (!publisher || j.publisher === publisher) &&
-      (!indicator || j.indicators.some(i => i.system === indicator))
+      (!indicator || Boolean(getMetric(j,indicator)))
     ).sort((a, b) => {
       const rank = { A: 0, B: 1, C: 2 };
       const av = a.ccf ? rank[a.ccf] : 3;
       const bv = b.ccf ? rank[b.ccf] : 3;
       return av - bv || a.acronym.localeCompare(b.acronym);
-    }), [keyword, grade, field, oa, publisher, indicator]);
+    }), [keyword, grade, field, oa, publisher, indicator, getMetric]);
 
   const setFilter = (setter: (value: string) => void, value: string) => { setter(value); setLimit(18); };
   const selected = academic.compare.map(id => journals.find(j => j.id === id)).filter((j): j is Journal => Boolean(j));
@@ -52,6 +55,7 @@ export function JournalPage({ academic, toggleFavorite, toggleCompare, openJourn
       <div className="intro-stats"><span><b>{coverage.uniqueCCFJournals}</b> 本 CCF 评级期刊</span><span><b>{coverage.journalRows}</b> 条目录推荐</span><span>10 个研究领域 · 独立指标体系</span></div>
     </div>
     <DirectoryViz type="journal" activeField={field} onField={value=>setFilter(setField,value)}/>
+    <MetricCoverage/>
     <div className="explorer-layout">
       <aside className="filter-panel">
         <div className="panel-title"><SlidersHorizontal size={17} /><strong>筛选条件</strong><button className="text-button" onClick={() => { setKeyword(''); setGrade(''); setField(''); setOa(''); setPublisher(''); setIndicator(''); }}>重置</button></div>
@@ -66,22 +70,31 @@ export function JournalPage({ academic, toggleFavorite, toggleCompare, openJourn
         <label className="filter-label" htmlFor="jour-publisher">出版社</label>
         <select id="jour-publisher" className="select-input" value={publisher} onChange={e=>setFilter(setPublisher,e.target.value)}><option value="">全部出版社</option>{publishers.map(p=><option key={p} value={p}>{p}</option>)}</select>
         <label className="filter-label" htmlFor="jour-indicator">已验证指标</label>
-        <select id="jour-indicator" className="select-input" value={indicator} onChange={e=>setFilter(setIndicator,e.target.value)}><option value="">不限 / 包含待核验</option><option value="jif">已公开影响因子</option><option value="jcr">已公开 JCR 分区</option><option value="cas">2025 中科院历史分区</option><option value="xinrui">2026 新锐分区</option></select>
-        <div className="filter-footnote"><span className="tiny-dot" /> 中科院 2025、新锐 2026 与 JCR 分区独立展示。尚无合法来源的数据保留「—」，支持跳转官方查询。</div>
+        <select id="jour-indicator" className="select-input" value={indicator} onChange={e=>setFilter(setIndicator,e.target.value)}>
+          <option value="">不限 · 显示全部期刊</option>
+          <option value="cas" disabled={count('cas')===0}>中科院 2025 · 已载入 {count('cas')} 本</option>
+          <option value="xinrui" disabled={count('xinrui')===0}>新锐 2026 · 已载入 {count('xinrui')} 本</option>
+          <option value="jcr" disabled={count('jcr')===0}>JCR · 已载入 {count('jcr')} 本</option>
+          <option value="jif" disabled={count('jif')===0}>影响因子 · 已载入 {count('jif')} 本</option>
+        </select>
+        <div className="filter-footnote"><span className="tiny-dot" /> 无数据的评级筛选项会禁用。导入的授权 CSV 仅保存在本机，不会上传或公开。</div>
+        <MetricImportPanel/>
       </aside>
       <div className="results-panel">
-        <div className="results-toolbar"><div><strong>{filtered.length}</strong><span> 条检索结果</span><small> · 按 CCF 等级整理</small></div><span className="muted small-text">最多选择 4 本期刊比较</span></div>
+        <div className="results-toolbar"><div><strong>{filtered.length}</strong><span> 条检索结果</span><small> · 按 CCF 等级整理</small></div><span className="muted small-text">已导入私有指标：{privateCount} 本 · 最多对比 4 本</span></div>
         <div className="venue-list">
           {filtered.slice(0, limit).map(j => <article key={j.id} className="venue-row journal-row">
             <button className="venue-main" onClick={() => openJournal(j.id)}>
               <span className="venue-monogram journal-monogram">{j.acronym.slice(0, 2).toUpperCase()}</span>
-              <span className="venue-identity"><span className="venue-title">{j.acronym} <GradeTag grade={j.ccf} year={j.ccfYear} /></span><span className="venue-subtitle">{j.name}</span><span className="venue-field">{j.field}</span></span>
+              <span className="venue-identity"><span className="venue-title">{j.acronym} <GradeTag grade={j.ccf} year={j.ccfYear} /></span><span className="venue-subtitle">{j.name}</span><span className="venue-field">{j.fieldZh}</span></span>
             </button>
             <button className="journal-publisher" onClick={() => openJournal(j.id)}>
               <strong>{j.publisher || '出版社待核验'}</strong>
               <span>{j.issn ? 'ISSN ' + j.issn : 'ISSN 待补充'}</span>
               <small>{oaText[j.oa]}</small>
-              {journalMetric(j,'jif') && <span className="journal-metric-preview">JIF {journalMetric(j,'jif')?.value} · {journalMetric(j,'jif')?.year}</span>}
+              <span className="journal-quick-metrics">
+                {(['cas','xinrui','jcr','jif'] as const).filter(sys=>getMetric(j,sys)).map(sys=><span className={'journal-metric-preview source-'+sys} key={sys}>{({cas:'中科院',xinrui:'新锐',jcr:'JCR',jif:'JIF'})[sys]} {getMetric(j,sys)?.value}</span>)}
+              </span>
             </button>
             <div className="row-actions">
               <label className={'compare-toggle ' + (academic.compare.includes(j.id) ? 'checked' : '')} title="添加期刊对比">
@@ -90,7 +103,10 @@ export function JournalPage({ academic, toggleFavorite, toggleCompare, openJourn
               <FavoriteButton active={academic.journals.includes(j.id)} onClick={() => toggleFavorite(j.id)} label={j.acronym} />
             </div>
           </article>)}
-          {!filtered.length && <EmptyState title="没有匹配的期刊" description="调整筛选条件，或尝试使用期刊全称进行搜索。" />}
+          {!filtered.length && <div className="metric-empty">
+              <EmptyState title="当前条件下没有匹配的期刊" description={indicator ? '已载入的该类指标没有匹配项；调整条件，或导入更多有权使用的期刊数据。' : '调整筛选条件，或尝试使用期刊全称搜索。'}/>
+              <button className="secondary-button" onClick={()=>{setGrade('');setField('');setPublisher('');setOa('');setIndicator('');setKeyword('');}}>清除筛选，查看完整目录</button>
+            </div>}
           {filtered.length > limit && <button className="load-more" onClick={() => setLimit(limit + 18)}>加载更多 · 剩余 {filtered.length - limit} 条</button>}
         </div>
       </div>

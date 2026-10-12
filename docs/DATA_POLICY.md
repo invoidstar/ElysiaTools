@@ -61,3 +61,16 @@ The source-health workflow can observe unavailable pages or changed content, but
 ## 6. Personal data
 
 My Academic stores preferences in localStorage, not in a cloud database. Export and import are user-controlled. Backups contain only selected preferences, not credentials. No analytics or server-side user profile is included in V1.0.
+
+
+## 7. V1.2 provenance and privately imported metrics
+
+CCF-Deadlines (MIT License, Copyright 2021 CCFDDL) is used as a *secondary, publicly contributed historical conference data feed*. We record the original URL for each row and distinguish its CCFDDL-transcribed provenance from independently checked official-source records. The repository copy of its historical count/rate facts is not proof of individual human verification. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and https://github.com/ccfddl/ccf-deadlines .
+
+**Historic rate statistics**: show exact year, assumed main conference, submitted/accepted counts where available and computed ratio; ignore mismatched or unparseable rows, and never replace a conflicting existing official statistic without review. Values in community aggregation may refer to specific tracks or conference phases; the original cited document remains authoritative.
+
+**LetPub**: the platform can deep-link to its public journal search. Eight individual new-rising-division results were independently matched by journal title/ISSN and are marked explicitly as *LetPub secondary reference*, not publisher-verified or official XinRui bulk data. They are factual single-journal references only, not a rehosted LetPub database. Source pages may require the reader to check the current edition.
+
+**User-held indicators**: CSV/TSV imports occur locally using a built-in RFC-4180 parser. Matching by exact ISSN or normalized full title prevents ambiguous joins. Four systems remain separate: `cas` (2025), `xinrui` (2026), `jcr` (2026 report / 2025 JIF), `jif` (2025). Imported records are saved under an isolated localStorage key and never included in GitHub Pages or in the My Academic backup; users need to reimport on another device. See [METRIC_IMPORT.md](METRIC_IMPORT.md).
+
+Third-party JCR/CAS/XinRui tables may be accessible on GitHub or commercial journal portals, but *public download does not automatically confer rights to republish the database*. We will not aggregate a paywalled ranking into this repository without confirmed downstream redistribution rights.

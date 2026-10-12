@@ -93,7 +93,7 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
           <option value="">全部状态</option><option value="upcoming">尚有投稿节点</option><option value="closed">已截止</option><option value="tbd">尚未公布 / TBD</option>
         </select>
         <label className="filter-label" htmlFor="conf-history">录用率信息</label>
-        <label className="history-check"><input type="checkbox" checked={historyOnly} onChange={e=>setHistoryOnly(e.target.checked)} id="conf-history"/> 仅显示有官方历年录用率的会议</label>
+        <label className="history-check"><input type="checkbox" checked={historyOnly} onChange={e=>setHistoryOnly(e.target.checked)} id="conf-history"/> 仅显示有来源的历年录用统计</label>
         <label className="filter-label">最近截稿日期范围</label>
         <div className="date-pair"><input type="date" aria-label="开始日期" value={filters.from} onChange={e => change('from', e.target.value)} /><span>至</span><input type="date" aria-label="结束日期" value={filters.to} onChange={e => change('to', e.target.value)} /></div>
         <button className="save-filter" onClick={saveFilter}><BookmarkPlus size={16} /> 保存当前筛选</button>
@@ -138,6 +138,6 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
         </div>}
       </div>
     </div>
-    <div className="data-note"><FileDown size={16} /> 已覆盖 CCF 2026 全部会议推荐记录；历年录用率、当届日程仅在有主办方证据时显示，未核实项为 TBD。</div>
+    <div className="data-note"><FileDown size={16} /> 已覆盖 CCF 2026 全部会议推荐记录；历年录用率分别标注官方与社区来源；当届日程仅使用官方发布的时间，未核实项为 TBD。</div>
   </section>;
 }

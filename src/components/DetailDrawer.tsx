@@ -83,13 +83,14 @@ export function DetailDrawer({ kind, id, onClose, academic, toggleFavorite, togg
               <div><span>ISSN / ISSN-L</span><strong>{j.issn || '待核验'} / {j.issnL || '—'}</strong></div>
               <div><span>eISSN</span><strong>{j.eissn || '待核验'}</strong></div>
             </div>
-            <div className="link-stack"><SourceAnchor href={j.website}>期刊官方网站 <ArrowUpRight size={14} /></SourceAnchor><SourceAnchor href={j.indexUrl}>学术索引 / DBLP</SourceAnchor>{j.identifierSource && <SourceAnchor href={j.identifierSource}>标识符来源</SourceAnchor>}</div>
+            <div className="link-stack"><SourceAnchor href={j.website}>期刊官方网站 <ArrowUpRight size={14} /></SourceAnchor><SourceAnchor href={j.indexUrl}>学术索引 / DBLP</SourceAnchor>{j.identifierSource && <SourceAnchor href={j.identifierSource}>标识符来源</SourceAnchor>}
+              <a className="source-link" href={'https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname='+encodeURIComponent(j.name)} target="_blank" rel="noopener noreferrer">LetPub 期刊查询 <ExternalLink size={13}/></a></div>
           </section>
           <section className="drawer-section"><h3>学术评价 <span>INDICATORS</span></h3>
             <div className="ccf-class-list">{ccfEntries(j).length ? ccfEntries(j).map(entry=><div key={entry.field}><span>{entry.fieldZh}</span><GradeTag grade={entry.grade} year={entry.year}/></div>):<div><span>本期刊不在已收录的 CCF 2026 目录中</span></div>}</div>
             <JournalMetricCards journal={j}/>
             <JournalPublicationCount journal={j}/>
-            <div className="notice-soft"><Info size={17} /> 2025 中科院分区与 2026 新锐分区是两个独立机构的体系。原中科院分区平台已停服，新锐数据和完整 JCR 指标需在官方平台查询。已公开的 JIF 标注的是数据年份，而非 JCR 发布年份。</div>
+            <div className="notice-soft"><Info size={17} /> 中科院历史 2025、新锐 2026 与 JCR 是不同评价体系。公开的第三方数据会单独标明出处；缺失时可在期刊页导入本人有使用权的 CSV，并在本地完成筛选与比较。JIF 标注指标数据年份。</div>
           </section>
           <section className="drawer-section"><h3>研究范围与投稿 <span>SCOPE & SUBMISSION</span></h3><p className="body-muted">所属领域：{ccfEntries(j).map(e=>e.fieldZh).join("、") || j.fieldZh}。Aims &amp; Scope、文章类型及 APC 应以出版社的最新说明为准，未核实的费用和审稿周期暂不展示。</p><SourceAnchor href={j.website}>前往期刊官方页面查看投稿说明</SourceAnchor></section>
           <section className="drawer-section"><h3>来源与标识 <span>PROVENANCE</span></h3><div className="source-panel"><CheckCircle2 size={18} /><div><strong>{j.ccf ? 'CCF 2026 推荐目录' : '出版社 / ISSN 资料'}</strong><p>等级与身份数据来源分离管理；尚未完成核验的字段明确留空。</p><SourceAnchor href={getSource(j.sourceId)?.url}>查看记录来源</SourceAnchor></div></div></section>

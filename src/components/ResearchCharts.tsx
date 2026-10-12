@@ -1,6 +1,7 @@
 import { ArrowUpRight, BarChart3, CircleHelp, Database, ExternalLink, History, Layers3, LoaderCircle, ShieldCheck, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
-import { acceptance, ccfEntries, conferences, coverage, getSource, journalMetric, journals } from '../lib/catalog';
+import { acceptance, ccfEntries, conferences, coverage, getSource, journals } from '../lib/catalog';
+import { useJournalMetrics } from '../lib/metricsContext';
 import type { Journal } from '../types';
 
 const colors = { A: '#8271e8', B: '#69adc9', C: '#a8b8d3' };
@@ -64,7 +65,7 @@ export function DirectoryViz({ type, onField, activeField = '' }: {
 export function AcceptanceTrend({conferenceId,compact=false}:{conferenceId:string;compact?:boolean}) {
   const rows=acceptance.filter(r=>r.conferenceId===conferenceId).sort((a,b)=>a.year-b.year);
   if(!rows.length) return <div className="data-unavailable"><History size={18}/><div><strong>往年录用率待补充</strong><p>仅收录具有来源、年份和明确 Track 的历史录用数据。</p></div></div>;
-  const minY=0, maxY=45;
+  const minY=0, maxY=Math.min(100,Math.ceil(Math.max(30,...rows.map(r=>r.rate))/10)*10);
   const W=460,H=142,padX=35,padTop=13,padBot=30;
   const x=(i:number)=> rows.length===1?W/2:padX+(i/(rows.length-1))*(W-2*padX);
   const y=(rate:number)=>padTop+(maxY-rate)/(maxY-minY)*(H-padTop-padBot);
@@ -72,16 +73,21 @@ export function AcceptanceTrend({conferenceId,compact=false}:{conferenceId:strin
   const area='M '+pts.replace(/ /g,' L ')+' L '+x(rows.length-1)+' '+(H-padBot)+' L '+x(0)+' '+(H-padBot)+' Z';
   if(compact) return <div className="acceptance-inline"><TrendingUp size={14}/><b>{rows.at(-1)!.rate}%</b><span>{rows.at(-1)!.year} 录用率</span></div>;
   return <div className="acceptance-trend">
-    <div className="trend-head"><div><span className="trend-eyebrow">HISTORICAL ACCEPTANCE</span><strong>主会历年录用趋势</strong></div><span className="trend-head-meta">{rows.length} 年已核实 · 非预测</span></div>
+    <div className="trend-head"><div><span className="trend-eyebrow">HISTORICAL ACCEPTANCE</span><strong>历年投稿与录用趋势</strong></div><span className="trend-head-meta">{rows.length} 条有来源的记录 · 非预测</span></div>
     <svg viewBox={'0 0 '+W+' '+H} className="trend-svg" role="img" aria-label={'历年录用率：'+rows.map(r=>r.year+'年'+r.rate+'%').join('，')}>
       <defs><linearGradient id={'area-'+conferenceId} x1="0" y1="0" x2="0" y2="1"><stop stopColor="#8d80e9" stopOpacity=".23"/><stop offset="1" stopColor="#8d80e9" stopOpacity=".015"/></linearGradient></defs>
-      {[0,15,30,45].map(t=><g key={t}><line x1={padX} x2={W-padX} y1={y(t)} y2={y(t)} stroke="var(--line)" strokeDasharray="4 5"/><text x={padX-9} y={y(t)+4} textAnchor="end" fontSize="9" fill="var(--faint)">{t}%</text></g>)}
+      {[0,maxY/3,maxY*2/3,maxY].map(t=><g key={t}><line x1={padX} x2={W-padX} y1={y(t)} y2={y(t)} stroke="var(--line)" strokeDasharray="4 5"/><text x={padX-9} y={y(t)+4} textAnchor="end" fontSize="9" fill="var(--faint)">{Math.round(t)}%</text></g>)}
       <path d={area} fill={'url(#area-'+conferenceId+')'}/>
       <polyline points={pts} stroke="var(--primary)" fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-      {rows.map((r,i)=><g key={r.year}><circle cx={x(i)} cy={y(r.rate)} r="5" fill="var(--surface)" stroke="var(--primary)" strokeWidth="2.5"/><text x={x(i)} y={H-10} fontSize="10" textAnchor="middle" fill="var(--muted)">{r.year}</text><title>{r.year}: {r.rate}%</title></g>)}
+      {rows.map((r,i)=><g key={r.year}><circle cx={x(i)} cy={y(r.rate)} r="5" fill="var(--surface)" stroke="var(--primary)" strokeWidth="2.5"/><text x={x(i)} y={H-10} fontSize="9" textAnchor="middle" fill="var(--muted)">{rows.length<9 || i%2===0 || i===rows.length-1 ? r.year : ""}</text><title>{r.year}: {r.rate}%</title></g>)}
     </svg>
     <div className="trend-year-list">{rows.map(r=><div key={r.year} className="trend-year-chip"><strong>{r.rate}%</strong><span>{r.year}</span><a target="_blank" rel="noopener noreferrer" href={getSource(r.sourceId)?.url} aria-label={'查看'+r.year+'官方录用率来源'}><ExternalLink size={12}/></a></div>)}</div>
-    <div className="trend-notes"><ShieldCheck size={14}/> 录用率来自主办方；不同年份的统计口径可能不同，不能直接作为投稿概率。{rows.find(x=>x.note) && <span> 部分年份有单独的统计口径说明。</span>}</div>
+    <div className="acceptance-table-wrap"><table className="acceptance-table"><thead><tr><th>年份</th><th>投稿量</th><th>录用量</th><th>录用率</th><th>来源</th></tr></thead><tbody>{[...rows].reverse().map(r=><tr key={r.year+'-'+r.track}>
+      <td><b>{r.year}</b></td><td>{r.submissions?.toLocaleString('en-US') ?? '—'}</td><td>{r.accepted?.toLocaleString('en-US') ?? '—'}</td>
+      <td><strong className="acceptance-rate-value">{r.rate}%</strong></td>
+      <td><a href={getSource(r.sourceId)?.url} target="_blank" rel="noopener noreferrer" className="micro-link">{getSource(r.sourceId)?.kind==='official-history'?'官方报告':'社区整理'} <ExternalLink size={12}/></a></td>
+    </tr>)}</tbody></table></div>
+    <div className="trend-notes"><ShieldCheck size={14}/> 官方资料与 CCF-Deadlines 社区数据分别标注；投稿量、录用量及统计口径以原始链接为准。部分年份含不同 Track 或阶段，录用率不是未来录用概率。</div>
   </div>;
 }
 
@@ -91,6 +97,7 @@ const metricLink: Record<string,string> = {
  cas:'https://www.lib.szu.edu.cn/er/fenqubiao',xinrui:'https://www.xr-scholar.com/Journals/Search'
 };
 export function JournalMetricCards({journal}:{journal:Journal}) {
+  const {getMetric,getMetrics}=useJournalMetrics();
   const metrics = [
     {id:'cas',year:2025,caption:'原中科院 2025 升级版'},
     {id:'xinrui',year:2026,caption:'独立机构 2026'},
@@ -98,16 +105,19 @@ export function JournalMetricCards({journal}:{journal:Journal}) {
     {id:'jif',year:2025,caption:'2025 JIF · 2026 发布'}
   ];
   return <div className="journal-metric-dashboard">{metrics.map(m=>{
-    const found=journalMetric(journal,m.id);
+    const found=getMetric(journal,m.id);
+    const privatelyImported=found?.sourceId==='user-import';
     const url=m.id==='xinrui'
       ? 'https://www.xr-scholar.com/Journals/Search?keyword='+encodeURIComponent(journal.name)+'&year=2026'
-      : found ? getSource(found.sourceId)?.url : metricLink[m.id];
+      : privatelyImported ? metricLink[m.id] : found ? getSource(found.sourceId)?.url : metricLink[m.id];
     return <div key={m.id} className={'journal-metric-card metric-'+m.id}>
       <span>{metricTitle[m.id]}</span>
       <strong className={found?'has-data':''}>{found ? found.value : '—'}</strong>
-      <small>{found?(m.id==='jif'?'JIF '+found.year+' · JCR '+(found.year+1):'版本 '+found.year):m.caption}</small>
+      <small>{found?(privatelyImported?'本地授权导入 · '+found.year:m.id==='jif'?'JIF '+found.year+' · JCR '+(found.year+1):'版本 '+found.year):m.caption}</small>
       {found?.category && <p className="metric-category" title={found.category}>{found.category}</p>}
-      {url && <a href={url} target="_blank" rel="noopener noreferrer">官方来源 <ArrowUpRight size={12}/></a>}
+      {url && <a href={url} target="_blank" rel="noopener noreferrer">{privatelyImported?'前往核验':'查询来源'} <ArrowUpRight size={12}/></a>}
+      {privatelyImported&&<span className="local-data-indicator">仅在当前浏览器</span>}
+      {m.id==='jcr' && getMetrics(journal,'jcr').length>1 && <div className="metric-subjects">{getMetrics(journal,'jcr').slice(0,5).map((v,i)=><small key={v.category+'-'+i}>{v.category||'JCR 学科'} · {v.value}</small>)}</div>}
     </div>;
   })}</div>;
 }
@@ -151,6 +161,6 @@ export function DirectorySnapshot() {
       <span>分类领域示意</span>
       {topFields.slice(0,5).map(r=><div key={r.field} className="snapshot-line"><span>{fieldNames[r.field]}</span><i><b style={{width:(r.count/top.count*100)+'%'}}/></i><strong>{r.count}</strong></div>)}
     </div>
-    <div className="snapshot-foot"><History size={14}/> 另有 {acceptance.length} 条已核实的历年录用数据</div>
+    <div className="snapshot-foot"><History size={14}/> 另有 {acceptance.length} 条有出处的历年录用记录（含社区整理）</div>
   </div>;
 }

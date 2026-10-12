@@ -128,3 +128,69 @@
 @media(max-width:1020px){.directory-viz{grid-template-columns:1fr}.viz-donut-content{justify-content:flex-start}.viz-donut{max-width:185px}.insights-grid{grid-template-columns:1fr 1fr}.viz-area-name{width:145px;min-width:145px}}
 @media(max-width:800px){.insights-grid{grid-template-columns:1fr}.directory-viz{margin:16px 0 24px}.snapshot-numbers strong{font-size:26px}}
 @media(max-width:580px){.directory-viz{gap:11px}.viz-donut-wrap,.viz-areas-wrap,.snapshot-widget,.insights-trend{padding:16px}.viz-donut-content{gap:6px}.viz-donut{width:146px;max-width:53%}.viz-donut-legend{gap:11px}.viz-area-name{min-width:90px;width:90px;font-size:9px}.viz-area{gap:7px}.viz-title small{font-size:9px}.journal-metric-dashboard{gap:7px}.journal-metric-card{padding:12px}.journal-metric-card strong{font-size:23px}.journal-metric-card small{font-size:9px}.article-count-panel{gap:9px}.article-count-panel .secondary-button{width:100%}.trend-head strong{font-size:15px}.trend-head-meta{font-size:9px}.snapshot-numbers strong{font-size:24px}.snapshot-numbers span{font-size:9px}.directory-viz .viz-areas-wrap{min-height:0}.trend-year-chip{gap:3px;padding:5px}.trend-year-chip strong{font-size:11px}}
+
+
+/* Journal metrics V1.2: coverage, local data import and historical conference table */
+.metric-coverage{background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:20px 24px;margin:-9px 0 27px;box-shadow:var(--shadow)}
+.metric-coverage-title{display:flex;align-items:center;gap:8px;color:var(--text);margin-bottom:16px}
+.metric-coverage-title svg{color:var(--primary)}
+.metric-coverage-title strong{font-size:12px}.metric-coverage-title>span{margin-left:auto;color:var(--muted);font-size:10px}
+.metric-coverage-bars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.coverage-stat{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:center}
+.coverage-stat>span{color:var(--muted);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.coverage-stat>strong{font-size:13px;font-variant-numeric:tabular-nums}
+.coverage-stat>strong small{font-size:9px;color:var(--faint);font-weight:500}
+.coverage-stat>i{grid-column:span 2;display:block;height:6px;background:var(--surface-soft);border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.coverage-stat>i b{display:block;height:100%;background:linear-gradient(90deg,var(--primary),#8ed2db);border-radius:6px;min-width:0}
+.metric-coverage>p{display:flex;align-items:center;gap:6px;margin:15px 0 0;color:var(--faint);font-size:10px;line-height:1.6}
+.metric-coverage>p svg{color:#79b8a8;flex-shrink:0}
+.metric-import{border:1px solid var(--line-strong);border-radius:12px;background:var(--surface-soft);margin-top:14px;overflow:hidden;grid-column:span 2}
+.metric-import-trigger{display:flex;align-items:center;width:100%;padding:12px;text-align:left;background:var(--surface-soft);color:var(--text);gap:9px}
+.metric-import-trigger>svg{color:var(--primary);flex-shrink:0}
+.metric-import-trigger>span:nth-child(2){min-width:0;display:flex;flex:1;flex-direction:column;gap:5px}
+.metric-import-trigger strong{font-size:11px}
+.metric-import-trigger small{font-size:9px;color:var(--muted)}
+.metric-import-arrow{font-size:18px;font-weight:500;color:var(--primary)}
+.metric-import-inner{border-top:1px solid var(--line);padding:14px 13px 17px;display:flex;flex-direction:column;gap:11px}
+.metric-import-intro{display:flex;align-items:flex-start;gap:7px;color:var(--primary);font-size:10px;line-height:1.65}
+.metric-import-intro svg{flex-shrink:0;margin-top:2px}
+.metric-import-inner>p{font-size:10px;color:var(--muted);line-height:1.7;margin:0}
+.metric-import-inner code{font-family:ui-monospace,Consolas,monospace;background:var(--surface);padding:1px 4px;border:1px solid var(--line);border-radius:4px}
+.metric-hidden-input{display:none}
+.metric-import-actions{display:flex;flex-direction:column;gap:7px}
+.metric-import-actions button{font-size:10px;padding:10px 9px;width:100%}
+.metric-import-actions .secondary-button{white-space:normal}
+.import-report{display:flex;flex-direction:column;gap:6px;padding:10px;border:1px solid #b7dbcd;background:color-mix(in srgb,#c7e8df 23%,var(--surface));border-radius:9px}
+.import-report strong{color:var(--text);font-size:10px;line-height:1.55}
+.import-report span{font-size:10px;color:var(--primary);line-height:1.5}
+.import-report small{font-size:9px;color:var(--muted)}
+.import-error{color:#c36a61!important;font-size:10px!important;padding:8px;background:color-mix(in srgb,#f0b7b1 15%,var(--surface));border-radius:6px}
+.danger-clear{display:flex;align-items:center;gap:6px;background:none;color:#c17b77;font-size:10px;align-self:flex-start;padding:5px}
+.metric-external-links{display:flex;align-items:center;gap:7px;flex-wrap:wrap;color:var(--faint);font-size:10px;padding-top:10px;border-top:1px solid var(--line)}
+.metric-external-links a{display:inline-flex;align-items:center;gap:3px;color:var(--primary)}
+.metric-import-credit{font-size:9px;color:var(--faint);line-height:1.65;display:flex;align-items:flex-start;gap:6px}
+.metric-import-credit svg{flex-shrink:0}
+.journal-quick-metrics{display:flex;gap:4px;flex-wrap:wrap;align-items:center;margin-top:2px}
+.journal-quick-metrics .journal-metric-preview{display:inline-block!important;padding:4px 6px;line-height:1.2}
+.journal-quick-metrics .source-cas{background:#eff4ff;color:#5c81b1!important}
+.journal-quick-metrics .source-xinrui{background:#eef9f0;color:#5b9f77!important}
+.journal-quick-metrics .source-jcr{background:#f5edff;color:#9071bb!important}
+.metric-empty{text-align:center;padding-bottom:24px}
+.metric-empty .empty-state{padding-bottom:23px}
+.metric-empty .secondary-button{margin:0 auto}
+.local-data-indicator{font-size:9px!important;color:#7b9b8e!important}
+.metric-subjects{display:flex;flex-direction:column;gap:5px;border-top:1px solid var(--line);padding-top:8px;max-width:100%}
+.metric-subjects small{font-size:9px;line-height:1.4;overflow-wrap:anywhere;color:var(--faint)}
+.acceptance-table-wrap{max-height:265px;overflow:auto;border:1px solid var(--line);border-radius:10px;margin-top:15px;scrollbar-width:thin}
+.acceptance-table{width:100%;border-spacing:0;border-collapse:separate;text-align:left;font-size:10px}
+.acceptance-table th{position:sticky;top:0;z-index:1;background:var(--surface-soft);font-size:10px;color:var(--muted);font-weight:700}
+.acceptance-table td,.acceptance-table th{padding:10px 9px;border-bottom:1px solid var(--line);white-space:nowrap;text-align:left}
+.acceptance-table tr:last-child td{border-bottom:0}
+.acceptance-table td{color:var(--muted);font-variant-numeric:tabular-nums}
+.acceptance-table td b{color:var(--text)}
+.acceptance-rate-value{color:var(--primary);font-size:11px}
+.acceptance-table .micro-link{font-size:9px;white-space:nowrap}
+.acceptance-table .micro-link:hover{text-decoration:underline}
+@media(max-width:1000px){.metric-coverage-bars{grid-template-columns:repeat(2,1fr);gap:16px}.metric-coverage{padding:16px}}
+@media(max-width:800px){.metric-import{grid-column:span 2}.metric-import-actions{flex-direction:row}.metric-import-actions button{flex:1;min-width:0}}
+@media(max-width:580px){.metric-coverage-bars{gap:12px}.coverage-stat>span{font-size:10px}.metric-coverage>p{align-items:flex-start}.metric-import-actions{flex-direction:column}.journal-quick-metrics{margin:3px 0}.metric-import{grid-column:span 2}.acceptance-table th,.acceptance-table td{padding:9px 6px}}

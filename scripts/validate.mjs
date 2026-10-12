@@ -147,7 +147,19 @@ for(const j of journals)for(const i of j.indicators){
   if(i.system==='cas'||i.system==='xinrui')
     check(i.license && i.sourceId,'division record requires explicit licensed provenance '+j.id);
 }
-check(acceptance.length>=10,'official acceptance history not populated');
+check(acceptance.length>=1000,'historical acceptance coverage unexpectedly low');
+check(new Set(acceptance.map(r=>r.conferenceId)).size>=200,'too few conference histories');
+const acceptanceKinds=new Set(acceptance.map(r=>sources.find(s=>s.id===r.sourceId)?.kind));
+check(acceptanceKinds.has('official-history') && acceptanceKinds.has('community-history'),
+  'official and community history sources must both be retained');
+const xinrui=journals.filter(j=>j.indicators.some(m=>m.system==='xinrui' && m.year===2026));
+check(xinrui.length>=8,'expected curated 2026 XinRui public reference facts');
+for (const j of xinrui)for(const m of j.indicators.filter(x=>x.system==='xinrui')){
+  check(/^[1-4]区$/.test(m.value), 'invalid XinRui division: '+j.id);
+  const sr=sources.find(s=>s.id===m.sourceId);
+  check(sr?.kind==='thirdparty-public-fact' && sr.url.includes('letpub.com.cn'),
+    'single-journal source must not be mislabeled official: '+j.id);
+}
 
 console.log('VALID: CCF 2026 '+coverage.listedRows+' recommendation rows / '+coverage.uniqueConferences+' conferences / '+coverage.uniqueCCFJournals+' ranked journals / '+acceptance.length+' acceptance records.');
 console.log('VALID: ' + conferences.length + ' conferences / ' + journals.length + ' journals / ' + editions.length + ' editions / ' + tracks + ' tracks / ' + events + ' events (' + timed + ' timed, ' + days + ' date-only).');

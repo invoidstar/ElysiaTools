@@ -1,18 +1,20 @@
 import { Download, ExternalLink, GitCompareArrows, X } from 'lucide-react';
 import { GradeTag } from './Common';
-import { ccfEntries, getSource, journalMetric, journals } from '../lib/catalog';
+import { ccfEntries, getSource, journals } from '../lib/catalog';
 import { downloadContent } from '../lib/storage';
+import { useJournalMetrics } from '../lib/metricsContext';
 import type { AcademicState, Journal } from '../types';
 
 interface Props { academic: AcademicState; onClose: () => void; toggleCompare: (id: string) => void; }
 const oaName = { open: '开放获取', hybrid: 'Hybrid OA', subscription: '订阅制', unknown: '尚未核验' };
-const indicator = (j:Journal, system:string) => {
-  const value=journalMetric(j,system);
-  return value ? value.value + ' · '+value.year : '—';
-};
 const ccfLabel = (j:Journal)=>ccfEntries(j).map(r=>r.field+' · '+r.grade).join('；')||'—';
 
 export function JournalCompare({ academic, onClose, toggleCompare }: Props) {
+  const {getMetric}=useJournalMetrics();
+  const indicator = (j:Journal,system:string)=>{
+    const value=getMetric(j,system);
+    return value ? value.value+' · '+value.year+(value.sourceId==='user-import'?' · 本地':'') : '—';
+  };
   const selected = academic.compare.map(id => journals.find(j => j.id === id)).filter((j): j is Journal => Boolean(j));
   const exportCSV = () => {
     const data = [
@@ -52,14 +54,14 @@ export function JournalCompare({ academic, onClose, toggleCompare }: Props) {
     {label:'2025 年发文量',value:()=><span className="metric-missing">详情页按需查询 OpenAlex</span>},
     {label:'官方网站',value:j=>j.website ? <a href={j.website} target="_blank" rel="noopener noreferrer" className="micro-link">访问期刊 <ExternalLink size={13}/></a> : '尚未收录官方链接'}
   ];
+  function metricCell(j:Journal,system:string,fallback?:string){
+    const value=getMetric(j,system);
+    const url=value&&value.sourceId!=='user-import'?getSource(value.sourceId)?.url:fallback;
+    return <div className="comparison-metric"><strong className={value?'metric-known':'metric-missing'}>{value ? value.value : '—'}</strong><small>{value?('指标年度 '+value.year+(value.sourceId==='user-import'?' · 私人数据':'')):'尚未载入数据'}</small>{url&&<a href={url} target="_blank" rel="noopener noreferrer" className="micro-link">查看来源 <ExternalLink size={12}/></a>}</div>;
+  }
   return <div className="modal-backdrop" onClick={onClose}><section className="comparison-modal" role="dialog" aria-modal="true" aria-label="期刊横向比较" onClick={e=>e.stopPropagation()}>
     <div className="modal-heading"><div><div className="eyebrow"><GitCompareArrows size={16} /> JOURNAL COMPARISON</div><h2>期刊横向比较</h2><p>CCF、JCR、2025 中科院历史分区和 2026 新锐分区分别记录，空缺不推测。</p></div><button className="icon-button" onClick={onClose} aria-label="关闭对比"><X size={21} /></button></div>
     <div className="comparison-scroll"><table className="comparison-table"><thead><tr><th>对比维度</th>{selected.map(j=><th key={j.id}><div className="compare-head"><span>{j.acronym}</span><button onClick={()=>toggleCompare(j.id)} aria-label={'移除 ' + j.acronym}><X size={16}/></button></div><small>{j.name}</small></th>)}</tr></thead><tbody>{rows.map(row=><tr key={row.label}><th>{row.label}</th>{selected.map(j=><td key={j.id}>{row.value(j)}</td>)}</tr>)}</tbody></table></div>
     <div className="modal-foot"><span>指标保留来源和年份，不同出版商或分类体系不可混用。</span><div className="row" style={{display:'flex',gap:8,alignItems:'center'}}><button className="secondary-button" disabled={!selected.length} onClick={exportCSV}><Download size={15}/> 导出 CSV</button><button className="secondary-button" onClick={onClose}>完成比较</button></div></div>
   </section></div>;
-}
-function metricCell(j:Journal,system:string,fallback?:string){
-  const value=journalMetric(j,system);
-  const url=value?getSource(value.sourceId)?.url:fallback;
-  return <div className="comparison-metric"><strong className={value?'metric-known':'metric-missing'}>{value ? value.value : '—'}</strong><small>{value?('指标年度 '+value.year):'暂无可公开核验数据'}</small>{url&&<a href={url} target="_blank" rel="noopener noreferrer" className="micro-link">官方查询 <ExternalLink size={12}/></a>}</div>;
 }

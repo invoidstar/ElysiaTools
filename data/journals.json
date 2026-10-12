@@ -647,7 +647,7 @@
     "publisher": "Springer",
     "ccf": "A",
     "ccfYear": 2026,
-    "issn": null,
+    "issn": "0920-5691",
     "eissn": null,
     "issnL": null,
     "oa": "unknown",
@@ -655,7 +655,17 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/ijcv/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": [],
+    "indicators": [
+      {
+        "system": "xinrui",
+        "value": "2区",
+        "year": 2026,
+        "category": "计算机科学 · 大类",
+        "sourceId": "letpub-xr-2026-ijcv",
+        "license": "limited-public-fact",
+        "provenance": "third-party-lookup"
+      }
+    ],
     "ccfEntries": [
       {
         "field": "Artificial Intelligence",
@@ -1720,7 +1730,7 @@
     "publisher": "IEEE",
     "ccf": "B",
     "ccfYear": 2026,
-    "issn": null,
+    "issn": "2162-237X",
     "eissn": null,
     "issnL": null,
     "oa": "unknown",
@@ -1728,7 +1738,17 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tnn/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": [],
+    "indicators": [
+      {
+        "system": "xinrui",
+        "value": "2区",
+        "year": 2026,
+        "category": "计算机科学 · 大类",
+        "sourceId": "letpub-xr-2026-tnnls",
+        "license": "limited-public-fact",
+        "provenance": "third-party-lookup"
+      }
+    ],
     "ccfEntries": [
       {
         "field": "Artificial Intelligence",
@@ -1765,6 +1785,15 @@
         "sourceId": "journal-ieee-2025",
         "category": "Computer Science, Artificial Intelligence",
         "license": "publisher-public"
+      },
+      {
+        "system": "xinrui",
+        "value": "1区",
+        "year": 2026,
+        "category": "计算机科学 · 大类",
+        "sourceId": "letpub-xr-2026-tpami",
+        "license": "limited-public-fact",
+        "provenance": "third-party-lookup"
       }
     ],
     "ccfEntries": [
@@ -3417,7 +3446,7 @@
     "publisher": "IEEE",
     "ccf": "B",
     "ccfYear": 2026,
-    "issn": null,
+    "issn": "1051-8215",
     "eissn": null,
     "issnL": null,
     "oa": "unknown",
@@ -3425,7 +3454,17 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tcsv/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": [],
+    "indicators": [
+      {
+        "system": "xinrui",
+        "value": "1区",
+        "year": 2026,
+        "category": "计算机科学 · 大类",
+        "sourceId": "letpub-xr-2026-tcsvt",
+        "license": "limited-public-fact",
+        "provenance": "third-party-lookup"
+      }
+    ],
     "ccfEntries": [
       {
         "field": "Graphics",
@@ -3446,7 +3485,7 @@
     "publisher": "IEEE",
     "ccf": "A",
     "ccfYear": 2026,
-    "issn": null,
+    "issn": "1057-7149",
     "eissn": null,
     "issnL": null,
     "oa": "unknown",
@@ -3454,7 +3493,17 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tip/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": [],
+    "indicators": [
+      {
+        "system": "xinrui",
+        "value": "1区",
+        "year": 2026,
+        "category": "计算机科学 · 大类",
+        "sourceId": "letpub-xr-2026-tip",
+        "license": "limited-public-fact",
+        "provenance": "third-party-lookup"
+      }
+    ],
     "ccfEntries": [
       {
         "field": "Graphics",
@@ -3618,7 +3667,7 @@
     "publisher": "IEEE",
     "ccf": "A",
     "ccfYear": 2026,
-    "issn": null,
+    "issn": "1077-2626",
     "eissn": null,
     "issnL": null,
     "oa": "unknown",
@@ -3626,7 +3675,17 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tvcg/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": [],
+    "indicators": [
+      {
+        "system": "xinrui",
+        "value": "2区",
+        "year": 2026,
+        "category": "计算机科学 · 大类",
+        "sourceId": "letpub-xr-2026-tvcg",
+        "license": "limited-public-fact",
+        "provenance": "third-party-lookup"
+      }
+    ],
     "ccfEntries": [
       {
         "field": "Graphics",
@@ -4790,7 +4849,17 @@
     "indexUrl": null,
     "sourceId": "ccf-2026",
     "identifierSource": "https://portal.issn.org/resource/ISSN/1552-3098",
-    "indicators": [],
+    "indicators": [
+      {
+        "system": "xinrui",
+        "value": "1区",
+        "year": 2026,
+        "category": "计算机科学 · 大类",
+        "sourceId": "letpub-xr-2026-tro",
+        "license": "limited-public-fact",
+        "provenance": "third-party-lookup"
+      }
+    ],
     "ccfEntries": [
       {
         "field": "Interdisciplinary",
@@ -6965,7 +7034,7 @@
     "publisher": "IEEE",
     "ccf": "A",
     "ccfYear": 2026,
-    "issn": null,
+    "issn": "0098-5589",
     "eissn": null,
     "issnL": null,
     "oa": "unknown",
@@ -6973,7 +7042,17 @@
     "indexUrl": "http://dblp.uni-trier.de/db/journals/tse/",
     "sourceId": "ccf-2026",
     "identifierSource": null,
-    "indicators": [],
+    "indicators": [
+      {
+        "system": "xinrui",
+        "value": "2区",
+        "year": 2026,
+        "category": "计算机科学 · 大类",
+        "sourceId": "letpub-xr-2026-tse",
+        "license": "limited-public-fact",
+        "provenance": "third-party-lookup"
+      }
+    ],
     "ccfEntries": [
       {
         "field": "Software",

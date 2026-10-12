@@ -91,3 +91,34 @@ test('AAAI 2027 change log preserves corrected author feedback window', () => {
   assert.equal(feedback.events.find(e=>e.title==='Author feedback closes').original,'2026-10-31');
   assert.ok(aaai.changeLog.length>0);
 });
+
+
+test('expanded history covers many conferences and preserves source quality',()=>{
+  const rows=load('acceptance.json'),sources=load('sources.json');
+  const kinds=new Map(sources.map(s=>[s.id,s.kind]));
+  assert.ok(rows.length>=1000);
+  assert.ok(new Set(rows.map(r=>r.conferenceId)).size>=200);
+  assert.ok(rows.some(r=>kinds.get(r.sourceId)==='community-history'));
+  assert.ok(rows.some(r=>kinds.get(r.sourceId)==='official-history'));
+  for(const row of rows){
+    assert.ok(kinds.has(row.sourceId));
+    assert.ok(row.year>=1990&&row.year<=2026);
+    assert.ok(row.rate>0&&row.rate<100);
+    if(row.accepted!=null&&row.submissions!=null)
+      assert.ok(Math.abs(row.rate-100*row.accepted/row.submissions)<0.7);
+  }
+});
+test('LetPub public limited XinRui facts have per-journal source and edition',()=>{
+  const src=load('sources.json');
+  const byId=new Map(src.map(s=>[s.id,s]));
+  const withXinrui=journals.filter(j=>j.indicators.some(x=>x.system==='xinrui'));
+  assert.ok(withXinrui.length>=8);
+  for(const journal of withXinrui){
+    for(const metric of journal.indicators.filter(x=>x.system==='xinrui')){
+      assert.equal(metric.year,2026);
+      assert.match(metric.value,/^[1-4]区$/);
+      assert.ok(byId.get(metric.sourceId)?.url?.includes('letpub.com.cn'));
+      assert.equal(byId.get(metric.sourceId)?.kind,'thirdparty-public-fact');
+    }
+  }
+});

@@ -31,3 +31,12 @@ Multiple named watchlists, finer calendar filters, deadline change highlights, i
 ## V2.0 — Research Utilities
 
 Add BibTeX cleaning, statistics, figure checks and CSV plots only after demonstrated demand. Avoid premature plugins, accounts, remote user storage or unverified AI recommendations.
+
+
+## V1.2 — Conference history and local authorized rankings
+
+- 273 CCF conference identities enriched with a total of 1,062 year/track statistical records; provenance distinguishes CCF-Deadlines community-transcribed figures from official, separately checked facts.
+- Readable annual submission, accepted and rate tables with deep links and dynamic scale in the trend chart.
+- Initial 8 individually source-linked public LetPub XinRui 2026 facts, kept distinct from official/authorized data.
+- Fully offline CSV/TSV import workflow for authorized CAS 2025, XinRui 2026 and JCR2025 datasets; local storage, exact identifier matching, nonempty per-system filter counts and rich comparisons.
+- Additional input parser tests and source integrity checks.
