@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { ArrowRight, ArrowUpRight, CalendarClock, CalendarDays, CheckCircle2, ChevronRight, Compass, ExternalLink, GitCompareArrows, LibraryBig, Search, ShieldCheck, Sparkles, Star, Target } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, CalendarClock, CalendarDays, CheckCircle2, ChevronRight, Compass, LibraryBig, Search, ShieldCheck, Sparkles, Star, Target } from 'lucide-react';
 import { conferences, journals, matches, upcomingRows } from '../lib/catalog';
 import { countdown, displayEvent, kindLabel, type ZoneChoice } from '../lib/time';
 import type { AcademicState } from '../types';

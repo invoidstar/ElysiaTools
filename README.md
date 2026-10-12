@@ -25,7 +25,7 @@ ElysiaTools 是一套面向研究人员的免费科研信息查询与辅助工�
 
 ## Data status / 数据覆盖
 
-首次发布包含 **47 场精选会议、36 本精选期刊、8 个已核实年度会议（12 条投稿路径、51 个时间节点）**。其中多项官方截稿时间来自 AAAI 2027、CVPR 2027、ICLR 2027、ACL 2027、USENIX Security 2027 等当届会议页面。它是一批经过选择的初始数据，**不是 CCF 全目录，也不保证覆盖所有最新会议**。
+首次发布包含 **47 场精选会议、35 本精选期刊、8 个已核实年度会议（12 条投稿路径、51 个时间节点）**。其中多项官方截稿时间来自 AAAI 2027、CVPR 2027、ICLR 2027、ACL 2027、USENIX Security 2027 等当届会议页面。它是一批经过选择的初始数据，**不是 CCF 全目录，也不保证覆盖所有最新会议**。
 
 - **CCF 分类：** 使用 2026 年第七版正式目录（含 4 月 9 日勘误），字段记录目录年份与官方出处。为便于整理，初始条目参考了 [第三方结构化提取项目](https://github.com/haozhou-wong/ccf-recommended-list-2026-markdown)，数据以 [CCF 官方目录](https://www.ccf.org.cn/Academic_Evaluation/By_category/) 为准。
 - **Deadline：** 日期以当届官网 / CFP 为准。精确截止日期同时保存原始本地时间、IANA 时区与 UTC instant；仅公布日历日的通知保留 date-only，不凭空填充 23:59。
