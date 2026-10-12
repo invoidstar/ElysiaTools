@@ -132,13 +132,16 @@ test('public journal UI has no browser sync or import control', () => {
 });
 
 
-test('ShowJCR audit publishes only aggregate matching statistics, not licensed ranking values', () => {
+test('pinned annual source audit records full coverage without duplicating source CSV values', () => {
   const report = load('metric-source-audit.json');
-  assert.equal(report.catalogJournals, 292);
-  assert.equal(report.redistributionStatus, 'pending-original-provider-permission');
-  assert.ok(report.candidateMatching.cas2025.approximateTitleOrISSNMatches > 200);
-  assert.ok(report.candidateMatching.xinrui2026.approximateTitleOrISSNMatches > 200);
-  assert.ok(report.candidateMatching.jcr2025.approximateTitleOrISSNMatches > 200);
+  assert.equal(report.previousAudit.referenceJournalIdentities, 292);
+  assert.ok(report.compiledPublicData.indexedJournals >= 23000);
+  assert.ok(report.compiledPublicData.entriesWithAnyIndicators >= 23000);
+  assert.ok(report.compiledPublicData.cas2025 >= 21000);
+  assert.ok(report.compiledPublicData.xinrui2026 >= 22000);
+  assert.ok(report.compiledPublicData.jcr2025 >= 20000);
+  assert.ok(report.compiledPublicData.jif2025 >= 22000);
+  assert.ok(report.rightsStatus.includes('independent verification not recorded'));
   const row = JSON.stringify(report);
   assert.ok(!row.includes('Category_1'));
   assert.ok(!('indicators' in report));
