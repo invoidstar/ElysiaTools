@@ -7,7 +7,8 @@ type MetricRow = [string,string,string];
 type SourceRows = [number[],number[],number[]];
 type PackedRow = [
   string,string,string,string,string,string,MetricRow[],string[]?,
-  string?,string?,string[]?,string[]?,string?,SourceRows?,string[]?,string?,string?
+  string?,string?,string[]?,string[]?,string?,SourceRows?,string[]?,string?,string?,
+  string?,string?,string?,string?
 ];
 interface Payload {version:number;sourceRevision:string;entries:PackedRow[]}
 const sourceRevision='4687a8f608f20aaf004299992f5d347dba009361';
@@ -58,7 +59,8 @@ function decode(payload:Payload):Journal[] {
   const seen=new Set<string>();
   for(const row of payload.entries){
     const [id,title,issn,eissn,field,publisher,packed,aliases,
-      statusCodes,matchCodes,issues,extraIssns,origin,rows,indexing,language,oa]=row;
+      statusCodes,matchCodes,issues,extraIssns,origin,rows,indexing,language,oa,
+      website,websiteSource,websiteReference,websiteMatch]=row;
     if(!id||!title||!Array.isArray(packed)||seen.has(id))
       throw Error('期刊索引包含重复或无效身份：'+String(id));
     seen.add(id);
@@ -81,6 +83,10 @@ function decode(payload:Payload):Journal[] {
         indexing:[...new Set([...(prior.indexing||[]),...(indexing||[])])],
         language:prior.language||language||undefined,
         oa:prior.oa!=='unknown'?prior.oa:(oa==='open'?'open':'unknown'),
+        website:prior.website||website||null,
+        websiteSource:prior.website?'curated':(websiteSource==='doaj'||websiteSource==='openalex'?websiteSource:undefined),
+        websiteReference:prior.website?null:(websiteReference||null),
+        websiteMatch:prior.website?'curated':websiteMatch,
         indicators:[...byKey.values()]});
     }else{
       const subject=field||'其他 / 待分类';
@@ -90,7 +96,9 @@ function decode(payload:Payload):Journal[] {
         eissn:eissn||null,issnL:null,extraIssns:extraIssns||[],
         ...(diagnostic?{diagnostic}:{}),
         indexing:indexing||[],language:language||undefined,
-        oa:oa==='open'?'open':'unknown',website:null,indexUrl:null,
+        oa:oa==='open'?'open':'unknown',website:website||null,
+        websiteSource:websiteSource==='doaj'||websiteSource==='openalex'?websiteSource:undefined,
+        websiteReference:websiteReference||null,websiteMatch:websiteMatch||undefined,indexUrl:null,
         sourceId:origin||metrics[0]?.sourceId||'showjcr-cas2025',
         identifierSource:null,indicators:metrics
       });
@@ -102,7 +110,7 @@ function decode(payload:Payload):Journal[] {
 
 export function loadJournalUniverse():Promise<Journal[]> {
   if(pending)return pending;
-  const url=new URL('data/journal-universe.json?v=3',document.baseURI).toString();
+  const url=new URL('data/journal-universe.json?v=4',document.baseURI).toString();
   pending=fetch(url).then(async response=>{
     if(!response.ok)throw Error('无法取得期刊资料（HTTP '+response.status+'）。');
     const data=await response.json() as Payload;

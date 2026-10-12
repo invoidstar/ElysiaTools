@@ -107,6 +107,9 @@ export interface Journal {
   language?: string;
   oa: 'open' | 'hybrid' | 'subscription' | 'unknown';
   website: string | null;
+  websiteSource?: 'curated' | 'doaj' | 'openalex';
+  websiteReference?: string | null;
+  websiteMatch?: string;
   indexUrl: string | null;
   sourceId: string;
   identifierSource: string | null;
