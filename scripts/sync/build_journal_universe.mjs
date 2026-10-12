@@ -236,6 +236,18 @@ export function collectJournalUniverse(baseline,texts,strict=true) {
           if(next)resolved.eissn=next;
         }
       }
+      // Preserve verifiable bibliographic fields present in the licensed annual snapshots.
+      // A negative OA flag alone is insufficient to classify subscription vs hybrid.
+      if(kind==='cas'&&text(row['Open Access'])==='是'&&resolved.oa==='unknown')
+        resolved.oa='open';
+      const indexedFromSource=text(row['Web of Science']||row['数据库']);
+      const indexedTags=indexedFromSource.match(/\b(?:SCIE|SSCI|ESCI|AHCI|SCOPUS)\b/gi)||[];
+      if(indexedTags.length){
+        resolved.indexing=[...new Set([...(resolved.indexing||[]),...indexedTags.map(v=>v.toUpperCase()==='SCOPUS'?'Scopus':v.toUpperCase())])].sort();
+      }
+      const language=text(row['语种']);
+      if(!resolved.language&&language&&language.length<=45&&language!=='-'&&language!=='—')
+        resolved.language=language;
       const publisher=text(row['出版机构']||row.Publisher||row['出版社']);
       if(publisher&&!resolved.publisher)resolved.publisher=publisher;
       if(!resolved.ccf && resolved.field==='Other'){
@@ -330,7 +342,8 @@ export function collectJournalUniverse(baseline,texts,strict=true) {
       journal.ccf?'':journal.publisher||'',
       annual.map(m=>[CODES[m.system],m.value,m.category||'']),
       explicitAliases,statusCode.join(''),method,issues,validExtra,
-      journalOrigin.get(journal.id)||journal.sourceId,retainedSourceRows
+      journalOrigin.get(journal.id)||journal.sourceId,retainedSourceRows,
+      journal.indexing||[],journal.language||'',journal.oa==='unknown'?'':journal.oa
     ]);
     diagnosticEntries.push({
       id:journal.id,name:journal.name,issn:journal.issn||null,
@@ -364,8 +377,16 @@ export function collectJournalUniverse(baseline,texts,strict=true) {
     }));
   if(strict&&baseline.some(j=>!all.has(j.id)))throw Error('Lost a baseline CCF journal');
   const output={version:2,sourceRevision:REVISION,entries};
+  const metadataCoverage={
+    publishers:[...all.values()].filter(j=>Boolean(j.publisher)).length,
+    indexing:[...all.values()].filter(j=>Boolean(j.indexing?.length)).length,
+    language:[...all.values()].filter(j=>Boolean(j.language)).length,
+    openAccess:[...all.values()].filter(j=>j.oa==='open').length,
+    verifiedHomepages:[...all.values()].filter(j=>Boolean(j.website)).length
+  };
   const audit={
     sourceRevision:REVISION,
+    metadataCoverage,
     indexed:entries.length,
     entries:entries.length, // backwards-compatible alias of indexed entries
     withAnnualMetrics,withAnyRatings,withoutAnnualMetrics:entries.length-withAnnualMetrics,
@@ -408,6 +429,7 @@ function main(){
     indexed:audit.indexed,withAnnualMetrics:audit.withAnnualMetrics,
     withoutAnnualMetrics:audit.withoutAnnualMetrics,coverage:audit.coverage,
     identityIssues:audit.identityIssues,statusCounts:audit.statusCounts,
+    metadataCoverage:audit.metadataCoverage,
     sizeBytes:readFileSync(outputPath).length
   }));
 }
