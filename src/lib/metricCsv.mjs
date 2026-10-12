@@ -5,7 +5,7 @@
  */
 
 const clean = v => String(v == null ? '' : v).normalize('NFKC').trim();
-export const normalizeJournal = v => clean(v).toUpperCase().replace(/[^A-Z0-9]/g, '');
+export const normalizeJournal = v => clean(v).normalize('NFKD').replace(/\p{M}/gu, '').toUpperCase().replace(/[^\p{L}\p{N}]/gu, '');
 const normalizeHeader = v => clean(v).toLowerCase().replace(/[\s_\-()[\]\/（）]/g, '');
 const validISSN = v => /^\d{4}-\d{3}[\dX]$/i.test(clean(v)) ? clean(v).toUpperCase() : '';
 const findZone = v => {

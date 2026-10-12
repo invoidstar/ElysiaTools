@@ -105,3 +105,13 @@ test('journal identifier crosswalk is sufficiently complete for private syncing'
   assert.ok(data.filter(j=>j.eissn).length>=240);
   assert.equal(data.length,292);
 });
+
+test('row-level metric extraction distinguishes listed-but-unranked from an absent record',()=>{
+  const {extractAnnualMetrics}=await import('../src/lib/metricCsv.mjs');
+  assert.deepEqual(extractAnnualMetrics({
+    'IF(2025)':'4.7','Category_1':'RELIGION','IF Quartile(2025)_1':''
+  },'jcr'),[{system:'jif',value:'4.7',year:2025,category:''}]);
+  assert.deepEqual(extractAnnualMetrics({'大类分区':''},'cas'),[]);
+  assert.deepEqual(extractAnnualMetrics({'大类新锐分区':'4 区'},'xinrui'),
+    [{system:'xinrui',value:'4区',year:2026,category:''}]);
+});
