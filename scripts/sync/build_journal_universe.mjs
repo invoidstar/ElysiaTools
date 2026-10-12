@@ -131,6 +131,12 @@ export function collectJournalUniverse(baseline,texts,strict=true) {
     // REVIEW entries cannot contaminate the strong/weak indices; further
     // sources must independently resolve rather than be forced to this row.
     if(!reviewReasons.length)indexExisting(journal);
+    else if(!reviewReasons.includes('multiple_issn_candidates')){
+      // A conflicting *title* is not a conflicting ISSN. Keep the safe new
+      // identifier anchor, so later source rows attach to this same record.
+      // Never index the ambiguous name or identifiers claimed by two journals.
+      for(const identifier of ids)addIdentifier(id,identifier);
+    }
     sourceStats[kind].created++;
     return journal;
   }
