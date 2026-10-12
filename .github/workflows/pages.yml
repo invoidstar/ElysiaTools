@@ -44,6 +44,30 @@ jobs:
           done
       - name: Generate searchable complete journal index
         run: node scripts/sync/build_journal_universe.mjs .cache/journal-metrics public/data/journal-universe.json
+      - name: Restore offline OpenAlex source cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/journal-websites/openalex-sites.json
+          key: journal-homepages-openalex-q3-2026-v1
+      - name: Build all-journal website index from published reference data
+        run: python3 scripts/sync/enrich_journal_websites.py
+      - name: Download pinned conference website directory
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .cache/ccfddl
+          curl --fail --silent --show-error --location --retry 3 \
+            'https://codeload.github.com/ccfddl/ccf-deadlines/tar.gz/7ceb4f4f9545c041d66467b456cd9a4a9166251f' \
+            -o .cache/ccfddl/snapshot.tgz
+          mkdir -p .cache/ccfddl/src
+          tar -xzf .cache/ccfddl/snapshot.tgz -C .cache/ccfddl/src --strip-components=1
+      - name: Build all-conference website directory
+        shell: bash
+        run: |
+          python3 -m venv .cache/ccfddl/python
+          .cache/ccfddl/python/bin/pip install --quiet PyYAML==6.0.2
+          .cache/ccfddl/python/bin/python scripts/sync/build_conference_sites.py \
+            --upstream-dir .cache/ccfddl/src
       - name: Validate retained journal index and per-journal diagnostics
         run: node scripts/sync/validate_journal_universe.mjs
       - name: Typecheck and build
