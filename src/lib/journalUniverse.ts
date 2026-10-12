@@ -97,7 +97,7 @@ function decode(payload:Payload):Journal[] {
 
 export function loadJournalUniverse():Promise<Journal[]> {
   if(pending)return pending;
-  const url=new URL('data/journal-universe.json',document.baseURI).toString();
+  const url=new URL('data/journal-universe.json?v=2',document.baseURI).toString();
   pending=fetch(url).then(async response=>{
     if(!response.ok)throw Error('无法取得期刊资料（HTTP '+response.status+'）。');
     const data=await response.json() as Payload;
