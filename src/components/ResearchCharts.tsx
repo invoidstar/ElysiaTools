@@ -154,8 +154,8 @@ export function JournalPublicationCount({journal}:{journal:Journal}) {
     </div>}
     {profile.status==='success'&&<>
       <div className="publication-summary">
-        <strong>{sum.toLocaleString('zh-CN')}</strong>
-        <span>篇已查询到的收录作品 · {known.length} / 5 个年份具有记录</span>
+        <strong>{known.length?sum.toLocaleString('zh-CN'):'—'}</strong>
+        <span>{known.length?'篇已查询到的收录作品':'暂无可用年度作品数'} · {known.length} / 5 个年份具有记录</span>
       </div>
       <div className="publication-year-grid" role="list" aria-label="近五年 OpenAlex 发文量">
         {counts.map(({year,count})=><div className="publication-year" key={year} role="listitem">

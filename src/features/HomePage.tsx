@@ -21,7 +21,9 @@ export function HomePage({ academic, zone, now, onNavigate, onConferenceSearch, 
   const [query, setQuery] = useState('');
   const [searchMode, setSearchMode] = useState<'all' | 'conference' | 'journal'>('all');
   useEffect(()=>{
-    if(query.trim().length>=2 && searchMode!=='conference' && !catalogueReady)onJournalQuery();
+    if(query.trim().length>=2 && !catalogueReady &&
+      (searchMode==='journal' || (searchMode==='all' && !conferences.some(c=>matches(c,query)))))
+      onJournalQuery();
   },[query,searchMode,catalogueReady]);
   const confMatches = useMemo(() => query.trim() ? conferences.filter(c => matches(c, query)).slice(0, 4) : [], [query]);
   const journalMatches = useMemo(() => query.trim() ? journalCatalogue.filter(j => matches(j, query)).slice(0, 4) : [], [query,journalCatalogue]);
