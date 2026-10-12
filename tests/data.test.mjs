@@ -122,3 +122,24 @@ test('LetPub public limited XinRui facts have per-journal source and edition',()
     }
   }
 });
+
+
+test('public journal UI has no browser sync or import control', () => {
+  const page = readFileSync(new URL('../src/features/JournalPage.tsx', import.meta.url), 'utf8');
+  const app = readFileSync(new URL('../src/App.tsx', import.meta.url), 'utf8');
+  assert.ok(!page.includes('MetricImportPanel'));
+  assert.ok(!app.includes('MetricsProvider'));
+});
+
+
+test('ShowJCR audit publishes only aggregate matching statistics, not licensed ranking values', () => {
+  const report = load('metric-source-audit.json');
+  assert.equal(report.catalogJournals, 292);
+  assert.equal(report.redistributionStatus, 'pending-original-provider-permission');
+  assert.ok(report.candidateMatching.cas2025.approximateTitleOrISSNMatches > 200);
+  assert.ok(report.candidateMatching.xinrui2026.approximateTitleOrISSNMatches > 200);
+  assert.ok(report.candidateMatching.jcr2025.approximateTitleOrISSNMatches > 200);
+  const row = JSON.stringify(report);
+  assert.ok(!row.includes('Category_1'));
+  assert.ok(!('indicators' in report));
+});

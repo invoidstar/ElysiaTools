@@ -48,3 +48,11 @@ Add BibTeX cleaning, statistics, figure checks and CSV plots only after demonstr
 - Added a user-directed one-click **local** sync path pinned to a stable ShowJCR revision, with explicit permission acknowledgment and manual-file fallback when GitHub Raw is unreachable.
 - Corrected CAS bracketed zone values; preserved category-level CAS, XinRui and JCR classifications; marked synced third-party values separately from public and user-input metrics.
 - Improved the open identity catalog with 246 print ISSNs and 250 electronic ISSNs through exact-title bibliographic cross-reference without republishing a restricted ranking database.
+
+
+## V1.3.1 — Public-site cleanup and external-source audit
+
+- Removed the browser-side "同步期刊评价数据" panel and the frontend CSV sync/provider infrastructure at the user's request.
+- Checked three ShowJCR sources against the 292 journal catalog identities and recorded aggregate candidate match counts (CAS ~249, XinRui ~248, JCR ~249), without copying restricted CSV source data or constructing a public replacement metrics database.
+- Preserved direct static rendering of attributed publicly disclosed metrics, journal comparison, CCF filtering and publisher reference links.
+- Added an offline aggregate audit tool and clarified which original-issuer permissions would be needed for full JCR/CAS/XinRui distribution.

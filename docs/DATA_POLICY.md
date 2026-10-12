@@ -63,23 +63,17 @@ The source-health workflow can observe unavailable pages or changed content, but
 My Academic stores preferences in localStorage, not in a cloud database. Export and import are user-controlled. Backups contain only selected preferences, not credentials. No analytics or server-side user profile is included in V1.0.
 
 
-## 7. V1.2 provenance and privately imported metrics
+## 7. Historical acceptance source policy
 
-CCF-Deadlines (MIT License, Copyright 2021 CCFDDL) is used as a *secondary, publicly contributed historical conference data feed*. We record the original URL for each row and distinguish its CCFDDL-transcribed provenance from independently checked official-source records. The repository copy of its historical count/rate facts is not proof of individual human verification. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and https://github.com/ccfddl/ccf-deadlines .
+CCF-Deadlines (MIT License, Copyright 2021 CCFDDL) is the attributed secondary historical conference data feed. Its counts are retained by conference/year/track and cross-referenced to original sources, but community transcription is not independent official verification. Officially reviewed records stay separately identified.
 
-**Historic rate statistics**: show exact year, assumed main conference, submitted/accepted counts where available and computed ratio; ignore mismatched or unparseable rows, and never replace a conflicting existing official statistic without review. Values in community aggregation may refer to specific tracks or conference phases; the original cited document remains authoritative.
+LetPub is a *secondary* issuer for a small number of individually checked XinRui 2026 factual summaries. The page links the original third-party record rather than claiming issuer certification.
 
-**LetPub**: the platform can deep-link to its public journal search. Eight individual new-rising-division results were independently matched by journal title/ISSN and are marked explicitly as *LetPub secondary reference*, not publisher-verified or official XinRui bulk data. They are factual single-journal references only, not a rehosted LetPub database. Source pages may require the reader to check the current edition.
+## 8. Journal indicators and restricted source audits
 
-**User-held indicators**: CSV/TSV imports occur locally using a built-in RFC-4180 parser. Matching by exact ISSN or normalized full title prevents ambiguous joins. Four systems remain separate: `cas` (2025), `xinrui` (2026), `jcr` (2026 report / 2025 JIF), `jif` (2025). Imported records are saved under an isolated localStorage key and never included in GitHub Pages or in the My Academic backup; users need to reimport on another device. See [METRIC_IMPORT.md](METRIC_IMPORT.md).
-
-Third-party JCR/CAS/XinRui tables may be accessible on GitHub or commercial journal portals, but *public download does not automatically confer rights to republish the database*. We will not aggregate a paywalled ranking into this repository without confirmed downstream redistribution rights.
-
-
-## 8. V1.3 user-triggered ShowJCR sync and identifier crosswalk
-
-- The user-facing button fetches the exact three referenced CSVs from https://github.com/hitfyd/ShowJCR **only after explicit interaction and confirmation that the user is entitled to access/use that material**. Reference snapshot: `4687a8f608f20aaf004299992f5d347dba009361`. ElysiaTools never republishes the CSV or its restricted rating values in a static Pages asset.
-- Restricted CAS 2025, XinRui 2026 and JCR 2025 / JIF 2025 remain in a user-controlled localStorage layer, clearly labeled as third-party personal reference. Older, publicly disclosed publisher facts remain distinct. An error or unavailable GitHub Raw source cannot be treated as a zero-quartile publication.
-- The browser parses `大类分区` values such as `1 [45/677]` (CAS), `大类新锐分区` values such as `2 区`, minor subject categories, and JCR `IF Quartile(2025)_n` separately. Strict ISSN or exact normalized full-name matching; ambiguous ISSN matches are rejected. Each system preserves category and edition year.
-- Factual ISSN and electronic ISSN identities were cross-checked against exactly matched journal titles in public secondary index listings; no restricted indicator cells are copied into the public identity catalog. A trusted production release should still validate borderline identifiers against ISSN Portal or publisher metadata.
-- The sync button is transactional: it downloads and parses each of three sources, verifies a minimum match threshold and commits to localStorage only after **all three** are matched. Personal manually imported corrections override synced reference values. A pinned source revision and local sync time remain visible to the visitor.
+- CCF subject categories and ranks are independent of CAS 2025 historical divisions, XinRui 2026 independent divisions, and Clarivate JCR 2025 / Journal Impact Factor 2025.
+- A distribution-restricted evaluation database cannot be mirrored or turned into a replacement public derivative merely because third-party CSVs are publicly downloadable. The ShowJCR application GPL license does not grant publisher data rights.
+- The three referenced ShowJCR CSVs were audited for possible **identity matching only**. Results are in the aggregate [metric-source-audit.json](../data/metric-source-audit.json); original CSVs and systematic rating values have not been added to the public GitHub repository.
+- The former browser-based CSV sync/import UI has been retired. All journal rankings rendered by production GitHub Pages must be attributable, rights-cleared and year/category specific.
+- Sources and historical index statuses are listed in [METRIC_IMPORT.md](METRIC_IMPORT.md). A future comprehensive static ranking dataset requires express authorization from the original issuers for both republication and derivative databases. Publisher-disclosed individual facts may remain with proper citations.
+- Bibliographic ISSN/eISSN identities can be sourced from independent public records; they must be checked for name changes, ISSN-L and duplicate titles. Conference deadlines retain IANA timezone information and original precision.

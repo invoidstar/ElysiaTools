@@ -7,3 +7,10 @@ dist/
 !.env.example
 __pycache__/
 .pytest_cache/
+
+# Third-party rights-restricted source CSVs: never publish these in Pages.
+FQBJCR2025-UTF8.csv
+XR2026-UTF8.csv
+JCR2025-UTF8.csv
+data/private/
+data/source-csv/

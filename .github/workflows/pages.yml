@@ -28,6 +28,8 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Validate academic data
         run: npm run validate
+      - name: Verify offline journal audit utility
+        run: python3 -m py_compile scripts/sync/audit_metric_csv.py
       - name: Run data tests
         run: npm test
       - name: Typecheck and build

@@ -1,7 +1,7 @@
 /**
- * User-provided metric tables are processed locally in the browser.
- * Nothing is fetched, redistributed or uploaded. Import only data you are
- * authorized to use. CCF journals are matched by ISSN or exact title.
+ * CSV parsing/matching utilities retained for offline tests and permitted data
+ * preparation. These utilities are not called by the production website.
+ * Third-party source files and ranking tables are not bundled in GitHub Pages.
  */
 
 const clean = v => String(v == null ? '' : v).normalize('NFKC').trim();

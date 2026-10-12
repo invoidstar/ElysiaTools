@@ -147,6 +147,14 @@ for(const j of journals)for(const i of j.indicators){
   if(i.system==='cas'||i.system==='xinrui')
     check(i.license && i.sourceId,'division record requires explicit licensed provenance '+j.id);
 }
+const audited = load('data/metric-source-audit.json');
+check(audited.catalogJournals === journals.length, 'Source audit journal count differs from catalog');
+check(audited.redistributionStatus === 'pending-original-provider-permission',
+  'Third-party source audit must not be confused with publication license');
+check(['cas2025','xinrui2026','jcr2025'].every(key =>
+  Number.isInteger(audited.candidateMatching[key]?.approximateTitleOrISSNMatches) &&
+  audited.candidateMatching[key].approximateTitleOrISSNMatches <= journals.length
+), 'Expected only aggregate source-matching counts in audit');
 check(acceptance.length>=1000,'historical acceptance coverage unexpectedly low');
 check(new Set(acceptance.map(r=>r.conferenceId)).size>=200,'too few conference histories');
 const acceptanceKinds=new Set(acceptance.map(r=>sources.find(s=>s.id===r.sourceId)?.kind));

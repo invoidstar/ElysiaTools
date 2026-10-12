@@ -90,7 +90,7 @@ export function DetailDrawer({ kind, id, onClose, academic, toggleFavorite, togg
             <div className="ccf-class-list">{ccfEntries(j).length ? ccfEntries(j).map(entry=><div key={entry.field}><span>{entry.fieldZh}</span><GradeTag grade={entry.grade} year={entry.year}/></div>):<div><span>本期刊不在已收录的 CCF 2026 目录中</span></div>}</div>
             <JournalMetricCards journal={j}/>
             <JournalPublicationCount journal={j}/>
-            <div className="notice-soft"><Info size={17} /> 中科院历史 2025、新锐 2026 与 JCR 是不同评价体系。公开的第三方数据会单独标明出处；缺失时可在期刊页导入本人有使用权的 CSV，并在本地完成筛选与比较。JIF 标注指标数据年份。</div>
+            <div className="notice-soft"><Info size={17} /> 中科院历史 2025、新锐 2026 与 JCR 是不同评价体系。公开的第三方数据会单独标明出处；尚无公开许可的数据暂不纳入公开站点，可以经对应机构授权渠道查询。JIF 标注指标数据年份。</div>
           </section>
           <section className="drawer-section"><h3>研究范围与投稿 <span>SCOPE & SUBMISSION</span></h3><p className="body-muted">所属领域：{ccfEntries(j).map(e=>e.fieldZh).join("、") || j.fieldZh}。Aims &amp; Scope、文章类型及 APC 应以出版社的最新说明为准，未核实的费用和审稿周期暂不展示。</p><SourceAnchor href={j.website}>前往期刊官方页面查看投稿说明</SourceAnchor></section>
           <section className="drawer-section"><h3>来源与标识 <span>PROVENANCE</span></h3><div className="source-panel"><CheckCircle2 size={18} /><div><strong>{j.ccf ? 'CCF 2026 推荐目录' : '出版社 / ISSN 资料'}</strong><p>等级与身份数据来源分离管理；尚未完成核验的字段明确留空。</p><SourceAnchor href={getSource(j.sourceId)?.url}>查看记录来源</SourceAnchor></div></div></section>

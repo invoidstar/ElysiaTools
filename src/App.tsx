@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ArrowRight, CalendarDays, Check, Github, Globe2, LibraryBig, Menu, Moon, Search, Sparkles, Star, Sun, Wrench, X } from 'lucide-react';
 import { HomePage } from './features/HomePage';
-import { MetricsProvider } from './lib/metricsContext';
 import { ConferencePage, emptyConferenceFilters, type ConferenceFilters } from './features/ConferencePage';
 import { JournalPage } from './features/JournalPage';
 import { AcademicPage } from './features/AcademicPage';
@@ -37,7 +36,7 @@ function initialZone(): ZoneChoice {
   return 'local';
 }
 
-function AppCore() {
+export default function App() {
   const [route, setRoute] = useState(initialRoute);
   const [academic, setAcademic] = useState<AcademicState>(readAcademic);
   const [theme, setTheme] = useState<'light' | 'dark'>(initialTheme);
@@ -168,4 +167,3 @@ function AppCore() {
   </div>;
 }
 
-export default function App(){return <MetricsProvider><AppCore/></MetricsProvider>;}

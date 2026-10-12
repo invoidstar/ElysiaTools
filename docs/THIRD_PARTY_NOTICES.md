@@ -27,14 +27,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 - CCF seventh edition (2026): factual catalog entries, **CCF retains original directory copyright**; https://www.ccf.org.cn/Academic_Evaluation/By_category/
 - LetPub individual journal queries: a small number of individually source-linked, secondary XinRui 2026 factual results; no bulk copying of the LetPub database; https://www.letpub.com.cn/index.php?page=journalapp&view=search
-- CAS 2025, XinRui 2026, Clarivate JCR/JIF: independent, rights-restricted evaluation services. The web frontend does not republish their complete datasets. The CSV import facility accepts *user-held authorized data only*, held in that user's browser.
+- CAS 2025, XinRui 2026, Clarivate JCR/JIF: independent, rights-restricted evaluation services. The web frontend does not republish their complete datasets. The previous browser import facility has been removed; no protected bulk rating dataset is republished.
 - OpenAlex: optional client-side source-indexed work counts, not publisher-certified total article counts; https://openalex.org/
 
 
-## ShowJCR reference CSVs (user-triggered, browser-only)
+## ShowJCR source-matching audit (no redistributed rating tables)
 
-- Upstream: https://github.com/hitfyd/ShowJCR (GPL-3.0 for ShowJCR application code, **not evidence of licensing rights for upstream Clarivate/CAS/XinRui ranking databases**).
-- Pinned revision: `4687a8f608f20aaf004299992f5d347dba009361`.
-- The ElysiaTools repository includes **no source CSV mirror and no bulk ranking extract**. A visitor may opt in to downloading the three CSV files **to their own browser** if they have authorized use rights. This does not grant permission for publication or redistribution.
-- ElysiaTools imports only its own CSV parsing code; it does not incorporate ShowJCR GPL application code. The public catalog may contain independent bibliographic facts (journal title, ISSN, eISSN) matched against the secondary index, with provenance and original title cross-checking.
-- Official JCR licensing and redistribution questions should be directed to Clarivate: https://clarivate.com/academia-government/blog/a-quick-refresher-on-journal-citation-reports-use-cases-branding-and-terms-of-use/ .
+- Upstream: https://github.com/hitfyd/ShowJCR . GPL-3.0 applies to ShowJCR application software, **not** as an independent license to republish Clarivate JCR, CAS or XinRui databases.
+- Audited snapshot: 4687a8f608f20aaf004299992f5d347dba009361.
+- ElysiaTools checked journal-identity matches against three source files, retaining only aggregate *counts* and no copyrighted CSV body or systematically extracted rankings in the published repository.
+- Clarivate specifically prohibits bulk distribution and unlicensed creation of replacement derived ranking databases: https://clarivate.com/academia-government/blog/a-quick-refresher-on-journal-citation-reports-use-cases-branding-and-terms-of-use/
+- Exact source URLs, limits and the local audit CLI are documented in [METRIC_IMPORT.md](METRIC_IMPORT.md).

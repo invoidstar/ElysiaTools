@@ -1,8 +1,6 @@
 import { ArrowUpRight, BarChart3, CircleHelp, Database, ExternalLink, History, Layers3, LoaderCircle, ShieldCheck, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
-import { acceptance, ccfEntries, conferences, coverage, getSource, journals } from '../lib/catalog';
-import { useJournalMetrics } from '../lib/metricsContext';
-import { SHOWJCR_REPOSITORY } from '../lib/showJcrSources';
+import { acceptance, ccfEntries, conferences, coverage, getSource, journalMetric, journals } from '../lib/catalog';
 import type { Journal } from '../types';
 
 const colors = { A: '#8271e8', B: '#69adc9', C: '#a8b8d3' };
@@ -98,7 +96,8 @@ const metricLink: Record<string,string> = {
  cas:'https://www.lib.szu.edu.cn/er/fenqubiao',xinrui:'https://www.xr-scholar.com/Journals/Search'
 };
 export function JournalMetricCards({journal}:{journal:Journal}) {
-  const {getMetric,getMetrics}=useJournalMetrics();
+  const getMetric = journalMetric;
+  const getMetrics = (j: Journal, system: string) => j.indicators.filter(m => m.system === system).sort((a,b) => b.year - a.year);
   const metrics = [
     {id:'cas',year:2025,caption:'原中科院 2025 升级版'},
     {id:'xinrui',year:2026,caption:'独立机构 2026'},
@@ -107,19 +106,15 @@ export function JournalMetricCards({journal}:{journal:Journal}) {
   ];
   return <div className="journal-metric-dashboard">{metrics.map(m=>{
     const found=getMetric(journal,m.id);
-    const syncedReference=found?.sourceId==='showjcr-local';
-    const privatelyImported=found?.sourceId==='user-import' || syncedReference;
-    const secondarySource=found && !privatelyImported && getSource(found.sourceId)?.kind==='thirdparty-public-fact';
-    const url=m.id==='xinrui'
-      ? 'https://www.xr-scholar.com/Journals/Search?keyword='+encodeURIComponent(journal.name)+'&year=2026'
-      : syncedReference ? SHOWJCR_REPOSITORY : privatelyImported ? metricLink[m.id] : found ? getSource(found.sourceId)?.url : metricLink[m.id];
+    const source = found ? getSource(found.sourceId) : undefined;
+    const secondarySource = source?.kind === 'thirdparty-public-fact';
+    const url = source?.url || metricLink[m.id] || (m.id === 'xinrui' ? 'https://www.xr-scholar.com/Journals/Search' : undefined);
     return <div key={m.id} className={'journal-metric-card metric-'+m.id}>
       <span>{metricTitle[m.id]}</span>
       <strong className={found?'has-data':''}>{found ? found.value : '—'}</strong>
-      <small>{found?(syncedReference?'本机同步 / 第三方参考 · '+found.year:privatelyImported?'本地授权导入 · '+found.year:secondarySource?'LetPub 第三方检索 · '+found.year:m.id==='jif'?'JIF '+found.year+' · JCR '+(found.year+1):'版本 '+found.year):m.caption}</small>
+      <small>{found?(secondarySource?'LetPub 二次来源 · '+found.year:m.id==='jif'?'JIF '+found.year+' · '+(found.year+1)+' 年发布':'指标年份 '+found.year):m.caption}</small>
       {found?.category && <p className="metric-category" title={found.category}>{found.category}</p>}
-      {url && <a href={url} target="_blank" rel="noopener noreferrer">{syncedReference?'查看第三方原始仓库':privatelyImported?'前往核验':'查询来源'} <ArrowUpRight size={12}/></a>}
-      {privatelyImported&&<span className="local-data-indicator">仅在当前浏览器</span>}
+      {url && <a href={url} target="_blank" rel="noopener noreferrer">{source?'查看数据出处':'前往官方查询'} <ArrowUpRight size={12}/></a>}
       {['jcr','cas','xinrui'].includes(m.id) && getMetrics(journal,m.id).length>1 && <div className="metric-subjects">
         {getMetrics(journal,m.id).slice(0,7).map((v,i)=><small key={v.category+'-'+i}>{v.category||'所属学科'} · {v.value}</small>)}
       </div>}
