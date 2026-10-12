@@ -1,7 +1,7 @@
 import { ArrowUpRight, BarChart3, CircleHelp, Database, ExternalLink, History, Layers3, LoaderCircle, ShieldCheck, TrendingUp } from 'lucide-react';
-import { useState } from 'react';
 import { acceptance, ccfEntries, conferences, coverage, getSource, journalMetric, journals } from '../lib/catalog';
 import type { Journal } from '../types';
+import { useJournalOpenAlex } from '../lib/openAlex';
 
 const colors = { A: '#8271e8', B: '#69adc9', C: '#a8b8d3' };
 const fields = [
@@ -122,32 +122,54 @@ export function JournalMetricCards({journal}:{journal:Journal}) {
   })}</div>;
 }
 
-function normalizeTitle(input:string):string{return input.toLowerCase().normalize('NFKC').replace(/[^\p{L}\p{N}]/gu,'');}
+/** OpenAlex work counts are indexed-source counts, not publisher-certified totals. */
 export function JournalPublicationCount({journal}:{journal:Journal}) {
-  const [state,setState]=useState<{status:'idle'|'loading'|'success'|'fail';count?:number;source?:string;message?:string}>({status:'idle'});
-  async function lookup(){
-    setState({status:'loading'});
-    try {
-      const params=new URLSearchParams({per_page:'5',select:'id,display_name,issn,counts_by_year,homepage_url'});
-      const identifier=journal.issnL||journal.issn||journal.eissn;
-      if(identifier)params.set('filter','issn:'+identifier);else params.set('search',journal.name);
-      const response=await fetch('https://api.openalex.org/sources?'+params.toString(),{headers:{Accept:'application/json'}});
-      if(!response.ok)throw Error(response.status===429?'OpenAlex 请求受限，请稍后再试。':'暂时无法从 OpenAlex 获取数据。');
-      const data=await response.json() as {results?:Array<{id?:string;display_name?:string;issn?:string[];counts_by_year?:Array<{year:number;works_count:number}>}>};
-      const found=data.results?.find(x=>identifier?x.issn?.includes(identifier):normalizeTitle(x.display_name||'')===normalizeTitle(journal.name));
-      if(!found)throw Error('未找到能够精确匹配该期刊的 OpenAlex 记录。');
-      const count=found.counts_by_year?.find(x=>x.year===2025)?.works_count;
-      if(typeof count!=='number')throw Error('该期刊暂无 2025 年的可核验作品数。');
-      setState({status:'success',count,source:found.id});
-    }catch(e){setState({status:'fail',message:e instanceof Error?e.message:'数据查询失败'});}
-  }
-  return <div className="article-count-panel">
-    <div className="article-count-icon"><Database size={21}/></div>
-    <div className="article-count-copy"><span className="trend-eyebrow">PUBLICATION ACTIVITY · 2025</span><strong>2025 年发文量</strong><small>采用 OpenAlex 收录作品数，不等同于出版社官方全年发文总量。</small>
-      {state.status==='success'&& <div className="count-result"><b>{state.count?.toLocaleString('zh-CN')}</b> 篇 OpenAlex 2025 收录作品 <a href={state.source?.replace('https://openalex.org/','https://openalex.org/')} target="_blank" rel="noopener noreferrer">查看来源 <ArrowUpRight size={12}/></a></div>}
-      {state.status==='fail'&&<p className="count-error">{state.message}</p>}
+  const profile=useJournalOpenAlex(journal);
+  const currentYear=new Date().getFullYear();
+  const years=Array.from({length:5},(_,i)=>currentYear-4+i);
+  const raw=profile.status==='success'?(profile.source.counts_by_year||[]):[];
+  const counts=years.map(year=>{
+    const entry=raw.find(x=>x.year===year);
+    return {year,count:entry&&Number.isFinite(entry.works_count)?Math.max(0,entry.works_count):null};
+  });
+  const known=counts.filter(x=>x.count!==null);
+  const maximum=Math.max(1,...known.map(x=>x.count||0));
+  const sum=known.reduce((n,x)=>n+(x.count||0),0);
+
+  return <div className="article-count-panel publication-trend">
+    <div className="publication-heading">
+      <div className="article-count-icon"><Database size={21}/></div>
+      <div className="article-count-copy">
+        <span className="trend-eyebrow">PUBLICATION HISTORY · OPENALEX</span>
+        <strong>近五年发文量</strong>
+        <small>{years[0]}—{currentYear} · OpenAlex 按年份收录的作品数量</small>
+      </div>
+      {profile.status==='success'&&<a className="micro-link" href={profile.source.id} target="_blank" rel="noopener noreferrer">数据来源 <ExternalLink size={13}/></a>}
     </div>
-    <button className="secondary-button" onClick={lookup} disabled={state.status==='loading'}>{state.status==='loading'?<LoaderCircle size={15} className="is-spinning"/>:<CircleHelp size={15}/>} {state.status==='loading'?'查询中':'查询发文量'}</button>
+    {profile.status==='loading'&&<div className="publication-loading">
+      <LoaderCircle size={16} className="is-spinning"/> 正在自动获取近五年的发文记录…
+    </div>}
+    {profile.status==='error'&&<div className="publication-error">
+      <CircleHelp size={16}/> {profile.message}
+    </div>}
+    {profile.status==='success'&&<>
+      <div className="publication-summary">
+        <strong>{sum.toLocaleString('zh-CN')}</strong>
+        <span>篇已查询到的收录作品 · {known.length} / 5 个年份具有记录</span>
+      </div>
+      <div className="publication-year-grid" role="list" aria-label="近五年 OpenAlex 发文量">
+        {counts.map(({year,count})=><div className="publication-year" key={year} role="listitem">
+          <strong>{count===null?'—':count.toLocaleString('zh-CN')}</strong>
+          <span className="publication-track"><i style={{height:count===null?'0%':Math.max(count>0?4:0,Math.round(count/maximum*100))+'%'}}/></span>
+          <b>{year}</b>
+          <small>{year===currentYear?'截至目前':count===null?'暂无记录':'全年'}</small>
+        </div>)}
+      </div>
+    </>}
+    <p className="publication-explain">
+      统计为 OpenAlex 收录的期刊作品数，并非出版社正式公布的论文总量；尚无记录的年份显示“—”，不按 0 篇处理。
+      {years.includes(currentYear)&&' 当年数据尚未结束，且可能持续回填。'}
+    </p>
   </div>;
 }
 
