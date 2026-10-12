@@ -75,6 +75,15 @@ export interface JournalIndicator {
   license?: string;
 }
 
+export type JournalSnapshotStatus = 'available' | 'source_no_metric' | 'not_in_source' | 'identity_review';
+
+export interface JournalDiagnostic {
+  status: Record<'cas' | 'xinrui' | 'jcr' | 'jif', JournalSnapshotStatus>;
+  matchMethod: Partial<Record<'cas' | 'xinrui' | 'jcr', 'issn' | 'title' | 'new' | 'review'>>;
+  sourceRows: Partial<Record<'cas' | 'xinrui' | 'jcr', number[]>>;
+  issues: string[];
+}
+
 export interface Journal {
   id: string;
   acronym: string;
@@ -90,6 +99,8 @@ export interface Journal {
   issn: string | null;
   eissn: string | null;
   issnL: string | null;
+  extraIssns?: string[];
+  diagnostic?: JournalDiagnostic;
   oa: 'open' | 'hybrid' | 'subscription' | 'unknown';
   website: string | null;
   indexUrl: string | null;

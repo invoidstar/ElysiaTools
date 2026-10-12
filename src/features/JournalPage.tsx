@@ -31,6 +31,7 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
   const [publisher, setPublisher] = useState('');
   const [indicator, setIndicator] = useState('');
   const [tier, setTier] = useState('');
+  const [dataStatus, setDataStatus] = useState('');
   const [limit, setLimit] = useState(18);
   const fields = [...new Set(journals.flatMap(j => [j.field, ...(j.additionalFields || [])]))].sort();
   const fieldTitles = new Map(journals.map(j=>[j.field,j.fieldZh]));
@@ -42,13 +43,19 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
       (!field || j.field === field || j.additionalFields?.includes(field)) &&
       (!oa || j.oa === oa) &&
       (!publisher || j.publisher === publisher) &&
-      (!indicator || j.indicators.some(m => m.system===indicator && (!tier || (m.value===tier && (indicator==='jcr' || !m.category?.startsWith('小类:'))))))
+      (!indicator || (
+        dataStatus==='all' ? true :
+        dataStatus ? j.diagnostic?.status[indicator as 'cas'|'xinrui'|'jcr'|'jif']===dataStatus :
+        j.indicators.some(m => m.system===indicator)
+      )) &&
+      (!tier || j.indicators.some(m=>m.system===indicator&&m.value===tier &&
+        (indicator==='jcr' || (!m.category?.startsWith('小类:')&&!m.category?.startsWith('第二大类:')))))
     ).sort((a, b) => {
       const rank = { A: 0, B: 1, C: 2 };
       const av = a.ccf ? rank[a.ccf] : 3;
       const bv = b.ccf ? rank[b.ccf] : 3;
       return av - bv || a.acronym.localeCompare(b.acronym);
-    }), [journals, keyword, grade, field, oa, publisher, indicator, tier]);
+    }), [journals, keyword, grade, field, oa, publisher, indicator, tier, dataStatus]);
 
   const setFilter = (setter: (value: string) => void, value: string) => { setter(value); setLimit(18); };
   const selected = academic.compare.map(id => journals.find(j => j.id === id)).filter((j): j is Journal => Boolean(j));
@@ -64,7 +71,7 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
     <MetricCoverage journals={journals} loading={loading}/>
     <div className="explorer-layout">
       <aside className="filter-panel">
-        <div className="panel-title"><SlidersHorizontal size={17} /><strong>筛选条件</strong><button className="text-button" onClick={() => { setKeyword(''); setGrade(''); setField(''); setOa(''); setPublisher(''); setIndicator(''); setTier(''); }}>重置</button></div>
+        <div className="panel-title"><SlidersHorizontal size={17} /><strong>筛选条件</strong><button className="text-button" onClick={() => { setKeyword(''); setGrade(''); setField(''); setOa(''); setPublisher(''); setIndicator(''); setTier(''); setDataStatus(''); }}>重置</button></div>
         <label className="filter-label">检索期刊</label>
         <div className="field-with-icon"><Search size={17} /><input value={keyword} onChange={e => setFilter(setKeyword, e.target.value)} placeholder="期刊名称 / ISSN / 研究领域" /></div>
         <label className="filter-label">CCF 推荐等级</label>
@@ -76,15 +83,24 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
         <label className="filter-label" htmlFor="jour-publisher">出版社</label>
         <select id="jour-publisher" className="select-input" value={publisher} onChange={e=>setFilter(setPublisher,e.target.value)}><option value="">全部出版社</option>{publishers.map(p=><option key={p} value={p}>{p}</option>)}</select>
         <label className="filter-label" htmlFor="jour-indicator">期刊评价体系</label>
-        <select id="jour-indicator" className="select-input" value={indicator} onChange={e=>{setFilter(setIndicator,e.target.value);setTier('');}}>
+        <select id="jour-indicator" className="select-input" value={indicator} onChange={e=>{setFilter(setIndicator,e.target.value);setTier('');setDataStatus('');}}>
           <option value="">不限 · 显示全部期刊</option>
           <option value="cas" disabled={!loading&&count('cas')===0}>中科院历史 2025 · {count('cas').toLocaleString('zh-CN')} 本</option>
           <option value="xinrui" disabled={!loading&&count('xinrui')===0}>新锐 2026 · {count('xinrui').toLocaleString('zh-CN')} 本</option>
           <option value="jcr" disabled={!loading&&count('jcr')===0}>JCR 2025 · {count('jcr').toLocaleString('zh-CN')} 本</option>
           <option value="jif" disabled={!loading&&count('jif')===0}>JIF 2025 · {count('jif').toLocaleString('zh-CN')} 本</option>
         </select>
+        <label className="filter-label" htmlFor="jour-data-status">年度数据状态</label>
+        <select id="jour-data-status" className="select-input" disabled={!indicator} value={dataStatus}
+          onChange={e=>{setFilter(setDataStatus,e.target.value);setTier('');}}>
+          <option value="">有对应指标</option>
+          <option value="all">全部状态</option>
+          <option value="source_no_metric">原始表收录，但缺少该指标</option>
+          <option value="not_in_source">本年度来源未匹配收录</option>
+          <option value="identity_review">期刊身份待核对</option>
+        </select>
         <label className="filter-label" htmlFor="jour-tier">分区等级</label>
-        <select id="jour-tier" className="select-input" disabled={!indicator || indicator==='jif'} value={tier} onChange={e=>setFilter(setTier,e.target.value)}>
+        <select id="jour-tier" className="select-input" disabled={!indicator || indicator==='jif' || !!dataStatus && dataStatus!=='all'} value={tier} onChange={e=>setFilter(setTier,e.target.value)}>
           <option value="">全部等级</option>
           {(indicator==='jcr'?['Q1','Q2','Q3','Q4']:['1区','2区','3区','4区']).map(v=><option key={v} value={v}>{v}</option>)}
         </select>
@@ -118,13 +134,13 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
           </article>)}
           {!loading && !error && !filtered.length && <div className="metric-empty">
               <EmptyState title="当前条件下没有匹配的期刊" description={indicator ? '现有公开记录中没有匹配项，可调整筛选条件，或前往相应官方平台查询。' : '调整筛选条件，或尝试使用期刊全称搜索。'}/>
-              <button className="secondary-button" onClick={()=>{setGrade('');setField('');setPublisher('');setOa('');setIndicator('');setTier('');setKeyword('');}}>清除筛选，查看完整目录</button>
+              <button className="secondary-button" onClick={()=>{setGrade('');setField('');setPublisher('');setOa('');setIndicator('');setTier('');setDataStatus('');setKeyword('');}}>清除筛选，查看完整目录</button>
             </div>}
           {!loading && !error && filtered.length > limit && <button className="load-more" onClick={() => setLimit(limit + 18)}>加载更多 · 剩余 {filtered.length - limit} 条</button>}
         </div>
       </div>
     </div>
-    <div className="data-note"><LibraryBig size={16} /> CCF 2026 完整目录与授权的年度期刊分区快照独立管理。分区与影响因子标明对应年份；空缺表示本版本未匹配到记录，并非无评价。</div>
+    <div className="data-note"><LibraryBig size={16} /> CCF 2026 完整目录与授权的年度期刊分区快照独立管理。分区与影响因子标明对应年份；年度缺失分为“来源未收录”“来源收录但无指标”“身份待核对”，进入期刊详情可逐项核查。</div>
     {selected.length > 0 && <div className="compare-dock"><div className="compare-summary"><GitCompareArrows size={18} /><strong>期刊对比</strong><span>{selected.length} / 4</span></div><div className="compare-chips">{selected.map(j => <button onClick={() => toggleCompare(j.id)} key={j.id}>{j.acronym}<X size={13} /></button>)}</div><button className="primary-button" onClick={openComparison}>开始比较 <ArrowUpRight size={16} /></button></div>}
   </section>;
 }

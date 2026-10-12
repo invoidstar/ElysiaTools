@@ -1,5 +1,6 @@
 import { ArrowUpRight, CalendarPlus, CheckCircle2, Clock3, ExternalLink, GitCompareArrows, Info, Link2, MapPin, Star, X } from 'lucide-react';
 import { GradeTag, SourceAnchor } from './Common';
+import { JournalDiagnostics } from './JournalDiagnostics';
 import { AcceptanceTrend, JournalMetricCards, JournalPublicationCount } from './ResearchCharts';
 import { ccfEntries, getConference, getEdition, getJournal, getSource, isFuture, sourceForRow } from '../lib/catalog';
 import { countdown, displayEvent, kindLabel, originalDate, prettyDate, type ZoneChoice } from '../lib/time';
@@ -82,7 +83,7 @@ export function DetailDrawer({ journalRecord, kind, id, onClose, academic, toggl
               <div><span>出版社</span><strong>{j.publisher || '待核验'}</strong></div>
               <div><span>开放获取</span><strong>{{open:'Open Access',hybrid:'Hybrid OA',subscription:'Subscription',unknown:'未核验'}[j.oa]}</strong></div>
               <div><span>ISSN / ISSN-L</span><strong>{j.issn || '待核验'} / {j.issnL || '—'}</strong></div>
-              <div><span>eISSN</span><strong>{j.eissn || '待核验'}</strong></div>
+              <div><span>eISSN</span><strong>{j.eissn || '待核验'}</strong></div>{!!j.extraIssns?.length&&<div><span>其他 ISSN</span><strong>{j.extraIssns.join('、')}</strong></div>}
             </div>
             <div className="link-stack"><SourceAnchor href={j.website}>期刊官方网站 <ArrowUpRight size={14} /></SourceAnchor><SourceAnchor href={j.indexUrl}>学术索引 / DBLP</SourceAnchor>{j.identifierSource && <SourceAnchor href={j.identifierSource}>标识符来源</SourceAnchor>}
               <a className="source-link" href={'https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname='+encodeURIComponent(j.name)} target="_blank" rel="noopener noreferrer">LetPub 期刊查询 <ExternalLink size={13}/></a></div>
@@ -91,6 +92,7 @@ export function DetailDrawer({ journalRecord, kind, id, onClose, academic, toggl
             <div className="ccf-class-list">{ccfEntries(j).length ? ccfEntries(j).map(entry=><div key={entry.field}><span>{entry.fieldZh}</span><GradeTag grade={entry.grade} year={entry.year}/></div>):<div><span>本期刊不在已收录的 CCF 2026 目录中</span></div>}</div>
             <JournalMetricCards journal={j}/>
             <JournalPublicationCount journal={j}/>
+            <JournalDiagnostics journal={j}/>
             <div className="notice-soft"><Info size={17} /> 中科院历史 2025、新锐 2026 与 JCR 是不同评价体系。本页面展示经许可的年度数据快照，保留大类、小类与 JCR 学科分类。不同体系不能直接互换；请以原始评价机构发布的数据为准。JIF 标注指标数据年份。</div>
           </section>
           <section className="drawer-section"><h3>研究范围与投稿 <span>SCOPE & SUBMISSION</span></h3><p className="body-muted">所属领域：{ccfEntries(j).map(e=>e.fieldZh).join("、") || j.fieldZh}。Aims &amp; Scope、文章类型及 APC 应以出版社的最新说明为准，未核实的费用和审稿周期暂不展示。</p><SourceAnchor href={j.website}>前往期刊官方页面查看投稿说明</SourceAnchor></section>
