@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Compare official sources with the last successful observation; never infer dates."""
+"""Conservative source monitoring: two successful observations confirm a change.
+
+An outage, HTTP 429, dynamic one-off page mutation or expired cache never
+silently changes an academic date. Verified changes create GitHub review
+issues; the original submission data always stays under human control.
+"""
 import argparse
 import hashlib
 import html
@@ -13,29 +18,30 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MONITORED = {"official-cfp", "official-history", "classification", "publisher-metric"}
-USER_AGENT = "ElysiaTools-SourceHealth/1.7 (+https://github.com/invoidstar/ElysiaTools)"
+MONITORED = {"official-cfp", "official-history", "publisher-history",
+             "classification", "publisher-metric"}
+USER_AGENT = "ElysiaTools-SourceHealth/1.8 (+https://github.com/invoidstar/ElysiaTools)"
 
 class ReadableHTML(HTMLParser):
     def __init__(self):
         super().__init__()
-        self.skip = 0
+        self.suppressed = 0
         self.parts = []
 
     def handle_starttag(self, tag, attrs):
         if tag in {"script", "style", "svg", "noscript"}:
-            self.skip += 1
+            self.suppressed += 1
 
     def handle_endtag(self, tag):
-        if tag in {"script", "style", "svg", "noscript"} and self.skip:
-            self.skip -= 1
+        if tag in {"script", "style", "svg", "noscript"} and self.suppressed:
+            self.suppressed -= 1
 
     def handle_data(self, data):
-        if not self.skip:
+        if not self.suppressed:
             self.parts.append(data)
 
 def fingerprint(body, content_type):
-    if "html" in content_type:
+    if "html" in (content_type or "").lower():
         reader = ReadableHTML()
         reader.feed(body.decode("utf-8", errors="replace"))
         normalized = html.unescape(" ".join(reader.parts))
@@ -50,101 +56,111 @@ def fetch(source):
     try:
         with urllib.request.urlopen(request, timeout=18) as response:
             body = response.read(2_000_001)
-            if len(body) > 2_000_000:
-                return {"ok": False, "error": "Source exceeds 2 MB inspection limit"}
+            if len(body)>2_000_000:
+                return {"ok": False, "error": "Source exceeds inspection limit (2 MB); no inference"}
             return {"ok": True, "status": response.status,
                     "finalUrl": response.geturl(),
-                    "fingerprint": fingerprint(body, response.headers.get("Content-Type", "")),
+                    "fingerprint": fingerprint(body,response.headers.get("Content-Type","")),
                     "bytesRead": len(body)}
     except (urllib.error.URLError, TimeoutError, OSError) as error:
         return {"ok": False, "error": str(error)[:250]}
 
 def inspect(sources, prior, get=fetch):
-    previous = prior.get("sources", {})
-    snapshots = dict(previous)
-    rows = []
+    previous=prior.get("sources",{})
+    snapshots=dict(previous)
+    rows=[]
     for source in sources:
         if source.get("kind") not in MONITORED:
             continue
-        observed = get(source)
-        entry = {**observed, "id": source["id"], "url": source["url"],
-                 "kind": source["kind"]}
-        old = previous.get(source["id"])
-        if not observed.get("ok"):
-            entry["state"] = "unreachable"
-        elif old and old.get("url") == source["url"]:
-            entry["state"] = ("changed" if old.get("fingerprint") !=
-                              observed["fingerprint"] else "unchanged")
-            snapshots[source["id"]] = {
-                "url": source["url"], "fingerprint": observed["fingerprint"]}
+        observed=get(source)
+        entry={**observed,"id":source["id"],"url":source["url"],"kind":source["kind"]}
+        old=previous.get(source["id"])
+        new=observed.get("fingerprint")
+        if not observed.get("ok") or not new:
+            entry["state"]="unreachable"
+        elif not old or old.get("url")!=source["url"]:
+            entry["state"]="baseline_created"
+            snapshots[source["id"]]={"url":source["url"],"fingerprint":new}
+        elif new==old.get("fingerprint"):
+            entry["state"]="unchanged"
+            snapshots[source["id"]]={"url":source["url"],"fingerprint":new}
+        elif new==old.get("candidate"):
+            entry["state"]="changed"
+            entry["previousFingerprint"]=old.get("fingerprint")
+            snapshots[source["id"]]={"url":source["url"],"fingerprint":new}
         else:
-            entry["state"] = "baseline_created"
-            snapshots[source["id"]] = {
-                "url": source["url"], "fingerprint": observed["fingerprint"]}
+            entry["state"]="pending_confirmation"
+            entry["previousFingerprint"]=old.get("fingerprint")
+            snapshots[source["id"]]={"url":source["url"],
+                                     "fingerprint":old.get("fingerprint"),
+                                     "candidate":new}
         rows.append(entry)
-    states = {kind: sum(r["state"] == kind for r in rows)
-              for kind in ("changed", "unchanged", "unreachable", "baseline_created")}
-    now = datetime.now(timezone.utc).isoformat()
-    return ({"checkedAt": now,
-             "policy": "Observation only; never overwrite academic dates.",
-             "total": len(rows), "summary": states,
-             "requiresReview": [r["id"] for r in rows if r["state"] == "changed"],
-             "networkProblems": [r["id"] for r in rows if r["state"] == "unreachable"],
-             "results": rows},
-            {"version": 2, "updatedAt": now, "sources": snapshots})
+    kinds=("changed","unchanged","unreachable","baseline_created","pending_confirmation")
+    counts={state:sum(row["state"]==state for row in rows) for state in kinds}
+    now=datetime.now(timezone.utc).isoformat()
+    report={"checkedAt":now,
+            "policy":"Two successful observations confirm a changed page; no automatic deadline edits.",
+            "total":len(rows),"summary":counts,
+            "requiresReview":[r["id"] for r in rows if r["state"]=="changed"],
+            "candidates":[r["id"] for r in rows if r["state"]=="pending_confirmation"],
+            "networkProblems":[r["id"] for r in rows if r["state"]=="unreachable"],
+            "results":rows}
+    snapshot={"version":3,"updatedAt":now,"sources":snapshots}
+    return report,snapshot
 
 def report_markdown(report):
-    count = report["summary"]
-    lines = ["## ElysiaTools official source health", "",
-             f"Checked: {report['checkedAt']}", "",
-             f"- Inspected: **{report['total']}** official references",
-             f"- New baselines: **{count['baseline_created']}**",
-             f"- Unchanged: **{count['unchanged']}**",
-             f"- Page changes requiring review: **{count['changed']}**",
-             f"- Transient failures: **{count['unreachable']}**", "",
-             "A digest difference signals **manual review**, not a verified deadline update."]
-    for state in ("changed", "unreachable"):
-        rows = [r for r in report["results"] if r["state"] == state]
-        if rows:
-            lines += ["", "### " + ("Changed pages" if state == "changed"
-                                    else "Failed requests")]
-            for row in rows:
-                note = row.get("error", "Content changed; compare official dates manually.")
-                lines.append(f"- [{row['id']}]({row['url']}) — {note}")
-    return "\n".join(lines) + "\n"
+    counts=report["summary"]
+    lines=["## ElysiaTools academic source monitor","",
+           f"Checked: {report['checkedAt']}","",
+           f"- Curated sources scanned: **{report['total']}**",
+           f"- New baselines: **{counts['baseline_created']}**",
+           f"- Unchanged: **{counts['unchanged']}**",
+           f"- Candidate content changes (one observation): **{counts['pending_confirmation']}**",
+           f"- Confirmed changed pages needing review: **{counts['changed']}**",
+           f"- HTTP/network/size failures: **{counts['unreachable']}**","",
+           "A confirmed content change still **does not prove a date or acceptance rate changed**."]
+    for state,label in (("changed","Confirmed changes"),("pending_confirmation","Unconfirmed changes"),
+                        ("unreachable","Request failures")):
+        matching=[r for r in report["results"] if r["state"]==state]
+        if matching:
+            lines+=["","### "+label]
+            for r in matching:
+                lines.append(f"- [{r['id']}]({r['url']}) — {r.get('error',state)}")
+    return "\n".join(lines)+"\n"
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--baseline", default=".cache/source-health/previous.json")
-    parser.add_argument("--snapshot", default=".cache/source-health/current.json")
-    parser.add_argument("--output", default="source-health-report.json")
-    parser.add_argument("--markdown", default="source-health-report.md")
-    parser.add_argument("--delay", type=float, default=0.35)
-    args = parser.parse_args()
-    sources = json.loads((ROOT / "data/sources.json").read_text(encoding="utf-8"))
-    prior_path = Path(args.baseline)
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--baseline",default=".cache/source-health/previous.json")
+    parser.add_argument("--snapshot",default=".cache/source-health/current.json")
+    parser.add_argument("--output",default="source-health-report.json")
+    parser.add_argument("--markdown",default="source-health-report.md")
+    parser.add_argument("--delay",type=float,default=0.35)
+    args=parser.parse_args()
+    sources=json.loads((ROOT/"data/sources.json").read_text(encoding="utf-8"))
     try:
-        previous = json.loads(prior_path.read_text(encoding="utf-8")) if prior_path.exists() else {}
-    except (json.JSONDecodeError, OSError):
-        previous = {}
+        prior=json.loads(Path(args.baseline).read_text(encoding="utf-8"))
+    except (OSError,json.JSONDecodeError):
+        prior={}
     def throttled(source):
         if throttled.count:
-            time.sleep(max(0, args.delay))
-        throttled.count += 1
+            time.sleep(max(0,args.delay))
+        throttled.count+=1
         return fetch(source)
-    throttled.count = 0
-    result, snapshot = inspect(sources, previous, throttled)
-    for path, value in ((args.output, json.dumps(result, ensure_ascii=False, indent=2)+"\n"),
-                        (args.snapshot, json.dumps(snapshot, ensure_ascii=False, indent=2)+"\n"),
-                        (args.markdown, report_markdown(result))):
-        dest = Path(path)
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(value, encoding="utf-8")
-    for row in result["results"]:
-        if row["state"] in ("changed", "unreachable"):
-            print("::warning title=Academic source needs review::"+
-                  row["id"]+" ("+row["state"]+")")
-    print("Source health:", json.dumps(result["summary"]))
+    throttled.count=0
+    report,snapshot=inspect(sources,prior,throttled)
+    for name,obj,is_json in (
+        (args.output,report,True),(args.snapshot,snapshot,True),
+        (args.markdown,report_markdown(report),False)
+    ):
+        target=Path(name)
+        target.parent.mkdir(parents=True,exist_ok=True)
+        target.write_text((json.dumps(obj,ensure_ascii=False,indent=2)+"\n")
+                          if is_json else obj,encoding="utf-8")
+    for row in report["results"]:
+        if row["state"] in ("changed","unreachable"):
+            print("::warning title=Academic source review::"+row["id"]+
+                  " ("+row["state"]+")")
+    print("Source monitor:",json.dumps(report["summary"]))
 
-if __name__ == "__main__":
+if __name__=="__main__":
     main()

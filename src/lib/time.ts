@@ -33,6 +33,7 @@ export function displayEvent(event: DeadlineEvent, zone: ZoneChoice = 'local'): 
   return formatter.format(new Date(event.utc));
 }
 export function originalDate(event: DeadlineEvent): string {
+  if(event.precision==='date')return event.original+' · 仅公布日期（无具体时刻/时区）';
   return event.original.replace('T', ' ') + (event.timezone === 'Etc/GMT+12' ? ' AoE (UTC−12)' : ' · ' + event.timezone);
 }
 export function countdown(event: DeadlineEvent, now = Date.now()): string {

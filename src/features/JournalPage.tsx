@@ -54,20 +54,23 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
   const requestedQuery = keyword.trim().toLocaleLowerCase();
   const searchQuery = useDeferredValue(requestedQuery);
   const updating = searchQuery !== requestedQuery;
+  // Sort the catalogue once after loading, instead of sorting 23k entries on
+  // every search keystroke or independent filter selection.
+  const rankedJournals = useMemo(() => [...journals].sort((a,b)=>{
+    const order: Record<string,number> = {A:0,B:1,C:2};
+    const av=a.ccf ? order[a.ccf] : 3;
+    const bv=b.ccf ? order[b.ccf] : 3;
+    return av-bv || a.acronym.localeCompare(b.acronym);
+  }),[journals]);
   const filtered = useMemo(() =>
-    journals.filter(j =>
+    rankedJournals.filter(j =>
       (!searchQuery || searchIndex.get(j.id)?.includes(searchQuery)) &&
       (!grade || (grade === 'unset' ? !j.ccf : j.ccf === grade)) &&
       (!field || j.field === field || j.additionalFields?.includes(field)) &&
       (!oa || j.oa === oa) &&
       (!publisher || j.publisher === publisher) &&
       matchesJournalRankFilters(j,indicator,dataStatus,tier)
-    ).sort((a, b) => {
-      const rank = { A: 0, B: 1, C: 2 };
-      const av = a.ccf ? rank[a.ccf] : 3;
-      const bv = b.ccf ? rank[b.ccf] : 3;
-      return av - bv || a.acronym.localeCompare(b.acronym);
-    }), [journals, searchIndex, searchQuery, grade, field, oa, publisher, indicator, tier, dataStatus]);
+    ), [rankedJournals,searchIndex,searchQuery,grade,field,oa,publisher,indicator,tier,dataStatus]);
 
   const setFilter = (setter: (value: string) => void, value: string) => { setter(value); setLimit(18); };
   const selected = academic.compare.map(id => journals.find(j => j.id === id)).filter((j): j is Journal => Boolean(j));

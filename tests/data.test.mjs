@@ -226,3 +226,30 @@ test('new official deadlines distinguish ARR commitment from initial paper submi
   const siggraph=editions.find(e=>e.id==='siggraph-2027');
   assert.equal(siggraph.tracks[0].events.find(e=>e.kind==='paper').utc,'2027-01-28T22:00:00.000Z');
 });
+
+
+test('2027 official CCF venues preserve date-only and reviewable gaps',()=>{
+  const icra=editions.find(e=>e.id==='icra-2027');
+  const iros=editions.find(e=>e.id==='iros-2027');
+  const iccv=editions.find(e=>e.id==='iccv-2027');
+  assert.ok(icra&&iros&&iccv);
+  assert.equal(icra.tracks[1].events[0].original,'2026-11-02');
+  assert.equal(icra.tracks[2].events[0].utc,'2026-12-02T07:59:00.000Z');
+  assert.equal(iros.tracks[0].events[0].precision,'date');
+  assert.equal(iros.tracks[0].events[0].utc,undefined);
+  assert.equal(iccv.tracks[0].events.length,0);
+  assert.ok(iccv.tracks[0].pending.length>0);
+  assert.equal(conferences.length,386,'CCF formal directory must remain unchanged');
+});
+test('organizer, publisher and institutional acceptance evidence stay distinct',()=>{
+  const a=load('acceptance.json'),sources=load('sources.json');
+  const kinds=new Map(sources.map(s=>[s.id,s.kind]));
+  const icml=a.find(e=>e.conferenceId==='icml'&&e.year===2026);
+  const eccv=a.find(e=>e.conferenceId==='eccv'&&e.year===2026);
+  const neurips=a.find(e=>e.conferenceId==='neurips'&&e.year===2026);
+  assert.equal(kinds.get(icml.sourceId),'official-history');
+  assert.equal(kinds.get(eccv.sourceId),'publisher-history');
+  assert.equal(kinds.get(neurips.sourceId),'institutional-history');
+  assert.equal(neurips.submissions,30709);
+  assert.equal(neurips.accepted,7900);
+});

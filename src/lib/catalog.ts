@@ -5,6 +5,7 @@ import sourceData from '../../data/sources.json';
 import acceptanceData from '../../data/acceptance.json';
 import coverageData from '../../data/ccf-coverage.json';
 import type { Conference, Edition, Journal, SourceRecord, DeadlineRow, DeadlineEvent, AcceptanceRecord, CCFCoverage } from '../types';
+import {dateSortMillis,isFutureDeadline,hasUpcomingDeadline,pickNextDeadline,upcomingMainDeadlines} from './deadlinePriority.mjs';
 
 export const conferences = conferenceData as unknown as Conference[];
 export const editions = editionData as unknown as Edition[];
@@ -59,47 +60,24 @@ export function allDeadlineRows(): DeadlineRow[] {
 export const deadlineRows = allDeadlineRows();
 export const submissionKinds = new Set(['abstract', 'paper', 'commitment', 'supplement', 'revision']);
 
-export function eventMillis(event: DeadlineEvent): number {
-  return event.utc ? new Date(event.utc).getTime() : Date.parse(event.original + 'T12:00:00Z');
+export const eventMillis = (event: DeadlineEvent): number => dateSortMillis(event);
+export const isFuture = (event: DeadlineEvent, now=Date.now()): boolean => isFutureDeadline(event,now);
+export function nextDeadline(conferenceId: string,now=Date.now()): DeadlineRow | undefined {
+  return pickNextDeadline(deadlineRows.filter(r=>r.conference.id===conferenceId),now);
 }
-
-export function isFuture(event: DeadlineEvent, now = Date.now()): boolean {
-  if (event.precision === 'date') {
-    return Date.parse(event.original + 'T23:59:59Z') >= now;
-  }
-  return eventMillis(event) >= now;
+export function deadlineState(conferenceId: string,now=Date.now()): 'upcoming'|'closed'|'tbd' {
+  const rows=deadlineRows.filter(r=>r.conference.id===conferenceId&&submissionKinds.has(r.event.kind));
+  return !rows.length?'tbd':hasUpcomingDeadline(rows,now)?'upcoming':'closed';
 }
-
-export function nextDeadline(conferenceId: string, now = Date.now()): DeadlineRow | undefined {
-  const rows = deadlineRows.filter(r =>
-    r.conference.id === conferenceId && submissionKinds.has(r.event.kind) && r.event.precision === 'minute'
-  );
-  const future = rows.filter(r => eventMillis(r.event) >= now);
-  return (future.sort((a, b) => eventMillis(a.event) - eventMillis(b.event))[0] ||
-    rows.sort((a, b) => eventMillis(b.event) - eventMillis(a.event))[0]);
+export function upcomingRows(now=Date.now(),limit=20): DeadlineRow[] {
+  return upcomingMainDeadlines(deadlineRows,now,limit);
 }
-
-export function deadlineState(conferenceId: string, now = Date.now()): 'upcoming' | 'closed' | 'tbd' {
-  const rows = deadlineRows.filter(r =>
-    r.conference.id === conferenceId && submissionKinds.has(r.event.kind) && r.event.precision === 'minute'
-  );
-  if (!rows.length) return 'tbd';
-  return rows.some(r => eventMillis(r.event) >= now) ? 'upcoming' : 'closed';
-}
-
-export function upcomingRows(now = Date.now(), limit = 20): DeadlineRow[] {
-  return deadlineRows.filter(r =>
-    submissionKinds.has(r.event.kind) && r.event.precision === 'minute' && eventMillis(r.event) >= now
-  ).sort((a, b) => eventMillis(a.event) - eventMillis(b.event)).slice(0, limit);
-}
-
-export function orderedConferences(items: Conference[], now = Date.now()): Conference[] {
-  return [...items].sort((a, b) => {
-    const aState = deadlineState(a.id, now);
-    const bState = deadlineState(b.id, now);
-    const rank = { upcoming: 0, tbd: 1, closed: 2 };
-    if (rank[aState] !== rank[bState]) return rank[aState] - rank[bState];
-    if (aState === 'upcoming') return eventMillis(nextDeadline(a.id, now)!.event) - eventMillis(nextDeadline(b.id, now)!.event);
+export function orderedConferences(items: Conference[],now=Date.now()): Conference[] {
+  return [...items].sort((a,b)=>{
+    const statusA=deadlineState(a.id,now),statusB=deadlineState(b.id,now);
+    const rank={upcoming:0,tbd:1,closed:2};
+    if(rank[statusA]!==rank[statusB])return rank[statusA]-rank[statusB];
+    if(statusA==='upcoming')return eventMillis(nextDeadline(a.id,now)!.event)-eventMillis(nextDeadline(b.id,now)!.event);
     return a.acronym.localeCompare(b.acronym);
   });
 }

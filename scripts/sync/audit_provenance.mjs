@@ -13,11 +13,13 @@ const kinds={};
 for(const row of acceptance){
   const source=byId.get(row.sourceId);
   assert.ok(source,'Missing conference history source: '+row.sourceId);
-  assert.ok(['community-history','official-history'].includes(source.kind),
+  assert.ok(['community-history','official-history','publisher-history','institutional-history'].includes(source.kind),
     'History labeled as a non-history source: '+row.sourceId);
   kinds[source.kind]=(kinds[source.kind]||0)+1;
   if(source.kind==='community-history')
     assert.notEqual(row.provenance,'official-verified','Community history falsely marked official');
+  else assert.notEqual(row.provenance,'community-transcribed',
+    'Publisher, organizer or institutional history still mislabeled community: '+row.conferenceId);
 }
 for(const e of editions){
   assert.ok(byId.has(e.sourceId),'Annual edition missing source: '+e.id);
@@ -40,6 +42,8 @@ for(const source of rights.systems){
 console.log(JSON.stringify({
   officialHistory:kinds['official-history']||0,
   communityHistory:kinds['community-history']||0,
+  publisherHistory:kinds['publisher-history']||0,
+  institutionalHistory:kinds['institutional-history']||0,
   verifiedAnnualEdtions:editions.length,
   pinnedAnnualMetrics:rights.systems.map(s=>s.system),
   permissionEvidence:"NOT independently verified by repository"
