@@ -328,3 +328,37 @@
 .conference-sites-note{display:flex;flex-wrap:wrap;gap:5px;align-items:baseline;font-size:10px;color:var(--muted);line-height:1.8;margin:15px 0 0}
 .conference-sites-note svg{color:var(--primary)}
 .conference-sites-note a{text-decoration:underline;text-underline-offset:2px}
+
+
+/* V1.7: responsive journal cards, usable reference importer, keyboard focus. */
+@media(max-width:760px){
+  .journal-row .journal-publisher{min-width:0}
+  .journal-row .journal-publisher strong{overflow-wrap:anywhere}
+  .journal-row .journal-quick-metrics{display:flex;flex-wrap:wrap}
+  .journal-row{align-items:start}
+  .compare-dock{bottom:max(8px,env(safe-area-inset-bottom))}
+  .compare-chips{min-width:0;overflow-x:auto}
+}
+@media(max-width:580px){
+  .journal-row{grid-template-columns:minmax(0,1fr) auto}
+  .journal-row .journal-publisher{grid-column:1/-1;grid-row:2;margin-left:56px}
+  .journal-row .journal-publisher small{display:block}
+  .journal-row .row-actions{grid-column:2;grid-row:1}
+  .compare-dock{flex-wrap:wrap;gap:10px}
+  .compare-chips{max-width:100%}
+  .resolver-form{flex-wrap:wrap}
+  .resolver-form input{min-width:min(100%,200px)}
+  .bib-identifier-row{flex-wrap:wrap}
+  .bib-identifier-row input{min-width:0;width:100%}
+  .bib-identifier-row button{flex:1}
+}
+.bib-identifier-import{border:1px solid var(--line);border-radius:12px;background:var(--surface-soft);padding:15px;margin:0 0 16px}
+.bib-identifier-import>label{display:block;font-size:12px;font-weight:750;margin-bottom:9px}
+.bib-identifier-row{display:flex;align-items:center;gap:9px}
+.bib-identifier-row select,.bib-identifier-row input{border:1px solid var(--line-strong);border-radius:9px;color:var(--text);background:var(--surface);padding:10px;font-size:12px;min-width:0}
+.bib-identifier-row select{flex-shrink:0}
+.bib-identifier-row input{flex:1}
+.bib-identifier-import small{display:block;margin-top:10px;font-size:10px;color:var(--muted);line-height:1.7}
+.bib-identifier-row button:disabled{opacity:.55;cursor:wait}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.tool-hub-card,.tool-hub-action svg,.venue-row,.journal-filter-select{transition:none}}

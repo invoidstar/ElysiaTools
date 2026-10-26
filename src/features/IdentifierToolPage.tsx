@@ -21,8 +21,8 @@ function resolve(id:Identifier,raw:string):string|null{
     ?'https://arxiv.org/abs/'+encodeURIComponent(input).replace('%2F','/'):null;
   return issnValid(input)?'https://portal.issn.org/resource/ISSN/'+input.toUpperCase():null;
 }
-interface Props {onBack:()=>void}
-export function IdentifierToolPage({onBack}:Props){
+interface Props {onBack:()=>void;onBibtex:()=>void}
+export function IdentifierToolPage({onBack,onBibtex}:Props){
   const [kind,setKind]=useState<Identifier>('doi');
   const [value,setValue]=useState('');
   const target=resolve(kind,value);
@@ -63,5 +63,9 @@ export function IdentifierToolPage({onBack}:Props){
         <span className="art-label art-label-c">arXiv</span>
       </div>
     </section>
+    <div className="tool-hub-note"><Link2 size={17}/>
+      需要将 DOI 或 arXiv 自动转换成可导出的 BibTeX？
+      <button className="secondary-button" onClick={onBibtex}>前往 BibTeX 引用整理 <ArrowUpRight size={15}/></button>
+    </div>
   </section>;
 }

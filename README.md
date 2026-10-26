@@ -1,5 +1,7 @@
 # ElysiaTools
 
+**Latest release: V1.7.0 — source-audited research toolkit (2026-10-26).**
+
 **Research, Made Easier.** — 学术会议、期刊分区和个人科研工作台。
 
 [网站](https://invoidstar.github.io/ElysiaTools/) · [会议](https://invoidstar.github.io/ElysiaTools/#conference) · [完整期刊分区查询](https://invoidstar.github.io/ElysiaTools/#journal) · [数据来源与许可](docs/METRIC_IMPORT.md)
@@ -11,10 +13,10 @@ ElysiaTools uses React, TypeScript and Vite and runs exclusively on **GitHub Pag
 | Module | Features |
 | --- | --- |
 | Home | Conference/journal search, CCF overview, deadlines |
-| Conferences | CCF 2026 A/B/C full conference directory, historic acceptance, deadlines, timezone conversion, ICS |
+| Conferences | CCF 2026 A/B/C full directory; 13 officially sourced annual editions, provenance-tagged historical acceptance, separate ARR commitment deadlines, timezone conversion and ICS |
 | Journals | **23,100 unique journal identities**; name/ISSN search, CAS 2025 historical divisions, XinRui 2026 divisions, JCR 2025 quartiles, JIF 2025, CCF 2026 classifications, filters, detail views and comparisons |
 | My Academic | Browser-local favorites, comparison lists, backups |
-| Tools | DOI / arXiv / ISSN links plus a local BibTeX organizer: parse, check, deduplicate, sort, copy and export |
+| Tools | DOI / arXiv / ISSN resolver plus DOI (Crossref) / arXiv (OpenAlex) metadata-to-BibTeX import; local parser, dedupe, sort, copy and export |
 
 Light/dark mode and responsive layouts are included.
 
@@ -58,15 +60,40 @@ The journal lookup now:
 
 These improvements cannot eliminate API-wide quotas for first-time visitors. At larger scale, use a server-side proxy with a protected key and shared cache (for example Cloudflare Worker + KV/D1), subject to later approval. No server has been added in this version.
 
-### BibTeX organizer (V1.6)
+### BibTeX organizer (V1.6–V1.7)
 
 The new BibTeX workspace has its own independent page at [Tools → BibTeX](https://invoidstar.github.io/ElysiaTools/#tools/bibtex). The identifier resolver has its own page at [Tools → Identifier Resolver](https://invoidstar.github.io/ElysiaTools/#tools/identifier). The [Tools landing page](https://invoidstar.github.io/ElysiaTools/#tools) is now a simple directory of fully operational tools. It accepts pasted references or imported .bib files (up to 3 MB / 4,000 entries), preserves LaTeX braces/commands and BibTeX string definitions, identifies strong DOI / arXiv duplicate candidates, flags missing fields and conflicting citation keys, and supports sorting, review, copy and export.
 
 Only identifier-backed duplicate suggestions may be excluded automatically; title/year similarity alone does not remove records. Existing citation keys are not silently renamed because this might break references in LaTeX manuscripts. The three unused image-check, statistics and academic plotting roadmap cards remain removed from the Tools directory.
 
+V1.7 also supports DOI-to-BibTeX through Crossref and arXiv metadata-to-BibTeX through OpenAlex's arXiv DOI lookup. Only the identifier is sent to the respective external API, never the full local BibTeX library. A missing arXiv OpenAlex record or API rate limit produces an actionable error, not guessed citations. Existing citation keys and imported entries are never silently overwritten.
+
 The three journal rating filters are now independently selectable from the first render: evaluation system, annual data status, and zone/quartile. Tier values explicitly identify CAS, XinRui or JCR, even when the evaluation system filter is left on All.
 
 The former online “同步期刊评价数据” function remains removed. A standalone aggregated [historic matching audit](scripts/sync/audit_metric_csv.py) is retained for developers. The CCF source data and 2026 conference/acceptance directory remain unchanged.
+
+## V1.7 source health, reliability and performance
+
+- Official annual dates now include NAACL 2027, SIGGRAPH 2027, EMNLP 2026,
+  ECCV 2026 and ICML 2026. An ARR initial submission and a later *conference
+  commitment* are different event kinds. Unknown dates remain TBD.
+- CVPR 2026 historical figures now cite the official conference technical
+  program directly. Other community-transcribed acceptance entries are still
+  labeled community evidence; source type and denominator matter.
+- Daily source health compares verified official references with the last
+  successful snapshot using Actions cache. Changed content opens a GitHub Issue
+  for manual review; outages/429 do not modify academic deadlines. The first
+  check after cache loss is a baseline, not an assurance of no changes.
+- Journal query strings and filter metadata are memoized, with deferred
+  interactive search over the approximately 23k identities. Mobile list cards,
+  identifier importer and keyboard focus states have been refined.
+- Direct npm dependencies are pinned and a committed npm lockfile enables
+  reproducible `npm ci` in CI. The pull-request workflow builds and tests
+  without publishing to Pages.
+- An independent evidence check (`npm run audit:provenance`) validates
+  official/community source lineage and checks the separately documented
+  annual data-rights state. See
+  [provenance and authorization checklist](docs/PROVENANCE_AND_AUTHORIZATION.md).
 
 ## Licensing and responsibility
 
@@ -78,7 +105,7 @@ See [annual source notes](docs/METRIC_IMPORT.md), [data policy](docs/DATA_POLICY
 
 Node.js 22+ is recommended.
 
-- npm install
+- npm ci
 - npm run check
 - npm run build
 

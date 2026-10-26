@@ -2547,9 +2547,9 @@
     "submissions": 16092,
     "accepted": 4089,
     "rate": 25.41,
-    "sourceId": "ccfddl-history-0736",
+    "sourceId": "hist-cvpr-2026-official",
     "provenance": "community-transcribed",
-    "note": "统计由 CCF-Deadlines 开源项目整理；请查看原始来源并核对当届统计口径。"
+    "note": "CVPR/CVF official technical program: 16,092 submissions and 4,089 accepted paper presentations. Numerator is presentations; compare only like-for-like tracks."
   },
   {
     "conferenceId": "dac",

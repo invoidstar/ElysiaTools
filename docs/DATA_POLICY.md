@@ -85,3 +85,18 @@ Never infer a missing rating, combine evaluation systems, or merge two publicati
 The journal source API client uses a browser-local 48-hour source cache (100 records), a clearly labeled 90-day stale-data fallback, a 24-hour negative identity cache and serialized requests. It honors OpenAlex HTTP 429 response headers to avoid repeated calls while the anonymous quota is exhausted. These measures do not expand the external API quota. Public GitHub Pages must not embed an OpenAlex API key; personal keys are authentication credentials. The legacy email-based polite-pool approach no longer changes rate limits.
 
 The BibTeX organizer parses and formats user text locally, without sending bibliographies to a server. The original braced LaTeX field contents, string definitions and citation keys are retained; suspected same-title references are review hints rather than automatic duplicate deletion.
+
+
+## 9. V1.7 provenance checks and ARR commitment
+
+An ARR submission is distinct from the later *conference commitment* for
+conferences such as NAACL and EMNLP. Commitment is stored as its own deadline
+kind, not disguised as a new review-cycle initial paper submission. Year-specific
+official URLs, submission tracks and independent cycles remain separate.
+
+\`npm run audit:provenance\` checks source-kind integrity, including
+official-history vs community-history acceptance reports. The scheduled source
+health workflow records page digest differences and HTTP failures separately;
+a changed page is a review request, not an automatic deadline correction.
+The annual provider permission state is recorded without claiming independent
+verification in [PROVENANCE_AND_AUTHORIZATION.md](PROVENANCE_AND_AUTHORIZATION.md).

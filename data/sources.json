@@ -9031,5 +9031,69 @@
     "owner": "LetPub（公开列表，非新锐发布机构）",
     "verifiedAt": "2026-10-12",
     "note": "仅引用该期刊一条可独立核对的公开新锐大类分区事实，不批量转载期刊评价数据库。需以新锐官方来源复核。"
+  },
+  {
+    "id": "naacl-27-main",
+    "title": "NAACL 2027 Main Conference CFP",
+    "url": "https://2027.naacl.org/calls/main_conference_papers/",
+    "kind": "official-cfp",
+    "owner": "NAACL",
+    "verifiedAt": "2026-10-26"
+  },
+  {
+    "id": "naacl-27-industry",
+    "title": "NAACL 2027 Industry Track CFP",
+    "url": "https://2027.naacl.org/calls/industry_track/",
+    "kind": "official-cfp",
+    "owner": "NAACL",
+    "verifiedAt": "2026-10-26"
+  },
+  {
+    "id": "naacl-27-demo",
+    "title": "NAACL 2027 System Demonstrations CFP",
+    "url": "https://2027.naacl.org/calls/system_demonstration/",
+    "kind": "official-cfp",
+    "owner": "NAACL",
+    "verifiedAt": "2026-10-26"
+  },
+  {
+    "id": "siggraph-27-papers",
+    "title": "SIGGRAPH 2027 Technical Papers deadlines",
+    "url": "https://s2027.siggraph.org/program/technical-papers/",
+    "kind": "official-cfp",
+    "owner": "ACM SIGGRAPH",
+    "verifiedAt": "2026-10-26"
+  },
+  {
+    "id": "emnlp-26",
+    "title": "EMNLP 2026 Main Conference CFP",
+    "url": "https://2026.emnlp.org/calls/main_conference_papers/",
+    "kind": "official-cfp",
+    "owner": "ACL SIGDAT",
+    "verifiedAt": "2026-10-26"
+  },
+  {
+    "id": "eccv-26",
+    "title": "ECCV 2026 Official Dates",
+    "url": "https://eccv.ecva.net/Conferences/2026/Dates",
+    "kind": "official-cfp",
+    "owner": "ECVA",
+    "verifiedAt": "2026-10-26"
+  },
+  {
+    "id": "icml-26",
+    "title": "ICML 2026 Official Dates",
+    "url": "https://icml.cc/Conferences/2026/Dates",
+    "kind": "official-cfp",
+    "owner": "ICML",
+    "verifiedAt": "2026-10-26"
+  },
+  {
+    "id": "hist-cvpr-2026-official",
+    "title": "CVPR 2026 Official Technical Program figures (16,092 submissions, 4,089 accepted)",
+    "url": "https://cvpr.thecvf.com/Conferences/2026/News/Technical_Program",
+    "kind": "official-history",
+    "owner": "CVPR/CVF",
+    "verifiedAt": "2026-10-26"
   }
 ]

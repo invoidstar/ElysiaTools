@@ -57,7 +57,7 @@ export function allDeadlineRows(): DeadlineRow[] {
 }
 
 export const deadlineRows = allDeadlineRows();
-export const submissionKinds = new Set(['abstract', 'paper', 'supplement', 'revision']);
+export const submissionKinds = new Set(['abstract', 'paper', 'commitment', 'supplement', 'revision']);
 
 export function eventMillis(event: DeadlineEvent): number {
   return event.utc ? new Date(event.utc).getTime() : Date.parse(event.original + 'T12:00:00Z');
