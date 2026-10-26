@@ -1,0 +1,30 @@
+{
+  "sourceRevision": "4687a8f608f20aaf004299992f5d347dba009361",
+  "note": "Operational rights checklist; NOT a copy of any authorization agreement and NOT proof of an existing license.",
+  "systems": [
+    {
+      "system": "cas2025",
+      "file": "FQBJCR2025-UTF8.csv",
+      "status": "reported-authorized-unverified",
+      "requiresPrivateEvidence": true,
+      "renewalReview": "each annual release",
+      "ownerAction": "Confirm rights to republish derived CAS 2025 division facts in static Pages JSON."
+    },
+    {
+      "system": "xinrui2026",
+      "file": "XR2026-UTF8.csv",
+      "status": "reported-authorized-unverified",
+      "requiresPrivateEvidence": true,
+      "renewalReview": "each annual release",
+      "ownerAction": "Confirm rights to republish XinRui 2026 ranking and subsidiary categories."
+    },
+    {
+      "system": "jcr2025",
+      "file": "JCR2025-UTF8.csv",
+      "status": "reported-authorized-unverified",
+      "requiresPrivateEvidence": true,
+      "renewalReview": "each annual release",
+      "ownerAction": "Confirm rights to publish JCR 2025 quartiles and impact factor derived records."
+    }
+  ]
+}

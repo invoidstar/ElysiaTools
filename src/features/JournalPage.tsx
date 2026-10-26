@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useDeferredValue, useMemo, useState } from 'react';
 import { ArrowUpRight, GitCompareArrows, LibraryBig, Search, SlidersHorizontal, X } from 'lucide-react';
 import { EmptyState, FavoriteButton, GradeTag } from '../components/Common';
-import { matches, coverage, journalMetric } from '../lib/catalog';
+import { coverage, journalMetric } from '../lib/catalog';
 import { DirectoryViz } from '../components/ResearchCharts';
 import { MetricCoverage } from '../components/MetricCoverage';
 import { journalTierOptions, matchesJournalRankFilters } from '../lib/journalFilters.mjs';
@@ -25,7 +25,14 @@ const oaText: Record<string, string> = { open: '开放获取', hybrid: 'Hybrid O
 
 export function JournalPage({ journals, loading, error, retry, academic, toggleFavorite, toggleCompare, openJournal, openComparison, keyword, setKeyword }: Props) {
   const getMetric = journalMetric;
-  const count = (system: string) => journals.filter(j => j.indicators.some(m => m.system === system)).length;
+  const coverageCounts = useMemo(() => {
+    const result: Record<string, number> = {cas:0,xinrui:0,jcr:0,jif:0};
+    for(const journal of journals)
+      for(const system of new Set(journal.indicators.map(m=>m.system)))
+        if(system in result)result[system]++;
+    return result;
+  },[journals]);
+  const count = (system: string) => coverageCounts[system] || 0;
   const [grade, setGrade] = useState('');
   const [field, setField] = useState('');
   const [oa, setOa] = useState('');
@@ -34,13 +41,22 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
   const [tier, setTier] = useState('');
   const [dataStatus, setDataStatus] = useState('');
   const [limit, setLimit] = useState(18);
-  const tierChoices = journalTierOptions(indicator);
-  const fields = [...new Set(journals.flatMap(j => [j.field, ...(j.additionalFields || [])]))].sort();
-  const fieldTitles = new Map(journals.map(j=>[j.field,j.fieldZh]));
-  const publishers = [...new Set(journals.map(j => j.publisher).filter((p): p is string => Boolean(p)))].sort();
+  const tierChoices = useMemo(() => journalTierOptions(indicator), [indicator]);
+  const fields = useMemo(() => [...new Set(journals.flatMap(j => [j.field, ...(j.additionalFields || [])]))].sort(), [journals]);
+  const fieldTitles = useMemo(() => new Map(journals.map(j=>[j.field,j.fieldZh])), [journals]);
+  const publishers = useMemo(() => [...new Set(journals.map(j => j.publisher).filter((p): p is string => Boolean(p)))].sort(), [journals]);
+  // Normalized search once per catalogue: avoids 23k repeated concatenations.
+  const searchIndex = useMemo(() => new Map(journals.map(j => [
+    j.id, [j.acronym,j.name,j.field,j.fieldZh,...(j.additionalFields||[]),
+      ...(j.aliases||[]),j.issn,j.eissn,j.issnL,...(j.extraIssns||[])]
+      .filter(Boolean).join(' ').toLocaleLowerCase()
+  ])), [journals]);
+  const requestedQuery = keyword.trim().toLocaleLowerCase();
+  const searchQuery = useDeferredValue(requestedQuery);
+  const updating = searchQuery !== requestedQuery;
   const filtered = useMemo(() =>
     journals.filter(j =>
-      matches(j, keyword) &&
+      (!searchQuery || searchIndex.get(j.id)?.includes(searchQuery)) &&
       (!grade || (grade === 'unset' ? !j.ccf : j.ccf === grade)) &&
       (!field || j.field === field || j.additionalFields?.includes(field)) &&
       (!oa || j.oa === oa) &&
@@ -51,7 +67,7 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
       const av = a.ccf ? rank[a.ccf] : 3;
       const bv = b.ccf ? rank[b.ccf] : 3;
       return av - bv || a.acronym.localeCompare(b.acronym);
-    }), [journals, keyword, grade, field, oa, publisher, indicator, tier, dataStatus]);
+    }), [journals, searchIndex, searchQuery, grade, field, oa, publisher, indicator, tier, dataStatus]);
 
   const setFilter = (setter: (value: string) => void, value: string) => { setter(value); setLimit(18); };
   const selected = academic.compare.map(id => journals.find(j => j.id === id)).filter((j): j is Journal => Boolean(j));
@@ -115,7 +131,7 @@ export function JournalPage({ journals, loading, error, retry, academic, toggleF
 
       </aside>
       <div className="results-panel">
-        <div className="results-toolbar"><div><strong>{loading?'…':filtered.length.toLocaleString('zh-CN')}</strong><span> 条检索结果</span><small> · 按 CCF 等级整理</small></div><span className="muted small-text">公开来源与指标年份明确 · 最多对比 4 本</span></div>
+        <div className="results-toolbar"><div><strong>{loading?'…':filtered.length.toLocaleString('zh-CN')}</strong><span> 条检索结果</span><small> · 按 CCF 等级整理</small></div><span className="muted small-text" role="status" aria-live="polite">{updating?'正在更新检索结果…':'公开来源与指标年份明确 · 最多对比 4 本'}</span></div>
         <div className="venue-list">
           {loading && <div className="metric-empty"><EmptyState title="正在加载完整期刊数据库" description="约 2.3 万种期刊的分区资料正在载入，无需下载或上传文件。"/></div>}
           {error && <div className="metric-empty"><EmptyState title="暂时无法载入完整期刊数据库" description="请检查网络后重试，当前不会将数据缺失误判为无分区。"/><button className="secondary-button" onClick={retry}>重新加载数据</button></div>}

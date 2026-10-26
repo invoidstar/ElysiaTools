@@ -170,7 +170,7 @@ export default function App() {
         </select></div>
         <button className="icon-button theme-toggle" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={theme === 'light' ? '切换深色模式' : '切换浅色模式'} title="切换主题">{theme === 'light' ? <Moon size={19}/> : <Sun size={19}/>}</button>
         <a className="header-github" href="https://github.com/invoidstar/ElysiaTools" target="_blank" rel="noopener noreferrer" title="GitHub repository" aria-label="GitHub"><Github size={20}/></a>
-        <button className="icon-button mobile-menu-button" onClick={() => setMobileMenu(v => !v)} aria-label="打开导航">{mobileMenu ? <X size={22}/> : <Menu size={22}/>}</button>
+        <button className="icon-button mobile-menu-button" onClick={() => setMobileMenu(v => !v)} aria-label={mobileMenu?'关闭导航':'打开导航'} aria-expanded={mobileMenu}>{mobileMenu ? <X size={22}/> : <Menu size={22}/>}</button>
       </div>
     </div></header>
     <main className="main-container">
@@ -179,7 +179,7 @@ export default function App() {
       {activePage === 'journal' && <JournalPage journals={journalList} loading={journalStatus==='loading'||journalStatus==='idle'} error={journalStatus==='error'} retry={()=>setJournalFetchTick(t=>t+1)} academic={academic} toggleFavorite={id=>toggleFavorite('journal',id)} toggleCompare={toggleCompare} openJournal={id=>navigate('journal/'+id)} openComparison={()=>setCompareOpen(true)} keyword={journalKeyword} setKeyword={setJournalKeyword}/>}
       {activePage === 'academic' && <AcademicPage journals={journalList} academic={academic} zone={zone} now={now} toggleFavorite={toggleFavorite} openConference={id=>navigate('conference/'+id)} openJournal={id=>navigate('journal/'+id)} exportData={()=>{downloadContent('elysiatools-backup.json',exportAcademic(academic),'application/json');setToast('备份已导出');}} importData={importData} exportCalendar={exportCalendar} restoreFilter={restoreFilter} removeFilter={id=>setAcademic(prev=>({...prev,savedFilters:prev.savedFilters.filter(x=>x.id!==id)}))} openComparison={()=>setCompareOpen(true)}/>}
       {activePage === 'tools' && !detailId && <ToolsPage onNavigate={navigate}/>}
-      {activePage === 'tools' && detailId === 'identifier' && <IdentifierToolPage onBack={()=>navigate('tools')}/>}
+      {activePage === 'tools' && detailId === 'identifier' && <IdentifierToolPage onBack={()=>navigate('tools')} onBibtex={()=>navigate('tools/bibtex')}/>}
       {activePage === 'tools' && detailId === 'bibtex' && <BibtexToolPage onBack={()=>navigate('tools')}/>}
       {activePage === 'tools' && detailId && !['identifier','bibtex'].includes(detailId) &&
         <section className="unknown-route"><Search size={30}/><h2>暂未找到该科研工具</h2>

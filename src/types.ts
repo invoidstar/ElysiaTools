@@ -6,7 +6,7 @@ export interface AcceptanceRecord { conferenceId: string; year: number; track: s
 
 export interface CCFCoverage { edition: number; label: string; officialUrl: string; listedRows: number; conferenceRows: number; journalRows: number; uniqueConferences: number; uniqueCCFJournals: number; crossListedJournalNames: number; supplementalJournals: number; fields: number; compiledAt: string; policy: string; }
 export type Precision = 'minute' | 'date';
-export type Kind = 'abstract' | 'paper' | 'supplement' | 'rebuttal' | 'notification' | 'camera-ready' | 'review' | 'revision';
+export type Kind = 'abstract' | 'paper' | 'commitment' | 'supplement' | 'rebuttal' | 'notification' | 'camera-ready' | 'review' | 'revision';
 
 export interface SourceRecord {
   id: string;

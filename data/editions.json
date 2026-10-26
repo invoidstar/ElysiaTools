@@ -656,5 +656,445 @@
     "changeLog": [],
     "website": "https://neurips.cc/Conferences/2026",
     "websiteSourceId": "neurips-26"
+  },
+  {
+    "id": "naacl-2027",
+    "conferenceId": "naacl",
+    "year": 2027,
+    "location": "San Francisco, USA",
+    "meetingStart": "2027-06-01",
+    "meetingEnd": "2027-06-05",
+    "sourceId": "naacl-27-main",
+    "verifiedAt": "2026-10-26",
+    "website": "https://2027.naacl.org/",
+    "tracks": [
+      {
+        "id": "main",
+        "name": "Main Conference via ARR",
+        "events": [
+          {
+            "id": "arr-paper",
+            "kind": "paper",
+            "title": "ARR October-cycle full paper submission",
+            "precision": "minute",
+            "original": "2026-10-12T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-10-13T11:59:00.000Z"
+          },
+          {
+            "id": "meta",
+            "kind": "review",
+            "title": "ARR meta-reviews released",
+            "precision": "date",
+            "original": "2026-12-18",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "commit",
+            "kind": "commitment",
+            "title": "Commit reviewed paper to NAACL (not initial submission)",
+            "precision": "minute",
+            "original": "2026-12-23T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-12-24T11:59:00.000Z"
+          },
+          {
+            "id": "decision",
+            "kind": "notification",
+            "title": "Main conference notification",
+            "precision": "date",
+            "original": "2027-02-10",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "camera",
+            "kind": "camera-ready",
+            "title": "Camera-ready deadline",
+            "precision": "minute",
+            "original": "2027-03-03T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2027-03-04T11:59:00.000Z"
+          }
+        ],
+        "pending": [],
+        "sourceId": "naacl-27-main"
+      },
+      {
+        "id": "industry",
+        "name": "Industry Track (separate from ARR)",
+        "events": [
+          {
+            "id": "paper",
+            "kind": "paper",
+            "title": "Industry track full paper submission",
+            "precision": "minute",
+            "original": "2026-10-31T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-11-01T11:59:00.000Z"
+          },
+          {
+            "id": "reviews",
+            "kind": "review",
+            "title": "Reviews released",
+            "precision": "date",
+            "original": "2027-01-13",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "rebuttal",
+            "kind": "rebuttal",
+            "title": "Author response deadline",
+            "precision": "minute",
+            "original": "2027-01-27T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2027-01-28T11:59:00.000Z"
+          },
+          {
+            "id": "decision",
+            "kind": "notification",
+            "title": "Industry track notification",
+            "precision": "date",
+            "original": "2027-02-24",
+            "timezone": "Etc/GMT+12"
+          }
+        ],
+        "pending": [
+          "Camera-ready deadline: TBD"
+        ],
+        "sourceId": "naacl-27-industry"
+      },
+      {
+        "id": "demo",
+        "name": "System Demonstrations",
+        "events": [
+          {
+            "id": "paper",
+            "kind": "paper",
+            "title": "System demonstration paper submission",
+            "precision": "minute",
+            "original": "2026-12-04T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-12-05T11:59:00.000Z"
+          },
+          {
+            "id": "decision",
+            "kind": "notification",
+            "title": "System demonstrations notification",
+            "precision": "date",
+            "original": "2027-02-10",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "camera",
+            "kind": "camera-ready",
+            "title": "System demo camera-ready deadline",
+            "precision": "minute",
+            "original": "2027-03-03T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2027-03-04T11:59:00.000Z"
+          }
+        ],
+        "pending": [],
+        "sourceId": "naacl-27-demo"
+      }
+    ],
+    "changeLog": [
+      {
+        "date": "2026-10-26",
+        "note": "Added from official year-specific dates/CFP; only independently published deadlines were retained.",
+        "sourceId": "naacl-27-main"
+      }
+    ],
+    "websiteSourceId": "naacl-27-main"
+  },
+  {
+    "id": "siggraph-2027",
+    "conferenceId": "siggraph",
+    "year": 2027,
+    "location": null,
+    "meetingStart": null,
+    "meetingEnd": null,
+    "sourceId": "siggraph-27-papers",
+    "verifiedAt": "2026-10-26",
+    "website": "https://s2027.siggraph.org/",
+    "tracks": [
+      {
+        "id": "technical",
+        "name": "Technical Papers",
+        "events": [
+          {
+            "id": "forms",
+            "kind": "abstract",
+            "title": "Submission form and conflicts deadline",
+            "precision": "minute",
+            "original": "2027-01-21T22:00",
+            "timezone": "UTC",
+            "utc": "2027-01-21T22:00:00.000Z"
+          },
+          {
+            "id": "paper",
+            "kind": "paper",
+            "title": "Technical papers submission deadline",
+            "precision": "minute",
+            "original": "2027-01-28T22:00",
+            "timezone": "UTC",
+            "utc": "2027-01-28T22:00:00.000Z"
+          },
+          {
+            "id": "upload",
+            "kind": "supplement",
+            "title": "Technical papers upload deadline",
+            "precision": "minute",
+            "original": "2027-01-29T22:00",
+            "timezone": "UTC",
+            "utc": "2027-01-29T22:00:00.000Z"
+          }
+        ],
+        "pending": [],
+        "sourceId": "siggraph-27-papers"
+      }
+    ],
+    "changeLog": [
+      {
+        "date": "2026-10-26",
+        "note": "Added from official year-specific dates/CFP; only independently published deadlines were retained.",
+        "sourceId": "siggraph-27-papers"
+      }
+    ],
+    "websiteSourceId": "siggraph-27-papers"
+  },
+  {
+    "id": "emnlp-2026",
+    "conferenceId": "emnlp",
+    "year": 2026,
+    "location": "Budapest, Hungary",
+    "meetingStart": "2026-10-24",
+    "meetingEnd": "2026-10-29",
+    "sourceId": "emnlp-26",
+    "verifiedAt": "2026-10-26",
+    "website": "https://2026.emnlp.org/",
+    "tracks": [
+      {
+        "id": "main",
+        "name": "Main Conference via ARR",
+        "events": [
+          {
+            "id": "arr-paper",
+            "kind": "paper",
+            "title": "ARR main paper submission",
+            "precision": "minute",
+            "original": "2026-05-25T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-05-26T11:59:00.000Z"
+          },
+          {
+            "id": "meta",
+            "kind": "review",
+            "title": "ARR meta-reviews released",
+            "precision": "date",
+            "original": "2026-07-30",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "commit",
+            "kind": "commitment",
+            "title": "Commit reviewed paper to EMNLP",
+            "precision": "minute",
+            "original": "2026-08-02T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-08-03T11:59:00.000Z"
+          },
+          {
+            "id": "decision",
+            "kind": "notification",
+            "title": "Acceptance notification",
+            "precision": "date",
+            "original": "2026-08-20",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "camera",
+            "kind": "camera-ready",
+            "title": "Camera-ready deadline",
+            "precision": "minute",
+            "original": "2026-08-30T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-08-31T11:59:00.000Z"
+          }
+        ],
+        "pending": [],
+        "sourceId": "emnlp-26"
+      }
+    ],
+    "changeLog": [
+      {
+        "date": "2026-10-26",
+        "note": "Added from official year-specific dates/CFP; only independently published deadlines were retained.",
+        "sourceId": "emnlp-26"
+      }
+    ],
+    "websiteSourceId": "emnlp-26"
+  },
+  {
+    "id": "eccv-2026",
+    "conferenceId": "eccv",
+    "year": 2026,
+    "location": "Malmö, Sweden",
+    "meetingStart": "2026-09-08",
+    "meetingEnd": "2026-09-12",
+    "sourceId": "eccv-26",
+    "verifiedAt": "2026-10-26",
+    "website": "https://eccv.ecva.net/Conferences/2026",
+    "tracks": [
+      {
+        "id": "main",
+        "name": "Main Conference",
+        "events": [
+          {
+            "id": "register",
+            "kind": "abstract",
+            "title": "Paper registration deadline",
+            "precision": "minute",
+            "original": "2026-02-26T22:00",
+            "timezone": "UTC",
+            "utc": "2026-02-26T22:00:00.000Z"
+          },
+          {
+            "id": "paper",
+            "kind": "paper",
+            "title": "Paper submission deadline",
+            "precision": "minute",
+            "original": "2026-03-05T22:00",
+            "timezone": "UTC",
+            "utc": "2026-03-05T22:00:00.000Z"
+          },
+          {
+            "id": "supplement",
+            "kind": "supplement",
+            "title": "Supplementary material deadline",
+            "precision": "minute",
+            "original": "2026-03-12T22:00",
+            "timezone": "UTC",
+            "utc": "2026-03-12T22:00:00.000Z"
+          },
+          {
+            "id": "review",
+            "kind": "review",
+            "title": "Reviews released",
+            "precision": "date",
+            "original": "2026-05-02",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "rebuttal",
+            "kind": "rebuttal",
+            "title": "Rebuttal deadline",
+            "precision": "minute",
+            "original": "2026-05-11T21:00",
+            "timezone": "UTC",
+            "utc": "2026-05-11T21:00:00.000Z"
+          },
+          {
+            "id": "decision",
+            "kind": "notification",
+            "title": "Final decisions",
+            "precision": "date",
+            "original": "2026-06-17",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "camera",
+            "kind": "camera-ready",
+            "title": "Camera-ready deadline",
+            "precision": "minute",
+            "original": "2026-06-30T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-07-01T11:59:00.000Z"
+          }
+        ],
+        "pending": [],
+        "sourceId": "eccv-26"
+      }
+    ],
+    "changeLog": [
+      {
+        "date": "2026-10-26",
+        "note": "Added from official year-specific dates/CFP; only independently published deadlines were retained.",
+        "sourceId": "eccv-26"
+      }
+    ],
+    "websiteSourceId": "eccv-26"
+  },
+  {
+    "id": "icml-2026",
+    "conferenceId": "icml",
+    "year": 2026,
+    "location": "Seoul, South Korea",
+    "meetingStart": null,
+    "meetingEnd": null,
+    "sourceId": "icml-26",
+    "verifiedAt": "2026-10-26",
+    "website": "https://icml.cc/Conferences/2026",
+    "tracks": [
+      {
+        "id": "main",
+        "name": "Main Conference",
+        "events": [
+          {
+            "id": "abstract",
+            "kind": "abstract",
+            "title": "Abstract submission deadline",
+            "precision": "minute",
+            "original": "2026-01-23T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-01-24T11:59:00.000Z"
+          },
+          {
+            "id": "paper",
+            "kind": "paper",
+            "title": "Full paper submission deadline",
+            "precision": "minute",
+            "original": "2026-01-28T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-01-29T11:59:00.000Z"
+          },
+          {
+            "id": "review",
+            "kind": "review",
+            "title": "Reviews released",
+            "precision": "date",
+            "original": "2026-03-24",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "rebuttal",
+            "kind": "rebuttal",
+            "title": "Author response deadline",
+            "precision": "minute",
+            "original": "2026-03-30T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-03-31T11:59:00.000Z"
+          },
+          {
+            "id": "decision",
+            "kind": "notification",
+            "title": "Author notification",
+            "precision": "date",
+            "original": "2026-04-30",
+            "timezone": "Etc/GMT+12"
+          }
+        ],
+        "pending": [],
+        "sourceId": "icml-26"
+      }
+    ],
+    "changeLog": [
+      {
+        "date": "2026-10-26",
+        "note": "Added from official year-specific dates/CFP; only independently published deadlines were retained.",
+        "sourceId": "icml-26"
+      }
+    ],
+    "websiteSourceId": "icml-26"
   }
 ]

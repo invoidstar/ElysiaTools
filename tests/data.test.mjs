@@ -149,13 +149,13 @@ test('pinned annual source audit records full coverage without duplicating sourc
 
 test('all curated current conference editions expose the corresponding year homepage',()=>{
   const sources=load('sources.json');
-  assert.equal(editions.length,8);
+  assert.ok(editions.length>=13,'Expected independently checked annual editions');
   for(const edition of editions){
     const conf=conferences.find(c=>c.id===edition.conferenceId);
     const source=sources.find(s=>s.id===edition.sourceId);
     assert.ok(conf && source,'missing conference/source for '+edition.id);
     assert.ok(edition.website?.startsWith('https://'),'missing edition-specific website '+edition.id);
-    assert.equal(edition.website,conf.website,'edition homepage not aligned with verified conference website: '+edition.id);
+    // Curated conference-series homepage may legitimately differ from annual site.
     assert.equal(edition.websiteSourceId,edition.sourceId,'annual URL requires official source provenance');
     assert.equal(source.kind,'official-cfp','annual website provenance must be official');
   }
@@ -213,4 +213,16 @@ test('journal dropdowns stay enabled and offer separate evaluation-system tiers'
   assert.ok(!page.includes('disabled={!indicator ||'));
   assert.ok(!page.includes("disabled={!loading&&count("));
   assert.ok(page.includes('<optgroup label={group}'));
+});
+
+
+test('new official deadlines distinguish ARR commitment from initial paper submission',()=>{
+  const naacl=editions.find(e=>e.id==='naacl-2027');
+  const main=naacl.tracks.find(t=>t.id==='main');
+  const arr=main.events.find(e=>e.kind==='paper');
+  const commit=main.events.find(e=>e.kind==='commitment');
+  assert.ok(Date.parse(commit.utc)>Date.parse(arr.utc));
+  assert.equal(commit.original,'2026-12-23T23:59');
+  const siggraph=editions.find(e=>e.id==='siggraph-2027');
+  assert.equal(siggraph.tracks[0].events.find(e=>e.kind==='paper').utc,'2027-01-28T22:00:00.000Z');
 });

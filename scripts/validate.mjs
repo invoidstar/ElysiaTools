@@ -69,7 +69,7 @@ for (const e of editions) {
     unique(t.events.map(ev => ev.id), 'events in ' + e.id + '/' + t.id);
     for (const event of t.events) {
       events++;
-      check(event.title && ['abstract','paper','supplement','rebuttal','notification','camera-ready','review','revision'].includes(event.kind), 'bad event: ' + event.id);
+      check(event.title && ['abstract','paper','commitment','supplement','rebuttal','notification','camera-ready','review','revision'].includes(event.kind), 'bad event: ' + event.id);
       check(['minute','date'].includes(event.precision), 'missing precision: ' + event.id);
       check(event.timezone && event.original, 'missing original time/zone: ' + event.id);
       try { new Intl.DateTimeFormat('en-US',{timeZone:event.timezone}); }

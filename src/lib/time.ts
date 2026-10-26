@@ -50,7 +50,7 @@ export function monthKey(date: Date): string {
   return date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0');
 }
 export const kindLabel: Record<string, string> = {
-  abstract: '摘要 / 注册', paper: '论文投稿', supplement: '补充材料',
+  abstract: '摘要 / 注册', paper: '论文投稿', commitment: 'ARR 承诺投稿 / Commitment', supplement: '补充材料',
   rebuttal: '答辩 / Rebuttal', notification: '录用通知',
   'camera-ready': '终稿', review: '评审进展', revision: '修订提交'
 };
