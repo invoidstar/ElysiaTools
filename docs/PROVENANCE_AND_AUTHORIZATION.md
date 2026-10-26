@@ -30,9 +30,14 @@ agreements or provider keys in the public repository or browser JavaScript.
   date and timezone. A page change or CDN error is never treated as a changed deadline.
 - **Official-history**: official organizer statements, with explicit year, submission
   denominator, accepted-paper count and track; statistics may use different denominators.
+- **Publisher-history**: evidence from proceedings publishers (e.g. the ECCV
+  book record); publisher publication counts need not equal the initial conference
+  program decisions, so record the specific denominator.
+- **Institutional-history**: independently reported conference statistics from a
+  research organization (e.g. RIKEN AIP). Useful, but **not** an organizer statement.
 - **Community-history**: attributed transcription, not equivalent to organizer
-  certification. Historical curves preserve this distinction, and isolated conflicts
-  are flagged rather than silently overwritten.
+  certification. Historical curves preserve this distinction. Conflicting ICCV 2025
+  acceptance counts need explicit review, not an automatic replacement.
 
 The provenance audit (`npm run audit:provenance`) asserts all official and community
 history records reference existing source IDs of the correct kind, that every structured
@@ -43,12 +48,30 @@ track resolves to a declared source, and that permission claims remain qualified
 The scheduled workflow checks only curated official sources (CFPs, official histories,
 classification references and selected publisher notices). It restores prior page
 fingerprints from an Actions cache, reports `baseline_created`, `unchanged`,
-`changed` and `unreachable` distinctly, and saves fresh fingerprints **only on a
-successful read**. On a changed page it updates a persistent GitHub Issue for manual
-review. A page digest change is not proof that any deadline moved; no data updates are
-made by this monitor. Rate limits, blockers and transient failures are recorded in
+`pending_confirmation`, `changed` and `unreachable` distinctly. A content
+difference requires **two consecutive successful identical observations** before
+it becomes a confirmed change; a failed request never moves the baseline. Each
+confirmed source gets its **own review Issue**. Subsequent changed fingerprints
+append a comment without overwriting prior evidence. Closing an Issue marks a
+human acknowledgement, and it is only reopened when a *new* confirmed change
+occurs. This is not proof that a deadline moved; no academic date is auto-edited. Rate limits, blockers and transient failures are recorded in
 artifacts, without triggering false deadline changes.
 
 GitHub Actions caches are not durable archival storage. If a baseline expires, the
 next run establishes a fresh baseline without claiming that earlier observations were
 unchanged.
+
+
+## Evidence required before declaring provider rights verified
+
+Complete these checks privately for **each** of the three fixed annual metrics:
+
+- Licensor identity, signature or exact grant, scope of redistributed derived records.
+- Permission for public static files accessible to visitors (not just private viewing).
+- Inclusion of per-category quartiles, historical CAS 2025 divisions, XinRui 2026,
+  per-journal JIF, metadata enrichment, download and reuse permissions.
+- Effective dates/termination and how revocation requests will be handled.
+
+Store the evidence in a non-public location and share only an *evidence status* in
+the repository. Do **not** upload contracts or subscriber credentials to Issues.
+Until verified, status intentionally stays \`reported-authorized-unverified\`.

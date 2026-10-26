@@ -2548,7 +2548,6 @@
     "accepted": 4089,
     "rate": 25.41,
     "sourceId": "hist-cvpr-2026-official",
-    "provenance": "community-transcribed",
     "note": "CVPR/CVF official technical program: 16,092 submissions and 4,089 accepted paper presentations. Numerator is presentations; compare only like-for-like tracks."
   },
   {
@@ -2921,9 +2920,8 @@
     "submissions": 10473,
     "accepted": 2834,
     "rate": 27.06,
-    "sourceId": "ccfddl-history-0685",
-    "provenance": "community-transcribed",
-    "note": "统计由 CCF-Deadlines 开源项目整理；请查看原始来源并核对当届统计口径。"
+    "sourceId": "hist-eccv-2026-publisher",
+    "note": "Springer LNCS ECCV 2026 proceedings: 2,834 published/presented papers selected from 10,473 submissions. Publisher-reported, not a separately checked organizer rate."
   },
   {
     "conferenceId": "ecir",
@@ -5651,9 +5649,8 @@
     "submissions": 24661,
     "accepted": 6552,
     "rate": 26.57,
-    "sourceId": "ccfddl-history-0739",
-    "provenance": "community-transcribed",
-    "note": "统计由 CCF-Deadlines 开源项目整理；请查看原始来源并核对当届统计口径。"
+    "sourceId": "hist-icml-2026-organizer",
+    "note": "ICML official conference account reports 24,661 submissions and 6,552 accepted (26.6% rounded). Alternative 23,918/6,352 institutional numbers use a different or disputed basis and require explicit reconciliation; no silent replacement."
   },
   {
     "conferenceId": "icmr",
@@ -11656,5 +11653,15 @@
     "sourceId": "ccfddl-history-0798",
     "provenance": "community-transcribed",
     "note": "统计由 CCF-Deadlines 开源项目整理；请查看原始来源并核对当届统计口径。"
+  },
+  {
+    "conferenceId": "neurips",
+    "year": 2026,
+    "track": "Main Conference",
+    "submissions": 30709,
+    "accepted": 7900,
+    "rate": 25.73,
+    "sourceId": "hist-neurips-2026-institution",
+    "note": "RIKEN AIP institutional reporting: 30,709 valid main-track PDF submissions and 7,900 accepted. Not independently confirmed by NeurIPS program committee; source type is institutional."
   }
 ]

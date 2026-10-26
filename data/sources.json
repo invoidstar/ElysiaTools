@@ -9095,5 +9095,68 @@
     "kind": "official-history",
     "owner": "CVPR/CVF",
     "verifiedAt": "2026-10-26"
+  },
+  {
+    "id": "icra-27-papers",
+    "title": "ICRA 2027 contributed papers and author timeline",
+    "url": "https://2027.ieee-icra.org/contribute/call-for-icra-2027-papers-now-accepting-submissions/",
+    "kind": "official-cfp",
+    "owner": "IEEE ICRA 2027",
+    "verifiedAt": "2026-10-26",
+    "note": "Original paper deadline appears crossed out on the updated CFP; deadline deliberately not inferred."
+  },
+  {
+    "id": "icra-27-contribute",
+    "title": "ICRA 2027 workshops and Arts in Robotics call",
+    "url": "https://2027.ieee-icra.org/Contribute/",
+    "kind": "official-cfp",
+    "owner": "IEEE ICRA 2027",
+    "verifiedAt": "2026-10-26",
+    "note": "Updated workshop full-proposal date Nov 2; Art abstract deadline Dec 1 at 23:59 PST."
+  },
+  {
+    "id": "iccv-27",
+    "title": "ICCV 2027 meeting dates (submission dates TBD)",
+    "url": "https://iccv.thecvf.com/Conferences/2027/Dates",
+    "kind": "official-cfp",
+    "owner": "IEEE/CVF ICCV",
+    "verifiedAt": "2026-10-26",
+    "note": "Official Dates page confirms October 3–7 for conference, with workshops October 3–4; no paper deadlines listed."
+  },
+  {
+    "id": "iros-27",
+    "title": "IROS 2027 IEEE Robotics and Automation Society event and date-only paper deadline",
+    "url": "https://www.ieee-ras.org/event/2027-ieee-rsj-international-conference-on-intelligent-robots-and-systems-iros-70525/",
+    "kind": "official-cfp",
+    "owner": "IEEE Robotics and Automation Society",
+    "verifiedAt": "2026-10-26",
+    "note": "March 1, 2027 listed as paper deadline without clock time or time zone. Annual organizer website may temporarily redirect to an earlier edition."
+  },
+  {
+    "id": "hist-icml-2026-organizer",
+    "title": "ICML 2026 organizers' reported submissions and acceptances",
+    "url": "https://bsky.app/profile/icmlconf.bsky.social/post/3mq2wkt355c2e",
+    "kind": "official-history",
+    "owner": "ICML Conference official social account",
+    "verifiedAt": "2026-10-26",
+    "note": "24,661 submissions and 6,552 accepted; some third-party figures differ. Official conference-account figures are preserved by track."
+  },
+  {
+    "id": "hist-eccv-2026-publisher",
+    "title": "ECCV 2026 published proceedings statistics",
+    "url": "https://link.springer.com/book/10.1007/978-3-032-37447-9",
+    "kind": "publisher-history",
+    "owner": "Springer Nature",
+    "verifiedAt": "2026-10-26",
+    "note": "Proceedings editorial describes 2,834 presented papers selected from 10,473 submissions. Publisher record, not an independent program committee report."
+  },
+  {
+    "id": "hist-neurips-2026-institution",
+    "title": "NeurIPS 2026 institutional report citing main-track submissions and acceptances",
+    "url": "https://aip.riken.jp/news/neurips2026/?lang=en",
+    "kind": "institutional-history",
+    "owner": "RIKEN Center for Advanced Intelligence Project",
+    "verifiedAt": "2026-10-26",
+    "note": "Institution-reported figures; do not present as independently checked organizer statistics."
   }
 ]

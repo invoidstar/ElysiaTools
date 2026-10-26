@@ -51,7 +51,7 @@ export function HomePage({ academic, zone, now, onNavigate, onConferenceSearch, 
   return <div className="page-enter home-page">
     <section className="home-hero">
       <div className="hero-text">
-        <div className="hero-badge"><Sparkles size={15} /> ACADEMIC RESEARCH TOOLKIT <span>V1.6.0</span></div>
+        <div className="hero-badge"><Sparkles size={15} /> ACADEMIC RESEARCH TOOLKIT <span>V1.8.0</span></div>
         <h1>让科研信息<span className="headline-comma">，</span><br/><span>变得更简单<span className="accent-dot">.</span></span></h1>
         <p>会议截稿、期刊信息、学术分类与个人日程。<br/>一个精心整理的科研工具箱，帮助你专注于真正重要的研究。</p>
         <div className="hero-search-box">
@@ -100,6 +100,7 @@ export function HomePage({ academic, zone, now, onNavigate, onConferenceSearch, 
 
     <section className="home-section home-bottom-grid">
       <div className="update-panel"><div className="section-heading"><div><span className="section-overline">LATEST UPDATES / 05</span><h2>平台更新</h2></div><button className="inline-link" onClick={()=>onNavigate('tools')}>科研工具 <ArrowRight size={16}/></button></div>
+        <div className="update-row"><span className="update-date">2026.10.26</span><div><strong>会议主会优先 · 官方来源监控 · 书目工具修复</strong><p>期刊数据保持固定快照；主要会议年度日程及来源核验持续推进</p></div><span className="update-tag">V1.8.0</span></div>
         <div className="update-row"><span className="update-date">2026.10.12</span><div><strong>BibTeX 引用整理上线 · OpenAlex 限流优化</strong><p>文献批量整理与查重 · 浏览器持久缓存 · 查询节流与恢复</p></div><span className="update-tag">V1.6.0</span></div>
         <div className="update-row"><span className="update-date">2026.04.09</span><div><strong>CCF 第七版目录作为分类基准</strong><p>保留目录年份，不混用旧版分类</p></div><span className="update-tag neutral">DATA</span></div>
       </div>

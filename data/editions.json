@@ -1096,5 +1096,170 @@
       }
     ],
     "websiteSourceId": "icml-26"
+  },
+  {
+    "id": "icra-2027",
+    "conferenceId": "icra",
+    "year": 2027,
+    "location": "Seoul, South Korea",
+    "meetingStart": "2027-05-24",
+    "meetingEnd": "2027-05-28",
+    "sourceId": "icra-27-papers",
+    "verifiedAt": "2026-10-26",
+    "website": "https://2027.ieee-icra.org/",
+    "websiteSourceId": "icra-27-papers",
+    "tracks": [
+      {
+        "id": "main",
+        "name": "Main Contributed Papers",
+        "sourceId": "icra-27-papers",
+        "events": [
+          {
+            "id": "notification",
+            "kind": "notification",
+            "title": "Contributed-paper decisions announced",
+            "precision": "date",
+            "original": "2027-01-31",
+            "timezone": "UTC"
+          }
+        ],
+        "pending": [
+          "Original contributed-paper submission deadline: earlier notice struck through / superseded; verify final notice before publishing historical clock time."
+        ]
+      },
+      {
+        "id": "workshops",
+        "name": "Workshops and Tutorials (separate call)",
+        "sourceId": "icra-27-contribute",
+        "events": [
+          {
+            "id": "fullproposal",
+            "kind": "paper",
+            "title": "Full workshop/tutorial proposal submission (date updated from Nov 1 to Nov 2)",
+            "precision": "date",
+            "original": "2026-11-02",
+            "timezone": "UTC"
+          },
+          {
+            "id": "notification",
+            "kind": "notification",
+            "title": "Workshop/tutorial decisions",
+            "precision": "date",
+            "original": "2027-01-31",
+            "timezone": "UTC"
+          }
+        ],
+        "pending": []
+      },
+      {
+        "id": "arts",
+        "name": "Arts in Robotics (separate call)",
+        "sourceId": "icra-27-contribute",
+        "events": [
+          {
+            "id": "abstract",
+            "kind": "abstract",
+            "title": "Arts in Robotics abstract deadline (23:59 PST)",
+            "precision": "minute",
+            "original": "2026-12-01T23:59",
+            "timezone": "America/Los_Angeles",
+            "utc": "2026-12-02T07:59:00.000Z"
+          },
+          {
+            "id": "notification",
+            "kind": "notification",
+            "title": "Arts in Robotics decision notification",
+            "precision": "date",
+            "original": "2027-01-31",
+            "timezone": "UTC"
+          },
+          {
+            "id": "materials",
+            "kind": "camera-ready",
+            "title": "Arts in Robotics final materials deadline (date only)",
+            "precision": "date",
+            "original": "2027-04-05",
+            "timezone": "UTC"
+          }
+        ],
+        "pending": []
+      }
+    ],
+    "changeLog": [
+      {
+        "date": "2026-10-26",
+        "note": "Added official 2027 meeting dates and independently sourced program tracks; omitted historical contributed-paper clock deadline because notices are conflicting/struck through.",
+        "sourceId": "icra-27-papers"
+      }
+    ]
+  },
+  {
+    "id": "iccv-2027",
+    "conferenceId": "iccv",
+    "year": 2027,
+    "location": "Hong Kong, China",
+    "meetingStart": "2027-10-03",
+    "meetingEnd": "2027-10-07",
+    "sourceId": "iccv-27",
+    "verifiedAt": "2026-10-26",
+    "website": "https://iccv.thecvf.com/Conferences/2027",
+    "websiteSourceId": "iccv-27",
+    "tracks": [
+      {
+        "id": "main",
+        "name": "Main Conference",
+        "sourceId": "iccv-27",
+        "events": [],
+        "pending": [
+          "Paper registration and full-paper deadline: not yet published on the official Dates page."
+        ]
+      }
+    ],
+    "changeLog": [
+      {
+        "date": "2026-10-26",
+        "note": "Official conference days Oct 3–7; venue prose also references a wider Oct 2–8 window. No paper deadline guessed.",
+        "sourceId": "iccv-27"
+      }
+    ]
+  },
+  {
+    "id": "iros-2027",
+    "conferenceId": "iros",
+    "year": 2027,
+    "location": "Florence, Italy",
+    "meetingStart": "2027-09-27",
+    "meetingEnd": "2027-10-01",
+    "sourceId": "iros-27",
+    "verifiedAt": "2026-10-26",
+    "website": "https://www.ieee-ras.org/event/2027-ieee-rsj-international-conference-on-intelligent-robots-and-systems-iros-70525/",
+    "websiteSourceId": "iros-27",
+    "tracks": [
+      {
+        "id": "main",
+        "name": "Main Contributed Papers",
+        "sourceId": "iros-27",
+        "events": [
+          {
+            "id": "paper",
+            "kind": "paper",
+            "title": "Paper submission (official date only, time/TZ TBD)",
+            "precision": "date",
+            "original": "2027-03-01",
+            "timezone": "UTC"
+          }
+        ],
+        "pending": [
+          "Exact submission time and time zone not published in the verified IEEE RAS event listing."
+        ]
+      }
+    ],
+    "changeLog": [
+      {
+        "date": "2026-10-26",
+        "note": "Only year-specific IEEE RAS event and March 1 date-only paper deadline recorded; no assumed PaperCept hour.",
+        "sourceId": "iros-27"
+      }
+    ]
   }
 ]

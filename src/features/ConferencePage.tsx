@@ -5,6 +5,7 @@ import { DirectoryViz } from '../components/ResearchCharts';
 import { conferences, coverage, deadlineRows, deadlineState, eventMillis, nextDeadline, orderedConferences, matches, latestAcceptance, getEdition } from '../lib/catalog';
 import { countdown, displayEvent, kindLabel, monthKey, zoneValue, type ZoneChoice } from '../lib/time';
 import type { AcademicState, DeadlineRow } from '../types';
+import {isPrimaryTrack} from '../lib/deadlinePriority.mjs';
 import { loadConferenceWebsites, type ConferenceWebsiteRecord } from '../lib/conferenceSites';
 
 export interface ConferenceFilters {
@@ -50,7 +51,7 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
     const matchesDate = (id: string) => {
       if (!filters.from && !filters.to) return true;
       const next = nextDeadline(id, now);
-      if (!next?.event.utc || deadlineState(id, now) !== 'upcoming') return false;
+      if (!next || deadlineState(id, now) !== 'upcoming') return false;
       const time = eventMillis(next.event);
       if (filters.from && time < Date.parse(filters.from + 'T00:00:00Z')) return false;
       if (filters.to && time > Date.parse(filters.to + 'T23:59:59Z')) return false;
@@ -105,7 +106,7 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
         <label className="filter-label">最近截稿日期范围</label>
         <div className="date-pair"><input type="date" aria-label="开始日期" value={filters.from} onChange={e => change('from', e.target.value)} /><span>至</span><input type="date" aria-label="结束日期" value={filters.to} onChange={e => change('to', e.target.value)} /></div>
         <button className="save-filter" onClick={saveFilter}><BookmarkPlus size={16} /> 保存当前筛选</button>
-        <div className="filter-footnote"><span className="tiny-dot" /> 未经当届官方核实的日期不会被补充推测。</div>
+        <div className="filter-footnote"><span className="tiny-dot" /> 主会优先显示；Workshop、Industry 等独立轨道会明确标注。官方只公布日期时不补造时刻。</div>
       </aside>
 
       <div className="results-panel">
@@ -130,8 +131,8 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
               <div className="deadline-wrapper"><button className="deadline-cell" onClick={() => openConference(conf.id)}>
                 {state === 'upcoming' && row ? <>
                   <span className="deadline-main">{displayEvent(row.event, zone)}</span>
-                  <span className="deadline-sub">{row.edition.year} · {row.track.name} · {kindLabel[row.event.kind]}</span>
-                  <span className="countdown-small"><Clock3 size={13} /> {countdown(row.event, now)}</span>
+                  <span className="deadline-sub">{row.edition.year} · {isPrimaryTrack(row.track)?'主会':'专项 Track'} · {row.track.name} · {kindLabel[row.event.kind]}</span>
+                  <span className="countdown-small"><Clock3 size={13} /> {row.event.precision==='minute'?countdown(row.event,now):'仅公布日期 · 具体时刻 TBD'}</span>
                 </> : state === 'closed' ? <><span className="state-closed">本轮已截止</span><span className="deadline-sub">{row?.edition.year || ''} · 查看历史时间线</span></> :
                   <><span className="state-tbd">TBD</span><span className="deadline-sub">暂无可核验的当届截稿</span></>}
               </button>{current && <a className="conference-year-link"
@@ -157,6 +158,6 @@ export function ConferencePage({ filters, onFilters, academic, toggleFavorite, o
         </div>}
       </div>
     </div>
-    <div className="data-note"><FileDown size={16} /> 已覆盖 CCF 2026 全部会议推荐记录；历年录用率分别标注官方与社区来源；当届日程仅使用官方发布的时间，未核实项为 TBD。</div>
+    <div className="data-note"><FileDown size={16} /> 已覆盖 CCF 2026 全部会议推荐记录；历年录用率分别标注官方、出版社、研究机构与社区来源；主会和独立 Track 不混淆，当届日程仅使用官方发布的时间，未核实项为 TBD。</div>
   </section>;
 }

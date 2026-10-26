@@ -1,6 +1,13 @@
 name: Official source health checks
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'scripts/sync/check_sources.py'
+      - 'scripts/sync/report_source_changes.py'
+      - '.github/workflows/source-health.yml'
   schedule:
     - cron: '14 03 * * *'
   workflow_dispatch:
@@ -10,7 +17,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: elysiatools-source-health
+  group: elysiatools-official-sources-main
   cancel-in-progress: false
 
 jobs:
@@ -20,55 +27,39 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate structured data
         run: node scripts/validate.mjs
-      - name: Test health comparison logic
+      - name: Test source-health state machine and issue plan
         run: python3 -m unittest discover -s tests -p 'source_health_test.py'
-      - name: Restore previous observations
+      - name: Restore successful observations
         uses: actions/cache/restore@v4
         with:
           path: .cache/source-health/previous.json
-          key: source-health-v2-main-${{ github.run_id }}
+          key: source-health-v3-main-${{ github.run_id }}
           restore-keys: |
-            source-health-v2-main-
-      - name: Compare official pages
+            source-health-v3-main-
+      - name: Compare verified official sources
         run: |
           python3 scripts/sync/check_sources.py --baseline .cache/source-health/previous.json \
             --snapshot .cache/source-health/current.json \
             --output source-health-report.json --markdown source-health-report.md
           cat source-health-report.md >> "$GITHUB_STEP_SUMMARY"
-      - name: Persist next baseline
+      - name: Open or append independent review Issues
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/sync/report_source_changes.py source-health-report.json
+      - name: Copy latest successful observations
         if: always()
         run: |
           if [ -s .cache/source-health/current.json ]; then
             cp .cache/source-health/current.json .cache/source-health/previous.json
           fi
-      - name: Cache successful fingerprints
+      - name: Save successful fingerprints
         if: always()
         uses: actions/cache/save@v4
         with:
           path: .cache/source-health/previous.json
-          key: source-health-v2-main-${{ github.run_id }}
-      - name: Open or update review Issue for changed pages
-        if: success()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          python3 - <<'PY'
-          import json, subprocess
-          with open('source-health-report.json', encoding='utf-8') as stream:
-              report = json.load(stream)
-          if not report['requiresReview']:
-              print('No content change; no new Issue.')
-              raise SystemExit(0)
-          title = '[Source health] Official page changes need review'
-          found = json.loads(subprocess.check_output(
-              ['gh', 'issue', 'list', '--state', 'open', '--limit', '100',
-               '--json', 'number,title'], text=True))
-          numbers = [str(x['number']) for x in found if x['title'] == title]
-          cmd = (['gh', 'issue', 'edit', numbers[0]] if numbers else
-                 ['gh', 'issue', 'create', '--title', title])
-          subprocess.check_call(cmd + ['--body-file', 'source-health-report.md'])
-          PY
-      - name: Upload human-readable source reports
+          key: source-health-v3-main-${{ github.run_id }}
+      - name: Upload source report
         if: always()
         uses: actions/upload-artifact@v4
         with:

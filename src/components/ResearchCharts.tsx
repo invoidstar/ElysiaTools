@@ -61,6 +61,13 @@ export function DirectoryViz({ type, onField, activeField = '' }: {
   </div>;
 }
 
+function acceptanceSourceLabel(kind?:string):string{
+  if(kind==='official-history')return '组委会资料';
+  if(kind==='publisher-history')return '出版方记录';
+  if(kind==='institutional-history')return '研究机构报道';
+  return '社区整理';
+}
+
 export function AcceptanceTrend({conferenceId,compact=false}:{conferenceId:string;compact?:boolean}) {
   const rows=acceptance.filter(r=>r.conferenceId===conferenceId).sort((a,b)=>a.year-b.year);
   if(!rows.length) return <div className="data-unavailable"><History size={18}/><div><strong>往年录用率待补充</strong><p>仅收录具有来源、年份和明确 Track 的历史录用数据。</p></div></div>;
@@ -72,7 +79,7 @@ export function AcceptanceTrend({conferenceId,compact=false}:{conferenceId:strin
   const area='M '+pts.replace(/ /g,' L ')+' L '+x(rows.length-1)+' '+(H-padBot)+' L '+x(0)+' '+(H-padBot)+' Z';
   if(compact) return <div className="acceptance-inline"><TrendingUp size={14}/><b>{rows.at(-1)!.rate}%</b><span>{rows.at(-1)!.year} 录用率</span></div>;
   return <div className="acceptance-trend">
-    <div className="trend-head"><div><span className="trend-eyebrow">HISTORICAL ACCEPTANCE</span><strong>历年投稿与录用趋势</strong></div><span className="trend-head-meta">{rows.length} 条有来源的记录 · 非预测</span></div>
+    <div className="trend-head"><div><span className="trend-eyebrow">HISTORICAL ACCEPTANCE</span><strong>历年投稿与录用趋势</strong></div><span className="trend-head-meta">{rows.length} 条 · 官方/出版方/机构/社区分别标注 · 非预测</span></div>
     <svg viewBox={'0 0 '+W+' '+H} className="trend-svg" role="img" aria-label={'历年录用率：'+rows.map(r=>r.year+'年'+r.rate+'%').join('，')}>
       <defs><linearGradient id={'area-'+conferenceId} x1="0" y1="0" x2="0" y2="1"><stop stopColor="#8d80e9" stopOpacity=".23"/><stop offset="1" stopColor="#8d80e9" stopOpacity=".015"/></linearGradient></defs>
       {[0,maxY/3,maxY*2/3,maxY].map(t=><g key={t}><line x1={padX} x2={W-padX} y1={y(t)} y2={y(t)} stroke="var(--line)" strokeDasharray="4 5"/><text x={padX-9} y={y(t)+4} textAnchor="end" fontSize="9" fill="var(--faint)">{Math.round(t)}%</text></g>)}
@@ -80,11 +87,11 @@ export function AcceptanceTrend({conferenceId,compact=false}:{conferenceId:strin
       <polyline points={pts} stroke="var(--primary)" fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
       {rows.map((r,i)=><g key={r.year}><circle cx={x(i)} cy={y(r.rate)} r="5" fill="var(--surface)" stroke="var(--primary)" strokeWidth="2.5"/><text x={x(i)} y={H-10} fontSize="9" textAnchor="middle" fill="var(--muted)">{rows.length<9 || i%2===0 || i===rows.length-1 ? r.year : ""}</text><title>{r.year}: {r.rate}%</title></g>)}
     </svg>
-    <div className="trend-year-list">{rows.map(r=><div key={r.year} className="trend-year-chip"><strong>{r.rate}%</strong><span>{r.year}</span><a target="_blank" rel="noopener noreferrer" href={getSource(r.sourceId)?.url} aria-label={'查看'+r.year+'官方录用率来源'}><ExternalLink size={12}/></a></div>)}</div>
-    <div className="acceptance-table-wrap"><table className="acceptance-table"><thead><tr><th>年份</th><th>投稿量</th><th>录用量</th><th>录用率</th><th>来源</th></tr></thead><tbody>{[...rows].reverse().map(r=><tr key={r.year+'-'+r.track}>
-      <td><b>{r.year}</b></td><td>{r.submissions?.toLocaleString('en-US') ?? '—'}</td><td>{r.accepted?.toLocaleString('en-US') ?? '—'}</td>
+    <div className="trend-year-list">{rows.map(r=><div key={r.year} className="trend-year-chip"><strong>{r.rate}%</strong><span>{r.year}</span><a target="_blank" rel="noopener noreferrer" href={getSource(r.sourceId)?.url} aria-label={'查看'+r.year+' '+acceptanceSourceLabel(getSource(r.sourceId)?.kind)+'来源'}><ExternalLink size={12}/></a></div>)}</div>
+    <div className="acceptance-table-wrap"><table className="acceptance-table"><thead><tr><th>年份</th><th>Track</th><th>投稿量</th><th>录用量</th><th>录用率</th><th>来源</th></tr></thead><tbody>{[...rows].reverse().map(r=><tr key={r.year+'-'+r.track}>
+      <td><b>{r.year}</b></td><td title={r.note||r.track}>{r.track}</td><td>{r.submissions?.toLocaleString('en-US') ?? '—'}</td><td>{r.accepted?.toLocaleString('en-US') ?? '—'}</td>
       <td><strong className="acceptance-rate-value">{r.rate}%</strong></td>
-      <td><a href={getSource(r.sourceId)?.url} target="_blank" rel="noopener noreferrer" className="micro-link">{getSource(r.sourceId)?.kind==='official-history'?'官方报告':'社区整理'} <ExternalLink size={12}/></a></td>
+      <td><a href={getSource(r.sourceId)?.url} target="_blank" rel="noopener noreferrer" className="micro-link">{acceptanceSourceLabel(getSource(r.sourceId)?.kind)} <ExternalLink size={12}/></a></td>
     </tr>)}</tbody></table></div>
     <div className="trend-notes"><ShieldCheck size={14}/> 官方资料与 CCF-Deadlines 社区数据分别标注；投稿量、录用量及统计口径以原始链接为准。部分年份含不同 Track 或阶段，录用率不是未来录用概率。</div>
   </div>;

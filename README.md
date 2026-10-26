@@ -1,6 +1,6 @@
 # ElysiaTools
 
-**Latest release: V1.7.0 — source-audited research toolkit (2026-10-26).**
+**Latest release: V1.8.0 — source-monitored conferences and reliable research tools (2026-10-26).**
 
 **Research, Made Easier.** — 学术会议、期刊分区和个人科研工作台。
 
@@ -13,7 +13,7 @@ ElysiaTools uses React, TypeScript and Vite and runs exclusively on **GitHub Pag
 | Module | Features |
 | --- | --- |
 | Home | Conference/journal search, CCF overview, deadlines |
-| Conferences | CCF 2026 A/B/C full directory; 13 officially sourced annual editions, provenance-tagged historical acceptance, separate ARR commitment deadlines, timezone conversion and ICS |
+| Conferences | CCF 2026 A/B/C full directory; 16 source-backed annual editions, provenance-tagged historical acceptance, separate ARR commitment deadlines, timezone conversion and ICS |
 | Journals | **23,100 unique journal identities**; name/ISSN search, CAS 2025 historical divisions, XinRui 2026 divisions, JCR 2025 quartiles, JIF 2025, CCF 2026 classifications, filters, detail views and comparisons |
 | My Academic | Browser-local favorites, comparison lists, backups |
 | Tools | DOI / arXiv / ISSN resolver plus DOI (Crossref) / arXiv (OpenAlex) metadata-to-BibTeX import; local parser, dedupe, sort, copy and export |
@@ -22,7 +22,7 @@ Light/dark mode and responsive layouts are included.
 
 ## Journal data coverage
 
-The 2026-10-12 GitHub Pages build identified **23,100 unique journals** (including the existing CCF catalogue). **23,026 journals** have at least one of the following annual evaluation records:
+The annual source index audited on 2026-10-12 identified **23,100 unique journals** (including the existing CCF catalogue). **23,026 journals** have at least one of the following annual evaluation records:
 
 | Metric | Journal coverage | Meaning |
 | --- | ---: | --- |
@@ -60,17 +60,17 @@ The journal lookup now:
 
 These improvements cannot eliminate API-wide quotas for first-time visitors. At larger scale, use a server-side proxy with a protected key and shared cache (for example Cloudflare Worker + KV/D1), subject to later approval. No server has been added in this version.
 
-### BibTeX organizer (V1.6–V1.7)
+### BibTeX organizer (V1.6–V1.8)
 
 The new BibTeX workspace has its own independent page at [Tools → BibTeX](https://invoidstar.github.io/ElysiaTools/#tools/bibtex). The identifier resolver has its own page at [Tools → Identifier Resolver](https://invoidstar.github.io/ElysiaTools/#tools/identifier). The [Tools landing page](https://invoidstar.github.io/ElysiaTools/#tools) is now a simple directory of fully operational tools. It accepts pasted references or imported .bib files (up to 3 MB / 4,000 entries), preserves LaTeX braces/commands and BibTeX string definitions, identifies strong DOI / arXiv duplicate candidates, flags missing fields and conflicting citation keys, and supports sorting, review, copy and export.
 
 Only identifier-backed duplicate suggestions may be excluded automatically; title/year similarity alone does not remove records. Existing citation keys are not silently renamed because this might break references in LaTeX manuscripts. The three unused image-check, statistics and academic plotting roadmap cards remain removed from the Tools directory.
 
-V1.7 also supports DOI-to-BibTeX through Crossref and arXiv metadata-to-BibTeX through OpenAlex's arXiv DOI lookup. Only the identifier is sent to the respective external API, never the full local BibTeX library. A missing arXiv OpenAlex record or API rate limit produces an actionable error, not guessed citations. Existing citation keys and imported entries are never silently overwritten.
+V1.7 introduced DOI-to-BibTeX through Crossref and arXiv metadata-to-BibTeX through OpenAlex's arXiv DOI lookup. Only the identifier is sent to the respective external API, never the full local BibTeX library. A missing arXiv OpenAlex record or API rate limit produces an actionable error, not guessed citations. Existing citation keys and imported entries are never silently overwritten.
 
 The three journal rating filters are now independently selectable from the first render: evaluation system, annual data status, and zone/quartile. Tier values explicitly identify CAS, XinRui or JCR, even when the evaluation system filter is left on All.
 
-The former online “同步期刊评价数据” function remains removed. A standalone aggregated [historic matching audit](scripts/sync/audit_metric_csv.py) is retained for developers. The CCF source data and 2026 conference/acceptance directory remain unchanged.
+The former online “同步期刊评价数据” function remains removed. A standalone aggregated [historic matching audit](scripts/sync/audit_metric_csv.py) is retained for developers. The pinned CCF 2026 classification directory remains unchanged; official year-specific conference and historical source records may be updated independently.
 
 ## V1.7 source health, reliability and performance
 
@@ -94,6 +94,42 @@ The former online “同步期刊评价数据” function remains removed. A sta
   official/community source lineage and checks the separately documented
   annual data-rights state. See
   [provenance and authorization checklist](docs/PROVENANCE_AND_AUTHORIZATION.md).
+
+## V1.8 — seven-point quality and coverage update
+
+- **CI**: pull requests and main deploys now have independent concurrency groups.
+  Python source-monitor tests run in PR CI before the full Vite build;
+  PRs do not publish GitHub Pages.
+- **Sources**: a changed official page requires two successful identical
+  observations before prompting review. Failed requests retain earlier
+  fingerprints. Each confirmed source has its own GitHub Issue, to which
+  further evidence is appended. Page changes never automatically alter
+  paper deadlines or evaluation metrics.
+- **Conferences**: CCF recommendation set remains exactly 386 conferences,
+  with 16 source-backed annual editions. ICRA 2027, ICCV 2027 and IROS 2027
+  have been added. IROS 2027 papers have a *date-only* 2027-03-01 deadline;
+  exact clock time and timezone remain unknown. ICCV 2027 paper submission
+  dates remain TBD. ICRA main, workshop and Arts tracks remain distinct.
+- **Deadline priority**: conference listings prioritize verified main-track
+  submissions when both main and workshop deadlines are upcoming; separate
+  specialist deadlines are still discoverable. Date-only deadlines do not
+  receive invented hours.
+- **Acceptance**: ICML 2026 organizer-account statistics, ECCV 2026
+  publisher proceedings and NeurIPS 2026 institutional statistics retain
+  separate provenance labels. Different denominators and source conflicts
+  are flagged rather than merged without evidence.
+- **Journals**: the approx. 23k journal identities are sorted once on
+  catalogue loading instead of repeatedly sorting every filter keystroke.
+- **BibTeX**: DOI/arXiv imports escape TeX-sensitive characters, preserve
+  Unicode and title capitalization, verify the arXiv DOI identity and limit
+  external lookups to 12 seconds. The local BibTeX file stays client-side.
+- **Annual data rights**: CAS 2025, XinRui 2026 and JCR/JIF 2025 data
+  remain pinned. Provider permission evidence must be checked privately;
+  its public status remains reported-authorized-unverified.
+
+The site does not claim fully verified annual deadlines for all 386
+conference names or organizer-certified statistics for all historical
+records. See the provenance checklist before renewing a provider snapshot.
 
 ## Licensing and responsibility
 

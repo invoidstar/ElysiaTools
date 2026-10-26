@@ -22,6 +22,21 @@
 - Crossref DOI and OpenAlex arXiv citation ingestion in the actual BibTeX editor.
 - Mobile card/importer layout and keyboard focus/accessibility improvements.
 
+## V1.8 delivered (2026-10-26)
+
+- PR/main GitHub Actions concurrency separated, with source-monitor Python
+  regressions in PR builds.
+- Two-successful-read confirmation for source page changes; independent
+  human-review Issues retain previous evidence, without rewriting dates.
+- ICRA/ICCV/IROS 2027 sourced annual timelines, complete with date-only
+  precision, TBD gaps, specialist track separation and main-track priority.
+- ICML2026 organizer figures, ECCV2026 publisher figures, NeurIPS2026
+  institutional reporting all clearly separate from community history.
+- Journal catalogue sorted once on load and filtered without re-sorting.
+- DOI/arXiv BibTeX syntax, Unicode, identity and timeout checks hardened.
+- External annual data permissions remain reported but unverified; private
+  provider-license evidence must be checked before replacing snapshots.
+
 ## Future candidates (not published as nonfunctional cards)
 
 1. LaTeX, Markdown and CSV table conversions — practical formatting transforms including academic three-line tables.

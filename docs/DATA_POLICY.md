@@ -94,9 +94,35 @@ conferences such as NAACL and EMNLP. Commitment is stored as its own deadline
 kind, not disguised as a new review-cycle initial paper submission. Year-specific
 official URLs, submission tracks and independent cycles remain separate.
 
-\`npm run audit:provenance\` checks source-kind integrity, including
+`npm run audit:provenance` checks source-kind integrity, including
 official-history vs community-history acceptance reports. The scheduled source
 health workflow records page digest differences and HTTP failures separately;
 a changed page is a review request, not an automatic deadline correction.
 The annual provider permission state is recorded without claiming independent
 verification in [PROVENANCE_AND_AUTHORIZATION.md](PROVENANCE_AND_AUTHORIZATION.md).
+
+
+## 10. V1.8 source accuracy and publication boundaries
+
+Main-conference submission events have list and homepage priority over
+workshops or industry/arts proposals when a verified future main deadline
+exists. Date-only verified deadlines (e.g. IROS 2027) have no invented time
+or timezone. ICCV 2027 paper deadlines remain unannounced/TBD.
+
+Historical acceptance source kinds differ: official-history is an organizer
+statement, publisher-history is publisher proceedings, institutional-history
+is reporting from an independent research institution, and community-history
+is third-party transcription. No type is silently relabeled as another,
+and any divergent denominator merits review before changing a statistic.
+
+Source monitoring requires two successful matching observations of a new
+page fingerprint before raising an individual GitHub review Issue. A failed
+HTTP request never overwrites the last-good source observation. Cache loss
+establishes a fresh baseline, not evidence that nothing changed. No dates,
+acceptance figures, or journal rankings are rewritten by the monitor.
+
+Annual CAS, XinRui and JCR/JIF data rights remain reported-authorized-unverified
+until provider-specific redistribution grants are privately verified. No paid
+source CSV, key, subscriber credentials or contracts belong in this public
+repository. BibTeX imports send only an academic identifier to Crossref or
+OpenAlex, not the user's local library.
