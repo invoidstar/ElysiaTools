@@ -106,5 +106,21 @@ class SourceHealthTest(unittest.TestCase):
         self.assertFalse(result["ok"])
         self.assertIn("2 MB",result["error"])
 
+    def test_large_accepted_paper_catalogue_gets_bounded_exception(self):
+        from unittest.mock import patch
+        class LongOfficialPage:
+            status=200
+            headers={"Content-Type":"text/html; charset=utf-8"}
+            def __enter__(self): return self
+            def __exit__(self,*args): return False
+            def read(self,n): return b"<p>CVPR 2023 Statistics</p>"+b"x"*(2_200_000-27)
+            def geturl(self): return "https://cvpr.thecvf.com/Conferences/2023/AcceptedPapers"
+        source={"url":"https://cvpr.thecvf.com/Conferences/2023/AcceptedPapers",
+                "kind":"official-history"}
+        with patch.object(monitor.urllib.request,"urlopen",return_value=LongOfficialPage()):
+            result=monitor.fetch(source)
+        self.assertTrue(result["ok"])
+        self.assertTrue(result["bytesRead"]>2_000_000)
+
 if __name__=="__main__":
     unittest.main()

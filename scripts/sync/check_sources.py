@@ -60,10 +60,21 @@ def fetch(source):
             # Stream a bounded PDF body rather than treating these as broken links.
             is_pdf = ("pdf" in content_type.lower() or
                       source["url"].split("?", 1)[0].lower().endswith(".pdf"))
-            max_bytes = 24 * 1024 * 1024 if is_pdf else 2_000_000
+            # Organizers sometimes publish thousands of accepted papers in
+            # one official HTML catalogue. Allow bounded extended inspection
+            # only for that specific source class, not arbitrary HTML.
+            long_official_listing = (
+                not is_pdf and
+                source.get("kind") in {"official-history", "publisher-history"} and
+                source["url"].split("?", 1)[0].rstrip("/").endswith("/AcceptedPapers")
+            )
+            max_bytes = (24 * 1024 * 1024 if is_pdf else
+                         16 * 1024 * 1024 if long_official_listing else 2_000_000)
             body = response.read(max_bytes + 1)
             if len(body) > max_bytes:
-                label = "24 MiB PDF" if is_pdf else "2 MB HTML/other"
+                label = ("24 MiB PDF" if is_pdf else
+                         "16 MiB official accepted-paper listing" if long_official_listing
+                         else "2 MB HTML/other")
                 return {"ok": False, "error": "Source exceeds "+label+" inspection limit; manual review"}
             return {"ok": True, "status": response.status,
                     "finalUrl": response.geturl(),
