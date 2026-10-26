@@ -55,12 +55,19 @@ def fetch(source):
     })
     try:
         with urllib.request.urlopen(request, timeout=18) as response:
-            body = response.read(2_000_001)
-            if len(body)>2_000_000:
-                return {"ok": False, "error": "Source exceeds inspection limit (2 MB); no inference"}
+            content_type = response.headers.get("Content-Type", "")
+            # Official fact sheets and program reports are often PDFs >2 MB.
+            # Stream a bounded PDF body rather than treating these as broken links.
+            is_pdf = ("pdf" in content_type.lower() or
+                      source["url"].split("?", 1)[0].lower().endswith(".pdf"))
+            max_bytes = 24 * 1024 * 1024 if is_pdf else 2_000_000
+            body = response.read(max_bytes + 1)
+            if len(body) > max_bytes:
+                label = "24 MiB PDF" if is_pdf else "2 MB HTML/other"
+                return {"ok": False, "error": "Source exceeds "+label+" inspection limit; manual review"}
             return {"ok": True, "status": response.status,
                     "finalUrl": response.geturl(),
-                    "fingerprint": fingerprint(body,response.headers.get("Content-Type","")),
+                    "fingerprint": fingerprint(body,content_type),
                     "bytesRead": len(body)}
     except (urllib.error.URLError, TimeoutError, OSError) as error:
         return {"ok": False, "error": str(error)[:250]}

@@ -1261,5 +1261,96 @@
         "sourceId": "iros-27"
       }
     ]
+  },
+  {
+    "id": "ijcai-2027",
+    "conferenceId": "ijcai",
+    "year": 2027,
+    "location": "Kyoto, Japan (main conference); Hengqin, China (satellite)",
+    "meetingStart": "2027-08-07",
+    "meetingEnd": "2027-08-13",
+    "sourceId": "ijcai-27-main",
+    "verifiedAt": "2026-10-26",
+    "website": "https://2027.ijcai.org/",
+    "websiteSourceId": "ijcai-27-main",
+    "tracks": [
+      {
+        "id": "main",
+        "name": "Main Track",
+        "sourceId": "ijcai-27-main",
+        "events": [
+          {
+            "id": "main-abstract",
+            "kind": "abstract",
+            "title": "Main-track abstract submission",
+            "precision": "minute",
+            "original": "2027-01-04T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2027-01-05T11:59:00.000Z"
+          },
+          {
+            "id": "main-paper",
+            "kind": "paper",
+            "title": "Main-track full paper submission (incl. appendix)",
+            "precision": "minute",
+            "original": "2027-01-11T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2027-01-12T11:59:00.000Z"
+          },
+          {
+            "id": "summary-reject",
+            "kind": "notification",
+            "title": "Summary reject notification",
+            "precision": "date",
+            "original": "2027-02-25",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "response-opens",
+            "kind": "rebuttal",
+            "title": "Author response period opens (date only)",
+            "precision": "date",
+            "original": "2027-03-30",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "response-closes",
+            "kind": "rebuttal",
+            "title": "Author response period closes",
+            "precision": "minute",
+            "original": "2027-04-02T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2027-04-03T11:59:00.000Z"
+          },
+          {
+            "id": "decision",
+            "kind": "notification",
+            "title": "Main-track paper notification",
+            "precision": "date",
+            "original": "2027-04-21",
+            "timezone": "Etc/GMT+12"
+          },
+          {
+            "id": "camera-ready",
+            "kind": "camera-ready",
+            "title": "Camera-ready copy deadline",
+            "precision": "minute",
+            "original": "2027-05-07T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2027-05-08T11:59:00.000Z"
+          }
+        ],
+        "pending": [
+          "Special tracks publish separate calls. Their CFP states the same overall deadlines; review specific submission instructions on each official track page."
+        ]
+      }
+    ],
+    "changeLog": [
+      {
+        "date": "2026-10-26",
+        "note": "Added only Main Track dates and AoE deadline clock from the IJCAI 2027 organizer CFP; kept author-response start as date-only and special-track instructions separate.",
+        "sourceId": "ijcai-27-main"
+      }
+    ]
   }
 ]

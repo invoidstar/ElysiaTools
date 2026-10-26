@@ -75,5 +75,36 @@ class SourceHealthTest(unittest.TestCase):
         self.assertEqual(planned2[1]["action"],"reopen")
         self.assertEqual(len(review.make_plan({"checkedAt":"now","results":[]},[])),0)
 
+    def test_official_pdf_over_2mb_can_be_monitored(self):
+        # Previously several publisher/organizer PDFs were silently
+        # classified unreachable solely for exceeding the HTML size cap.
+        from unittest.mock import patch
+        blob=b"%PDF-1.7"+b"x"*(2_000_010-len(b"%PDF-1.7"))
+        class PdfResponse:
+            status=200
+            headers={"Content-Type":"application/pdf"}
+            def __enter__(self): return self
+            def __exit__(self,*args): return False
+            def read(self,n): return blob[:n]
+            def geturl(self): return "https://example.org/official.pdf"
+        with patch.object(monitor.urllib.request,"urlopen",return_value=PdfResponse()):
+            result=monitor.fetch({"url":"https://example.org/official.pdf"})
+        self.assertTrue(result["ok"])
+        self.assertEqual(result["bytesRead"],len(blob))
+        self.assertEqual(len(result["fingerprint"]),64)
+
+    def test_html_over_2mb_is_still_capped(self):
+        from unittest.mock import patch
+        class LargeHtml:
+            status=200
+            headers={"Content-Type":"text/html"}
+            def __enter__(self): return self
+            def __exit__(self,*args): return False
+            def read(self,n): return b"x"*n
+        with patch.object(monitor.urllib.request,"urlopen",return_value=LargeHtml()):
+            result=monitor.fetch({"url":"https://example.org/giant.html"})
+        self.assertFalse(result["ok"])
+        self.assertIn("2 MB",result["error"])
+
 if __name__=="__main__":
     unittest.main()

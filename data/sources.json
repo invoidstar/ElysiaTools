@@ -9158,5 +9158,14 @@
     "owner": "RIKEN Center for Advanced Intelligence Project",
     "verifiedAt": "2026-10-26",
     "note": "Institution-reported figures; do not present as independently checked organizer statistics."
+  },
+  {
+    "id": "ijcai-27-main",
+    "title": "IJCAI 2027 Main Track Call for Papers and Important Dates",
+    "url": "https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/",
+    "kind": "official-cfp",
+    "owner": "IJCAI 2027 Organizing Committee",
+    "verifiedAt": "2026-10-26",
+    "note": "Organizer confirms Jan 4 abstract, Jan 11 full paper, April 2 response close and May 7 camera-ready at 23:59 AoE. Author-response start is date-only. Main Track; special tracks have separate calls."
   }
 ]

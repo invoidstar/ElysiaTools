@@ -1,6 +1,6 @@
 # ElysiaTools
 
-**Latest release: V1.8.0 — source-monitored conferences and reliable research tools (2026-10-26).**
+**Latest release: V1.8.1 — verified IJCAI 2027 deadline and PDF source-monitor hardening (2026-10-26).**
 
 **Research, Made Easier.** — 学术会议、期刊分区和个人科研工作台。
 
@@ -13,7 +13,7 @@ ElysiaTools uses React, TypeScript and Vite and runs exclusively on **GitHub Pag
 | Module | Features |
 | --- | --- |
 | Home | Conference/journal search, CCF overview, deadlines |
-| Conferences | CCF 2026 A/B/C full directory; 16 source-backed annual editions, provenance-tagged historical acceptance, separate ARR commitment deadlines, timezone conversion and ICS |
+| Conferences | CCF 2026 A/B/C full directory; 17 source-backed annual editions, provenance-tagged historical acceptance, separate ARR commitment deadlines, timezone conversion and ICS |
 | Journals | **23,100 unique journal identities**; name/ISSN search, CAS 2025 historical divisions, XinRui 2026 divisions, JCR 2025 quartiles, JIF 2025, CCF 2026 classifications, filters, detail views and comparisons |
 | My Academic | Browser-local favorites, comparison lists, backups |
 | Tools | DOI / arXiv / ISSN resolver plus DOI (Crossref) / arXiv (OpenAlex) metadata-to-BibTeX import; local parser, dedupe, sort, copy and export |
@@ -130,6 +130,13 @@ The former online “同步期刊评价数据” function remains removed. A sta
 The site does not claim fully verified annual deadlines for all 386
 conference names or organizer-certified statistics for all historical
 records. See the provenance checklist before renewing a provider snapshot.
+
+
+### V1.8.1 follow-up (2026-10-26)
+
+- Added IJCAI 2027 Main Track from the [official IJCAI 2027 CFP](https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/): Jan 4 abstract, Jan 11 full paper, Feb 25 summary rejection, Mar 30–Apr 2 author response, Apr 21 paper notification and May 7 camera ready. Published deadlines use 23:59 AoE and non-deadline announcements remain date-only.
+- The source-health reader now allows official PDF evidence up to **24 MiB** while retaining a 2 MB cap on generic HTML. The previous 2 MB restriction incorrectly marked several sizable official history PDFs as unreachable. Failed/oversize sources still do not overwrite any prior verified fingerprint.
+- Regression tests cover both large official PDF success and oversized HTML rejection.
 
 ## Licensing and responsibility
 
