@@ -253,3 +253,19 @@ test('organizer, publisher and institutional acceptance evidence stay distinct',
   assert.equal(neurips.submissions,30709);
   assert.equal(neurips.accepted,7900);
 });
+
+test('IJCAI 2027 Main Track preserves organizer AoE deadline and separate non-paper milestones',()=>{
+  const source=load('sources.json').find(s=>s.id==='ijcai-27-main');
+  assert.equal(source?.kind,'official-cfp');
+  const e=editions.find(e=>e.id==='ijcai-2027');
+  assert.ok(e&&e.tracks.length===1);
+  const main=e.tracks[0];
+  const abstract=main.events.find(ev=>ev.kind==='abstract');
+  const paper=main.events.find(ev=>ev.kind==='paper');
+  assert.equal(abstract.original,'2027-01-04T23:59');
+  assert.equal(abstract.utc,'2027-01-05T11:59:00.000Z');
+  assert.equal(paper.original,'2027-01-11T23:59');
+  assert.equal(paper.utc,'2027-01-12T11:59:00.000Z');
+  assert.equal(main.events.find(ev=>ev.id==='response-opens').precision,'date');
+  assert.equal(main.events.find(ev=>ev.id==='response-closes').utc,'2027-04-03T11:59:00.000Z');
+});
