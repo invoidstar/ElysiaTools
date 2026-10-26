@@ -135,7 +135,7 @@ records. See the provenance checklist before renewing a provider snapshot.
 ### V1.8.1 follow-up (2026-10-26)
 
 - Added IJCAI 2027 Main Track from the [official IJCAI 2027 CFP](https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/): Jan 4 abstract, Jan 11 full paper, Feb 25 summary rejection, Mar 30–Apr 2 author response, Apr 21 paper notification and May 7 camera ready. Published deadlines use 23:59 AoE and non-deadline announcements remain date-only.
-- The source-health reader now allows official PDF evidence up to **24 MiB** while retaining a 2 MB cap on generic HTML. The previous 2 MB restriction incorrectly marked several sizable official history PDFs as unreachable. Failed/oversize sources still do not overwrite any prior verified fingerprint.
+- The source-health reader now allows official PDF evidence up to **24 MiB**, and exceptionally large official accepted-paper HTML catalogues up to **16 MiB**, while retaining a 2 MB cap on generic HTML. The previous 2 MB restriction incorrectly marked several sizable official history PDFs as unreachable. Failed/oversize sources still do not overwrite any prior verified fingerprint.
 - Regression tests cover both large official PDF success and oversized HTML rejection.
 
 ## Licensing and responsibility

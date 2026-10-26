@@ -40,7 +40,7 @@
 ## V1.8.1 verification follow-up (2026-10-26)
 
 - IJCAI 2027 Main Track is now independently sourced from its official CFP; AoE exact deadlines and date-only review announcements remain distinct. Structured annual conference count: 17.
-- PDF-based source monitoring no longer treats legitimate reports over 2 MB as automatically unreachable; a separate 24 MiB cap and regression tests guard bounded memory use.
+- PDF-based source monitoring no longer treats legitimate reports over 2 MB as automatically unreachable; a separate 24 MiB cap for official PDF evidence, a 16 MiB cap for large official accepted-paper catalogues, and regression tests guard bounded memory use.
 - Existing unresolved official-versus-institutional acceptance conflicts and private journal-data redistribution grants stay in human-review Issues, with no invented resolution.
 
 ## Future candidates (not published as nonfunctional cards)
