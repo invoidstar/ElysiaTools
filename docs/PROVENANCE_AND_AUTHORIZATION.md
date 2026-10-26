@@ -10,7 +10,7 @@ As of 2026-10-26, the site operator has reported authorization for the three ann
 ShowJCR-derived snapshots. The repository has **not** independently verified the
 authorization letters or terms; the public manifest
 [data/publication-rights.json](../data/publication-rights.json) deliberately records
-\`reported-authorized-unverified\` for each input. The original CSVs remain excluded
+`reported-authorized-unverified` for each input. The original CSVs remain excluded
 from version control. ElysiaTools is MIT licensed; the data is not relicensed under MIT.
 
 Before renewing the snapshot, privately verify and retain:
@@ -34,7 +34,7 @@ agreements or provider keys in the public repository or browser JavaScript.
   certification. Historical curves preserve this distinction, and isolated conflicts
   are flagged rather than silently overwritten.
 
-The provenance audit (\`npm run audit:provenance\`) asserts all official and community
+The provenance audit (`npm run audit:provenance`) asserts all official and community
 history records reference existing source IDs of the correct kind, that every structured
 track resolves to a declared source, and that permission claims remain qualified.
 
@@ -42,8 +42,8 @@ track resolves to a declared source, and that permission claims remain qualified
 
 The scheduled workflow checks only curated official sources (CFPs, official histories,
 classification references and selected publisher notices). It restores prior page
-fingerprints from an Actions cache, reports \`baseline_created\`, \`unchanged\`,
-\`changed\` and \`unreachable\` distinctly, and saves fresh fingerprints **only on a
+fingerprints from an Actions cache, reports `baseline_created`, `unchanged`,
+`changed` and `unreachable` distinctly, and saves fresh fingerprints **only on a
 successful read**. On a changed page it updates a persistent GitHub Issue for manual
 review. A page digest change is not proof that any deadline moved; no data updates are
 made by this monitor. Rate limits, blockers and transient failures are recorded in
