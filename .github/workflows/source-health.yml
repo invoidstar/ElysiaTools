@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: .cache/source-health/previous.json
-          key: source-health-v3-main-${{ github.run_id }}
+          key: source-health-v3-main-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             source-health-v3-main-
       - name: Compare verified official sources
@@ -58,7 +58,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: .cache/source-health/previous.json
-          key: source-health-v3-main-${{ github.run_id }}
+          key: source-health-v3-main-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Upload source report
         if: always()
         uses: actions/upload-artifact@v4

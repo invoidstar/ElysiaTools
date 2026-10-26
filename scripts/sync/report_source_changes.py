@@ -21,11 +21,11 @@ def review_body(row,checked_at):
     after=(row.get("fingerprint") or "unavailable")
     return (
         f"### Academic source change confirmed — {row['id']}\n\n"
-        f"- Source type: \`{row['kind']}\`\n"
+        f"- Source type: `{row['kind']}`\n"
         f"- Official/reference page: {row['url']}\n"
         f"- Observed at (UTC): {checked_at}\n"
-        f"- Previous fingerprint: \`{before}\`\n"
-        f"- Latest fingerprint: \`{after}\`\n\n"
+        f"- Previous fingerprint: `{before}`\n"
+        f"- Latest fingerprint: `{after}`\n\n"
         "**Human review needed:** compare the official paper/abstract deadlines,"
         " time zones, tracks, accepted counts and provenance with the current"
         " structured record. A different page fingerprint is **not** proof"
