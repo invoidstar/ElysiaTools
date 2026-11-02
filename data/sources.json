@@ -26,6 +26,14 @@
     "verifiedAt": "2026-10-12"
   },
   {
+    "id": "cvpr-27-cfp",
+    "title": "CVPR 2027 official Call for Papers and rebuttal period",
+    "url": "https://cvpr.thecvf.com/Conferences/2027/CallForPapers",
+    "kind": "official-cfp",
+    "owner": "CVPR",
+    "verifiedAt": "2026-11-02"
+  },
+  {
     "id": "iclr-27",
     "title": "ICLR 2027 Dates",
     "url": "https://iclr.cc/Conferences/2027/Dates",
