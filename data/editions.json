@@ -90,11 +90,11 @@
     "id": "cvpr-2027",
     "conferenceId": "cvpr",
     "year": 2027,
-    "location": null,
+    "location": "Seattle, USA",
     "meetingStart": "2027-06-20",
     "meetingEnd": "2027-06-25",
     "sourceId": "cvpr-27",
-    "verifiedAt": "2026-10-12",
+    "verifiedAt": "2026-11-02",
     "tracks": [
       {
         "id": "main",
@@ -136,6 +136,24 @@
             "id": "main-4"
           },
           {
+            "id": "main-rebuttal-opens",
+            "kind": "rebuttal",
+            "title": "Author rebuttal period opens (date only)",
+            "precision": "date",
+            "original": "2027-01-25",
+            "timezone": "Etc/GMT+12",
+            "sourceId": "cvpr-27-cfp"
+          },
+          {
+            "id": "main-rebuttal-closes",
+            "kind": "rebuttal",
+            "title": "Author rebuttal period closes (date only)",
+            "precision": "date",
+            "original": "2027-02-01",
+            "timezone": "Etc/GMT+12",
+            "sourceId": "cvpr-27-cfp"
+          },
+          {
             "kind": "notification",
             "title": "Final decisions",
             "precision": "date",
@@ -172,7 +190,13 @@
         "pending": []
       }
     ],
-    "changeLog": [],
+    "changeLog": [
+      {
+        "date": "2026-11-02",
+        "note": "Official CVPR 2027 Call for Papers confirms Jan 25–Feb 1 AoE author rebuttal period (date-only endpoints); official 2027 conference homepage confirms Seattle, USA. No unspecified clock time was inferred.",
+        "sourceId": "cvpr-27-cfp"
+      }
+    ],
     "website": "https://cvpr.thecvf.com/Conferences/2027",
     "websiteSourceId": "cvpr-27"
   },
