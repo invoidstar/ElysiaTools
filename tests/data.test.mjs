@@ -269,3 +269,22 @@ test('IJCAI 2027 Main Track preserves organizer AoE deadline and separate non-pa
   assert.equal(main.events.find(ev=>ev.id==='response-opens').precision,'date');
   assert.equal(main.events.find(ev=>ev.id==='response-closes').utc,'2027-04-03T11:59:00.000Z');
 });
+
+test('CVPR 2027 official rebuttal period retains date-only precision and separate CFP evidence',()=>{
+  const sources=load('sources.json');
+  const cfp=sources.find(s=>s.id==='cvpr-27-cfp');
+  assert.equal(cfp.kind,'official-cfp');
+  assert.equal(cfp.url,'https://cvpr.thecvf.com/Conferences/2027/CallForPapers');
+  const cvpr=editions.find(e=>e.id==='cvpr-2027');
+  assert.equal(cvpr.location,'Seattle, USA');
+  const main=cvpr.tracks.find(t=>t.id==='main');
+  const period=main.events.filter(e=>e.kind==='rebuttal');
+  assert.deepEqual(period.map(e=>e.original),['2027-01-25','2027-02-01']);
+  for(const e of period){
+    assert.equal(e.precision,'date');
+    assert.equal(e.timezone,'Etc/GMT+12');
+    assert.equal(e.utc,undefined);
+    assert.equal(e.sourceId,cfp.id);
+  }
+  assert.ok(cvpr.changeLog.some(c=>c.sourceId===cfp.id));
+});
