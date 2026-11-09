@@ -689,7 +689,7 @@
     "meetingStart": "2027-06-01",
     "meetingEnd": "2027-06-05",
     "sourceId": "naacl-27-main",
-    "verifiedAt": "2026-10-26",
+    "verifiedAt": "2026-11-09",
     "website": "https://2027.naacl.org/",
     "tracks": [
       {
@@ -752,9 +752,10 @@
             "kind": "paper",
             "title": "Industry track full paper submission",
             "precision": "minute",
-            "original": "2026-10-31T23:59",
+            "original": "2026-11-13T23:59",
             "timezone": "Etc/GMT+12",
-            "utc": "2026-11-01T11:59:00.000Z"
+            "utc": "2026-11-14T11:59:00.000Z",
+            "sourceId": "naacl-27-industry"
           },
           {
             "id": "reviews",
@@ -827,6 +828,11 @@
         "date": "2026-10-26",
         "note": "Added from official year-specific dates/CFP; only independently published deadlines were retained.",
         "sourceId": "naacl-27-main"
+      },
+      {
+        "date": "2026-11-09",
+        "note": "NAACL 2027 organizer extended the separate Industry Track direct full-paper submission from Oct 31 to Nov 13, 2026, 23:59 AoE (UTC−12). Explicit extension notice in Industry CFP and corrected NAACL homepage take precedence over an obsolete Oct 31 date still visible in the CFP's older Important Dates table; ARR main-track submission and Dec 23 commitment remain unchanged.",
+        "sourceId": "naacl-27-industry"
       }
     ],
     "websiteSourceId": "naacl-27-main"
