@@ -9054,7 +9054,8 @@
     "url": "https://2027.naacl.org/calls/industry_track/",
     "kind": "official-cfp",
     "owner": "NAACL",
-    "verifiedAt": "2026-10-26"
+    "verifiedAt": "2026-11-09",
+    "note": "Organizer Industry Track CFP explicitly extends direct paper submission from Oct 31 to Nov 13, 2026, 23:59 UTC−12 (AoE); independently confirmed on https://2027.naacl.org/ . Original Oct 31 remains visible in the CFP's unamended Important Dates table but is superseded by the extension notice; Industry Track does not use ARR."
   },
   {
     "id": "naacl-27-demo",
