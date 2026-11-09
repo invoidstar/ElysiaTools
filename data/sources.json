@@ -108,10 +108,11 @@
   {
     "id": "hist-cvpr-2023",
     "title": "CVPR 2023 statistics (CVF)",
-    "url": "https://cvpr.thecvf.com/Conferences/2023/AcceptedPapers",
+    "url": "https://cvpr.thecvf.com/Conferences/2023/BlogPaperSubmissions",
     "kind": "official-history",
     "owner": "CVF",
-    "verifiedAt": "2026-10-12"
+    "verifiedAt": "2026-11-09",
+    "note": "Official CVF program-committee retrospective explicitly states CVPR 2023 main-conference 9,155 submissions, 2,359 accepted and 25.8% acceptance; this is the statistical source, rather than the accepted-papers listing."
   },
   {
     "id": "hist-cvpr-2024",
