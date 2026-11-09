@@ -306,3 +306,13 @@ test('NAACL 2027 Industry direct submission extension overrides outdated CFP tab
   assert.equal(commit.original,'2026-12-23T23:59');
   assert.ok(edition.changeLog.some(c=>c.date==='2026-11-09'&&c.sourceId===paper.sourceId));
 });
+
+test('CVPR 2023 acceptance numerator and denominator cite the official CVF report',()=>{
+  const row=load('acceptance.json').find(r=>r.conferenceId==='cvpr'&&r.year===2023);
+  const source=load('sources.json').find(s=>s.id===row.sourceId);
+  assert.equal(row.submissions,9155);
+  assert.equal(row.accepted,2359);
+  assert.equal(row.rate,25.8);
+  assert.equal(source.kind,'official-history');
+  assert.equal(source.url,'https://cvpr.thecvf.com/Conferences/2023/BlogPaperSubmissions');
+});
