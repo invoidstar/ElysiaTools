@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[2]
 MONITORED = {"official-cfp", "official-history", "publisher-history",
              "classification", "publisher-metric"}
 USER_AGENT = "ElysiaTools-SourceHealth/1.8 (+https://github.com/invoidstar/ElysiaTools)"
+FINGERPRINT_VERSION = 4  # HTML semantics changed: filter live countdowns and site chrome
 
 class ReadableHTML(HTMLParser):
     def __init__(self):
@@ -94,7 +95,12 @@ def fetch(source):
         return {"ok": False, "error": str(error)[:250]}
 
 def inspect(sources, prior, get=fetch):
-    previous=prior.get("sources",{})
+    # A fingerprint is comparable only with the same normalization rules.
+    # Treat older cache snapshots as fresh baselines, not page changes.
+    prior_version=prior.get("version")
+    previous=(prior.get("sources",{})
+              if prior_version==FINGERPRINT_VERSION else {})
+    baseline_reset=bool(prior.get("sources")) and prior_version!=FINGERPRINT_VERSION
     snapshots=dict(previous)
     rows=[]
     for source in sources:
@@ -129,14 +135,15 @@ def inspect(sources, prior, get=fetch):
     kinds=("changed","unchanged","unreachable","baseline_created","pending_confirmation")
     counts={state:sum(row["state"]==state for row in rows) for state in kinds}
     now=datetime.now(timezone.utc).isoformat()
-    report={"checkedAt":now,
+    report={"checkedAt":now,"fingerprintVersion":FINGERPRINT_VERSION,
+            "baselineReset":baseline_reset,
             "policy":"Two successful observations confirm a changed page; no automatic deadline edits.",
             "total":len(rows),"summary":counts,
             "requiresReview":[r["id"] for r in rows if r["state"]=="changed"],
             "candidates":[r["id"] for r in rows if r["state"]=="pending_confirmation"],
             "networkProblems":[r["id"] for r in rows if r["state"]=="unreachable"],
             "results":rows}
-    snapshot={"version":3,"updatedAt":now,"sources":snapshots}
+    snapshot={"version":FINGERPRINT_VERSION,"updatedAt":now,"sources":snapshots}
     return report,snapshot
 
 def report_markdown(report):
@@ -150,6 +157,9 @@ def report_markdown(report):
            f"- Confirmed changed pages needing review: **{counts['changed']}**",
            f"- HTTP/network/size failures: **{counts['unreachable']}**","",
            "A confirmed content change still **does not prove a date or acceptance rate changed**."]
+    if report.get("baselineReset"):
+        lines += ["", "Fingerprint normalization was upgraded; older cached digests",
+                  "were reset as baselines rather than reported as changed pages."]
     for state,label in (("changed","Confirmed changes"),("pending_confirmation","Unconfirmed changes"),
                         ("unreachable","Request failures")):
         matching=[r for r in report["results"] if r["state"]==state]
