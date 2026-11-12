@@ -254,6 +254,23 @@ test('organizer, publisher and institutional acceptance evidence stay distinct',
   assert.equal(neurips.accepted,7900);
 });
 
+test('ICCV 2025 final counts and ICML 2026 main-track fact sheet use official sources',()=>{
+  const a=load('acceptance.json'),sources=load('sources.json');
+  const byId=new Map(sources.map(s=>[s.id,s]));
+  const iccv=a.find(e=>e.conferenceId==='iccv'&&e.year===2025&&e.track==='Main Conference');
+  const icml=a.find(e=>e.conferenceId==='icml'&&e.year===2026&&e.track==='Main Conference');
+  assert.ok(iccv&&icml);
+  assert.equal(iccv.submissions,11239);
+  assert.equal(iccv.accepted,2701);
+  assert.equal(iccv.provenance,'official-verified');
+  assert.equal(byId.get(iccv.sourceId)?.kind,'official-history');
+  assert.equal(byId.get(iccv.sourceId)?.monitor,false,'30 MiB fixed PDF is manually verified, not daily downloaded');
+  assert.equal(icml.submissions,24661);
+  assert.equal(icml.accepted,6552);
+  assert.equal(byId.get(icml.sourceId)?.kind,'official-history');
+  assert.match(byId.get(icml.sourceId)?.url,/ICML2026_Fact_Sheet\.pdf$/);
+});
+
 test('IJCAI 2027 Main Track preserves organizer AoE deadline and separate non-paper milestones',()=>{
   const source=load('sources.json').find(s=>s.id==='ijcai-27-main');
   assert.equal(source?.kind,'official-cfp');
