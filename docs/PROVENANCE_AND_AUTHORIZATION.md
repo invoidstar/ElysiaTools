@@ -57,6 +57,16 @@ human acknowledgement, and it is only reopened when a *new* confirmed change
 occurs. This is not proof that a deadline moved; no academic date is auto-edited. Rate limits, blockers and transient failures are recorded in
 artifacts, without triggering false deadline changes.
 
+Certain large **static, finalized** official reports can use `monitor: false` in the
+source registry after a manual source and count check, instead of downloading
+oversized PDFs on every daily workflow. For example, the roughly 30 MiB
+ICCV 2025 conference program exceeds the bounded 24 MiB automated PDF reader.
+This explicit exception **does not** upgrade or waive source provenance,
+citation and data validation, nor imply that the archived report is watched
+for later changes. The original primary-source URL and verification date remain
+visible in `data/sources.json`. New edition data requires separate official
+review and a monitored source when technically feasible.
+
 GitHub Actions caches are not durable archival storage. If a baseline expires, the
 next run establishes a fresh baseline without claiming that earlier observations were
 unchanged.
