@@ -59,6 +59,37 @@ class SourceHealthTest(unittest.TestCase):
         b=monitor.fingerprint(b"<p>Submission date: A B</p><script>456</script>","text/html")
         self.assertEqual(a,b)
 
+    def test_live_countdown_and_site_chrome_do_not_create_false_change(self):
+        before=(
+            b'<nav><p>Latest announcement A</p></nav>'
+            b'<main><p>Paper deadline Sep 25, 2026 AoE</p>'
+            b'<span>05 weeks 06 days 18:01:49</span></main>'
+            b'<footer><p>News A</p></footer>'
+        )
+        after=(
+            b'<nav><p>Latest announcement B</p></nav>'
+            b'<main><p>Paper deadline Sep 25, 2026 AoE</p>'
+            b'<span>05 weeks 06 days 18:34:32</span></main>'
+            b'<footer><p>News B</p></footer>'
+        )
+        self.assertEqual(
+            monitor.fingerprint(before,"text/html"),
+            monitor.fingerprint(after,"text/html"),
+        )
+        changed=after.replace(b"Sep 25, 2026",b"Sep 26, 2026")
+        self.assertNotEqual(
+            monitor.fingerprint(before,"text/html"),
+            monitor.fingerprint(changed,"text/html"),
+        )
+
+    def test_regular_absolute_times_remain_safety_sensitive(self):
+        old=b"<main><p>Paper deadline Jan 11 2027 23:59 AoE</p></main>"
+        new=b"<main><p>Paper deadline Jan 12 2027 23:59 AoE</p></main>"
+        self.assertNotEqual(
+            monitor.fingerprint(old,"text/html"),
+            monitor.fingerprint(new,"text/html"),
+        )
+
     def test_changed_page_issues_are_separate_and_not_overwritten(self):
         report={"checkedAt":"2026-10-26T00:00:00Z","results":[
             {"id":"icra-27","kind":"official-cfp","url":"https://example.org/a",
