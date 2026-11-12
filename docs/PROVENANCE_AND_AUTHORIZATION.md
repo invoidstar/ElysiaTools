@@ -67,6 +67,12 @@ for later changes. The original primary-source URL and verification date remain
 visible in `data/sources.json`. New edition data requires separate official
 review and a monitored source when technically feasible.
 
+The source fingerprint normalization uses an explicit state format version.
+When HTML normalization rules change, the monitor discards incompatible cached
+digests and creates fresh baselines rather than treating the formatting change
+as a new academic-source fact. GitHub Actions caches also use the same versioned
+prefix. This does **not** suppress verified subsequent changes to event dates.
+
 GitHub Actions caches are not durable archival storage. If a baseline expires, the
 next run establishes a fresh baseline without claiming that earlier observations were
 unchanged.
