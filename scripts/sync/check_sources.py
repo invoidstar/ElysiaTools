@@ -98,7 +98,10 @@ def inspect(sources, prior, get=fetch):
     snapshots=dict(previous)
     rows=[]
     for source in sources:
-        if source.get("kind") not in MONITORED:
+        if source.get("kind") not in MONITORED or source.get("monitor") is False:
+            # Large static official-history archives may be manually verified
+            # without fetching a 30+ MiB historical program every day.
+            # Provenance and source URL remain available to data validation.
             continue
         observed=get(source)
         entry={**observed,"id":source["id"],"url":source["url"],"kind":source["kind"]}
