@@ -17,12 +17,28 @@ class SourceHealthTest(unittest.TestCase):
                        "url":"https://example.org/cfp"},
                       {"id":"archive","kind":"community-history",
                        "url":"https://example.org/archive"}]
-        self.prior={"sources":{"example":{"url":"https://example.org/cfp",
+        self.prior={"version":monitor.FINGERPRINT_VERSION,"sources":{"example":{"url":"https://example.org/cfp",
                                            "fingerprint":"original"}}}
 
     def seen(self,result,prior=None):
         return monitor.inspect(self.sources,prior if prior is not None else self.prior,
                                lambda _:{"ok":True,"fingerprint":result})
+
+    def test_old_fingerprint_version_must_rebaseline_without_alerts(self):
+        previous={"version":3,"sources":{
+            "example":{"url":"https://example.org/cfp","fingerprint":"legacy-hash"}
+        }}
+        report,snapshot=self.seen("new-v4-hash",previous)
+        self.assertTrue(report["baselineReset"])
+        self.assertEqual(report["fingerprintVersion"],4)
+        self.assertEqual(report["summary"]["baseline_created"],1)
+        self.assertFalse(report["requiresReview"])
+        self.assertEqual(snapshot["version"],4)
+        self.assertEqual(snapshot["sources"]["example"]["fingerprint"],"new-v4-hash")
+        # Subsequent observations compare against the new semantics normally.
+        second,_=self.seen("new-v4-hash",snapshot)
+        self.assertFalse(second["baselineReset"])
+        self.assertEqual(second["summary"]["unchanged"],1)
 
     def test_first_baseline_then_confirmation_then_review(self):
         first,stable=self.seen("different",{})
