@@ -54,6 +54,21 @@ class SourceHealthTest(unittest.TestCase):
         self.assertEqual(report["networkProblems"],["example"])
         self.assertEqual(restored["sources"]["example"],candidate["sources"]["example"])
 
+    def test_explicitly_unmonitored_verified_archive_is_skipped(self):
+        sources=[
+            {"id":"official-pdf","kind":"official-history",
+             "url":"https://example.org/official-30mb.pdf","monitor":False},
+            {"id":"cfp","kind":"official-cfp","url":"https://example.org/cfp"},
+        ]
+        calls=[]
+        def fake_get(source):
+            calls.append(source["id"])
+            return {"ok":True,"fingerprint":"stable"}
+        report,snapshot=monitor.inspect(sources,{},fake_get)
+        self.assertEqual(calls,["cfp"])
+        self.assertEqual(report["total"],1)
+        self.assertNotIn("official-pdf",snapshot["sources"])
+
     def test_html_fingerprint_ignores_scripts_and_whitespace(self):
         a=monitor.fingerprint(b"<p>Submission date: A  B</p><script>123</script>","text/html")
         b=monitor.fingerprint(b"<p>Submission date: A B</p><script>456</script>","text/html")

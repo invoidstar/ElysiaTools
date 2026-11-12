@@ -4932,9 +4932,9 @@
     "submissions": 11239,
     "accepted": 2701,
     "rate": 24.03,
-    "sourceId": "ccfddl-history-0737",
-    "provenance": "community-transcribed",
-    "note": "统计由 CCF-Deadlines 开源项目整理；请查看原始来源并核对当届统计口径。"
+    "sourceId": "hist-iccv-2025-official-program",
+    "provenance": "official-verified",
+    "note": "Official ICCV 2025 General and Program Chairs' final main-conference program reports 11,239 valid submissions and 2,701 accepted (24% rounded); earlier review-stage recommendation totals are not the final accepted count."
   },
   {
     "conferenceId": "icdar",
@@ -5649,8 +5649,8 @@
     "submissions": 24661,
     "accepted": 6552,
     "rate": 26.57,
-    "sourceId": "hist-icml-2026-organizer",
-    "note": "ICML official conference account reports 24,661 submissions and 6,552 accepted (26.6% rounded). Alternative 23,918/6,352 institutional numbers use a different or disputed basis and require explicit reconciliation; no silent replacement."
+    "sourceId": "hist-icml-2026-official-fact-sheet",
+    "note": "Official ICML 2026 conference fact sheet explicitly labels 24,661 submissions and 6,552 accepted as the main-conference track (26.6% rounded). Earlier official decision-stage notice listed 23,918 submissions entering review and 6,352 accepted; figures refer to different reporting stages and must not replace the final fact sheet."
   },
   {
     "conferenceId": "icmr",
