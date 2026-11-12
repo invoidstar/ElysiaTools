@@ -29,11 +29,11 @@ class ReadableHTML(HTMLParser):
         self.parts = []
 
     def handle_starttag(self, tag, attrs):
-        if tag in {"script", "style", "svg", "noscript"}:
+        if tag in {"script", "style", "svg", "noscript", "nav", "footer"}:
             self.suppressed += 1
 
     def handle_endtag(self, tag):
-        if tag in {"script", "style", "svg", "noscript"} and self.suppressed:
+        if tag in {"script", "style", "svg", "noscript", "nav", "footer"} and self.suppressed:
             self.suppressed -= 1
 
     def handle_data(self, data):
@@ -45,6 +45,16 @@ def fingerprint(body, content_type):
         reader = ReadableHTML()
         reader.feed(body.decode("utf-8", errors="replace"))
         normalized = html.unescape(" ".join(reader.parts))
+        # ICLR-style live countdown cells change every minute despite unchanged
+        # conference dates. Keep the surrounding event label and absolute date.
+        # Only strip the full "N weeks N days HH:MM:SS" display, never
+        # standalone dates or deadline times such as "23:59 AoE".
+        normalized = re.sub(
+            r"\b\d{1,3}\s+weeks?\s+\d{1,2}\s+days?\s+\d{1,2}:\d{2}:\d{2}\b",
+            "[live countdown]",
+            normalized,
+            flags=re.IGNORECASE,
+        )
         body = re.sub(r"\s+", " ", normalized).strip().encode("utf-8")
     return hashlib.sha256(body).hexdigest()
 
