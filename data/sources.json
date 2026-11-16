@@ -66,6 +66,24 @@
     "verifiedAt": "2026-10-12"
   },
   {
+    "id": "kdd-27-datasets",
+    "title": "KDD 2027 Datasets and Benchmarks Track — Cycle 1",
+    "url": "https://kdd2027.kdd.org/datasets-and-benchmarks-track-call-for-papers/",
+    "kind": "official-cfp",
+    "owner": "KDD 2027 Organizing Committee",
+    "verifiedAt": "2026-11-16",
+    "note": "Official track CFP specifies Cycle 1: abstract July 19, full paper July 26, rebuttal Sep 29–Oct 13, notification Nov 14 (all 2026). Submission deadlines are AoE; rebuttal endpoints and notification are date-only. This CFP contains an unfilled conference-date placeholder; do not infer meeting dates."
+  },
+  {
+    "id": "kdd-27-ai4sciences",
+    "title": "KDD 2027 AI for Sciences Track — Cycle 1",
+    "url": "https://kdd2027.kdd.org/ai4sciences-track-call-for-papers/",
+    "kind": "official-cfp",
+    "owner": "KDD 2027 Organizing Committee",
+    "verifiedAt": "2026-11-16",
+    "note": "Official track CFP separately lists Cycle 1: abstract July 19, full paper July 26, rebuttal Sep 29–Oct 13, notification Nov 14 (all 2026). Submission deadlines are AoE; no unannounced Cycle 2 dates are inferred."
+  },
+  {
     "id": "usenix-27",
     "title": "USENIX Security '27 Call for Papers",
     "url": "https://www.usenix.org/conference/usenixsecurity27/call-for-papers",
