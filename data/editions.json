@@ -307,7 +307,7 @@
     "meetingStart": null,
     "meetingEnd": null,
     "sourceId": "kdd-27-research",
-    "verifiedAt": "2026-10-12",
+    "verifiedAt": "2026-11-16",
     "tracks": [
       {
         "id": "research-c1",
@@ -405,6 +405,116 @@
         "sourceId": "kdd-27-ads"
       },
       {
+        "id": "datasets-c1",
+        "name": "Datasets and Benchmarks · Cycle 1",
+        "sourceId": "kdd-27-datasets",
+        "events": [
+          {
+            "id": "datasets-c1-abstract",
+            "kind": "abstract",
+            "title": "Abstract submission",
+            "precision": "minute",
+            "original": "2026-07-19T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-07-20T11:59:00.000Z",
+            "sourceId": "kdd-27-datasets"
+          },
+          {
+            "id": "datasets-c1-paper",
+            "kind": "paper",
+            "title": "Full paper submission",
+            "precision": "minute",
+            "original": "2026-07-26T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-07-27T11:59:00.000Z",
+            "sourceId": "kdd-27-datasets"
+          },
+          {
+            "id": "datasets-c1-rebuttal-start",
+            "kind": "rebuttal",
+            "title": "Author rebuttal opens",
+            "precision": "date",
+            "original": "2026-09-29",
+            "timezone": "Etc/GMT+12",
+            "sourceId": "kdd-27-datasets"
+          },
+          {
+            "id": "datasets-c1-rebuttal-end",
+            "kind": "rebuttal",
+            "title": "Author rebuttal closes",
+            "precision": "date",
+            "original": "2026-10-13",
+            "timezone": "Etc/GMT+12",
+            "sourceId": "kdd-27-datasets"
+          },
+          {
+            "id": "datasets-c1-notification",
+            "kind": "notification",
+            "title": "Notification",
+            "precision": "date",
+            "original": "2026-11-14",
+            "timezone": "Etc/GMT+12",
+            "sourceId": "kdd-27-datasets"
+          }
+        ],
+        "pending": []
+      },
+      {
+        "id": "ai4sciences-c1",
+        "name": "AI for Sciences · Cycle 1",
+        "sourceId": "kdd-27-ai4sciences",
+        "events": [
+          {
+            "id": "ai4sciences-c1-abstract",
+            "kind": "abstract",
+            "title": "Abstract submission",
+            "precision": "minute",
+            "original": "2026-07-19T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-07-20T11:59:00.000Z",
+            "sourceId": "kdd-27-ai4sciences"
+          },
+          {
+            "id": "ai4sciences-c1-paper",
+            "kind": "paper",
+            "title": "Full paper submission",
+            "precision": "minute",
+            "original": "2026-07-26T23:59",
+            "timezone": "Etc/GMT+12",
+            "utc": "2026-07-27T11:59:00.000Z",
+            "sourceId": "kdd-27-ai4sciences"
+          },
+          {
+            "id": "ai4sciences-c1-rebuttal-start",
+            "kind": "rebuttal",
+            "title": "Author rebuttal opens",
+            "precision": "date",
+            "original": "2026-09-29",
+            "timezone": "Etc/GMT+12",
+            "sourceId": "kdd-27-ai4sciences"
+          },
+          {
+            "id": "ai4sciences-c1-rebuttal-end",
+            "kind": "rebuttal",
+            "title": "Author rebuttal closes",
+            "precision": "date",
+            "original": "2026-10-13",
+            "timezone": "Etc/GMT+12",
+            "sourceId": "kdd-27-ai4sciences"
+          },
+          {
+            "id": "ai4sciences-c1-notification",
+            "kind": "notification",
+            "title": "Notification",
+            "precision": "date",
+            "original": "2026-11-14",
+            "timezone": "Etc/GMT+12",
+            "sourceId": "kdd-27-ai4sciences"
+          }
+        ],
+        "pending": []
+      },
+      {
         "id": "research-c2",
         "name": "Research Track · Cycle 2",
         "events": [],
@@ -415,7 +525,18 @@
         ]
       }
     ],
-    "changeLog": [],
+    "changeLog": [
+      {
+        "date": "2026-11-16",
+        "note": "Added KDD 2027 Datasets and Benchmarks Cycle 1 from the official track CFP: July 19 abstract and July 26 full paper (2026, 23:59 AoE); Sep 29–Oct 13 rebuttal period and Nov 14 notification as date-only. Kept the unannounced second-cycle deadlines TBD.",
+        "sourceId": "kdd-27-datasets"
+      },
+      {
+        "date": "2026-11-16",
+        "note": "Added KDD 2027 AI for Sciences Cycle 1 as a separate official submission track, with the same independently published dates and AoE treatment; not merged with Research or ADS.",
+        "sourceId": "kdd-27-ai4sciences"
+      }
+    ],
     "website": "https://kdd2027.kdd.org/",
     "websiteSourceId": "kdd-27-research"
   },
