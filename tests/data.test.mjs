@@ -333,3 +333,31 @@ test('CVPR 2023 acceptance numerator and denominator cite the official CVF repor
   assert.equal(source.kind,'official-history');
   assert.equal(source.url,'https://cvpr.thecvf.com/Conferences/2023/BlogPaperSubmissions');
 });
+
+test('KDD 2027 specialist Cycle 1 deadlines retain independent official track provenance', () => {
+  const kdd = editions.find(e => e.id === 'sigkdd-2027');
+  const sources = load('sources.json');
+  for (const [trackId, sourceId, urlPart] of [
+    ['datasets-c1', 'kdd-27-datasets', 'datasets-and-benchmarks-track-call-for-papers'],
+    ['ai4sciences-c1', 'kdd-27-ai4sciences', 'ai4sciences-track-call-for-papers'],
+  ]) {
+    const track = kdd.tracks.find(t => t.id === trackId);
+    const src = sources.find(s => s.id === sourceId);
+    assert.ok(track && src, 'missing independent KDD specialist track/source: ' + trackId);
+    assert.equal(track.sourceId, sourceId);
+    assert.equal(src.kind, 'official-cfp');
+    assert.ok(src.url.includes(urlPart));
+    const abstract = track.events.find(e => e.kind === 'abstract');
+    const paper = track.events.find(e => e.kind === 'paper');
+    assert.equal(abstract.original, '2026-07-19T23:59');
+    assert.equal(paper.original, '2026-07-26T23:59');
+    assert.equal(paper.timezone, 'Etc/GMT+12');
+    assert.equal(paper.utc, '2026-07-27T11:59:00.000Z');
+    assert.ok(track.events.every(e => e.sourceId === sourceId));
+    assert.deepEqual(track.events.filter(e => e.kind === 'rebuttal').map(e => e.original), ['2026-09-29', '2026-10-13']);
+    assert.equal(track.events.find(e => e.kind === 'notification').original, '2026-11-14');
+    assert.ok(track.events.filter(e => e.precision === 'date').every(e => !e.utc));
+    assert.ok(kdd.changeLog.some(c => c.date === '2026-11-16' && c.sourceId === sourceId));
+  }
+  assert.equal(kdd.tracks.find(t => t.id === 'research-c2').events.length, 0);
+});
